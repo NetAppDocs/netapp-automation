@@ -13,4 +13,4 @@ summary: You should review all the known issues for the current NetApp Automatio
 :imagesdir: ./media/
 
 [.lead]
-xxx
+You should review all the known issues for the current NetApp Automation Catalog and related software. The known issues identify problems that might prevent you from using these solutions successfully.

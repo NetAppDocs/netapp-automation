@@ -3,5 +3,5 @@ title: Solutions
 entries:
   - title: Azure Netapp Files
     entries:
-      - title: ANF Oracle
+      - title: Oracle ANF
         url: /solutions/anf-oracle.html
