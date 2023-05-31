@@ -1,0 +1,24 @@
+---
+sidebar: sidebar
+permalink: rn/whats_new.html
+keywords: whats new, enhancements, new features
+summary: xxx
+---
+
+= What's new with NetApp Automation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp regularly updates the Automation Catalog solutions and related software to bring you new features, enhancements, and bug fixes.
+
+== 04 June 2023
+
+xxx
+
+=== YYY
+
+xxx
