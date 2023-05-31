@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: support/additional_resources.html
+permalink: support/additional-resources.html
 keywords: addition resources, additional information, netapp automation, automation, cloud, netapp support
 summary: There are additional resources you can access to get help and find more information about NetApp products as well as cloud services and support.
 ---
@@ -39,7 +39,3 @@ Central site for the NetApp cloud solutions.
 * https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp Cloud Central console^]
 +
 NetApp Cloud Central service console with sign in.
-
-* https://mysupport.netapp.com/[NetApp Support^]
-+
-Access troubleshooting tools, documentation, and technical support assistance.
