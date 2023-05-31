@@ -2,6 +2,6 @@ section: rn
 title: Release notes
 entries:
   - title: What's new
-    url: /rn/whats_new.html
+    url: /rn/whats-new.html
   - title: Known issues
-    url: /rn/known_issues.html
+    url: /rn/known-issues.html

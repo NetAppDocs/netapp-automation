@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: rn/whats_new.html
+permalink: rn/whats-new.html
 keywords: whats new, enhancements, new features
 summary: xxx
 ---
