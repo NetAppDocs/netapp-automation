@@ -1,0 +1,66 @@
+---
+sidebar: sidebar
+permalink: support/additional_resources.html
+keywords: addition resources, additional information, netapp automation, automation, cloud, netapp support
+summary: There are additional resources you can access to get help and find more information about NetApp cloud services and support as well as general REST and cloud concepts.
+---
+
+= Additional resources
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are additional resources you can access to get help and find more information about NetApp cloud services and support as well as general REST and cloud concepts.
+
+== Astra
+
+* https://docs.netapp.com/us-en/astra-control-center/[Astra Control Center documentation^]
++
+Documentation for the current release of the Astra Control Center software deployed on the customer premises.
+
+* https://docs.netapp.com/us-en/astra-control-service/[Astra Control Service documentation^]
++
+Documentation for the current release of the Astra Control Service software available in the public cloud.
+
+* https://docs.netapp.com/us-en/trident/[Astra Trident documentation^]
++
+Documentation for the current release of the Astra Trident software, an open source storage orchestrator maintained by NetApp.
+
+* https://docs.netapp.com/us-en/astra-family/[Astra family documentation^]
++
+Central location for accessing all the Astra documentation for both on-premises and public cloud deployments.
+
+* https://discord.gg/NetApp[Discord^]
++
+Community support for Astra Control and other NetApp products.
+
+== NetApp cloud resources
+
+* https://bluexp.netapp.com/[NetApp BlueXP^]
++
+Central site for the NetApp cloud solutions.
+
+* https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp Cloud Central console^]
++
+NetApp Cloud Central service console with sign in.
+
+* https://mysupport.netapp.com/[NetApp Support^]
++
+Access troubleshooting tools, documentation, and technical support assistance.
+
+== REST and cloud concepts
+
+* PhD https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm[dissertation^] by Roy Fielding
++
+This publication introduced and established the REST application development model.
+
+* https://auth0.com/[Auth0^]
++
+This is the authentication and authorization platform service used by the Astra service for web access.
+
+* https://www.rfc-editor.org/[RFC editor^]
++
+Authoritative source for web and Internet standards maintained as a collection of uniquely numbered RFC documents.
