@@ -3,7 +3,7 @@ layout: landing-page
 sidebar: sidebar
 permalink: index.html
 # lead: Use only if indexpage.lead is not present in _index.yml
-summary: xxx
+summary: NetApp Automation provides documentation for a variety of solutions and related software that enhance the NetApp portfolio of products and services.
 ---
 = NetApp Automation
 :hardbreaks:

@@ -4,4 +4,8 @@ indexpage:
   - title: Get started
     links:
       - title: What's new
-        url: /get-started/whats-new.html
+        url: /rn/whats-new.html
+      - title: Automation Catalog
+        url: /get-started/automation-catalog.html
+      - title: NetApp product APIs
+        url: /get-started/product-apis.html
