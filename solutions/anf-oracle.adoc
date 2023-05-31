@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: rn/whats_new.html
-keywords: whats new, enhancements, new features
+permalink: solutions/anf-oracle.html
+keywords: xxx
 summary: xxx
 ---
 
-= What's new with NetApp Automation
+= ANF Oracle
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,12 +13,4 @@ summary: xxx
 :imagesdir: ./media/
 
 [.lead]
-NetApp regularly updates the Automation Catalog solutions and related software to bring you new features, enhancements, and bug fixes.
-
-== 04 June 2023
-
-xxx
-
-=== YYY
-
 xxx
