@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: rn/whats-new.html
-keywords: whats new, enhancements, new features
-summary: xxx
+keywords:
+summary: NetApp regularly updates the Automation Catalog solutions and related software to bring you new features, enhancements, and bug fixes.
 ---
 
 = What's new with NetApp Automation
@@ -17,8 +17,4 @@ NetApp regularly updates the Automation Catalog solutions and related software t
 
 == 04 June 2023
 
-xxx
-
-=== YYY
-
-xxx
+Launch of the documentation site.

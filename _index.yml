@@ -1,5 +1,5 @@
 indexpage:
-  lead: NetApp Automation provides documentation for a variety of solutions and related software that enhance the NetApp portfolio of products and services.
+  lead: The NetApp Automation site provides documentation for a variety of solutions and related software that enhance the NetApp portfolio of products and services.
   tiles:
   - title: Get started
     links:
@@ -9,3 +9,17 @@ indexpage:
         url: /get-started/automation-catalog.html
       - title: NetApp product APIs
         url: /get-started/product-apis.html
+  - title: Highlighted solutions
+    links:
+      - title: Oracle
+        url: /solutions/anf-oracle.html
+  - title: NetApp product APIs
+    links:
+      - title: ONTAP 9
+        url: /api/ontap.html
+      - title: BlueXP
+        url: /api/bluexp.html
+      - title: Astra Control
+        url: /api/astra.html
+      - title: ONTAP Select
+        url: /api/ontap-select.html
