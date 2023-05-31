@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: get-started/automation-catalog.html
+keywords: xxx
+summary: xxx
+---
+
+= NetApp Automation Catalog
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+xxx
