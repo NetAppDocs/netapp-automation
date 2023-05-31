@@ -1,9 +1,7 @@
 indexpage:
-  lead: # single paragraph, shown on the page
+  lead: NetApp Automation provides documentation for a variety of solutions and related software that enhance the NetApp portfolio of products and services.
   tiles:
-    # one or more tile definitions for the page
-  - title: # short string (tile title)
+  - title: Get started
     links:
-      # one or more links on the tile
-      - title: # short string (link title)
-        url: # single file name or external URL
+      - title: What's new
+        url: /get-started/whats-new.html
