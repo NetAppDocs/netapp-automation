@@ -1,0 +1,41 @@
+---
+sidebar: sidebar
+permalink: support/additional-resources.html
+keywords: addition resources, additional information, netapp automation, automation, cloud, netapp support
+summary: There are additional resources you can access to get help and find more information about NetApp products as well as cloud services and support.
+---
+
+= Additional resources
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+There are additional resources you can access to get help and find more information about NetApp products as well as cloud services and support.
+
+== NetApp product documentation
+
+* https://docs.netapp.com/us-en/ontap-family/
++
+Central location for accessing all the ONTAP documentation.
+
+* https://docs.netapp.com/us-en/bluexp-family/
++
+Central location for accessing all the BlueXP documentation.
+
+* https://docs.netapp.com/us-en/astra-family/[Astra family documentation^]
++
+Central location for accessing all the Astra documentation for both on-premises and public cloud deployments.
+
+
+== NetApp cloud resources
+
+* https://bluexp.netapp.com/[NetApp BlueXP^]
++
+Central site for the NetApp cloud solutions.
+
+* https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false[NetApp Cloud Central console^]
++
+NetApp Cloud Central service console with sign in.

@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: api/ontap.html
+keywords: xxx
+summary: xxx
+---
+
+= ONTAP REST API
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+xxx

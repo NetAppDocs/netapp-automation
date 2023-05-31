@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: api/astra.html
+keywords: xxx
+summary: xxx
+---
+
+= Astra Control REST API
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+xxx

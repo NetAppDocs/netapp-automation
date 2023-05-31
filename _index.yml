@@ -1,9 +1,25 @@
 indexpage:
-  lead: # single paragraph, shown on the page
+  lead: The NetApp Automation site provides documentation for a variety of solutions and related software that enhance the NetApp portfolio of products and services.
   tiles:
-    # one or more tile definitions for the page
-  - title: # short string (tile title)
+  - title: Get started
     links:
-      # one or more links on the tile
-      - title: # short string (link title)
-        url: # single file name or external URL
+      - title: What's new
+        url: /rn/whats-new.html
+      - title: Automation Catalog
+        url: /get-started/automation-catalog.html
+      - title: NetApp product APIs
+        url: /get-started/product-apis.html
+  - title: Highlighted solutions
+    links:
+      - title: Oracle Azure NetApp Files
+        url: /solutions/anf-oracle.html
+  - title: NetApp product APIs
+    links:
+      - title: ONTAP 9
+        url: /api/ontap.html
+      - title: BlueXP
+        url: /api/bluexp.html
+      - title: Astra Control
+        url: /api/astra.html
+      - title: ONTAP Select
+        url: /api/ontap-select.html

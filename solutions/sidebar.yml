@@ -1,0 +1,7 @@
+section: solutions
+title: Solutions
+entries:
+  - title: Azure Netapp Files
+    entries:
+      - title: Oracle ANF
+        url: /solutions/anf-oracle.html

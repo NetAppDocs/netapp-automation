@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: support/get-help.html
+keywords:
+summary: xxx
+---
+
+= Get help
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp provides support for its products and cloud services in a variety of ways. Extensive free self-support options are available 24x7, such as knowledgebase (KB) articles and a community forum.
+
+== Self-support options
+
+* https://kb.netapp.com/[Knowledge base^]
++
+Search through the knowledge base to find helpful articles to troubleshoot issues.
+
+* http://community.netapp.com/[Communities^]
++
+Join a NetApp community to follow ongoing discussions or create new ones.
+
+* https://mysupport.netapp.com/[NetApp Support^]
++
+Access troubleshooting tools, documentation, and technical support assistance.

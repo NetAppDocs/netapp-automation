@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: get-started/product-apis.html
+keywords: xxx
+summary: xxx
+---
+
+= NetApp product APIs
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+xxx
