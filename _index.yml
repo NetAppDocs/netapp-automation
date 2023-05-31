@@ -11,7 +11,7 @@ indexpage:
         url: /get-started/product-apis.html
   - title: Highlighted solutions
     links:
-      - title: Oracle
+      - title: Oracle Azure NetApp Files
         url: /solutions/anf-oracle.html
   - title: NetApp product APIs
     links:

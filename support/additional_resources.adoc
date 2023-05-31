@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: support/additional_resources.html
 keywords: addition resources, additional information, netapp automation, automation, cloud, netapp support
-summary: There are additional resources you can access to get help and find more information about NetApp cloud services and support as well as general REST and cloud concepts.
+summary: There are additional resources you can access to get help and find more information about NetApp products as well as cloud services and support.
 ---
 
 = Additional resources
@@ -13,29 +13,22 @@ summary: There are additional resources you can access to get help and find more
 :imagesdir: ./media/
 
 [.lead]
-There are additional resources you can access to get help and find more information about NetApp cloud services and support as well as general REST and cloud concepts.
+There are additional resources you can access to get help and find more information about NetApp products as well as cloud services and support.
 
-== Astra
+== NetApp product documentation
 
-* https://docs.netapp.com/us-en/astra-control-center/[Astra Control Center documentation^]
+* https://docs.netapp.com/us-en/ontap-family/
 +
-Documentation for the current release of the Astra Control Center software deployed on the customer premises.
+Central location for accessing all the ONTAP documentation.
 
-* https://docs.netapp.com/us-en/astra-control-service/[Astra Control Service documentation^]
+* https://docs.netapp.com/us-en/bluexp-family/
 +
-Documentation for the current release of the Astra Control Service software available in the public cloud.
-
-* https://docs.netapp.com/us-en/trident/[Astra Trident documentation^]
-+
-Documentation for the current release of the Astra Trident software, an open source storage orchestrator maintained by NetApp.
+Central location for accessing all the BlueXP documentation.
 
 * https://docs.netapp.com/us-en/astra-family/[Astra family documentation^]
 +
 Central location for accessing all the Astra documentation for both on-premises and public cloud deployments.
 
-* https://discord.gg/NetApp[Discord^]
-+
-Community support for Astra Control and other NetApp products.
 
 == NetApp cloud resources
 
@@ -50,17 +43,3 @@ NetApp Cloud Central service console with sign in.
 * https://mysupport.netapp.com/[NetApp Support^]
 +
 Access troubleshooting tools, documentation, and technical support assistance.
-
-== REST and cloud concepts
-
-* PhD https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm[dissertation^] by Roy Fielding
-+
-This publication introduced and established the REST application development model.
-
-* https://auth0.com/[Auth0^]
-+
-This is the authentication and authorization platform service used by the Astra service for web access.
-
-* https://www.rfc-editor.org/[RFC editor^]
-+
-Authoritative source for web and Internet standards maintained as a collection of uniquely numbered RFC documents.

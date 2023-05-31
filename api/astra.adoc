@@ -5,7 +5,7 @@ keywords: xxx
 summary: xxx
 ---
 
-= Astra Control
+= Astra Control REST API
 :hardbreaks:
 :nofooter:
 :icons: font

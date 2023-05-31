@@ -5,7 +5,7 @@ keywords: xxx
 summary: xxx
 ---
 
-= ONTAP Select
+= ONTAP Select Deploy REST API
 :hardbreaks:
 :nofooter:
 :icons: font
