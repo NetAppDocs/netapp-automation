@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: solutions/anf-oracle.html
-keywords: bluexp automation catalog, netapp automation solutions, anf, azure, oracle
+permalink: solutions/fsxn-burst-to-cloud.html
+keywords: bluexp automation catalog, netapp automation solutions, fsxn, burst to cloud
 summary:
 ---
 
-= Oracle ANF installation
+= xxx
 :hardbreaks:
 :nofooter:
 :icons: font
