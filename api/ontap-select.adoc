@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: api/ontap-select.html
-keywords: xxx
+keywords: netapp products, product api, rest, rest api, ontap select, ontap select deploy, select deploy, deploy
 summary: xxx
 ---
 
-= ONTAP Select Deploy REST API
+= ONTAP Select
 :hardbreaks:
 :nofooter:
 :icons: font

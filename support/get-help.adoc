@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: support/get-help.html
-keywords:
-summary: xxx
+keywords: help, support, netapp support, technical support, kb, communities
+summary: NetApp provides support for its products and cloud services in a variety of ways. Extensive free self-support options are available 24x7, such as knowledgebase (KB) articles and a community forum.
 ---
 
 = Get help
