@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: solutions/bac-overview.html
-keywords:
-summary: xxx
+keywords: bluexp automation catalog, automation catalog, overview, introduction
+summary:
 ---
 
-= Overview
+= Overview of the BlueXP automation catalog
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,4 +13,3 @@ summary: xxx
 :imagesdir: ./media/
 
 [.lead]
-xxx
