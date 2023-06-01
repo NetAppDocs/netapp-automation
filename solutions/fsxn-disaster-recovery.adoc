@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, aws, disaster 
 summary:
 ---
 
-= xxx
+= FSxN DR
 :hardbreaks:
 :nofooter:
 :icons: font
