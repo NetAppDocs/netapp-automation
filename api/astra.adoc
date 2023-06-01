@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: api/astra.html
-keywords: xxx
+keywords: netapp products, product api, rest, rest api, astra, astra control
 summary: xxx
 ---
 
-= Astra Control REST API
+= Astra Control
 :hardbreaks:
 :nofooter:
 :icons: font

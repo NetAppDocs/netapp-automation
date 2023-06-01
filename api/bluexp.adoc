@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: api/bluexp.html
-keywords: xxx
+keywords: netapp products, product api, rest, rest api, bluexp, bluexp control plane
 summary: xxx
 ---
 

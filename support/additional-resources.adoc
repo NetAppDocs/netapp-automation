@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: support/additional-resources.html
-keywords: addition resources, additional information, netapp automation, automation, cloud, netapp support
-summary: There are additional resources you can access to get help and find more information about NetApp products as well as cloud services and support.
+keywords: addition resources, additional information, netapp documentation
+summary: There are additional resources you can access to get help and find more information about NetApp products as well as the cloud services.
 ---
 
 = Additional resources
@@ -13,19 +13,19 @@ summary: There are additional resources you can access to get help and find more
 :imagesdir: ./media/
 
 [.lead]
-There are additional resources you can access to get help and find more information about NetApp products as well as cloud services and support.
+There are additional resources you can access to get help and find more information about NetApp products as well as the cloud services.
 
 == NetApp product documentation
 
-* https://docs.netapp.com/us-en/ontap-family/
+* https://docs.netapp.com/us-en/ontap-family/[ONTAP family^]
 +
 Central location for accessing all the ONTAP documentation.
 
-* https://docs.netapp.com/us-en/bluexp-family/
+* https://docs.netapp.com/us-en/bluexp-family/[BlueXP family^]
 +
 Central location for accessing all the BlueXP documentation.
 
-* https://docs.netapp.com/us-en/astra-family/[Astra family documentation^]
+* https://docs.netapp.com/us-en/astra-family/[Astra family^]
 +
 Central location for accessing all the Astra documentation for both on-premises and public cloud deployments.
 

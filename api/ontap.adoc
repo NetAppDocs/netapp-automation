@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: api/ontap.html
-keywords: xxx
+keywords: netapp products, product api, rest, rest api, ontap, ontap 9
 summary: xxx
 ---
 
-= ONTAP REST API
+= ONTAP 9
 :hardbreaks:
 :nofooter:
 :icons: font
