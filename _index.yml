@@ -5,10 +5,8 @@ indexpage:
     links:
       - title: What's new
         url: /rn/whats-new.html
-      - title: Automation Catalog
-        url: /get-started/automation-catalog.html
-      - title: NetApp product APIs
-        url: /get-started/product-apis.html
+      - title: BlueXP automation catalog
+        url: /solutions/bac-overview.html
   - title: Highlighted solutions
     links:
       - title: Oracle Azure NetApp Files

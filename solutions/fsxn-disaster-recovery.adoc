@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: solutions/anf-oracle.html
-keywords: bluexp automation catalog, netapp automation solutions, anf, azure, oracle
+permalink: solutions/fsxn-disaster-recovery.html
+keywords: bluexp automation catalog, netapp automation solutions, aws, disaster recovery
 summary:
 ---
 
-= Oracle ANF installation
+= FSxN DR
 :hardbreaks:
 :nofooter:
 :icons: font
