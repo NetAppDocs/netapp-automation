@@ -11,7 +11,6 @@ sidebar:
   - title: NetApp Automation docs
     url: /index.html
   - section: rn
-  - section: get-started
   - section: solutions
   - section: api
   - section: support
