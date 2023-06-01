@@ -14,3 +14,5 @@ summary: You should review all the known issues for the current NetApp Automatio
 
 [.lead]
 You should review all the known issues for the current NetApp Automation Catalog and related software. The known issues identify problems that might prevent you from using these solutions successfully.
+
+*There are no known issues at this time.*

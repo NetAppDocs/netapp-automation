@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: solutions/anf-oracle.html
-keywords: xxx
+keywords: netapp automation solutions, automation solutions, automation catalog, anf, azure, oracle
 summary: xxx
 ---
 
