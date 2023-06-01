@@ -1,0 +1,11 @@
+section: api
+title: NetApp product APIs
+entries:
+  - title: ONTAP 9
+    url: /api/ontap.html
+  - title: BlueXP
+    url: /api/bluexp.html
+  - title: Astra Control
+    url: /api/astra.html
+  - title: ONTAP Select
+    url: /api/ontap-select.html

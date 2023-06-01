@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: solutions/anf-oracle.html
+keywords: xxx
+summary: xxx
+---
+
+= Oracle ANF installation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+xxx

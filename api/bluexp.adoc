@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: api/bluexp.html
+keywords: xxx
+summary: xxx
+---
+
+= BlueXP control plane
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+xxx
