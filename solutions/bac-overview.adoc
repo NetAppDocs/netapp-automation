@@ -1,0 +1,15 @@
+---
+sidebar: sidebar
+permalink: solutions/bac-overview.html
+keywords: bluexp automation catalog, automation catalog, overview, introduction
+summary:
+---
+
+= Overview of the BlueXP automation catalog
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]

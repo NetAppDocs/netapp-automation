@@ -1,6 +1,8 @@
 section: solutions
-title: Solutions
+title: BlueXP automation catalog
 entries:
+  - title: Overview
+    url: /solutions/bac-overview.html
   - title: Azure Netapp Files
     entries:
       - title: Oracle ANF

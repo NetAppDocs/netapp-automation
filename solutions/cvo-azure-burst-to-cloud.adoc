@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: solutions/anf-oracle.html
-keywords: bluexp automation catalog, netapp automation solutions, anf, azure, oracle
+permalink: solutions/cvo-azure-burst-to-cloud.html
+keywords: nbluexp automation catalog, netapp automation solutions, azure, burst to cloud
 summary:
 ---
 
-= Oracle ANF installation
+= CVO AZURE BTC
 :hardbreaks:
 :nofooter:
 :icons: font
