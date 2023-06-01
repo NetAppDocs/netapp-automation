@@ -20,4 +20,4 @@ See the following pages at this doc site for more information:
 * link:../api/ontap.html[ONTAP 9]
 * link:../api/bluexp.html[BlueXP]
 * link:../api/astra.html[Astra]
-* link:../api/ontap-select.html[ONTAP Select Deploy]
+* link:../api/ontap-select.html[ONTAP Select]
