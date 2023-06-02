@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: api/ontap.html
 keywords: netapp products, product api, rest, rest api, ontap, ontap 9
-summary: NetApp ONTAP is the industry's leading data management software for both cloud and on-premise deployments. The features and capabilities offered in these different environments complement each other. ONTAP includes a single common REST API that continues to be expanded with each release. See the documentation and related resources provided below to get started with the automation of your ONTAP deployments.
+summary: NetApp ONTAP is the industry's leading data management software for both cloud and on-premise deployments. ONTAP includes a single common REST API that continues to be expanded with each release. See the documentation and related resources provided below to get started with the automation of your ONTAP deployments.
 ---
 
 = ONTAP 9
@@ -13,7 +13,7 @@ summary: NetApp ONTAP is the industry's leading data management software for bot
 :imagesdir: ./media/
 
 [.lead]
-NetApp ONTAP is the industry's leading data management software for both cloud and on-premise deployments. The features and capabilities offered in these different environments complement each other. ONTAP includes a single common REST API that continues to be expanded with each release. See the documentation and related resources provided below to get started with the automation of your ONTAP deployments.
+NetApp ONTAP is the industry's leading data management software for both cloud and on-premise deployments. ONTAP includes a single common REST API that continues to be expanded with each release. See the documentation and related resources provided below to get started with the automation of your ONTAP deployments.
 
 .ONTAP REST API
 
