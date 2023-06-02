@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: solutions/anf-oracle.html
-keywords: bluexp automation catalog, netapp automation solutions, anf, azure, oracle
+keywords: bluexp automation catalog, netapp automation solutions, azure, azure netapp files, anf, oracle
 summary:
 ---
 
-= Oracle ANF installation
+= Install Oracle with Azure NetApp FIles
 :hardbreaks:
 :nofooter:
 :icons: font
