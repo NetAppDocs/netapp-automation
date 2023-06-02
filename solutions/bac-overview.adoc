@@ -13,3 +13,23 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
+xxx
+
+== Single location for your automation needs
+
+xxx
+>> Access through BXP
+
+== Scripts created and tested by NetApp
+
+xxx
+
+== Solution documentation
+
+xxx
+>> separate at this site
+>> also
+
+== Solid foundation for the future
+
+xxx

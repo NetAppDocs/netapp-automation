@@ -5,5 +5,5 @@ entries:
     url: /solutions/bac-overview.html
   - title: Azure Netapp Files
     entries:
-      - title: Oracle ANF
+      - title: Oracle
         url: /solutions/anf-oracle.html

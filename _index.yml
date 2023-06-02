@@ -9,11 +9,11 @@ indexpage:
         url: /solutions/bac-overview.html
   - title: Highlighted solutions
     links:
-      - title: Oracle Azure NetApp Files
+      - title: Oracle with Azure NetApp Files
         url: /solutions/anf-oracle.html
   - title: NetApp product APIs
     links:
-      - title: ONTAP 9
+      - title: ONTAP
         url: /api/ontap.html
       - title: BlueXP
         url: /api/bluexp.html
