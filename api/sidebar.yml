@@ -1,7 +1,7 @@
 section: api
 title: NetApp product APIs
 entries:
-  - title: ONTAP 9
+  - title: ONTAP
     url: /api/ontap.html
   - title: BlueXP
     url: /api/bluexp.html

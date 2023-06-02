@@ -1,5 +1,5 @@
 indexpage:
-  lead: The NetApp Automation site provides documentation for a variety of solutions and related software that enhance the NetApp portfolio of products and services.
+  lead: NetApp provides access to programmatic APIs for many of our products, as well as scripted automation solutions that can help you automate workloads for the NetApp portfolio of products and services.
   tiles:
   - title: Get started
     links:
@@ -9,11 +9,11 @@ indexpage:
         url: /solutions/bac-overview.html
   - title: Highlighted solutions
     links:
-      - title: Oracle Azure NetApp Files
+      - title: Oracle with Azure NetApp Files
         url: /solutions/anf-oracle.html
   - title: NetApp product APIs
     links:
-      - title: ONTAP 9
+      - title: ONTAP
         url: /api/ontap.html
       - title: BlueXP
         url: /api/bluexp.html
