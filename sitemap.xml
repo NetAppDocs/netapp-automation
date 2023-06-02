@@ -15,7 +15,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/netapp-automation/support/additional-resources.html</loc>
       
-      <lastmod>2023-06-01T14:33:43+00:00</lastmod>
+      <lastmod>2023-06-02T18:40:16+00:00</lastmod>
       
     </url>
   
@@ -29,7 +29,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/netapp-automation/api/astra.html</loc>
       
-      <lastmod>2023-06-01T14:33:43+00:00</lastmod>
+      <lastmod>2023-06-02T18:24:45+00:00</lastmod>
       
     </url>
   
@@ -43,7 +43,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/netapp-automation/api/bluexp.html</loc>
       
-      <lastmod>2023-06-01T14:33:43+00:00</lastmod>
+      <lastmod>2023-06-02T18:40:16+00:00</lastmod>
       
     </url>
   
@@ -90,13 +90,6 @@
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/us-en/netapp-automation/rn/known-issues.html</loc>
-      
-      <lastmod>2023-06-01T14:33:43+00:00</lastmod>
-      
-    </url>
-  
-    <url>
       <loc>https://docs.netapp.com/us-en/netapp-automation/legal-notices.html</loc>
       
       <lastmod>2023-05-23T20:08:27+00:00</lastmod>
@@ -104,30 +97,23 @@
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/us-en/netapp-automation/api/ontap-select.html</loc>
-      
-      <lastmod>2023-06-01T14:33:43+00:00</lastmod>
-      
-    </url>
-  
-    <url>
       <loc>https://docs.netapp.com/us-en/netapp-automation/api/ontap.html</loc>
       
-      <lastmod>2023-06-01T14:33:43+00:00</lastmod>
+      <lastmod>2023-06-02T18:40:16+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/netapp-automation//search.html</loc>
       
-      <lastmod>2023-06-01T20:02:14+00:00</lastmod>
+      <lastmod>2023-06-02T18:50:40+00:00</lastmod>
       
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/us-en/netapp-automation/rn/whats-new.html</loc>
+      <loc>https://docs.netapp.com/us-en/netapp-automation/about/whats-new.html</loc>
       
-      <lastmod>2023-06-01T14:33:43+00:00</lastmod>
+      <lastmod>2023-06-02T17:46:52+00:00</lastmod>
       
     </url>
   
