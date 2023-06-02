@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: rn/whats-new.html
+permalink: about/whats-new.html
 keywords: whats new, enhancements, new features
 summary: NetApp regularly updates the Automation Catalog solutions and related software to bring you new features, enhancements, and bug fixes.
 ---

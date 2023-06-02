@@ -4,7 +4,7 @@ indexpage:
   - title: Get started
     links:
       - title: What's new
-        url: /rn/whats-new.html
+        url: /about/whats-new.html
       - title: BlueXP automation catalog
         url: /solutions/bac-overview.html
   - title: Highlighted solutions
@@ -19,5 +19,3 @@ indexpage:
         url: /api/bluexp.html
       - title: Astra Control
         url: /api/astra.html
-      - title: ONTAP Select
-        url: /api/ontap-select.html
