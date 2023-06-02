@@ -10,7 +10,8 @@ sidebar:
   entries:
   - title: NetApp Automation docs
     url: /index.html
-  - section: rn
+  - title: What's new
+    url: /about/whats-new.html
   - section: solutions
   - section: api
   - section: support
