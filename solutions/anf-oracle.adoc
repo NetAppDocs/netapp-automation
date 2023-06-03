@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: solutions/anf-oracle.html
 keywords: bluexp automation catalog, netapp automation solutions, azure, azure netapp files, anf, oracle
-summary:
+summary: You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the ANF volumes for data storage.
 ---
 
-= Install Oracle with Azure NetApp FIles
+= Install Oracle with Azure NetApp Files
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on a virtual machine. Oracle then uses the ANF volumes as data storage.
+You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the ANF volumes for data storage.
 
 .About this solution
 
@@ -44,13 +44,15 @@ wget /https://releases.hashicorp.com/terraform/1.4.2/terraform_1.4.2_linux_amd64
 
 . Extract the software.
 +
-`unzip terraform_1.4.2_linux_amd64.zip`
+[source,cli]
+unzip terraform_1.4.2_linux_amd64.zip
 
 . Remove the installer file.
 +
-`rm terraform_1.4.2_linux_amd64.zip`
+[source,cli]
+rm terraform_1.4.2_linux_amd64.zip
 
-== Step 2: Install Ansible and NFS utilities
+== Step 2: Install Ansible and the NFS utilities
 
 Install Ansible and the NFS utilities package which are needed to run the automation.
 
@@ -60,19 +62,58 @@ Install Ansible and the NFS utilities package which are needed to run the automa
 
 . Install the Python package.
 +
-`sudo pip3 install ansible`
+[source,cli]
+sudo pip3 install ansible
 
 . Install the NFS utilities.
 +
-`sudo yum install nfs-utils`
+[source,cli]
+sudo yum install nfs-utils
 
 == Step 3: Download the Oracle installer files
 
-xxx
+Download the required Oracle installation and patch files.
+>>
+and place them in the /tmp/archive directory with read, write, and execute access for all users on DB server to be deployed. The automation tasks look for the named installation files in that directory for Oracle installation and configuration.
+>>
+
+.Steps
+
+. Sign in to your Oracle account as needed.
+
+. Download the following files.
++
+[cols="65,35"*,options="header"]
+|===
+|File
+|Description
+|LINUX.X64_193000_db_home.zip
+|19.3 base installer
+|p31281355_190000_Linux-x86-64.zip
+|19.8 RU patch
+|p6880880_190000_Linux-x86-64.zip
+|opatch version 12.2.0.1.23
+|===
+
+. Place the files in the directory `/tmp/archive` where they are needed for installation.
 
 == Step 4: Install the Oracle database
 
-xxx
+You can now install Oracle.
+
+.Steps
+
+. Copy the Ora_ANF_Prov.zip folder to the virtual machine where the automation will be run.
+
+. Unzip xxx
+
+. List the files and confirm xxx
+
+. Execute xxx
+
+. Navigate to the directory xxx
+
+. Source xxx
 
 == Step 5: Validate the Oracle installation
 
@@ -99,5 +140,5 @@ Connected to:
 Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 Version 19.8.0.0.0
 ----
-
++
 . Execute a simple xxx
