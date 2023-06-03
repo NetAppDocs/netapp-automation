@@ -73,9 +73,9 @@ sudo yum install nfs-utils
 == Step 3: Download the Oracle installer files
 
 Download the required Oracle installation and patch files.
->>
+
 and place them in the /tmp/archive directory with read, write, and execute access for all users on DB server to be deployed. The automation tasks look for the named installation files in that directory for Oracle installation and configuration.
->>
+
 
 .Steps
 
@@ -95,7 +95,9 @@ and place them in the /tmp/archive directory with read, write, and execute a
 |opatch version 12.2.0.1.23
 |===
 
-. Place the files in the directory `/tmp/archive` where they are needed for installation.
+. Place the files in the directory `/tmp/archive` where they are needed during installation.
+
+. Make sure that all users on the database server to be deployed have read, write, and execute access to the directory `/tmp/archive`.
 
 == Step 4: Install the Oracle database
 
@@ -103,9 +105,15 @@ You can now install Oracle.
 
 .Steps
 
-. Copy the Ora_ANF_Prov.zip folder to the virtual machine where the automation will be run.
+. Copy the file `Ora_ANF_Prov.zip` to the virtual machine where the automation will be run.
++
+[source,cli]
+scp -i ~/private-key.pem -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
 
-. Unzip xxx
+. Unzip the install file.
++
+[source,cli]
+unzip Ora_ANF_Prov.zip
 
 . List the files and confirm xxx
 
@@ -130,6 +138,7 @@ You should confirm that the installation was successful.
 `[oracle@localhost ~]$ sqlplus / as sysdba`
 +
 You should see output similar to the following:
++
 ----
 SQL*Plus: Release 19.0.0.0.0 - Production on Thu May 6 12:52:51 2021
 Version 19.8.0.0.0
@@ -140,5 +149,5 @@ Connected to:
 Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 Version 19.8.0.0.0
 ----
-+
+
 . Execute a simple xxx
