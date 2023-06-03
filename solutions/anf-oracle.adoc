@@ -17,12 +17,13 @@ You can use this automation solution to provision Azure NetApp File (ANF) volume
 
 .About this solution
 
-This solution consists of several major steps. The automation uses Terraform and Ansible, both of which must be installed on the Linux virtual machine as indicated below.
+This solution consists of several major steps. The automation uses Terraform and Ansible, both of which must be installed on the Linux virtual machine as indicated below. All of the CLI command examples should be run on the Linux VM where Oracle is installed.
 
 .Before you begin
 
 You must have the following:
 
+* The automation solution packaged as file `Ora_ANF_Prov.zip`. You can download the file at the BlueXP web user interface.
 * A Linux VM with the following characteristics:
 ** RHEL 8 (Standard_D8s_v3)
 ** Public internet access
@@ -101,16 +102,16 @@ and place them in the /tmp/archive directory with read, write, and execute a
 
 == Step 4: Install the Oracle database
 
-You can now install Oracle.
+You can now install Oracle using the automation solution.
 
 .Steps
 
-. Copy the file `Ora_ANF_Prov.zip` to the virtual machine where the automation will be run.
+. Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation will be run.
 +
 [source,cli]
 scp -i ~/private-key.pem -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
 
-. Unzip the install file.
+. Unzip the solution file.
 +
 [source,cli]
 unzip Ora_ANF_Prov.zip
@@ -150,4 +151,7 @@ Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 Version 19.8.0.0.0
 ----
 
-. Execute a simple xxx
+. Execute a couple simple SQL commands to confirm the database is available.
+[source,sql]
+select name, log_mode from v$database
+show pdbs
