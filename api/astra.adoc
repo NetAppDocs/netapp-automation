@@ -13,7 +13,7 @@ summary: Astra Control is a NetApp software product that provides application-aw
 :imagesdir: ./media/
 
 [.lead]
-Astra Control is a NetApp software product that provides application-aware data management of Kubernetes clusters in multiple environments. The two deployment models share a common REST API. See the documentation and related resources provided below to get started with the automation of your Astra deployments.
+Astra Control is a NetApp software product that provides application-aware data management of Kubernetes clusters in multiple environments. The two deployment models share a common REST API. See the documentation and related resources provided below to get started with the automation of your Astra deployments using the Astra Control REST API.
 
 .Astra Control REST API
 

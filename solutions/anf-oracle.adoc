@@ -101,12 +101,12 @@ You can now install Oracle using the automation solution code.
 
 .Steps
 
-. Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation will be run.
+. Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation code will be run.
 +
 [source,cli]
 scp -i ~/private-key.pem -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
 +
-Note that the input parameter `private-key.pem` is your private key file used for Azure virtual machine authentication.
+Note the input parameter `private-key.pem` is your private key file used for Azure virtual machine authentication.
 
 . Unzip the solution file.
 +
@@ -148,7 +148,7 @@ You should confirm that the installation was successful.
 . Log in to Oracle server as oracle user and display a list the Oracle processes. This will indicate if installation completed as expected and the Oracle database is running.
 +
 [source,cli]
-`ps -ef | grep ora`
+ps -ef | grep ora
 
 . Log in to the database to examine the database configuration settings and to confirm the PDBs were created properly.
 +
