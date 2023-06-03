@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, aws, disaster 
 summary:
 ---
 
-= FSxN DR
+= Amazon FSx for NetApp - Disaster recovery
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -13,13 +13,13 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. Some of the characteristics and benefits of the catalog are described below.
+The BlueXP automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. Some of the features and benefits of the catalog are described below.
 
 Single location for your automation needs::
 
 You can access the automation catalog through the BlueXP web user interface. This provides a single location for the scripts, playbooks, and modules needed to enhance the automation and operation of your NetApp products and services.
 
-Scripts created and tested by NetApp::
+Scripts are created and tested by NetApp::
 
 All the automation solutions and scripts have been created and tested by NetApp. Each solution targets a specific customer use case or request. Most focus on integration with the NetApp file and data services.
 
@@ -29,4 +29,4 @@ Each of the automation solutions includes associated documentation to help you g
 
 Solid foundation for the future::
 
-NetApp expects to continue enhancing the BlueXP automation catalog to address customer requirements, technology changes, and continued product integration.
+NetApp is committed to helping our customers improve and streamline the automation of their data centers and cloud environments. We expect to continue enhancing the BlueXP automation catalog to address customer requirements, technology changes, and continued product integration.

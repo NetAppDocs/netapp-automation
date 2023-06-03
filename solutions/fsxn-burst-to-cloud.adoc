@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, fsxn, burst to
 summary:
 ---
 
-= FSxN BTC
+= Amazon FSx for NetApp - Burst to cloud
 :hardbreaks:
 :nofooter:
 :icons: font

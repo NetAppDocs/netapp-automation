@@ -13,7 +13,7 @@ summary: NetApp ONTAP is the industry's leading data management software for bot
 :imagesdir: ./media/
 
 [.lead]
-NetApp ONTAP is the industry's leading data management software for both cloud and on-premise deployments. ONTAP includes a single common REST API that continues to be expanded and enhanced with each release. See the documentation and related resources provided below to get started with the automation of your ONTAP deployments.
+NetApp ONTAP is the industry's leading data management software for both cloud and on-premise deployments. ONTAP includes a single common REST API that continues to be expanded and enhanced with each release. See the documentation and related resources provided below to get started with the automation of your ONTAP deployments using the ONTAP REST API.
 
 .ONTAP REST API
 

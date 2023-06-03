@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, aws, burst to 
 summary:
 ---
 
-= CVO AWS BTC
+= Cloud Volumes ONTAP Deployment on AWS using Terraform
 :hardbreaks:
 :nofooter:
 :icons: font
