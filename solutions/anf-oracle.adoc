@@ -13,30 +13,63 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-You can use this solution to provision Azure NetApp File (ANF) volumes and install Oracle on the provided virtual machine. The ANF volumes are used as data storage for the database.
+You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on a virtual machine. Oracle then uses the ANF volumes as data storage.
 
-.About this task
+.About this solution
 
-xxx
+This solution consists of several major steps. The automation uses Terraform and Ansible, both of which must be installed on the Linux virtual machine as indicated below.
 
 .Before you begin
 
-xxx
+You must have the following:
+
+* A Linux VM with the following characteristics:
+** RHEL 8 (Standard_D8s_v3)
+** Public internet access
+** Deployed on the same Azure Virtual Network that is used for the Azure NetApp Files provisioning
+* Azure account
 
 == Step 1: Install Terraform
 
-xxx
->> include remove installer file
+Install the Terraform software which is needed to run the automation.
 
-== Step 2: Install Ansible and NFS-Utils
+.Steps
 
-xxx
+. In the CLI, navigate to an appropriate directory.
+
+. Download the installation package.
++
+`wget /https://releases.hashicorp.com/terraform/1.4.2/terraform_1.4.2_linux_amd64.zip`
+
+. Extract the software.
++
+`unzip terraform_1.4.2_linux_amd64.zip`
+
+. Remove the installer file.
++
+`rm terraform_1.4.2_linux_amd64.zip`
+
+== Step 2: Install Ansible and NFS utilities
+
+Install the Terraform software which is needed to run the automation.
+
+.Steps
+
+. In the CLI, navigate to an appropriate directory.
+
+. Install the Python package.
++
+`sudo pip3 install ansible`
+
+. Install the NFS utilities.
++
+`sudo yum install nfs-utils`
 
 == Step 3: Download the Oracle installer files
 
 xxx
 
-== Step 4: Install Oracle
+== Step 4: Install the Oracle database
 
 xxx
 
