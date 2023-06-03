@@ -5,7 +5,7 @@ keywords: nbluexp automation catalog, netapp automation solutions, azure, burst 
 summary:
 ---
 
-= CVO AZURE BTC
+= Cloud Volumes ONTAP Deployment on Azure using Terraform
 :hardbreaks:
 :nofooter:
 :icons: font
