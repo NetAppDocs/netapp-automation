@@ -17,7 +17,7 @@ You can use this automation solution to provision Azure NetApp File (ANF) volume
 
 .About this solution
 
-This solution consists of several major steps. The automation is based on Terraform and Ansible, both of which must be installed on the Linux virtual machine as described below. All the CLI command examples should be run on the Linux VM where Oracle is installed.
+This solution consists of several major steps. The automation is based on Terraform and Ansible, both of which must be installed on the Linux virtual machine as described below.
 
 .Before you begin
 
@@ -58,8 +58,6 @@ rm terraform_1.4.2_linux_amd64.zip
 Install Ansible and the NFS utilities package which are needed to run the automation code.
 
 .Steps
-
-. Using the Linux command line interface, navigate to an appropriate directory for the installation.
 
 . Install the Ansible Python package.
 +
@@ -103,23 +101,26 @@ You can now install Oracle using the automation solution code.
 
 .Steps
 
-. Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation will be run. The input parameter `private-key.pem` is your private key file used for Azure virtual machine authentication.
+. Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation will be run.
 +
 [source,cli]
 scp -i ~/private-key.pem -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
++
+Note that the input parameter `private-key.pem` is your private key file used for Azure virtual machine authentication.
 
 . Unzip the solution file.
 +
 [source,cli]
 unzip Ora_ANF_Prov.zip
 
-. List the files in the directory created with the unzip operation.
+. Navigate to the directory `Ora_ANF_Prov` created with the unzip operation and list the files.
 +
 [source,cli]
-cd Ora_ANF_Prov
 ls -lt
 
-. Confirm the files `terraform.tfvars` and `variables.tf` exist. Also, update `terraform.tfvars` as needed for your environment.
+. Prepare the Terraform variables:
+.. Confirm the files `terraform.tfvars` and `variables.tf` exist
+.. Update `terraform.tfvars` as needed for your environment.
 
 . Execute the installation script in the same directory.
 +
@@ -146,11 +147,13 @@ You should confirm that the installation was successful.
 
 . Log in to Oracle server as oracle user and display a list the Oracle processes. This will indicate if installation completed as expected and the Oracle database is running.
 +
+[source,cli]
 `ps -ef | grep ora`
 
 . Log in to the database to examine the database configuration settings and to confirm the PDBs were created properly.
 +
-`[oracle@localhost ~]$ sqlplus / as sysdba`
+[source,cli]
+sqlplus / as sysdba
 +
 You should see output similar to the following:
 +
@@ -165,7 +168,7 @@ Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 Version 19.8.0.0.0
 ----
 
-. Execute a couple simple SQL commands to confirm the database is available.
+. Execute a few simple SQL commands to confirm the database is available.
 [source,sql]
 select name, log_mode from v$database
 show pdbs
