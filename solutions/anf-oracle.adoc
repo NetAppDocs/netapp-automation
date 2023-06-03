@@ -13,6 +13,33 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-Coming soon.
+You can use this solution to provision Azure NetApp File (ANF) volumes and install Oracle on the provided virtual machine. The ANF volumes are used as data storage for the database.
 
-*This page is being completed and will be updated shortly. Please check back soon.*
+.About this task
+
+xxx
+
+.Before you begin
+
+xxx
+
+== Step 1: Install Terraform
+
+xxx
+>> include remove installer file
+
+== Step 2: Install Ansible and NFS-Utils
+
+xxx
+
+== Step 3: Download the Oracle installer files
+
+xxx
+
+== Step 4: Install Oracle
+
+xxx
+
+== Step 5: Validate the Oracle installation
+
+xx
