@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, azure, azure n
 summary: You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the ANF volumes for data storage.
 ---
 
-= Install Oracle with Azure NetApp Files
+= Install Oracle using Azure NetApp Files
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -17,7 +17,19 @@ You can use this automation solution to provision Azure NetApp File (ANF) volume
 
 .About this solution
 
-This solution consists of several major steps. The automation is based on Terraform and Ansible, both of which must be installed on the Linux virtual machine as described below.
+At a high level, the automation code provided with this solution performs the following actions:
+
+* Set up NetApp account on Azure
+* Set up storage capacity pool on Azure
+* Provision Azure NetApp Volumes based on customer definition
+* Create mount points
+* Mount the ANF volumes to the mount points
+* Install Oracle on the Linux server
+* Create listeners for the database
+* Create PDBs
+* Starting listener and Oracle instance
+
+The automation is based on Terraform and Ansible, both of which must be installed on the Linux virtual machine as described below.
 
 .Before you begin
 
