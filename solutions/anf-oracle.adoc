@@ -31,15 +31,16 @@ You must have the following:
 
 == Step 1: Install Terraform
 
-Install the Terraform software which is needed to run the automation.
+Install Terraform which is needed to run the automation.
 
 .Steps
 
-. In the CLI, navigate to an appropriate directory.
+. Using the Linux command line interface, navigate to an appropriate directory.
 
 . Download the installation package.
 +
-`wget /https://releases.hashicorp.com/terraform/1.4.2/terraform_1.4.2_linux_amd64.zip`
+[source,cli]
+wget /https://releases.hashicorp.com/terraform/1.4.2/terraform_1.4.2_linux_amd64.zip
 
 . Extract the software.
 +
@@ -51,11 +52,11 @@ Install the Terraform software which is needed to run the automation.
 
 == Step 2: Install Ansible and NFS utilities
 
-Install the Terraform software which is needed to run the automation.
+Install Ansible and the NFS utilities package which are needed to run the automation.
 
 .Steps
 
-. In the CLI, navigate to an appropriate directory.
+. Using the Linux command line interface, navigate to an appropriate directory.
 
 . Install the Python package.
 +
@@ -75,4 +76,28 @@ xxx
 
 == Step 5: Validate the Oracle installation
 
-xx
+You should confirm that the installation was successful.
+
+.Steps
+
+. Log in to Oracle server as oracle user and display a list the Oracle processes. This will indicate if installation completed as expected and the Oracle database is running.
++
+`ps -ef | grep ora`
+
+. Log in to the database to examine the database configuration settings and to confirm the PDBs were created properly.
++
+`[oracle@localhost ~]$ sqlplus / as sysdba`
++
+You should see output similar to the following:
+----
+SQL*Plus: Release 19.0.0.0.0 - Production on Thu May 6 12:52:51 2021
+Version 19.8.0.0.0
+
+Copyright (c) 1982, 2019, Oracle. All rights reserved.
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+----
+
+. Execute a simple xxx
