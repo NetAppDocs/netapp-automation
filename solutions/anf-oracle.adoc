@@ -19,15 +19,15 @@ You can use this automation solution to provision Azure NetApp File (ANF) volume
 
 At a high level, the automation code provided with this solution performs the following actions:
 
-* Set up NetApp account on Azure
-* Set up storage capacity pool on Azure
-* Provision Azure NetApp Volumes based on customer definition
-* Create mount points
-* Mount the ANF volumes to the mount points
+* Set up a NetApp account on Azure
+* Set up a storage capacity pool on Azure
+* Provision the Azure NetApp Files volumes based on the definition
+* Create the mount points
+* Mount the Azure NetApp Files volumes to the mount points
 * Install Oracle on the Linux server
 * Create listeners for the database
-* Create PDBs
-* Starting listener and Oracle instance
+* Create the Pluggable Databases (PDBs)
+* Start the listener and Oracle instance
 
 The automation is based on Terraform and Ansible, both of which must be installed on the Linux virtual machine as described below.
 
@@ -67,7 +67,7 @@ rm terraform_1.4.2_linux_amd64.zip
 
 == Step 2: Install Ansible and the NFS utilities
 
-Install Ansible and the NFS utilities package which are needed to run the automation code.
+Install Ansible and the NFS utilities package.
 
 .Steps
 
@@ -116,7 +116,7 @@ You can now install Oracle using the automation solution code.
 . Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation code will be run.
 +
 [source,cli]
-scp -i ~/private-key.pem -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
+scp -i ~/<private-key.pem> -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
 +
 Note the input parameter `private-key.pem` is your private key file used for Azure virtual machine authentication.
 
@@ -131,7 +131,7 @@ unzip Ora_ANF_Prov.zip
 ls -lt
 
 . Prepare the Terraform variables:
-.. Confirm the files `terraform.tfvars` and `variables.tf` exist
+.. Confirm the two files `terraform.tfvars` and `variables.tf` exist.
 .. Update `terraform.tfvars` as needed for your environment.
 
 . Execute the installation script in the same directory.
@@ -157,7 +157,7 @@ You should confirm that the installation was successful.
 
 .Steps
 
-. Log in to Oracle server as oracle user and display a list the Oracle processes. This will indicate if installation completed as expected and the Oracle database is running.
+. Log in to Oracle server as `user` and display a list of the Oracle processes. This confirms the installation completed as expected and the Oracle database is running.
 +
 [source,cli]
 ps -ef | grep ora
