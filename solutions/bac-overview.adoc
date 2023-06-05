@@ -30,3 +30,7 @@ Each of the automation solutions includes associated documentation to help you g
 Solid foundation for the future::
 
 NetApp is committed to helping our customers improve and streamline the automation of their data centers and cloud environments. We expect to continue enhancing the BlueXP automation catalog to address customer requirements, technology changes, and continued product integration.
+
+We want to hear from you::
+
+The NetApp Customer Experience Office (CXO) automation team would like to hear from you. If you have any feedback, issues, or feature requests, please send an email to mailto:ng-cxo-automation-admins@netapp.com[CXO automation team].
