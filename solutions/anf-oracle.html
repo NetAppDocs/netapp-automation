@@ -619,7 +619,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-06-03 19:20:36 +0000">06/03/2023</time>
+    <time datetime="2023-06-05 15:30:48 +0000">06/05/2023</time>
     
   
 
@@ -638,19 +638,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Set up NetApp account on Azure</p>
+<p>Set up a NetApp account on Azure</p>
 </li>
 <li>
-<p>Set up storage capacity pool on Azure</p>
+<p>Set up a storage capacity pool on Azure</p>
 </li>
 <li>
-<p>Provision Azure NetApp Volumes based on customer definition</p>
+<p>Provision the Azure NetApp Files volumes based on the definition</p>
 </li>
 <li>
-<p>Create mount points</p>
+<p>Create the mount points</p>
 </li>
 <li>
-<p>Mount the ANF volumes to the mount points</p>
+<p>Mount the Azure NetApp Files volumes to the mount points</p>
 </li>
 <li>
 <p>Install Oracle on the Linux server</p>
@@ -659,10 +659,10 @@
 <p>Create listeners for the database</p>
 </li>
 <li>
-<p>Create PDBs</p>
+<p>Create the Pluggable Databases (PDBs)</p>
 </li>
 <li>
-<p>Starting listener and Oracle instance</p>
+<p>Start the listener and Oracle instance</p>
 </li>
 </ul>
 </div>
@@ -745,7 +745,7 @@
 <h2 id="step-2-install-ansible-and-the-nfs-utilities">Step 2: Install Ansible and the NFS utilities</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Install Ansible and the NFS utilities package which are needed to run the automation code.</p>
+<p>Install Ansible and the NFS utilities package.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -834,7 +834,7 @@
 <p>Copy the solution file <code>Ora_ANF_Prov.zip</code> to the virtual machine where the automation code will be run.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">scp -i ~/private-key.pem -r Ora_ANF_Prov.zip user@&lt;IP_ADDRESS_OF_VM&gt;</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">scp -i ~/&lt;private-key.pem&gt; -r Ora_ANF_Prov.zip user@&lt;IP_ADDRESS_OF_VM&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -862,7 +862,7 @@
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Confirm the files <code>terraform.tfvars</code> and <code>variables.tf</code> exist</p>
+<p>Confirm the two files <code>terraform.tfvars</code> and <code>variables.tf</code> exist.</p>
 </li>
 <li>
 <p>Update <code>terraform.tfvars</code> as needed for your environment.</p>
@@ -910,7 +910,7 @@ echo $ORACLE_HOME</code></pre>
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Log in to Oracle server as oracle user and display a list the Oracle processes. This will indicate if installation completed as expected and the Oracle database is running.</p>
+<p>Log in to Oracle server as <code>user</code> and display a list of the Oracle processes. This confirms the installation completed as expected and the Oracle database is running.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">ps -ef | grep ora</code></pre>
