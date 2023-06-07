@@ -89,7 +89,7 @@ scp -i ~/private-key.pem -r CVO_Azure_Deployment azureuser@IP_ADDRESS_OF_VM:LOCA
 * `IP_ADDRESS_OF_VM` is the VM IP address.
 * `LOCATION_TO_BE_COPIED` is the location where the folder will be copied.
 
-. Extract the the "CVO_Azure_Deployment.zip" folder. You can extract the folder in the current directory or in a custom location.
+. Extract the "CVO_Azure_Deployment.zip" folder. You can extract the folder in the current directory or in a custom location.
 +
 To extract the folder in the current directory, run:
 +
@@ -122,7 +122,7 @@ drwxr-xr-x@ 4 user1 staff 128 May 5 13:18 cvo_azure_variables
 -rw-r--r--@ 1 user1 staff 4771 May 5 13:18 sp_role.json
 ----
 
-. Locate the `cvo_azure_flexcache_ubuntu_image_latest.tar.gz` file. This contains the the Docker image required to deploy Cloud Volumes ONTAP on Azure.
+. Locate the `cvo_azure_flexcache_ubuntu_image_latest.tar.gz` file. This contains the Docker image required to deploy Cloud Volumes ONTAP on Azure.
 +
 Untar the file:
 +
@@ -245,11 +245,11 @@ PERSISTENT_VOL=path/to/external/volume:/cvo_azure
 Example:
 `PERSISTENT_VOL=cvo_azure_volume_dst:/cvo_azure`
 
-.. Add NFS shares as external volume. 
+.. Add NFS shares as an external volume. 
 +
 Make sure that Docker container can communicate with the NFS shares and that the correct permissions, such as read-write, are configured.
 +
-... Add the NFS shares path as the path to the external volume in the Docker Compose file as shown below:
+... Add the NFS shares path as the path to the external volume in the Docker Compose file, as shown below:
 Format:
 +
 PERSISTENT_VOL=path/to/nfs/volume:/cvo_azure
@@ -273,8 +273,8 @@ All supporting variables for the connector and Cloud Volumes ONTAP Terraform mod
 +
 The examples shown below enable FlexCache and FlexClone:
 +
-* is_flexcache_required = true
-* is_flexclone_required = true
+* `is_flexcache_required = true`
+* `is_flexclone_required = true`
 
 . If necessary, you can retrieve the value for the Terraform `az_service_principal_object_id` variable from the Azure Active Directory Service:
 .. Navigate to *Enterprise Applications –> All Applications* and select the name of
@@ -283,7 +283,7 @@ the Service Principal you created earlier.
 + 
 `az_service_principal_object_id`
 
-== Step 6: Deploy Cloud Volumes ONTAP
+== Step 6: Deploy Cloud Volumes ONTAP on Azure
 
 .Steps
 
@@ -294,7 +294,7 @@ docker-compose up -d
 +
 The second container waits until the first container completes all of the steps successfully.
 
-. Monitor progress of the the deployment process using the log files:
+. Monitor progress of the deployment process using the log files:
 +
 [source,cli]
 docker-compose logs -f
