@@ -34,19 +34,19 @@ At a high level, the automation code provided with this solution performs the fo
 
 You must have the following to complete the installation:
 
-* The automation solution packaged as file `Ora_ANF_Prov.zip`. You can download the file at the BlueXP web user interface.
+* The automation solution packaged as file `Ora_ANF_Prov.zip`. You can download the solution file at the BlueXP web user interface.
 * A Linux VM with the following characteristics:
 ** RHEL 8 (Standard_D8s_v3-RHEL-8)
 ** Deployed on the same Azure Virtual Network used for the Azure NetApp Files provisioning
 * Azure account
 
-The automation is based on Docker and Docker Compose. You need to install both of these on the Linux virtual machine as described below.
+The automation is packaged and run using Docker and Docker Compose. You need to install both of these on the Linux virtual machine as described below.
 
-You should also register the VM with RedHat using the command `sudo subscription-manager register`. This will prompt you for your account credentials. If needed, you can create an account at /https://developers.redhat.com/.
+You should also register the VM with RedHat using the command `sudo subscription-manager register`. The command will prompt you for your account credentials. If needed, you can create an account at \https://developers.redhat.com/.
 
 == Step 1: Install and configure Docker
 
-Install and configure Docker in a RHEL-8 Linux virtual machine.
+Install and configure Docker in a RHEL 8 Linux virtual machine.
 
 .Steps
 
@@ -56,35 +56,35 @@ Install and configure Docker in a RHEL-8 Linux virtual machine.
 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 dnf install docker-ce --nobest -y
 
-. Start Docker and display the version to verify the installation.
+. Start Docker and display the version to confirm the installation was successful.
 +
 [source,cli]
 systemctl start docker
 systemctl enable docker
 docker --version
 
-. Add the required group and user.
+. Add the required Linux group and user.
 +
-Check if the group *docker* group exists in your Linux system. If it doesn't, create the group and user.
+Check if the group *docker* exists in your Linux system. If it doesn't, create the group and user. By default, this is the user you are currently logged in as.
 +
 [source,cli]
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-. Optionally activate your group and user definitions
+. Activate the new group and user
 +
-If you created a new group and user, you need to activate the definitions. You can either logout and then back in, or execute the following command.
+If you created a new group and user, you need to activate them. You can either logout and then back in, or execute the following command.
 +
 [source,cli]
 newgrp docker
 
 == Step 2: Install Docker Compose and the NFS utilities
 
-Install and configure Docker Compose in the same RHEL-8 Linux virtual machine.
+Install and configure Docker Compose along with the NFS utilities package.
 
 .Steps
 
-. Install Docker Compose and display the version
+. Install Docker Compose and display the version to confirm the installation was successful.
 +
 [source,cli]
 dnf install curl -y
@@ -97,7 +97,7 @@ docker-compose --version
 [source,cli]
 sudo yum install nfs-utils
 
-== Step 3: Download the Oracle installer files
+== Step 3: Download the Oracle installation files
 
 Download the required Oracle installation and patch files.
 
@@ -121,13 +121,13 @@ Download the required Oracle installation and patch files.
 |azacsnap installer
 |===
 
-. Place all the files in the directory `/tmp/archive` where they are needed for installation.
+. Place all the installation files in the directory `/tmp/archive`.
 
-. Make sure all users on the database server have read, write, and execute access to the directory `/tmp/archive`.
+. Make sure all users on the database server have full access (read, write, execute) to the directory `/tmp/archive`.
 
-== Step 4: Install the Oracle database using Docker
+== Step 4: Prepare the Docker image needed for installation
 
-You can now install Oracle using the automation solution code.
+xxx
 
 .Steps
 
@@ -136,23 +136,86 @@ You can now install Oracle using the automation solution code.
 [source,cli]
 scp -i ~/<private-key.pem> -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
 +
-Note the input parameter `private-key.pem` is your private key file used for Azure virtual machine authentication.
+Note the input parameter `private-key.pem` is your private key file used for Azure virtual machine authentication (Oracle/Ansible host).
 
-. Navigate to the correct directory and unzip the solution file.
+. Navigate to the correct directory with the solution file. Unzip the file.
 +
 [source,cli]
 unzip Ora_ANF_Prov.zip
 
 . Navigate to the directory `Ora_ANF_Prov` created with the unzip operation and list the files.
 +
+You should see file `Ora_ANF_Prov_image_latest.tar.gz`.
 [source,cli]
 ls -lt
 
+. Load the Docker image file. The image should load in a few seconds.
++
+[source,cli]
+docker load -i Ora_ANF_Prov_image_latest.tar.gz
+
+. Confirm the Docker image is loaded.
++
+[source,cli]
+docker images
++
+You should see the Docker image `ora_anf_prov_image` with the tag `latest`. For example:
++
+----
+    REPOSITORY               TAG       IMAGE ID       CREATED       SIZE
+ora_anf_prov_image          latest   ay98y7853769    1 week ago    2.58GB
+----
+
 == Step 5: Create an external volume
+
+You need an external volume to keep the Terraform state files and other important files persistent. Make sure the files are available for Terraform to run the workflow and deployments.
+
+.Steps
+
+. Create an external volume outside of Docker Compose. Update the volume name before running the command.
++
+[source,cli]
+docker volume create <VOLUME_NAME>
+
+. Add the path to the external volume in the `.env` environment file using the command `PERSISTENT_VOL=path/to/external/volume:/ora_anf_prov`.
++
+Remember to keep the existing file contents after and colon formatting.
++
+[source,cli]
+PERSISTENT_VOL= ora_anf _volume:/ora_anf_prov
+
+. Update the Terraform variables.
+.. Navigate to the folder `ora_anf_variables`.
+.. Confirm the following two files exist: `terraform.tfvars` and `variables.tf`.
+.. Update the variables in `terraform.tfvars` as needed for your environment.
+
+== Step 6: Provision and install Oracle
 
 xxx
 
-== Step 6: Validate the Oracle installation
+.Steps
+
+. xxx
++
+[source,cli]
+docker-compose up terraform_ora_anf
+bash /ora_anf_variables/setup.sh
+docker-compose up linux_config
+bash /ora_anf_variables/permissions.sh
+docker-compose up oracle_install
+
+. Reload your Bash variables and confirm
+.. cd /home/oracle
+.. source .bash_profile
+.. echo $ORACLE_HOME
+
+
+. Login to Oracle.
+[source,cli]
+Sudo su oracle
+
+
+== Step 7: Validate the Oracle installation
 
 You should confirm that the installation was successful.
 
@@ -186,10 +249,10 @@ Version 19.8.0.0.0
 select name, log_mode from v$database
 show pdbs
 
-== Step 7: Install azacsnap
+== Step 8: Install azacsnap
 
 xxx
 
-== Step 8: Optionally migrate an on-premise PDB to the cloud 
+== Step 9: Optionally migrate an on-premise PDB to the cloud
 
 xxx
