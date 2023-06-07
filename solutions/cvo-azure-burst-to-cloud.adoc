@@ -6,7 +6,7 @@ summary: "You can use this automation solution to deploy Cloud Volumes ONTAP on 
 using Terraform."
 ---
 
-= Cloud Volumes ONTAP Deployment on Azure using Terraform
+= Cloud Volumes ONTAP Deployment for Azure using Terraform
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -14,7 +14,7 @@ using Terraform."
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to deploy Cloud Volumes ONTAP on Azure using Terraform. This solution outlines the containerized automated deployment of Cloud Volumes ONTAP on Azure using Terraform, enabling you to create and build Cloud Volumes ONTAP on Azure rapidly, without any manual intervention.
+This solution outlines the containerized automated deployment of Cloud Volumes ONTAP for Azure using Terraform, enabling you to create and build Cloud Volumes ONTAP for Azure rapidly, without any manual intervention.
 
 .Before you begin
 
@@ -122,7 +122,7 @@ drwxr-xr-x@ 4 user1 staff 128 May 5 13:18 cvo_azure_variables
 -rw-r--r--@ 1 user1 staff 4771 May 5 13:18 sp_role.json
 ----
 
-. Locate the `cvo_azure_flexcache_ubuntu_image_latest.tar.gz` file. This contains the Docker image required to deploy Cloud Volumes ONTAP on Azure.
+. Locate the `cvo_azure_flexcache_ubuntu_image_latest.tar.gz` file. This contains the Docker image required to deploy Cloud Volumes ONTAP for Azure.
 +
 Untar the file:
 +
@@ -283,7 +283,7 @@ the Service Principal you created earlier.
 + 
 `az_service_principal_object_id`
 
-== Step 6: Deploy Cloud Volumes ONTAP on Azure
+== Step 6: Deploy Cloud Volumes ONTAP for Azure
 
 .Steps
 
