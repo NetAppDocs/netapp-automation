@@ -9,14 +9,14 @@
   <meta property="og:title" content="Install Oracle using Azure NetApp Files" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/us-en/netapp-automation/solutions/anf-oracle.html" />
-	<meta property="og:description" content="You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the AN..." />
+	<meta property="og:description" content="You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the vo..." />
   <meta property="og:image" content="https://docs.netapp.com/us-en/netapp-automation/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the AN...">
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the vo...">
   <meta name="keywords" content=" bluexp automation catalog, netapp automation solutions, azure, azure netapp files, anf, oracle"><!-- Icons -->
   <link rel="icon" href="/us-en/netapp-automation/images/favicon.ico" type="image/x-icon">
 
@@ -619,7 +619,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-06-05 15:30:48 +0000">06/05/2023</time>
+    <time datetime="2023-06-07 20:36:20 +0000">06/07/2023</time>
     
   
 
@@ -629,7 +629,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the ANF volumes for data storage.</p>
+<p>You can use this automation solution to provision Azure NetApp File (ANF) volumes and install Oracle on an available virtual machine. Oracle then uses the volumes for data storage.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this solution</div>
@@ -656,7 +656,7 @@
 <p>Install Oracle on the Linux server</p>
 </li>
 <li>
-<p>Create listeners for the database</p>
+<p>Create the listeners and database</p>
 </li>
 <li>
 <p>Create the Pluggable Databases (PDBs)</p>
@@ -664,29 +664,26 @@
 <li>
 <p>Start the listener and Oracle instance</p>
 </li>
+<li>
+<p>Install and configure the <code>azacsnap</code> utility to take a snapshot</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The automation is based on Terraform and Ansible, both of which must be installed on the Linux virtual machine as described below.</p>
-</div>
-<div class="paragraph">
 <div class="title">Before you begin</div>
-<p>You must have the following to complete the Oracle installation:</p>
+<p>You must have the following to complete the installation:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The automation solution packaged as file <code>Ora_ANF_Prov.zip</code>. You can download the file at the BlueXP web user interface.</p>
+<p>The automation solution packaged as file <code>Ora_ANF_Prov.zip</code>. You can download the solution file at the BlueXP web user interface.</p>
 </li>
 <li>
 <p>A Linux VM with the following characteristics:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>RHEL 8 (Standard_D8s_v3)</p>
-</li>
-<li>
-<p>Public internet access</p>
+<p>RHEL 8 (Standard_D8s_v3-RHEL-8)</p>
 </li>
 <li>
 <p>Deployed on the same Azure Virtual Network used for the Azure NetApp Files provisioning</p>
@@ -699,41 +696,62 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The automation solution is provided as an image and run using Docker and Docker Compose. You need to install both of these on the Linux virtual machine as described below.</p>
+</div>
+<div class="paragraph">
+<p>You should also register the VM with RedHat using the command <code>sudo subscription-manager register</code>. The command will prompt you for your account credentials. If needed, you can create an account at https://developers.redhat.com/.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="step-1-install-terraform">Step 1: Install Terraform</h2>
+<h2 id="step-1-install-and-configure-docker">Step 1: Install and configure Docker</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Install Terraform which is needed to run the automation code.</p>
+<p>Install and configure Docker in a RHEL 8 Linux virtual machine.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Using the Linux command line interface, navigate to an appropriate directory for the installation.</p>
-</li>
-<li>
-<p>Download the installation package.</p>
+<p>Install the Docker software using the following commands.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">wget /https://releases.hashicorp.com/terraform/1.4.2/terraform_1.4.2_linux_amd64.zip</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Extract the software.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">unzip terraform_1.4.2_linux_amd64.zip</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+dnf install docker-ce --nobest -y</code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Remove the installer file.</p>
+<p>Start Docker and display the version to confirm the installation was successful.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">rm terraform_1.4.2_linux_amd64.zip</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">systemctl start docker
+systemctl enable docker
+docker --version</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add the required Linux group with an associated user.</p>
+<div class="paragraph">
+<p>First check if the group <strong>docker</strong> exists in your Linux system. If it doesn&#8217;t, create the group and add the user. By default, the current shell user is added to the group.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo groupadd docker
+sudo usermod -aG docker $USER</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Activate the new group and user definitions</p>
+<div class="paragraph">
+<p>If you created a new group with a user, you need to activate the definitions. To do this, you can logout of Linux and then back in. Or you can run the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">newgrp docker</code></pre>
 </div>
 </div>
 </li>
@@ -742,24 +760,27 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="step-2-install-ansible-and-the-nfs-utilities">Step 2: Install Ansible and the NFS utilities</h2>
+<h2 id="step-2-install-docker-compose-and-the-nfs-utilities">Step 2: Install Docker Compose and the NFS utilities</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Install Ansible and the NFS utilities package.</p>
+<p>Install and configure Docker Compose along with the NFS utilities package.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Install the Ansible Python package.</p>
+<p>Install Docker Compose and display the version to confirm the installation was successful.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">sudo pip3 install ansible</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">dnf install curl -y
+curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version</code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Install the NFS utilities.</p>
+<p>Install the NFS utilities package.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">sudo yum install nfs-utils</code></pre>
@@ -771,7 +792,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="step-3-download-the-oracle-installer-files">Step 3: Download the Oracle installer files</h2>
+<h2 id="step-3-download-the-oracle-installation-files">Step 3: Download the Oracle installation files</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Download the required Oracle installation and patch files.</p>
@@ -808,41 +829,45 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">p6880880_190000_Linux-x86-64.zip</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">opatch version 12.2.0.1.23</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">azacsnap_installer_v5.0.run</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">azacsnap installer</p></td>
+</tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>Place the files in the directory <code>/tmp/archive</code> where they are needed for installation.</p>
+<p>Place all the installation files in the folder <code>/tmp/archive</code>.</p>
 </li>
 <li>
-<p>Make sure all users on the database server being deployed have read, write, and execute access to the directory <code>/tmp/archive</code>.</p>
+<p>Make sure all users on the database server have full access (read, write, execute) to the folder <code>/tmp/archive</code>.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="step-4-install-the-oracle-database">Step 4: Install the Oracle database</h2>
+<h2 id="step-4-prepare-the-docker-image">Step 4: Prepare the Docker image</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can now install Oracle using the automation solution code.</p>
+<p>You need to extract and load the Docker image provided with the automation solution.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Copy the solution file <code>Ora_ANF_Prov.zip</code> to the virtual machine where the automation code will be run.</p>
+<p>Copy the solution file <code>Ora_ANF_Prov.zip</code> to the virtual machine where the automation code will run.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">scp -i ~/&lt;private-key.pem&gt; -r Ora_ANF_Prov.zip user@&lt;IP_ADDRESS_OF_VM&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Note the input parameter <code>private-key.pem</code> is your private key file used for Azure virtual machine authentication.</p>
+<p>The input parameter <code>private-key.pem</code> is your private key file used for Azure virtual machine authentication (Oracle/Ansible host).</p>
 </div>
 </li>
 <li>
-<p>Unzip the solution file.</p>
+<p>Navigate to the correct folder with the solution file and unzip the file.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">unzip Ora_ANF_Prov.zip</code></pre>
@@ -850,7 +875,7 @@
 </div>
 </li>
 <li>
-<p>Navigate to the directory <code>Ora_ANF_Prov</code> created with the unzip operation and list the files.</p>
+<p>Navigate to the new folder <code>Ora_ANF_Prov</code> created with the unzip operation and list the files. You should see file <code>Ora_ANF_Prov_image_latest.tar.gz</code>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">ls -lt</code></pre>
@@ -858,41 +883,27 @@
 </div>
 </li>
 <li>
-<p>Prepare the Terraform variables:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Confirm the two files <code>terraform.tfvars</code> and <code>variables.tf</code> exist.</p>
-</li>
-<li>
-<p>Update <code>terraform.tfvars</code> as needed for your environment.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Execute the installation script in the same directory.</p>
+<p>Load the Docker image file. The load operation should normally complete in a few seconds.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">bash exec-command.sh</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker load -i Ora_ANF_Prov_image_latest.tar.gz</code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Sign in to Oracle as <code>user</code>.</p>
+<p>Confirm the Docker image is loaded.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">sudo su oracle</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker images</code></pre>
 </div>
 </div>
-</li>
-<li>
-<p>Reload the Bash profile variables and confirm they are set properly.</p>
+<div class="paragraph">
+<p>You should see the Docker image <code>ora_anf_prov_image</code> with the tag <code>latest</code>.</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">cd /home/Oracle
-source .bash_profile
-echo $ORACLE_HOME</code></pre>
+<pre>   REPOSITORY          TAG       IMAGE ID      CREATED      SIZE
+ora_anf_prov_image    latest   ay98y7853769   1 week ago   2.58GB</pre>
 </div>
 </div>
 </li>
@@ -901,16 +912,119 @@ echo $ORACLE_HOME</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="step-5-validate-the-oracle-installation">Step 5: Validate the Oracle installation</h2>
+<h2 id="step-5-create-an-external-volume">Step 5: Create an external volume</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You should confirm that the installation was successful.</p>
+<p>You need an external volume to make sure the Terraform state files and other important files are persistent. These files must be available for Terraform to run the workflow and deployments.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Log in to Oracle server as <code>user</code> and display a list of the Oracle processes. This confirms the installation completed as expected and the Oracle database is running.</p>
+<p>Create an external volume outside of Docker Compose.</p>
+<div class="paragraph">
+<p>Make sure to update the volume name before running the command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker volume create &lt;VOLUME_NAME&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add the path to the external volume to the <code>.env</code> environment file using the command:</p>
+<div class="paragraph">
+<p><code>PERSISTENT_VOL=path/to/external/volume:/ora_anf_prov</code>.</p>
+</div>
+<div class="paragraph">
+<p>Remember to keep the existing file contents and colon formatting. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">PERSISTENT_VOL= ora_anf _volume:/ora_anf_prov</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the Terraform variables.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Navigate to the folder <code>ora_anf_variables</code>.</p>
+</li>
+<li>
+<p>Confirm the following two files exist: <code>terraform.tfvars</code> and <code>variables.tf</code>.</p>
+</li>
+<li>
+<p>Update the values in <code>terraform.tfvars</code> as required for your environment.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-6-install-oracle">Step 6: Install Oracle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can now provision and install Oracle.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Install Oracle using the following sequence of commands.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker-compose up terraform_ora_anf
+bash /ora_anf_variables/setup.sh
+docker-compose up linux_config
+bash /ora_anf_variables/permissions.sh
+docker-compose up oracle_install</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Reload your Bash variables and confirm by displaying the value for <code>ORACLE_HOME</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>cd /home/oracle</code></p>
+</li>
+<li>
+<p><code>source .bash_profile</code></p>
+</li>
+<li>
+<p><code>echo $ORACLE_HOME</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>You should be able to login to Oracle.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo su oracle</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-7-validate-the-oracle-installation">Step 7: Validate the Oracle installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You should confirm the Oracle installation was successful.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Linux Oracle server and display a list of the Oracle processes. This confirms the installation completed as expected and the Oracle database is running.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">ps -ef | grep ora</code></pre>
@@ -918,7 +1032,7 @@ echo $ORACLE_HOME</code></pre>
 </div>
 </li>
 <li>
-<p>Log in to the database to examine the database configuration settings and to confirm the PDBs were created properly.</p>
+<p>Log in to the database to examine the database configuration and to confirm the PDBs were created properly.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">sqlplus / as sysdba</code></pre>
@@ -944,8 +1058,79 @@ Version 19.8.0.0.0</pre>
 <p>Execute a few simple SQL commands to confirm the database is available.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-sql" data-lang="sql">select name, log_mode from v$database
-show pdbs</code></pre>
+<pre class="highlight"><code class="language-sql" data-lang="sql">select name, log_mode from v$database;
+show pdbs.</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-8-install-the-azacsnap-utility-and-perform-a-snapshot-backup">Step 8: Install the azacsnap utility and perform a snapshot backup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need to install and run the <code>azacsnap</code> utility to perform a snapshot backup.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Install the container.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">docker-compose up azacsnap_install</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Switch to the snapshot user account.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">su - azacsnap
+execute /tmp/archive/ora_wallet.sh</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Configure a storage backup detail file. This will create the <code>azacsnap.json</code> configuration file.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">cd /home/azacsnap/bin/
+azacsnap -c configure –-configuration new</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Perform a snapshot backup.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">azacsnap -c backup –-other data --prefix ora_test --retention=1</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-9-optionally-migrate-an-on-premise-pdb-to-the-cloud">Step 9: Optionally migrate an on-premise PDB to the cloud</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can optionally migrate the on-premise PDB to the cloud.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Set the variables in the <code>tfvars</code> files as needed for your environment.</p>
+</li>
+<li>
+<p>Migrate the PDB.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker-compose -f docker-compose-relocate.yml up</code></pre>
 </div>
 </div>
 </li>
