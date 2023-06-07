@@ -155,7 +155,7 @@ Before you can create the environment variable files you must create a service p
 . Create a custom role. 
 + 
 .. Locate the `sp_role.json` file and check for the required permissions under the actions listed.
-..  Insert these permissions and assign the custom role to the newly created service principal. 
+..  Insert these permissions and attach the custom role to the newly created service principal. 
 
 . Navigate to *Certificates & secrets* and select *New client secret* to create the client secret. 
 +
