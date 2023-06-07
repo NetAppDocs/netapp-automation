@@ -14,18 +14,18 @@ using Terraform."
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to deploy Cloud Volumes ONTAP on Azure using Terraform. This solution outlines the containerized automated deployment of Cloud Volumes ONTAP on Azure using Terraform and enables you to create and build Cloud Volumes ONTAP on Azure rapidly, without any manual intervention.
+You can use this automation solution to deploy Cloud Volumes ONTAP on Azure using Terraform. This solution outlines the containerized automated deployment of Cloud Volumes ONTAP on Azure using Terraform, enabling you to create and build Cloud Volumes ONTAP on Azure rapidly, without any manual intervention.
 
-.About this solution
+.Before you begin
 
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP. 
-* After installing your Linux VM, you must follow the steps in this solution to install required dependencies. 
+* After you install the Linux VM, you must follow the steps in this solution to install the required dependencies. 
 
 == Step 1: Install Docker and Docker Compose
 
 === Install Docker
 
-The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you use depends on the Linux distribution software that you are using. You must refer to the specific Linux distribution software documentation for your configuration. 
+The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you use depend on the Linux distribution software that you are using. Refer to the specific Linux distribution software documentation for your configuration. 
 
 .Steps
 
@@ -51,20 +51,17 @@ docker –version
 [source,cli]
 sudo groupadd docker
 
-. Add the user that will be using Docker to the "docker" group:
+. Add the user that needs to use Docker to the group:
 +
 [source,cli]
 sudo usermod -aG docker $(whoami)
 
-
-. Your changes will be implemented after you log out and log back in to the terminal. Alternatively, you can use the following command to immediately implement the changes:
+. Your changes take effect after you log out and log back in to the terminal. Alternatively, you can immediately implement the changes:
 +
 [source,cli]
 newgrp docker
 
 === Install Docker Compose
-
-The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you use depend on the Linux distribution software that you are using. You must refer to the specific Linux distribution software documentation for your configuration.
 
 .Steps 
 
@@ -75,7 +72,7 @@ sudo curl -L “https://github.com/docker/compose/releases/download/1.29.2/docke
 
 sudo chmod +x /usr/local/bin/docker-compose 
 ----
-. Verify the installation was successful: 
+. Verify that the installation was successful: 
 [source,cli]
 docker-compose –version
 
@@ -87,10 +84,10 @@ docker-compose –version
 [source,cli]
 scp -i ~/private-key.pem -r CVO_Azure_Deployment azureuser@IP_ADDRESS_OF_VM:LOCATION_TO_BE_COPIED
 
-* `private-key.pem` is your private key file for password-less login
-* `azureuser` is the username of the VM
-* `IP_ADDRESS_OF_VM` is the VM IP address
-* `LOCATION_TO_BE_COPIED` is the location where you want the folder to be copied.
+* `private-key.pem` is your private key file for login without a password.
+* `azureuser` is the VM username.
+* `IP_ADDRESS_OF_VM` is the VM IP address.
+* `LOCATION_TO_BE_COPIED` is the location where the folder will be copied.
 
 . Extract the the "CVO_Azure_Deployment.zip" folder. You can extract the folder in the current directory or in a custom location.
 +
@@ -109,7 +106,7 @@ unzip CVO_Azure_Deployment.zip -d ~/your_folder_name
 [source,cli]
  ls -la
 +
-You should see a list of files similar to the following example:
+You should see a list of files, similar to the following example:
 +
 ----
 drwxr-xr-x@ 11 user1 staff 352 May 5 13:56 .
@@ -125,21 +122,19 @@ drwxr-xr-x@ 4 user1 staff 128 May 5 13:18 cvo_azure_variables
 -rw-r--r--@ 1 user1 staff 4771 May 5 13:18 sp_role.json
 ----
 
-. Locate the `cvo_azure_flexcache_ubuntu_image_latest.tar.gz` file. This contains the the Docker image for Cloud Volumes ONTAP Azure deployment.
+. Locate the `cvo_azure_flexcache_ubuntu_image_latest.tar.gz` file. This contains the the Docker image required to deploy Cloud Volumes ONTAP on Azure.
 +
 Untar the file:
 +
 [source,cli]
 docker load -i cvo_azure_flexcache_ubuntu_image_latest.tar.gz
 
-. Wait for a few minutes for the Docker image to load and then validate
-that the docker image loaded successfully:
+. Wait a few minutes for the Docker image to load, and then validate that the Docker image loaded successfully:
 +
 [source,cli]
 docker images
 +
-If successful, you see a Docker image named “cvo_azure_flexcache_ubuntu_image_latest”
-with the tag  “latest”, as shown in the following example:
+If successful, you see a Docker image named  “cvo_azure_flexcache_ubuntu_image_latest” with the “latest” tag, as shown in the following example:
 +
 ----
 REPOSITORY TAG IMAGE ID CREATED SIZE
@@ -148,12 +143,13 @@ cvo_azure_flexcache_ubuntu_image latest 18db15a4d59c 2 weeks ago 1.14GB
 
 == Step 3: Create environment variable files
 
-At this stage, you must create two environment variables files, one for the
-authentication of Azure Resource Manager APIs using Service Principal credentials and another for setting environment variables for BlueXP Terraform modules to locate and authenticate Azure APIs.
+At this stage, you must create two environment variable files. One file is for the authentication of Azure Resource Manager APIs using service principal credentials. The second file is for setting environment variables to enable BlueXP Terraform modules to locate and authenticate Azure APIs.
 
 .Steps 
 
-. Create a service principal. Before you can create the environment variable files you must create a service principal by following the steps in link:https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal[Create an Azure Active Directory application and service principal that can access resources^]
+. Create a service principal. 
++
+Before you can create the environment variable files you must create a service principal by following the steps in link:https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal[Create an Azure Active Directory application and service principal that can access resources^]
 
 . Assign the “Contributor” role to the newly created service principal.
 . Create a custom role. 
@@ -163,13 +159,13 @@ authentication of Azure Resource Manager APIs using Service Principal credential
 
 . Navigate to *Certificates & secrets* and select *New client secret* to create the client secret. 
 +
-When you create the client secret, you *must* record the details from the *Value* column because you won’t be able to see this value again. You must also record the following information:
+When you create the client secret, you must record the details from the *Value* column because you will not be able to see this value again. You must also record the following information:
 +
 * Client ID
 * Subscription ID 
 * Tenant ID 
 +
-You will use this information to create the environment variables. You can find client ID and tenant ID information in the *Overview* section of the Service Principal UI. 
+You use this information to create the environment variables. You can find client ID and tenant ID information in the *Overview* section of the Service Principal UI. 
 
 . Create the environment files. 
 .. Create the `azureauth.env` file in the following location: 
@@ -180,8 +176,7 @@ You will use this information to create the environment variables. You can find 
 +
 clientId=<> clientSecret=<> subscriptionId=<> tenantId=<>
 +
-The format *must* be exactly as shown above without any spaces between the
-key and value.
+The format *must* be exactly as shown above without any spaces between the key and value.
 
 .. Create the `credentials.env` file in the following location:
 +
@@ -192,14 +187,18 @@ key and value.
 AZURE_TENANT_ID=<> AZURE_CLIENT_SECRET=<>
 AZURE_CLIENT_ID=<> AZURE_SUBSCRIPTION_ID=<>
 +
-The format *must* be exactly as shown above without any spaces between the
-key and value.
+The format *must* be exactly as shown above without any spaces between the key and value.
 
-. You must enter the absolute paths for the `azureauth.env` and `credentials.env` environment files in the `.env` file that corresponds to the `AZURE_RM_CREDS` and `BLUEXP_TF_AZURE_CREDS` environment variables respectively:
+. Add the absolute file paths to the `.env` file.
++
+Enter the absolute path for the `azureauth.env` environment file in the `.env` file that corresponds to the `AZURE_RM_CREDS` environment variable.
 +
 `AZURE_RM_CREDS=path/to/env-file/azureauth.env`
 +
+Enter the absolute path for the `credentials.env` environment file in the `.env` file that corresponds to the `BLUEXP_TF_AZURE_CREDS` environment variable.
++
 `BLUEXP_TF_AZURE_CREDS=path/to/env-file/credentials.env`
+
 
 == Step 4: Add Cloud Volumes ONTAP licenses to BlueXP or subscribe to BlueXP
 
@@ -210,14 +209,14 @@ You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP
 . From the Azure portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*.
 . Then select the *Cloud Manager (by Cap PYGO by Hour, WORM and data services)* plan. 
 +
-You can use the same resource group as Cloud Volumes ONTAP or a different resource group.
-. Configure the BlueXP portal so the SaaS subscription is imported to BlueXP.
+You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.
+. Configure the BlueXP portal to import the SaaS subscription to BlueXP.
 +
 You can configure this directly from the Azure portal by navigating to *Product and plan details* and selecting the *Configure account now* option.
 +
 You will then be redirected to the BlueXP portal to confirm the configuration.
 
-. Select *Save* to save the changes. 
+. Confirm the configuration in the BlueXP portal by selecting *Save*. 
 
 == Step 5: Create an external volume
 
@@ -235,38 +234,44 @@ Example:
 docker volume create cvo_azure_volume_dst
 ----
 . Use one of the following options:
-.. Add the path to external volume to the `.env` environment file. You must follow the exact format shown below. Verify that the contents after and including the colon are the same.
+.. Add an external volume path to the `.env` environment file.
++
+You must follow the exact format shown below. 
 +
 Format:
 +
 PERSISTENT_VOL=path/to/external/volume:/cvo_azure
 +
 Example:
-PERSISTENT_VOL=cvo_azure_volume_dst:/cvo_azure
+`PERSISTENT_VOL=cvo_azure_volume_dst:/cvo_azure`
 
-.. Add NFS shares as external volume. Make sure that Docker container can
-communicate with the NFS shares and that the correct permissions, such as read-write, are configured.
+.. Add NFS shares as external volume. 
 +
-... Add the NFS shares path as the path to external volume in the Docker Compose file as shown below:
+Make sure that Docker container can communicate with the NFS shares and that the correct permissions, such as read-write, are configured.
++
+... Add the NFS shares path as the path to the external volume in the Docker Compose file as shown below:
 Format:
 +
 PERSISTENT_VOL=path/to/nfs/volume:/cvo_azure
 +
 Example:
-PERSISTENT_VOL=nfs/mnt/document:/cvo_azure
+`PERSISTENT_VOL=nfs/mnt/document:/cvo_azure`
 
-. Navigate to the "cvo_azure_variables" folder and you should see the
-following variable files in the folder:
+. Navigate to the "cvo_azure_variables" folder.
++
+You should see the following variable file in the folder:
 +
 `terraform.tfvars variables.tf`
 
 . Change the values inside the `terraform.tfvars` file according to your requirements. 
 +
-You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones and other factors supported by Cloud Volumes ONTAP for Azure Cloud Provider. This includes licenses, disk size, and VM size for single node and high availability (HA) pair. 
+You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones and other factors supported by Cloud Volumes ONTAP for Azure Cloud Provider. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs. 
 +
-All supporting variables for the connector and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding it to the `terraform.tfvars` file.
+All supporting variables for the connector and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding to the `terraform.tfvars` file.
 
-. Depending on your requirements, you can enable or disable FlexCache and FlexClone by setting the following flags to `true` or `false. The examples shown below enable FlexCache and FlexClone:
+. Depending on your requirements, you can enable or disable FlexCache and FlexClone by setting the following options to `true` or `false`. 
++
+The examples shown below enable FlexCache and FlexClone:
 +
 * is_flexcache_required = true
 * is_flexclone_required = true
@@ -289,12 +294,14 @@ docker-compose up -d
 +
 The second container waits until the first container completes all of the steps successfully.
 
-. Follow the deployment progress using the log files:
+. Monitor progress of the the deployment process using the log files:
 +
 [source,cli]
 docker-compose logs -f
 +
-This command provides output in real-time and captures the data in the log files named `deployment.log` and `telemetry_asup.log`. 
+This command provides output in real-time and captures the data in the following log files:
+* `deployment.log` 
+* `telemetry_asup.log`
 +
 You can change the name of these log files by editing the `.env` file using
 the following environment variables:
@@ -305,9 +312,9 @@ the following environment variables:
 +
 The following examples show how to change the log file names:
 +
-DEPLOYMENT_LOGS=your_deployment_log_filename.log
+`DEPLOYMENT_LOGS=_your_deployment_log_filename_.log`
 +
-TELEMETRY_ASUP_LOGS=your_telemetry_asup_log_filename.log
+`TELEMETRY_ASUP_LOGS=_your_telemetry_asup_log_filename_.log`
 
 .After you finish
 
@@ -315,16 +322,16 @@ You can use the following steps to destroy the environment and clean-up items th
 
 .Steps
 
-. If you deployed FlexCache, modify the following flag in the `terraform.tfvars` variable file, this will clean-up FlexCache and destroy the environment that was deployed earlier. 
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this will clean-up FlexCache and destroy the environment that was deployed earlier. 
 +
 `flexcache_operation = "destroy"`
 +
-NOTE: The possible options for this flag are `destroy` and `deploy`.
+NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, modify the following flag in the `terraform.tfvars` variable file, this will clean-up FlexClone and destroy the environment that was deployed earlier. 
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this will clean-up FlexClone and destroy the environment that was deployed earlier. 
 +
 `flexclone_operation = "destroy"`
 +
-NOTE: The possible options for this flag are `destroy` and `deploy`.
+NOTE: The possible options are `deploy` and `destroy`.
 
 
