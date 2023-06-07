@@ -271,7 +271,7 @@ All supporting variables for the connector and Cloud Volumes ONTAP Terraform mod
 
 . Depending on your requirements, you can enable or disable FlexCache and FlexClone by setting the following options to `true` or `false`. 
 +
-The examples shown below enable FlexCache and FlexClone:
+The examples shown below enables FlexCache and FlexClone:
 +
 * `is_flexcache_required = true`
 * `is_flexclone_required = true`
@@ -303,8 +303,7 @@ This command provides output in real-time and captures the data in the following
 * `deployment.log` 
 * `telemetry_asup.log`
 +
-You can change the name of these log files by editing the `.env` file using
-the following environment variables:
+You can change the name of these log files by editing the `.env` file using the following environment variables:
 +
 `DEPLOYMENT_LOGS`
 +
