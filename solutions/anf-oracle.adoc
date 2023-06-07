@@ -50,7 +50,7 @@ Install and configure Docker in a RHEL 8 Linux virtual machine.
 
 .Steps
 
-. Install the Docker software using the following sequence of commands.
+. Install the Docker software using the following commands.
 +
 [source,cli]
 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
@@ -166,7 +166,7 @@ ora_anf_prov_image    latest   ay98y7853769   1 week ago   2.58GB
 
 == Step 5: Create an external volume
 
-You need an external volume to keep the Terraform state files and other important files persistent. Make sure the files are available for Terraform to be able to run the workflow and deployments.
+You need an external volume to make sure the Terraform state files and other important files are persistent. These files must be available for Terraform to run the workflow and deployments.
 
 .Steps
 
@@ -191,13 +191,13 @@ PERSISTENT_VOL= ora_anf _volume:/ora_anf_prov
 .. Confirm the following two files exist: `terraform.tfvars` and `variables.tf`.
 .. Update the values in `terraform.tfvars` as required for your environment.
 
-== Step 6: Provision and install Oracle
+== Step 6: Install Oracle
 
-You can now install and provision Oracle.
+You can now provision and install Oracle.
 
 .Steps
 
-. Install Oracle with the following sequence of commands.
+. Install Oracle using the following sequence of commands.
 +
 [source,cli]
 docker-compose up terraform_ora_anf
@@ -283,7 +283,7 @@ You can optionally migrate the on-premise PDB to the cloud.
 
 .Steps
 
-. Set the variables in the `tfvars` files as needed.
+. Set the variables in the `tfvars` files as needed for your environment.
 
 . Migrate the PDB.
 +
