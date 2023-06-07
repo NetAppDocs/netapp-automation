@@ -7,3 +7,5 @@ entries:
     entries:
       - title: Oracle
         url: /solutions/anf-oracle.html
+      - title: Amazon FSx for NetApp
+        url: /solutions/fsxn-burst-to-cloud.html
