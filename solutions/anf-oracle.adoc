@@ -42,11 +42,7 @@ You must have the following to complete the installation:
 
 The automation is packaged as an image and run using Docker and Docker Compose. You need to install both of these on the Linux virtual machine as described below.
 
-You should also register the VM with RedHat using the following command:
-+
-`sudo subscription-manager register`
-+
-The command will prompt you for your account credentials. If needed, you can create an account at \https://developers.redhat.com/.
+You should also register the VM with RedHat using the command `sudo subscription-manager register`. The command will prompt you for your account credentials. If needed, you can create an account at \https://developers.redhat.com/.
 
 == Step 1: Install and configure Docker
 
@@ -77,11 +73,7 @@ sudo usermod -aG docker $USER
 
 . Activate the new group and user definitions
 +
-If you created a new group and user, you need to activate these definitions.
-+
-You can do one of the following:
-* Logout of Linux and then back in
-* Execute the command included below.
+If you created a new group and user, you need to activate these definitions. You can logout of Linux and then back in. Or you can run the following command.
 +
 [source,cli]
 newgrp docker
@@ -133,7 +125,7 @@ Download the required Oracle installation and patch files.
 
 . Make sure all users on the database server have full access (read, write, execute) to the folder `/tmp/archive`.
 
-== Step 4: Prepare the Docker image needed for installation
+== Step 4: Prepare the Docker image
 
 You need to extract and load the Docker image provided with the automation solution.
 
@@ -151,9 +143,7 @@ The input parameter `private-key.pem` is your private key file used for Azure vi
 [source,cli]
 unzip Ora_ANF_Prov.zip
 
-. Navigate to the new folder `Ora_ANF_Prov` created with the unzip operation and list the files.
-+
-You should see file `Ora_ANF_Prov_image_latest.tar.gz`.
+. Navigate to the new folder `Ora_ANF_Prov` created with the unzip operation and list the files. You should see file `Ora_ANF_Prov_image_latest.tar.gz`.
 [source,cli]
 ls -lt
 
@@ -167,7 +157,7 @@ docker load -i Ora_ANF_Prov_image_latest.tar.gz
 [source,cli]
 docker images
 +
-You should see the Docker image `ora_anf_prov_image` with the tag `latest`. For example:
+You should see the Docker image `ora_anf_prov_image` with the tag `latest`.
 +
 ----
    REPOSITORY          TAG       IMAGE ID      CREATED      SIZE
@@ -180,7 +170,9 @@ You need an external volume to keep the Terraform state files and other importan
 
 .Steps
 
-. Create an external volume outside of Docker Compose. Update the volume name before running the following command.
+. Create an external volume outside of Docker Compose.
++
+Make sure to update the volume name before running the following command.
 +
 [source,cli]
 docker volume create <VOLUME_NAME>
@@ -189,7 +181,7 @@ docker volume create <VOLUME_NAME>
 +
 `PERSISTENT_VOL=path/to/external/volume:/ora_anf_prov`.
 +
-Remember to keep the existing file contents and colon formatting.
+Remember to keep the existing file contents and colon formatting. For example:
 +
 [source,cli]
 PERSISTENT_VOL= ora_anf _volume:/ora_anf_prov
@@ -197,7 +189,7 @@ PERSISTENT_VOL= ora_anf _volume:/ora_anf_prov
 . Update the Terraform variables.
 .. Navigate to the folder `ora_anf_variables`.
 .. Confirm the following two files exist: `terraform.tfvars` and `variables.tf`.
-.. Update the values in `terraform.tfvars` as needed for your environment.
+.. Update the values in `terraform.tfvars` as required for your environment.
 
 == Step 6: Provision and install Oracle
 
@@ -215,10 +207,9 @@ bash /ora_anf_variables/permissions.sh
 docker-compose up oracle_install
 
 . Reload your Bash variables and confirm.
-.. cd /home/oracle
-.. source .bash_profile
-.. echo $ORACLE_HOME
-
+.. `cd /home/oracle`
+.. `source .bash_profile`
+.. `echo $ORACLE_HOME`
 
 . Login to Oracle.
 [source,cli]
@@ -236,7 +227,7 @@ You should confirm the installation was successful.
 [source,cli]
 ps -ef | grep ora
 
-. Log in to the database to examine the database configuration settings and to confirm the PDBs were created properly.
+. Log in to the database to examine the database configuration and to confirm the PDBs were created properly.
 +
 [source,cli]
 sqlplus / as sysdba
@@ -261,7 +252,7 @@ show pdbs
 
 == Step 8: Install the azacsnap utility and perform a snapshot backup
 
-xxx
+You need to install and run the `azacsnap` utility to perform a snapshot backup.
 
 .Steps
 
@@ -276,13 +267,11 @@ docker-compose up azacsnap_install
 su - azacsnap
 execute /tmp/archive/ora_wallet.sh
 
-. Configure a storage backup detail file.
+. Configure a storage backup detail file. This will create the `azacsnap.json` configuration file.
 +
 [source,sql]
 cd /home/azacsnap/bin/
 azacsnap -c configure –-configuration new
-+
-This will create the `azacsnap.json` configuration file.
 
 . Perform a snapshot backup.
 +
@@ -291,7 +280,7 @@ azacsnap -c backup –-other data --prefix ora_test --retention=1
 
 == Step 9: Optionally migrate an on-premise PDB to the cloud
 
-You can migrate the on-premise PDB to the cloud.
+You can optionally migrate the on-premise PDB to the cloud.
 
 .Steps
 
