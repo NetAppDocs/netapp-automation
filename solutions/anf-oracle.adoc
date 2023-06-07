@@ -37,10 +37,10 @@ You must have the following to complete the installation:
 * The automation solution packaged as file `Ora_ANF_Prov.zip`. You can download the solution file at the BlueXP web user interface.
 * A Linux VM with the following characteristics:
 ** RHEL 8 (Standard_D8s_v3-RHEL-8)
-** Deployed on the same Azure Virtual Network used for Azure NetApp Files provisioning
+** Deployed on the same Azure Virtual Network used for the Azure NetApp Files provisioning
 * Azure account
 
-The automation is packaged as an image and run using Docker and Docker Compose. You need to install both of these on the Linux virtual machine as described below.
+The automation solution is provided as an image and run using Docker and Docker Compose. You need to install both of these on the Linux virtual machine as described below.
 
 You should also register the VM with RedHat using the command `sudo subscription-manager register`. The command will prompt you for your account credentials. If needed, you can create an account at \https://developers.redhat.com/.
 
@@ -50,7 +50,7 @@ Install and configure Docker in a RHEL 8 Linux virtual machine.
 
 .Steps
 
-. Install the Docker software using the following commands.
+. Install the Docker software using the following sequence of commands.
 +
 [source,cli]
 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
@@ -63,9 +63,9 @@ systemctl start docker
 systemctl enable docker
 docker --version
 
-. Add the required Linux group with user.
+. Add the required Linux group with an associated user.
 +
-First check if the group *docker* exists in your Linux system. If it doesn't, create the group and add the user. By default, the current user is added to the group.
+First check if the group *docker* exists in your Linux system. If it doesn't, create the group and add the user. By default, the current shell user is added to the group.
 +
 [source,cli]
 sudo groupadd docker
@@ -73,7 +73,7 @@ sudo usermod -aG docker $USER
 
 . Activate the new group and user definitions
 +
-If you created a new group and user, you need to activate these definitions. You can logout of Linux and then back in. Or you can run the following command.
+If you created a new group with a user, you need to activate the definitions. To do this, you can logout of Linux and then back in. Or you can run the following command.
 +
 [source,cli]
 newgrp docker
@@ -131,7 +131,7 @@ You need to extract and load the Docker image provided with the automation solut
 
 .Steps
 
-. Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation code run.
+. Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation code will run.
 +
 [source,cli]
 scp -i ~/<private-key.pem> -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
@@ -152,7 +152,7 @@ ls -lt
 [source,cli]
 docker load -i Ora_ANF_Prov_image_latest.tar.gz
 
-. Confirm the Docker image is loaded using the following command.
+. Confirm the Docker image is loaded.
 +
 [source,cli]
 docker images
@@ -172,7 +172,7 @@ You need an external volume to keep the Terraform state files and other importan
 
 . Create an external volume outside of Docker Compose.
 +
-Make sure to update the volume name before running the following command.
+Make sure to update the volume name before running the command.
 +
 [source,cli]
 docker volume create <VOLUME_NAME>
@@ -197,7 +197,7 @@ You can now install and provision Oracle.
 
 .Steps
 
-. Install Oracle with the following commands.
+. Install Oracle with the following sequence of commands.
 +
 [source,cli]
 docker-compose up terraform_ora_anf
@@ -206,23 +206,22 @@ docker-compose up linux_config
 bash /ora_anf_variables/permissions.sh
 docker-compose up oracle_install
 
-. Reload your Bash variables and confirm.
+. Reload your Bash variables and confirm by displaying the value for `ORACLE_HOME`.
 .. `cd /home/oracle`
 .. `source .bash_profile`
 .. `echo $ORACLE_HOME`
 
-. Login to Oracle.
+. You should be able to login to Oracle.
 [source,cli]
 sudo su oracle
 
-
 == Step 7: Validate the Oracle installation
 
-You should confirm the installation was successful.
+You should confirm the Oracle installation was successful.
 
 .Steps
 
-. Log in to the Linux Oracle server as `user` and display a list of the Oracle processes. This confirms the installation completed as expected and the Oracle database is running.
+. Log in to the Linux Oracle server and display a list of the Oracle processes. This confirms the installation completed as expected and the Oracle database is running.
 +
 [source,cli]
 ps -ef | grep ora
@@ -247,8 +246,8 @@ Version 19.8.0.0.0
 
 . Execute a few simple SQL commands to confirm the database is available.
 [source,sql]
-select name, log_mode from v$database
-show pdbs
+select name, log_mode from v$database;
+show pdbs.
 
 == Step 8: Install the azacsnap utility and perform a snapshot backup
 
