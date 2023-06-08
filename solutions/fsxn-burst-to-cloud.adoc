@@ -27,7 +27,7 @@ At a high level, the automation code provided with this solution performs the fo
 * Create a cluster peering relationship between the source and destination systems
 * Create an SVM peering between the source system and destination system for FlexCache
 * Optionally create FlexVol volumes in FSxN
-* Create a FlexCache volume in FSxN with the source pointing to the on-prem storage
+* Create a FlexCache volume in FSxN with the source pointing to on-prem storage
 
 The automation is based on Docker and Docker Compose which must be installed on the Linux virtual machine as described below.
 
@@ -57,7 +57,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
 
-. Install the Docker software and verify the installation.
+. Install Docker and verify the installation.
 +
 [source,cli]
 sudo apt-get install docker-ce docker-ce-cli containerd.io
@@ -84,7 +84,7 @@ Install Docker Compose in a Debian-based Linux virtual machine.
 
 .Steps
 
-. Install the Docker Compose software.
+. Install Docker Compose.
 +
 [source,cli]
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -136,7 +136,7 @@ aws_fsxn_flexcahce_image  latest  ay98y7853769  2 weeks ago  1.19GB
 
 == Step 4: Create environment file for AWS credentials
 
-You must create a local variable file for authentication using the access and secret key. The add the file to the `.env` file.
+You must create a local variable file for authentication using the access and secret key. Then add the file to the `.env` file.
 
 .Steps
 
@@ -153,7 +153,7 @@ secret_key=<>
 +
 The format *must* be exactly as shown above without any spaces between `key` and `value`.
 
-. Add the absolute file paths to the `.env` file using the `AWS_CREDS` variable. For example:
+. Add the absolute file path to the `.env` file using the `AWS_CREDS` variable. For example:
 +
 `AWS_CREDS=path/to/env-file/awsauth.env`
 
@@ -167,7 +167,7 @@ You need an external volume to make sure the Terraform state files and other imp
 
 . Create an external volume outside of Docker Compose.
 +
-Make sure to update the volume name (last parameter) before running the command.
+Make sure to update the volume name (last parameter) to the appropriate value before running the command.
 +
 [source,cli]
 docker volume create aws_fsxn_volume
@@ -181,7 +181,7 @@ Remember to keep the existing file contents and colon formatting. For example:
 [source,cli]
 PERSISTENT_VOL=aws_fsxn_volume:/aws_fsxn_flexcache
 +
-You can also add an NFS share as the external volume using a command such as:
+You can instead add an NFS share as the external volume using a command such as:
 +
 `PERSISTENT_VOL=nfs/mnt/document:/aws_fsx_flexcache`
 
@@ -189,7 +189,7 @@ You can also add an NFS share as the external volume using a command such as:
 .. Navigate to the folder `aws_fsxn_variables`.
 .. Confirm the following two files exist: `terraform.tfvars` and `variables.tf`.
 .. Update the values in `terraform.tfvars` as required for your environment.
-
++
 See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system[Terraform resource: aws_fsx_ontap_file_system^] for more information.
 
 == Step 6: Provision Amazon FSx for NetApp and FlexCache
@@ -210,7 +210,7 @@ This command creates two containers. The first container deploys FSxN and the se
 [source,cli]
 docker-compose -f docker-compose-provision.yml logs -f
 +
-This command gives you the output in real-time, but has been configured to capture the logs through the file deployment.log. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
+This command gives you the output in real-time, but has been configured to capture the logs through the file `deployment.log`. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
 
 == Step 7: Destroy Amazon FSx for NetApp and FlexCache
 
