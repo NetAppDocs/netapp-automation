@@ -246,8 +246,9 @@ The second container waits until the first container completes all of the steps 
 docker-compose -f docker-compose-deploy.yml logs -f 
 +
 This command provides output in real-time and captures the data in the following log files:
-* `deployment.log` 
-* `telemetry_asup.log`
+`deployment.log`
++ 
+`telemetry_asup.log`
 +
 You can change the name of these log files by editing the `.env` file using the following environment variables:
 +
