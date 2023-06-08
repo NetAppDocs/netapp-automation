@@ -264,7 +264,7 @@ The following examples show how to change the log file names:
 
 .After you finish
 
-You can use the following steps to destroy the environment and clean up temporary that were created during the deployment process. 
+You can use the following steps to destroy the temporary environment and clean up items that were created during the deployment process. 
 
 .Steps
 
