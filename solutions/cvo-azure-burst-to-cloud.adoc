@@ -2,11 +2,10 @@
 sidebar: sidebar
 permalink: solutions/cvo-azure-burst-to-cloud.html
 keywords: nbluexp automation catalog, netapp automation solutions, azure, burst to cloud
-summary: "You can use this automation solution to deploy Cloud Volumes ONTAP on Azure
-using Terraform."
+summary: "You can use this automation solution to deploy Cloud Volumes ONTAP for Azure using Terraform."
 ---
 
-= Cloud Volumes ONTAP Deployment for Azure using Terraform
+= Cloud Volumes ONTAP for Azure deployment using Terraform
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -14,9 +13,9 @@ using Terraform."
 :imagesdir: ./media/
 
 [.lead]
-This article supports the Cloud Volumes ONTAP for Azure Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog. 
+This article supports the NetApp Cloud Volumes ONTAP for Azure Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog. 
 
-The Cloud Volumes ONTAP for Azure Automation Solution automates the containerized automated deployment of Cloud Volumes ONTAP for Azure using Terraform, enabling you to deploy Cloud Volumes ONTAP for Azure rapidly, without any manual intervention.
+The Cloud Volumes ONTAP for Azure Automation Solution automates the containerized deployment of Cloud Volumes ONTAP for Azure using Terraform, enabling you to deploy Cloud Volumes ONTAP for Azure rapidly, without any manual intervention.
 
 .Before you begin
 
