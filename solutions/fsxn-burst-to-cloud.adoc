@@ -16,7 +16,7 @@ summary: You can use this automation solution to provision Amazon File Services 
 You can use this automation solution to provision Amazon File Services for NetApp with volumes and an associated FlexCache.
 
 [NOTE]
-For convenience and brevity, Amazon File Services for NetApp will be referred to as *FSxN*.
+For convenience and brevity, Amazon File Services for NetApp will optionally be referred to as *FSxN* in this documentation.
 
 .About this solution
 
@@ -26,70 +26,138 @@ At a high level, the automation code provided with this solution performs the fo
 * Provision Storage Virtual Machines (SVMs) for the file system
 * Create a cluster peering relationship between the source and destination systems
 * Create an SVM peering between the source system and destination system for FlexCache
-* Optionally create FlexVol volumes in FSxN (optional)
+* Optionally create FlexVol volumes in FSxN
 * Create a FlexCache volume in FSxN with the source pointing to the on-prem storage
 
 The automation is based on Docker and Docker Compose which must be installed on the Linux virtual machine as described below.
 
 .Before you begin
 
-You must have the following to complete the FSxN and FlexCache provisioning and configuration:
+You must have the following to complete the provisioning and configuration:
 
 * The automation solution packaged as file `AWS_FSxN_BTC.zip`. You can download the file at the BlueXP web user interface.
 * Network connectivity between the source and destination systems.
-* A Debian-based Linux VM deployed on the same VPC subsets used for the FSxN provisioning.
-* An AWS account.
+* A Linux VM with the following characteristics:
+** Debian-based Linux distribution
+** Deployed on the same VPC subset used for the FSxN provisioning
+* AWS account.
 
-== Step 1: Install the Docker and Docker Compose software
+== Step 1: Install and configure Docker
 
-Install Docker and Docker Compose on the Debian Linux distribution VM.
+Install and configure Docker in a Debian-based Linux virtual machine.
 
 .Steps
 
-. Prepare to install Docker.
-+
+. Prepare the environment.
 [source,cli]
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwareproperties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64]
-https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
-. Install and verify Docker by checking the version.
+. Install the Docker software.
 +
 [source,cli]
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+. Verify the installation was successful.
+[source,cli]
 docker --version
 
-. If the Linux group `docker` does not already exist, you need to add the group and associated user.
-[source,cli]
-sudo groupadd docker
-
-. Install Docker-Compose.
-[source,cli]
-
-== Step 2: Extract and prepare the Docker files
-
-. Copy the solution file `AWS_FSxN_BTC.zip` to the virtual machine where the automation code will be run.
+. Add the required Linux group with an associated user.
++
+First check if the group *docker* exists in your Linux system. If it doesn't, create the group and add the user. By default, the current shell user is added to the group.
 +
 [source,cli]
+sudo groupadd docker
+sudo usermod -aG docker $(whoami)
 
-. Unzip the solution file.
+. Activate the new group and user definitions
++
+If you created a new group with a user, you need to activate the definitions. To do this, you can logout of Linux and then back in. Or you can run the following command.
++
+[source,cli]
+newgrp docker
+
+== Step 2: Install Docker Compose
+
+Install the Docker Compose in a Debian-based Linux virtual machine.
+
+.Steps
+
+. Install the Docker Compose software.
++
+[source,cli]
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+. Verify the installation was successful.
++
+[source,cli
+docker-compose --version
+
+== Step 3: Prepare the Docker image
+
+You need to extract and load the Docker image provided with the automation solution.
+
+.Steps
+
+. Copy the solution file `AWS_FSxN_BTC.zip` to the virtual machine where the automation code will run.
++
+[source,cli]
+scp -i ~/<private-key.pem> -r AWS_FSxN_BTC.zip user@<IP_ADDRESS_OF_VM>
++
+The input parameter `private-key.pem` is your private key file used for AWS virtual machine authentication (EC2 instance).
+
+. Navigate to the correct folder with the solution file and unzip the file.
 +
 [source,cli]
 unzip AWS_FSxN_BTC.zip
 
-== Step 3: Create an external volume
+. Navigate to the new folder `AWS_FSxN_BTC` created with the unzip operation and list the files. You should see file `aws_fsxn_flexcache_image_latest.tar.gz`.
+[source,cli]
+ls -la
 
-External Volume to keep the Terraform state files and other important files persistent. Make sures that the files are avaiable for Terraform to run the workflow and deployments.
+. Load the Docker image file. The load operation should normally complete in a few seconds.
++
+[source,cli]
+docker load -i aws_fsxn_flexcache_image_latest.tar.gz
 
-. 
+. Confirm the Docker image is loaded.
++
+[source,cli]
+docker images
++
+You should see the Docker image `ora_anf_prov_image` with the tag `latest`.
++
+----
+   REPOSITORY               TAG      IMAGE ID       CREATED      SIZE
+aws_fsxn_flexcahce_image   latest   ay98y7853769   2 weeks ago   1.19GB
+----
 
-== Step 4: Provision FSxN and FlexCache
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+== Step 4: Create the local credentials file
 
 XXX
 
-== Step 5: Destroy FSxN and FlexCache
+.Steps
+
+.ONE
+
+== Step 5: Create an external volume
+
+You need an external volume to make sure the Terraform state files and other important files are persistent. These files must be available for Terraform to run the workflow and deployments.
+
+.Steps
+
+. ONE
+
+== Step 6: Provision Amazon FSx for NetApp and FlexCache
+
+XXX
+
+== Step 7: Destroy FSxN and FlexCache
 
 XXX
