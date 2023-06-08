@@ -16,7 +16,7 @@ summary: You can use this automation solution to provision Amazon File Services 
 You can use this automation solution to provision Amazon File Services for NetApp with volumes and an associated FlexCache.
 
 [NOTE]
-For convenience and brevity, Amazon File Services for NetApp will optionally be referred to as *FSxN* in this documentation.
+For convenience and brevity, Amazon File Services for NetApp will be referred to as *FSxN*.
 
 .About this solution
 
@@ -39,7 +39,7 @@ You must have the following to complete the provisioning and configuration:
 * Network connectivity between the source and destination systems.
 * A Linux VM with the following characteristics:
 ** Debian-based Linux distribution
-** Deployed on the same VPC subset used for the FSxN provisioning
+** Deployed on the same VPC subset used for FSxN provisioning
 * AWS account.
 
 == Step 1: Install and configure Docker
@@ -49,20 +49,18 @@ Install and configure Docker in a Debian-based Linux virtual machine.
 .Steps
 
 . Prepare the environment.
++
 [source,cli]
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-
-. Install the Docker software.
-+
-[source,cli]
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
 
-. Verify the installation was successful.
+. Install the Docker software and verify the installation.
++
 [source,cli]
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 docker --version
 
 . Add the required Linux group with an associated user.
@@ -82,7 +80,7 @@ newgrp docker
 
 == Step 2: Install Docker Compose
 
-Install the Docker Compose in a Debian-based Linux virtual machine.
+Install Docker Compose in a Debian-based Linux virtual machine.
 
 .Steps
 
@@ -94,7 +92,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 . Verify the installation was successful.
 +
-[source,cli
+[source,cli]
 docker-compose --version
 
 == Step 3: Prepare the Docker image
@@ -132,19 +130,34 @@ docker images
 You should see the Docker image `ora_anf_prov_image` with the tag `latest`.
 +
 ----
-   REPOSITORY               TAG      IMAGE ID       CREATED      SIZE
-aws_fsxn_flexcahce_image   latest   ay98y7853769   2 weeks ago   1.19GB
+   REPOSITORY              TAG     IMAGE ID      CREATED      SIZE
+aws_fsxn_flexcahce_image  latest  ay98y7853769  2 weeks ago  1.19GB
 ----
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+== Step 4: Create environment variable file for AWS credentials
 
-== Step 4: Create the local credentials file
-
-XXX
+You must create a local variable file for authentication using the access and secret key. This file is added to the `.env` file.
 
 .Steps
 
-.ONE
+. Create the `awsauth.env` file in the following location:
++
+`path/to/env-file/awsauth.env`
++
+.. Add the following content to the file:
++
+access_key=<>
+secret_key=<>
++
+The format *must* be exactly as shown above.
+
+. Add the absolute file paths to the `.env` file.
++
+Enter the absolute path for the `awsauth.env` environment file in the `.env` file that corresponds to the `AWS_CREDS` environment variable.
++
+`AWS_CREDS=path/to/env-file/awsauth.env`
+
+. Navigate to the `XXX` folder and update the access and secret key in the credentials file.
 
 == Step 5: Create an external volume
 
@@ -152,12 +165,61 @@ You need an external volume to make sure the Terraform state files and other imp
 
 .Steps
 
-. ONE
+. Create an external volume outside of Docker Compose.
++
+Make sure to update the volume name before running the command.
++
+[source,cli]
+docker volume create <VOLUME_NAME>
+
+. Add the path to the external volume to the `.env` environment file using the command:
++
+`PERSISTENT_VOL=path/to/external/volume:/aws_fsx_flexcache`.
++
+Remember to keep the existing file contents and colon formatting. For example:
++
+[source,cli]
+PERSISTENT_VOL=aws_fsxn_volume:/aws_fsx_flexchace
+
+. Update the Terraform variables.
+.. Navigate to the folder `ora_anf_variables`.
+.. Confirm the following two files exist: `terraform.tfvars` and `variables.tf`.
+.. Update the values in `terraform.tfvars` as required for your environment.
 
 == Step 6: Provision Amazon FSx for NetApp and FlexCache
 
-XXX
+You can now provision Amazon FSx for NetApp and FlexCache.
 
-== Step 7: Destroy FSxN and FlexCache
+.Steps
 
-XXX
+. Navigate to the folder root (AWS_FSXN_BTC) and issue the provisioning command.
++
+[source,cli]
+docker-compose -f docker-compose-provision.yml up
++
+This creates two containers. The first container deploys FSxN and the second container creates the cluster peering, SVM peering, destination volume, and FlexCache.
+
+. Monitor the provisioning process.
++
+[source,cli]
+docker-compose -f docker-compose-provision.yml logs -f
++
+This command gives you the output in real-time, but has been configured to capture the logs through the file deployment.log. You can change the name of these log files by editing `.env` file and updating the variables `DEPLOYMENT_LOGS`.
+
+== Step 7: Destroy Amazon FSx for NetApp and FlexCache
+
+You can optionally delete and remove Amazon FSx for NetApp and FlexCache.
+
+. Set the variable `flexcache_operation` in the `terraform.tfvars` file to *destroy*.
+
+. Navigate to the folder root (AWS_FSXN_BTC) and issue the following command.
++
+[source,cli]
+docker-compose -f docker-compose-destroy.yml up
++
+This creates two containers. The first container delete flexcache and the second container delete's FSxN
+
+. Monitor the provisioning process.
++
+[source,cli]
+docker-compose -f docker-compose-destroy.yml logs -f
