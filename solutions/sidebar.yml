@@ -10,7 +10,7 @@ entries:
   - title: Cloud Volumes ONTAP - Azure
     entries: 
      - title: Burst to cloud
-        url: /solutions/cvo-azure-burst-to-cloud.html
+       url: /solutions/cvo-azure-burst-to-cloud.html
   - title: Cloud Volumes ONTAP - AWS
     entries: 
      - title: Burst to cloud

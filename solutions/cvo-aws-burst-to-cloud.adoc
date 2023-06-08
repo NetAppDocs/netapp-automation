@@ -81,7 +81,7 @@ docker-compose –version
 == Step 2: Prepare the Docker image
 
 .Steps
-. Copy the "CVO_Aws_Deployment" folder to the VM that you want to use to deploy Cloud Volumes ONTAP:
+. Copy the `CVO_Aws_Deployment` folder to the VM that you want to use to deploy Cloud Volumes ONTAP:
 +
 [source,cli]
 scp -i ~/<private-key>.pem -r CVO_Aws_Deployment <awsuser>@<IP_ADDRESS_OF_VM>:<LOCATION_TO_BE_COPIED> 
