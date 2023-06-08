@@ -189,8 +189,8 @@ You can also add an NFS share as the external volume using a command such as:
 .. Navigate to the folder `aws_fsxn_variables`.
 .. Confirm the following two files exist: `terraform.tfvars` and `variables.tf`.
 .. Update the values in `terraform.tfvars` as required for your environment.
-+
-See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system for more information.
+
+See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system[Terraform resource: aws_fsx_ontap_file_system^] for more information.
 
 == Step 6: Provision Amazon FSx for NetApp and FlexCache
 
@@ -210,20 +210,20 @@ This command creates two containers. The first container deploys FSxN and the se
 [source,cli]
 docker-compose -f docker-compose-provision.yml logs -f
 +
-This command gives you the output in real-time, but has been configured to capture the logs through the file deployment.log. You can change the name of these log files by editing `.env` file and updating the variables `DEPLOYMENT_LOGS`.
+This command gives you the output in real-time, but has been configured to capture the logs through the file deployment.log. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
 
 == Step 7: Destroy Amazon FSx for NetApp and FlexCache
 
 You can optionally delete and remove Amazon FSx for NetApp and FlexCache.
 
-. Set the variable `flexcache_operation` in the `terraform.tfvars` file to *destroy*.
+. Set the variable `flexcache_operation` in the `terraform.tfvars` file to "destroy".
 
 . Navigate to the folder root (AWS_FSXN_BTC) and issue the following command.
 +
 [source,cli]
 docker-compose -f docker-compose-destroy.yml up
 +
-This command creates two containers. The first container delete flexcache and the second container delete's FSxN
+This command creates two containers. The first container delete FlexCache and the second container delete's Amazon FSx for NetApp.
 
 . Monitor the provisioning process.
 +
