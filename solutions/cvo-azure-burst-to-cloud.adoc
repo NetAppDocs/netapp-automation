@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for Azure Automation Solution automates the containerize
 
 .Before you begin
 
-* You must have the automation solution packaged as file `CVO_Azure_Deployment`. You can download the solution file at the BlueXP web user interface.
+* You must have the automation solution file packaged as `CVO_Azure_Deployment`. You can download the solution file at the BlueXP web user interface.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP. 
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies. 
 
