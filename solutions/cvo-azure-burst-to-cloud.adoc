@@ -301,6 +301,7 @@ The second container waits until the first container completes all of the steps 
 docker-compose logs -f
 +
 This command provides output in real-time and captures the data in the following log files:
++
 * `deployment.log` 
 * `telemetry_asup.log`
 +
