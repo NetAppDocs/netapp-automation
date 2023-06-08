@@ -14,7 +14,9 @@ using Terraform."
 :imagesdir: ./media/
 
 [.lead]
-This solution outlines the containerized automated deployment of Cloud Volumes ONTAP for Azure using Terraform, enabling you to create and build Cloud Volumes ONTAP for Azure rapidly, without any manual intervention.
+This article supports the Cloud Volumes ONTAP for Azure Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog. 
+
+The Cloud Volumes ONTAP for Azure Automation Solution automates the containerized automated deployment of Cloud Volumes ONTAP for Azure using Terraform, enabling you to deploy Cloud Volumes ONTAP for Azure rapidly, without any manual intervention.
 
 .Before you begin
 
@@ -51,7 +53,7 @@ docker –version
 [source,cli]
 sudo groupadd docker
 
-. Add the user that needs to use Docker to the group:
+. Add the user that needs to access Docker to the group:
 +
 [source,cli]
 sudo usermod -aG docker $(whoami)
@@ -76,13 +78,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 [source,cli]
 docker-compose –version
 
-== Step 2: Load the Docker image
+== Step 2: Prepare the Docker image
 
 .Steps
 . Copy the "CVO_Azure_Deployment" folder to the VM that you want to use to deploy Cloud Volumes ONTAP:
 +
 [source,cli]
-scp -i ~/private-key.pem -r CVO_Azure_Deployment azureuser@IP_ADDRESS_OF_VM:LOCATION_TO_BE_COPIED
+scp -i ~/<private-key>.pem -r CVO_Azure_Deployment <azureuser>@<IP_ADDRESS_OF_VM>:<LOCATION_TO_BE_COPIED>
 
 * `private-key.pem` is your private key file for login without a password.
 * `azureuser` is the VM username.
@@ -99,7 +101,7 @@ unzip CVO_Azure_Deployment.zip
 To extract the folder in a custom location, run:
 +
 [source,cli]
-unzip CVO_Azure_Deployment.zip -d ~/your_folder_name
+unzip CVO_Azure_Deployment.zip -d ~/<your_folder_name>
 
 . After you extract the folder, run the following command to view the files:
 +
@@ -134,7 +136,7 @@ docker load -i cvo_azure_flexcache_ubuntu_image_latest.tar.gz
 [source,cli]
 docker images
 +
-If successful, you see a Docker image named  “cvo_azure_flexcache_ubuntu_image_latest” with the “latest” tag, as shown in the following example:
+You should see a Docker image named `cvo_azure_flexcache_ubuntu_image_latest` with the `latest` tag, as shown in the following example:
 +
 ----
 REPOSITORY TAG IMAGE ID CREATED SIZE
@@ -149,9 +151,9 @@ At this stage, you must create two environment variable files. One file is for t
 
 . Create a service principal. 
 +
-Before you can create the environment variable files you must create a service principal by following the steps in link:https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal[Create an Azure Active Directory application and service principal that can access resources^]
+Before you can create the environment variable files you must create a service principal by following the steps in link:https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal[Create an Azure Active Directory application and service principal that can access resources^].
 
-. Assign the “Contributor” role to the newly created service principal.
+. Assign the *Contributor* role to the newly created service principal.
 . Create a custom role. 
 + 
 .. Locate the `sp_role.json` file and check for the required permissions under the actions listed.
@@ -165,7 +167,7 @@ When you create the client secret, you must record the details from the *Value* 
 * Subscription ID 
 * Tenant ID 
 +
-You use this information to create the environment variables. You can find client ID and tenant ID information in the *Overview* section of the Service Principal UI. 
+You will need this information to create the environment variables. You can find client ID and tenant ID information in the *Overview* section of the Service Principal UI. 
 
 . Create the environment files. 
 .. Create the `azureauth.env` file in the following location: 
@@ -207,7 +209,7 @@ You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP
 .Steps
 
 . From the Azure portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*.
-. Then select the *Cloud Manager (by Cap PYGO by Hour, WORM and data services)* plan. 
+. Select the *Cloud Manager (by Cap PYGO by Hour, WORM and data services)* plan. 
 +
 You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.
 . Configure the BlueXP portal to import the SaaS subscription to BlueXP.
@@ -247,7 +249,7 @@ Example:
 
 .. Add NFS shares as an external volume. 
 +
-Make sure that Docker container can communicate with the NFS shares and that the correct permissions, such as read-write, are configured.
+Make sure that the Docker container can communicate with the NFS shares and that the correct permissions, such as read-write, are configured.
 +
 ... Add the NFS shares path as the path to the external volume in the Docker Compose file, as shown below:
 Format:
@@ -257,7 +259,7 @@ PERSISTENT_VOL=path/to/nfs/volume:/cvo_azure
 Example:
 `PERSISTENT_VOL=nfs/mnt/document:/cvo_azure`
 
-. Navigate to the "cvo_azure_variables" folder.
+. Navigate to the `cvo_azure_variables` folder.
 +
 You should see the following variable file in the folder:
 +
@@ -271,7 +273,7 @@ All supporting variables for the connector and Cloud Volumes ONTAP Terraform mod
 
 . Depending on your requirements, you can enable or disable FlexCache and FlexClone by setting the following options to `true` or `false`. 
 +
-The examples shown below enables FlexCache and FlexClone:
+The examples shown below enable FlexCache and FlexClone:
 +
 * `is_flexcache_required = true`
 * `is_flexclone_required = true`
@@ -311,23 +313,23 @@ You can change the name of these log files by editing the `.env` file using the 
 +
 The following examples show how to change the log file names:
 +
-`DEPLOYMENT_LOGS=_your_deployment_log_filename_.log`
+`DEPLOYMENT_LOGS=<your_deployment_log_filename>.log`
 +
-`TELEMETRY_ASUP_LOGS=_your_telemetry_asup_log_filename_.log`
+`TELEMETRY_ASUP_LOGS=<your_telemetry_asup_log_filename>.log`
 
 .After you finish
 
-You can use the following steps to destroy the environment and clean-up items that were created during the deployment process. 
+You can use the following steps to destroy the environment and clean up temporary that were created during the deployment process. 
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this will clean-up FlexCache and destroy the environment that was deployed earlier. 
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache and destroys the temporary environment that was deployed earlier. 
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this will clean-up FlexClone and destroy the environment that was deployed earlier. 
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone and destroys the temporary environment that was deployed earlier. 
 +
 `flexclone_operation = "destroy"`
 +
