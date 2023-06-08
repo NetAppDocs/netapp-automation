@@ -7,3 +7,11 @@ entries:
     entries:
       - title: Oracle
         url: /solutions/anf-oracle.html
+  - title: Cloud Volumes ONTAP - Azure
+    url: /solutions/cvo-azure-burst-to-cloud.html
+    entries: 
+     - title: Burst to cloud
+  - title: Cloud Volumes ONTAP - AWS
+    entries: 
+     - title: Burst to cloud
+       url: /solutions/cvo-aws-burst-to-cloud.html
