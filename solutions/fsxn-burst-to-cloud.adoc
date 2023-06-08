@@ -127,37 +127,37 @@ docker load -i aws_fsxn_flexcache_image_latest.tar.gz
 [source,cli]
 docker images
 +
-You should see the Docker image `ora_anf_prov_image` with the tag `latest`.
+You should see the Docker image `aws_fsxn_flexcache_image` with the tag `latest`.
 +
 ----
    REPOSITORY              TAG     IMAGE ID      CREATED      SIZE
 aws_fsxn_flexcahce_image  latest  ay98y7853769  2 weeks ago  1.19GB
 ----
 
-== Step 4: Create environment variable file for AWS credentials
+== Step 4: Create environment file for AWS credentials
 
-You must create a local variable file for authentication using the access and secret key. This file is added to the `.env` file.
+You must create a local variable file for authentication using the access and secret key. The add the file to the `.env` file.
 
 .Steps
 
 . Create the `awsauth.env` file in the following location:
 +
 `path/to/env-file/awsauth.env`
+
+. Add the following content to the file:
 +
-.. Add the following content to the file:
-+
+----
 access_key=<>
 secret_key=<>
+----
 +
-The format *must* be exactly as shown above.
+The format *must* be exactly as shown above without any spaces between `key` and `value`.
 
-. Add the absolute file paths to the `.env` file.
-+
-Enter the absolute path for the `awsauth.env` environment file in the `.env` file that corresponds to the `AWS_CREDS` environment variable.
+. Add the absolute file paths to the `.env` file using the `AWS_CREDS` variable. For example:
 +
 `AWS_CREDS=path/to/env-file/awsauth.env`
 
-. Navigate to the `XXX` folder and update the access and secret key in the credentials file.
+. Navigate to the `aws_fsxn_variables` folder and update the access and secret key in the credentials file.
 
 == Step 5: Create an external volume
 
@@ -167,24 +167,30 @@ You need an external volume to make sure the Terraform state files and other imp
 
 . Create an external volume outside of Docker Compose.
 +
-Make sure to update the volume name before running the command.
+Make sure to update the volume name (last parameter) before running the command.
 +
 [source,cli]
-docker volume create <VOLUME_NAME>
+docker volume create aws_fsxn_volume
 
 . Add the path to the external volume to the `.env` environment file using the command:
 +
-`PERSISTENT_VOL=path/to/external/volume:/aws_fsx_flexcache`.
+`PERSISTENT_VOL=path/to/external/volume:/volume_name`
 +
 Remember to keep the existing file contents and colon formatting. For example:
 +
 [source,cli]
-PERSISTENT_VOL=aws_fsxn_volume:/aws_fsx_flexchace
+PERSISTENT_VOL=aws_fsxn_volume:/aws_fsxn_flexcache
++
+You can also add an NFS share as the external volume using a command such as:
++
+`PERSISTENT_VOL=nfs/mnt/document:/aws_fsx_flexcache`
 
 . Update the Terraform variables.
-.. Navigate to the folder `ora_anf_variables`.
+.. Navigate to the folder `aws_fsxn_variables`.
 .. Confirm the following two files exist: `terraform.tfvars` and `variables.tf`.
 .. Update the values in `terraform.tfvars` as required for your environment.
++
+See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system for more information.
 
 == Step 6: Provision Amazon FSx for NetApp and FlexCache
 
@@ -197,7 +203,7 @@ You can now provision Amazon FSx for NetApp and FlexCache.
 [source,cli]
 docker-compose -f docker-compose-provision.yml up
 +
-This creates two containers. The first container deploys FSxN and the second container creates the cluster peering, SVM peering, destination volume, and FlexCache.
+This command creates two containers. The first container deploys FSxN and the second container creates the cluster peering, SVM peering, destination volume, and FlexCache.
 
 . Monitor the provisioning process.
 +
@@ -217,7 +223,7 @@ You can optionally delete and remove Amazon FSx for NetApp and FlexCache.
 [source,cli]
 docker-compose -f docker-compose-destroy.yml up
 +
-This creates two containers. The first container delete flexcache and the second container delete's FSxN
+This command creates two containers. The first container delete flexcache and the second container delete's FSxN
 
 . Monitor the provisioning process.
 +
