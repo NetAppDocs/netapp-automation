@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head class="at-element-marker">
-  <title>Amazon FSx for NetApp - Disaster recovery</title>
+  <title>Amazon FSx for NetApp - Backup for disaster recovery</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Amazon FSx for NetApp - Disaster recovery" />
+  <meta property="og:title" content="Amazon FSx for NetApp - Backup for disaster recovery" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/us-en/netapp-automation/solutions/fsxn-disaster-recovery.html" />
-	<meta property="og:description" content="" />
+	<meta property="og:description" content="You can use this automation solution to take a backup of a source system for disaster recovery using Amazon FSx for NetApp." />
   <meta property="og:image" content="https://docs.netapp.com/us-en/netapp-automation/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="">
-  <meta name="keywords" content=" bluexp automation catalog, netapp automation solutions, aws, disaster recovery"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="You can use this automation solution to take a backup of a source system for disaster recovery using Amazon FSx for NetApp.">
+  <meta name="keywords" content=" bluexp automation catalog, netapp automation solutions, fsxn, disaster recovery, backup"><!-- Icons -->
   <link rel="icon" href="/us-en/netapp-automation/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -177,7 +177,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/us-en/netapp-automation/solutions/fsxn-disaster-recovery.html&page-title=Amazon FSx for NetApp - Disaster recovery" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-automation/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/blob/main/solutions/fsxn-disaster-recovery.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-automation/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/netapp-automation/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/us-en/netapp-automation/solutions/fsxn-disaster-recovery.html&page-title=Amazon FSx for NetApp - Backup for disaster recovery" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-automation/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/blob/main/solutions/fsxn-disaster-recovery.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-automation/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/netapp-automation/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">ON THIS PAGE</div>
@@ -377,6 +377,10 @@
             Amazon FSx for NetApp
           </a>
           
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
         </li>
@@ -599,6 +603,13 @@
       class=" "
     ><a class="na-navbar-padding" href="/us-en/netapp-automation/solutions/fsxn-burst-to-cloud.html">
         Burst to cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Disaster recovery backup"
+      data-li-level="3#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/us-en/netapp-automation/solutions/fsxn-disaster-recovery.html">
+        Disaster recovery backup
       </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Cloud Volumes ONTAP - Azure"
@@ -733,25 +744,390 @@
 </div>
 
       <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Amazon FSx for NetApp - Disaster recovery</h1>
+  <h1 class="n-doc__component-detail-heading">Amazon FSx for NetApp - Backup for disaster recovery</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2023-06-03 18:45:07 +0000">06/03/2023</time>
+    <time datetime="2023-06-09 17:34:50 +0000">06/09/2023</time>
     
   
 
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>Coming soon.</p>
+<p>You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-automation/images/note.svg" alt="Note">
+</td>
+<td class="content">
+For convenience and brevity, Amazon File Services for NetApp will be referred to as <strong>FSxN</strong>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>This page is being completed and will be updated shortly. Please check back soon.</strong></p>
+<div class="title">About this solution</div>
+<p>At a high level, the automation code provided with this solution performs the following actions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provision a destination FSxN file system</p>
+</li>
+<li>
+<p>Provision Storage Virtual Machines (SVMs) for the file system</p>
+</li>
+<li>
+<p>Create a cluster peering relationship between the source and destination systems</p>
+</li>
+<li>
+<p>Create an SVM peering relationship between the source system and destination system for SnapMirror</p>
+</li>
+<li>
+<p>Create destination volumes</p>
+</li>
+<li>
+<p>Create a SnapMirror relationship between the source and destination volumes</p>
+</li>
+<li>
+<p>Initiate the SnapMirror transfer between the source and destination volumes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The automation is based on Docker and Docker Compose which must be installed on the Linux virtual machine as described below.</p>
+</div>
+<div class="paragraph">
+<div class="title">Before you begin</div>
+<p>You must have the following to complete the provisioning and configuration:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The automation solution packaged as file <code>AWS_FSxN_Bck_Prov.zip</code>. You can download the file at the BlueXP web user interface.</p>
+</li>
+<li>
+<p>Network connectivity between the source and destination systems.</p>
+</li>
+<li>
+<p>A Linux VM with the following characteristics:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Debian-based Linux distribution</p>
+</li>
+<li>
+<p>Deployed on the same VPC subset used for FSxN provisioning</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>An AWS account.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-1-install-and-configure-docker">Step 1: Install and configure Docker</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Install and configure Docker in a Debian-based Linux virtual machine.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Prepare the environment.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwareproperties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install Docker and verify the installation.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo apt-get install docker-ce docker-ce-cli containerd.io
+docker --version</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add the required Linux group with an associated user.</p>
+<div class="paragraph">
+<p>First check if the group <strong>docker</strong> exists in your Linux system. If it doesn&#8217;t exist, create the group and add the user. By default, the current shell user is added to the group.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo groupadd docker
+sudo usermod -aG docker $(whoami)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Activate the new group and user definitions</p>
+<div class="paragraph">
+<p>If you created a new group with a user, you need to activate the definitions. To do this, you can logout of Linux and then back in. Or you can run the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">newgrp docker</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-2-install-docker-compose">Step 2: Install Docker Compose</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Install Docker Compose in a Debian-based Linux virtual machine.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Install Docker Compose.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo curl -L "https://github.com/docker/compose/releases/latest/download/dockercompose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify the installation was successful.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker-compose --version</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-3-prepare-the-docker-image">Step 3: Prepare the Docker image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need to extract and load the Docker image provided with the automation solution.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Copy the solution file <code>AWS_FSxN_Bck_Prov.zip</code> to the virtual machine where the automation code will run.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">scp -i ~/&lt;private-key.pem&gt; -r AWS_FSxN_Bck_Prov.zip user@&lt;IP_ADDRESS_OF_VM&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The input parameter <code>private-key.pem</code> is your private key file used for AWS virtual machine authentication (EC2 instance).</p>
+</div>
+</li>
+<li>
+<p>Navigate to the correct folder with the solution file and unzip the file.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">unzip AWS_FSxN_Bck_Prov.zip</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Navigate to the new folder <code>AWS_FSxN_Bck_Prov</code> created with the unzip operation and list the files. You should see file <code>aws_fsxn_bck_image_latest.tar.gz</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ls -la</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Load the Docker image file. The load operation should normally complete in a few seconds.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker load -i aws_fsxn_bck_image_latest.tar.gz</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Confirm the Docker image is loaded.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker images</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see the Docker image <code>aws_fsxn_bck_image</code> with the tag <code>latest</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>   REPOSITORY        TAG     IMAGE ID      CREATED      SIZE
+aws_fsxn_bck_image  latest  da87d4974306  2 weeks ago  1.19GB</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-4-create-environment-file-for-aws-credentials">Step 4: Create environment file for AWS credentials</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must create a local variable file for authentication using the access and secret key. Then add the file to the <code>.env</code> file.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Create the <code>awsauth.env</code> file in the following location:</p>
+<div class="paragraph">
+<p><code>path/to/env-file/awsauth.env</code></p>
+</div>
+</li>
+<li>
+<p>Add the following content to the file:</p>
+<div class="listingblock">
+<div class="content">
+<pre>access_key=&lt;&gt;
+secret_key=&lt;&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The format <strong>must</strong> be exactly as shown above without any spaces between <code>key</code> and <code>value</code>.</p>
+</div>
+</li>
+<li>
+<p>Add the absolute file path to the <code>.env</code> file using the <code>AWS_CREDS</code> variable. For example:</p>
+<div class="paragraph">
+<p><code>AWS_CREDS=path/to/env-file/awsauth.env</code></p>
+</div>
+</li>
+<li>
+<p>Navigate to the <code>aws_fsxn_variables</code> folder and update the access and secret key in the credentials file.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-5-create-an-external-volume">Step 5: Create an external volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need an external volume to make sure the Terraform state files and other important files are persistent. These files must be available for Terraform to run the workflow and deployments.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Create an external volume outside of Docker Compose.</p>
+<div class="paragraph">
+<p>Make sure to update the volume name (last parameter) to the appropriate value before running the command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker volume create aws_fsxn_volume</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add the path to the external volume to the <code>.env</code> environment file using the command:</p>
+<div class="paragraph">
+<p><code>PERSISTENT_VOL=path/to/external/volume:/volume_name</code></p>
+</div>
+<div class="paragraph">
+<p>Remember to keep the existing file contents and colon formatting. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">PERSISTENT_VOL=aws_fsxn_volume:/aws_fsxn_bck</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can instead add an NFS share as the external volume using a command such as:</p>
+</div>
+<div class="paragraph">
+<p><code>PERSISTENT_VOL=nfs/mnt/document:/aws_fsx_bck</code></p>
+</div>
+</li>
+<li>
+<p>Update the Terraform variables.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Navigate to the folder <code>aws_fsxn_variables</code>.</p>
+</li>
+<li>
+<p>Confirm the following two files exist: <code>terraform.tfvars</code> and <code>variables.tf</code>.</p>
+</li>
+<li>
+<p>Update the values in <code>terraform.tfvars</code> as required for your environment.</p>
+<div class="paragraph">
+<p>See <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system" target="_blank" rel="noopener">Terraform resource: aws_fsx_ontap_file_system</a> for more information.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-6-deploy-the-backup-solution">Step 6: Deploy the backup solution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can now deploy and provision the disaster recovery backup solution.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Navigate to the folder root (AWS_FSxN_Bck_Prov) and issue the provisioning command.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker-compose up -d</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command creates three containers. The first container deploys FSxN. The second container creates the cluster peering, SVM peering, and destination volume. The third container creates the SnapMirror relationship and initiates the SnapMirror transfer.</p>
+</div>
+</li>
+<li>
+<p>Monitor the provisioning process.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker-compose logs -f</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command gives you the output in real-time, but has been configured to capture the logs through the file <code>deployment.log</code>. You can change the name of these log files by editing the <code>.env</code> file and updating the variables <code>DEPLOYMENT_LOGS</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 
     </article>
