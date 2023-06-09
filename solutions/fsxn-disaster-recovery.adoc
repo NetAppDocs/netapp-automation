@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: solutions/fsxn-disaster-recovery.html
 keywords: bluexp automation catalog, netapp automation solutions, fsxn, disaster recovery, backup
-summary: You can use this automation solution to take a backup of a source system for disaster recovery situations.
+summary: You can use this automation solution to take a backup of a source system for disaster recovery using Amazon FSx for NetApp.
 ---
 
 = Amazon FSx for NetApp - Backup for disaster recovery
@@ -13,7 +13,7 @@ summary: You can use this automation solution to take a backup of a source syste
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to take a backup of a source system for disaster recovery situations.
+You can use this automation solution to take a backup of a source system for disaster recovery using Amazon FSx for NetApp.
 
 [NOTE]
 For convenience and brevity, Amazon File Services for NetApp will be referred to as *FSxN*.
@@ -25,9 +25,10 @@ At a high level, the automation code provided with this solution performs the fo
 * Provision a destination FSxN file system
 * Provision Storage Virtual Machines (SVMs) for the file system
 * Create a cluster peering relationship between the source and destination systems
-* Create an SVM peering between the source system and destination system for FlexCache
-* Optionally create FlexVol volumes in FSxN
-* Create a FlexCache volume in FSxN with the source pointing to on-prem storage
+* Create an SVM peering relationship between the source system and destination system for SnapMirror
+* Create destination volumes
+* Create a SnapMirror relationship between the source and destination volumes
+* Initiate the SnapMirror transfer between the source and destination volumes
 
 The automation is based on Docker and Docker Compose which must be installed on the Linux virtual machine as described below.
 
@@ -35,12 +36,12 @@ The automation is based on Docker and Docker Compose which must be installed on 
 
 You must have the following to complete the provisioning and configuration:
 
-* The automation solution packaged as file `AWS_FSxN_BTC.zip`. You can download the file at the BlueXP web user interface.
+* The automation solution packaged as file `AWS_FSxN_Bck_Prov.zip`. You can download the file at the BlueXP web user interface.
 * Network connectivity between the source and destination systems.
 * A Linux VM with the following characteristics:
 ** Debian-based Linux distribution
 ** Deployed on the same VPC subset used for FSxN provisioning
-* AWS account.
+* An AWS account.
 
 == Step 1: Install and configure Docker
 
@@ -52,7 +53,8 @@ Install and configure Docker in a Debian-based Linux virtual machine.
 +
 [source,cli]
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwareproperties-
+common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
@@ -87,7 +89,7 @@ Install Docker Compose in a Debian-based Linux virtual machine.
 . Install Docker Compose.
 +
 [source,cli]
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/dockercompose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 . Verify the installation was successful.
@@ -101,37 +103,37 @@ You need to extract and load the Docker image provided with the automation solut
 
 .Steps
 
-. Copy the solution file `AWS_FSxN_BTC.zip` to the virtual machine where the automation code will run.
+. Copy the solution file `AWS_FSxN_Bck_Prov.zip` to the virtual machine where the automation code will run.
 +
 [source,cli]
-scp -i ~/<private-key.pem> -r AWS_FSxN_BTC.zip user@<IP_ADDRESS_OF_VM>
+scp -i ~/<private-key.pem> -r AWS_FSxN_Bck_Prov.zip user@<IP_ADDRESS_OF_VM>
 +
 The input parameter `private-key.pem` is your private key file used for AWS virtual machine authentication (EC2 instance).
 
 . Navigate to the correct folder with the solution file and unzip the file.
 +
 [source,cli]
-unzip AWS_FSxN_BTC.zip
+unzip AWS_FSxN_Bck_Prov.zip
 
-. Navigate to the new folder `AWS_FSxN_BTC` created with the unzip operation and list the files. You should see file `aws_fsxn_flexcache_image_latest.tar.gz`.
+. Navigate to the new folder `AWS_FSxN_Bck_Prov` created with the unzip operation and list the files. You should see file `aws_fsxn_bck_image_latest.tar.gz`.
 [source,cli]
 ls -la
 
 . Load the Docker image file. The load operation should normally complete in a few seconds.
 +
 [source,cli]
-docker load -i aws_fsxn_flexcache_image_latest.tar.gz
+docker load -i aws_fsxn_bck_image_latest.tar.gz
 
 . Confirm the Docker image is loaded.
 +
 [source,cli]
 docker images
 +
-You should see the Docker image `aws_fsxn_flexcache_image` with the tag `latest`.
+You should see the Docker image `aws_fsxn_bck_image` with the tag `latest`.
 +
 ----
-   REPOSITORY              TAG     IMAGE ID      CREATED      SIZE
-aws_fsxn_flexcahce_image  latest  ay98y7853769  2 weeks ago  1.19GB
+   REPOSITORY        TAG     IMAGE ID      CREATED      SIZE
+aws_fsxn_bck_image  latest  da87d4974306  2 weeks ago  1.19GB
 ----
 
 == Step 4: Create environment file for AWS credentials
@@ -179,11 +181,11 @@ docker volume create aws_fsxn_volume
 Remember to keep the existing file contents and colon formatting. For example:
 +
 [source,cli]
-PERSISTENT_VOL=aws_fsxn_volume:/aws_fsxn_flexcache
+PERSISTENT_VOL=aws_fsxn_volume:/aws_fsxn_bck
 +
 You can instead add an NFS share as the external volume using a command such as:
 +
-`PERSISTENT_VOL=nfs/mnt/document:/aws_fsx_flexcache`
+`PERSISTENT_VOL=nfs/mnt/document:/aws_fsx_bck`
 
 . Update the Terraform variables.
 .. Navigate to the folder `aws_fsxn_variables`.
@@ -198,16 +200,16 @@ You can now deploy and provision the disaster recovery backup solution.
 
 .Steps
 
-. Navigate to the folder root (AWS_FSXN_BTC) and issue the provisioning command.
+. Navigate to the folder root (AWS_FSxN_Bck_Prov) and issue the provisioning command.
 +
 [source,cli]
-docker-compose -f docker-compose-provision.yml up
+docker-compose up -d
 +
-This command creates two containers. The first container deploys FSxN and the second container creates the cluster peering, SVM peering, destination volume, and FlexCache.
+This command creates three containers. The first container deploys FSxN. The second container creates the cluster peering, SVM peering, and destination volume. The third container creates the SnapMirror relationships and initiates the SnapMirror transfer.
 
 . Monitor the provisioning process.
 +
 [source,cli]
-docker-compose -f docker-compose-provision.yml logs -f
+docker-compose -f logs -f
 +
 This command gives you the output in real-time, but has been configured to capture the logs through the file `deployment.log`. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
