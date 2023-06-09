@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: solutions/cvo-azure-burst-to-cloud.html
-keywords: nbluexp automation catalog, netapp automation solutions, azure, burst to cloud
+keywords: bluexp automation catalog, netapp automation solutions, azure, burst to cloud
 summary: "You can use this automation solution to deploy Cloud Volumes ONTAP for Azure using Terraform."
 ---
 
@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for Azure Automation Solution automates the containerize
 
 .Before you begin
 
-* You must have the automation solution file packaged as `CVO_Azure_Deployment`. You can download the solution file at the BlueXP web user interface.
+* You must have the automation solution file packaged as `CVO_Azure_Deployment`. You can download the solution file at the BlueXP web UI.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP. 
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies. 
 
@@ -33,17 +33,17 @@ The following steps use Ubuntu 20.04 Debian Linux distribution software as an ex
 
 . Install Docker by running the following `sudo` commands: 
 +
+[source,cli]
 ----
 sudo apt-get update 
 sudo apt-get install apt-transport-https cacertificates curl gnupg-agent software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | 
 sudo apt-key add -
-sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu
-$(lsb_release -cs) stable” 
+sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable” 
 sudo apt-get update 
 sudo apt-get install dockerce docker-ce-cli containerd.io  
 ----
 
-. Verify that the installation was successful:
+. Verify successful installation:
 +
 [source,cli]
 docker –version
@@ -81,7 +81,7 @@ docker-compose –version
 == Step 2: Prepare the Docker image
 
 .Steps
-. Copy the `CVO_Azure_Deployment` folder to the VM that you want to use to deploy Cloud Volumes ONTAP:
+. Copy the `CVO_Azure_Deployment` folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:
 +
 [source,cli]
 scp -i ~/<private-key>.pem -r CVO_Azure_Deployment <azureuser>@<IP_ADDRESS_OF_VM>:<LOCATION_TO_BE_COPIED>
@@ -145,13 +145,13 @@ cvo_azure_flexcache_ubuntu_image latest 18db15a4d59c 2 weeks ago 1.14GB
 
 == Step 3: Create environment variable files
 
-At this stage, you must create two environment variable files. One file is for the authentication of Azure Resource Manager APIs using service principal credentials. The second file is for setting environment variables to enable BlueXP Terraform modules to locate and authenticate Azure APIs.
+At this stage, you must create two environment variable files. One file is for authentication of Azure Resource Manager APIs using service principal credentials. The second file is for setting environment variables to enable BlueXP Terraform modules to locate and authenticate Azure APIs.
 
 .Steps 
 
 . Create a service principal. 
 +
-Before you can create the environment variable files you must create a service principal by following the steps in link:https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal[Create an Azure Active Directory application and service principal that can access resources^].
+Before you can create the environment variable files, you must create a service principal by following the steps in link:https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal[Create an Azure Active Directory application and service principal that can access resources^].
 
 . Assign the *Contributor* role to the newly created service principal.
 . Create a custom role. 
@@ -222,7 +222,7 @@ You will then be redirected to the BlueXP portal to confirm the configuration.
 
 == Step 5: Create an external volume
 
-You should create an external volume to keep the Terraform state files and other important files persistent. You must make sure that the files are available for Terraform to run the workflow and deployments.
+You should create an external volume to keep the Terraform state files, and other important files persistent. You must make sure that the files are available for Terraform to run the workflow and deployments.
 
 .Steps
 
@@ -242,7 +242,7 @@ You must follow the exact format shown below.
 +
 Format:
 +
-PERSISTENT_VOL=path/to/external/volume:/cvo_azure
+`PERSISTENT_VOL=path/to/external/volume:/cvo_azure`
 +
 Example:
 `PERSISTENT_VOL=cvo_azure_volume_dst:/cvo_azure`
@@ -254,26 +254,28 @@ Make sure that the Docker container can communicate with the NFS shares and that
 ... Add the NFS shares path as the path to the external volume in the Docker Compose file, as shown below:
 Format:
 +
-PERSISTENT_VOL=path/to/nfs/volume:/cvo_azure
+`PERSISTENT_VOL=path/to/nfs/volume:/cvo_azure`
 +
 Example:
 `PERSISTENT_VOL=nfs/mnt/document:/cvo_azure`
 
 . Navigate to the `cvo_azure_variables` folder.
 +
-You should see the following variable file in the folder:
+You should see the following variable files in the folder:
 +
-`terraform.tfvars variables.tf`
+`terraform.tfvars`
++
+`variables.tf`
 
 . Change the values inside the `terraform.tfvars` file according to your requirements. 
 +
 You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones and other factors supported by Cloud Volumes ONTAP for Azure Cloud Provider. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs. 
 +
-All supporting variables for the connector and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding to the `terraform.tfvars` file.
+All supporting variables for the Connector and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding to the `terraform.tfvars` file.
 
 . Depending on your requirements, you can enable or disable FlexCache and FlexClone by setting the following options to `true` or `false`. 
 +
-The examples shown below enable FlexCache and FlexClone:
+The following examples enable FlexCache and FlexClone:
 +
 * `is_flexcache_required = true`
 * `is_flexclone_required = true`
@@ -292,7 +294,8 @@ the Service Principal you created earlier.
 . From the root folder, run the following command to trigger deployment: 
 [source,cli]
 docker-compose up -d
-. Two containers are triggered, the first container deploys Cloud Volumes ONTAP and the second container sends telemetry data to AutoSupport. 
++
+Two containers are triggered, the first container deploys Cloud Volumes ONTAP and the second container sends telemetry data to AutoSupport. 
 +
 The second container waits until the first container completes all of the steps successfully.
 
@@ -325,13 +328,13 @@ You can use the following steps to destroy the temporary environment and clean u
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache and destroys the temporary environment that was deployed earlier. 
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` file, this cleans up FlexCache and destroys the temporary environment that was deployed earlier. 
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone and destroys the temporary environment that was deployed earlier. 
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` file, this cleans up FlexClone and destroys the temporary environment that was deployed earlier. 
 +
 `flexclone_operation = "destroy"`
 +
