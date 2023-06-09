@@ -13,7 +13,7 @@ summary: You can use this automation solution to take a backup of a source syste
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to take a backup of a source system for disaster recovery using Amazon FSx for NetApp.
+You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp.
 
 [NOTE]
 For convenience and brevity, Amazon File Services for NetApp will be referred to as *FSxN*.
@@ -53,8 +53,7 @@ Install and configure Docker in a Debian-based Linux virtual machine.
 +
 [source,cli]
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwareproperties-
-common
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwareproperties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
@@ -67,7 +66,7 @@ docker --version
 
 . Add the required Linux group with an associated user.
 +
-First check if the group *docker* exists in your Linux system. If it doesn't, create the group and add the user. By default, the current shell user is added to the group.
+First check if the group *docker* exists in your Linux system. If it doesn't exist, create the group and add the user. By default, the current shell user is added to the group.
 +
 [source,cli]
 sudo groupadd docker
@@ -205,11 +204,11 @@ You can now deploy and provision the disaster recovery backup solution.
 [source,cli]
 docker-compose up -d
 +
-This command creates three containers. The first container deploys FSxN. The second container creates the cluster peering, SVM peering, and destination volume. The third container creates the SnapMirror relationships and initiates the SnapMirror transfer.
+This command creates three containers. The first container deploys FSxN. The second container creates the cluster peering, SVM peering, and destination volume. The third container creates the SnapMirror relationship and initiates the SnapMirror transfer.
 
 . Monitor the provisioning process.
 +
 [source,cli]
-docker-compose -f logs -f
+docker-compose logs -f
 +
 This command gives you the output in real-time, but has been configured to capture the logs through the file `deployment.log`. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
