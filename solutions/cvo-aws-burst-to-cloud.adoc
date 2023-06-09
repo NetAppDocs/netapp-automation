@@ -102,7 +102,7 @@ unzip CVO_AWS_Deployment.zip
 To extract the folder in a custom location, run:
 +
 [source,cli]
-•	unzip CVO_AWS_Deployment.zip -d ~/<your_folder_name>
+unzip CVO_AWS_Deployment.zip -d ~/<your_folder_name>
 
 . After you extract the folder, run the following command to view the files:
 +
