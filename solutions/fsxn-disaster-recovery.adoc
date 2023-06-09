@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: solutions/fsxn-burst-to-cloud.html
+permalink: solutions/fsxn-disaster-recovery.html
 keywords: bluexp automation catalog, netapp automation solutions, fsxn, disaster recovery, backup
 summary: You can use this automation solution to take a backup of a source system for disaster recovery situations.
 ---
@@ -14,8 +14,6 @@ summary: You can use this automation solution to take a backup of a source syste
 
 [.lead]
 You can use this automation solution to take a backup of a source system for disaster recovery situations.
-
->>>
 
 [NOTE]
 For convenience and brevity, Amazon File Services for NetApp will be referred to as *FSxN*.
@@ -194,9 +192,9 @@ You can instead add an NFS share as the external volume using a command such as:
 +
 See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system[Terraform resource: aws_fsx_ontap_file_system^] for more information.
 
-== Step 6: Provision Amazon FSx for NetApp and FlexCache
+== Step 6: Deploy the backup solution
 
-You can now provision Amazon FSx for NetApp and FlexCache.
+You can now deploy and provision the disaster recovery backup solution.
 
 .Steps
 
@@ -213,21 +211,3 @@ This command creates two containers. The first container deploys FSxN and the se
 docker-compose -f docker-compose-provision.yml logs -f
 +
 This command gives you the output in real-time, but has been configured to capture the logs through the file `deployment.log`. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
-
-== Step 7: Destroy Amazon FSx for NetApp and FlexCache
-
-You can optionally delete and remove Amazon FSx for NetApp and FlexCache.
-
-. Set the variable `flexcache_operation` in the `terraform.tfvars` file to "destroy".
-
-. Navigate to the folder root (AWS_FSXN_BTC) and issue the following command.
-+
-[source,cli]
-docker-compose -f docker-compose-destroy.yml up
-+
-This command creates two containers. The first container delete FlexCache and the second container delete's Amazon FSx for NetApp.
-
-. Monitor the provisioning process.
-+
-[source,cli]
-docker-compose -f docker-compose-destroy.yml logs -f
