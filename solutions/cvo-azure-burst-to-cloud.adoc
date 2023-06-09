@@ -69,12 +69,12 @@ newgrp docker
 
 . Install Docker Compose by running the following `sudo` commands:
 +
+[source,cli]
 ----
 sudo curl -L “https://github.com/docker/compose/releases/download/1.29.2/dockercompose-(𝑢𝑛𝑎𝑚𝑒 − 𝑠)−(uname -m)” -o /usr/local/bin/docker-compose
-
 sudo chmod +x /usr/local/bin/docker-compose 
 ----
-. Verify that the installation was successful: 
+. Verify the successful installation: 
 [source,cli]
 docker-compose –version
 
@@ -327,13 +327,13 @@ You can use the following steps to destroy the temporary environment and clean u
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` file, this cleans up FlexCache and destroys the temporary environment that was created earlier. 
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` file, this cleans up FlexCache volumes and destroys the temporary environment that was created earlier. 
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` file, this cleans up FlexClone and destroys the temporary environment that was created earlier. 
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` file, this cleans up FlexClone volumes and destroys the temporary environment that was created earlier. 
 +
 `flexclone_operation = "destroy"`
 +

@@ -38,8 +38,7 @@ The following steps use Ubuntu 20.04 Debian Linux distribution software as an ex
 sudo apt-get update 
 sudo apt-get install apt-transport-https cacertificates curl gnupg-agent software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | 
 sudo apt-key add -
-sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu
-$(lsb_release -cs) stable” 
+sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable” 
 sudo apt-get update 
 sudo apt-get install dockerce docker-ce-cli containerd.io  
 ----
@@ -70,12 +69,13 @@ newgrp docker
 
 . Install Docker Compose by running the following `sudo` commands:
 +
+[source,cli]
 ----
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose 
 ----
-. Verify that the installation was successful: 
+. Verify the successful installation: 
 [source,cli]
 docker-compose –version
 
@@ -290,13 +290,13 @@ You can use the following steps to destroy the temporary environment and clean u
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache and destroys the temporary environment that was created earlier. 
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache volumes and destroys the temporary environment that was created earlier. 
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone and destroys the temporary environment that was created earlier. 
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone volumes and destroys the temporary environment that was created earlier. 
 +
 `flexclone_operation = "destroy"`
 +
