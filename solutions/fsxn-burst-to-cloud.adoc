@@ -25,7 +25,7 @@ At a high level, the automation code provided with this solution performs the fo
 * Provision a destination FSxN file system
 * Provision Storage Virtual Machines (SVMs) for the file system
 * Create a cluster peering relationship between the source and destination systems
-* Create an SVM peering between the source system and destination system for FlexCache
+* Create an SVM peering relationship between the source system and destination system for FlexCache
 * Optionally create FlexVol volumes in FSxN
 * Create a FlexCache volume in FSxN with the source pointing to on-prem storage
 
