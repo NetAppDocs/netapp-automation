@@ -11,15 +11,13 @@ entries:
     entries:
       - title: Burst to cloud
         url: /solutions/fsxn-burst-to-cloud.html
-
-
-
- 
+      - title: Disaster recovery backup
+        url: /solutions/fsxn-disaster-recovery.html
   - title: Cloud Volumes ONTAP - Azure
-    entries: 
+    entries:
       - title: Burst to cloud
         url: /solutions/cvo-azure-burst-to-cloud.html
   - title: Cloud Volumes ONTAP - AWS
-    entries: 
+    entries:
       - title: Burst to cloud
         url: /solutions/cvo-aws-burst-to-cloud.html
