@@ -281,8 +281,7 @@ The following examples enable FlexCache and FlexClone:
 * `is_flexclone_required = true`
 
 . If necessary, you can retrieve the value for the Terraform `az_service_principal_object_id` variable from the Azure Active Directory Service:
-.. Navigate to *Enterprise Applications –> All Applications* and select the name of
-the Service Principal you created earlier. 
+.. Navigate to *Enterprise Applications –> All Applications* and select the name of the Service Principal you created earlier. 
 .. Copy the object ID and insert the value for the Terraform variable:
 + 
 `az_service_principal_object_id`
@@ -328,13 +327,13 @@ You can use the following steps to destroy the temporary environment and clean u
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` file, this cleans up FlexCache and destroys the temporary environment that was deployed earlier. 
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` file, this cleans up FlexCache and destroys the temporary environment that was created earlier. 
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` file, this cleans up FlexClone and destroys the temporary environment that was deployed earlier. 
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` file, this cleans up FlexClone and destroys the temporary environment that was created earlier. 
 +
 `flexclone_operation = "destroy"`
 +

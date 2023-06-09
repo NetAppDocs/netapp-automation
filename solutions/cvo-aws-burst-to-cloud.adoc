@@ -290,13 +290,13 @@ You can use the following steps to destroy the temporary environment and clean u
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache and destroys the temporary environment that was deployed earlier. 
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache and destroys the temporary environment that was created earlier. 
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone and destroys the temporary environment that was deployed earlier. 
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone and destroys the temporary environment that was created earlier. 
 +
 `flexclone_operation = "destroy"`
 +
