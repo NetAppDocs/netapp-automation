@@ -36,7 +36,7 @@ The automation is based on Docker and Docker Compose which must be installed on 
 
 You must have the following to complete the provisioning and configuration:
 
-* The automation solution packaged as file `AWS_FSxN_Bck_Prov.zip`. You can download the file at the BlueXP web user interface.
+* You need to download the https://console.bluexp.netapp.com/automationCatalog[FSxN - Disaster recovery^] automation solution through the BlueXP web user interface. The solution is packaged as file `AWS_FSxN_Bck_Prov.zip`.
 * Network connectivity between the source and destination systems.
 * A Linux VM with the following characteristics:
 ** Debian-based Linux distribution
