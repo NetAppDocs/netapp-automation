@@ -13,15 +13,15 @@ summary: NetApp regularly updates the Automation Catalog solutions and related s
 :imagesdir: ./media/
 
 [.lead]
-NetApp regularly updates the Automation Catalog solutions and related software to bring you new features, enhancements, and bug fixes.
+NetApp regularly updates the automation solutions, product REST APIs, and related software to bring you new features, enhancements, and bug fixes.
 
 == 04 June 2023
 
-The NetApp automation site provides a single location for documentation and other resources supporting the automation of the NetApp products and solutions. The initial launch of the site includes support for the new BlueXP automation catalog as well as links to various product REST APIs.
+The NetApp automation site provides a single location for documentation and other resources supporting the automation of your NetApp products and cloud offerings. The initial launch of this site includes support for the new BlueXP automation catalog as well as various NetApp product REST APIs.
 
 === BlueXP automation catalog
 
-The BlueXP automation catalog is now available from NetApp through the BlueXP web user interface. The automation catalog provides access to automation solutions that can help you with the automated deployment and integration of the NetApp products. The documentation for these solutions is provided at this site and organized in several product or functional areas as described below.
+The BlueXP automation catalog is available from NetApp through the BlueXP web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of the NetApp products. The documentation for these solutions is provided at this site and organized in several different product or functional areas as described below.
 
 .Amazon FSx for NetApp
 
@@ -34,10 +34,8 @@ The documentation for two Amazon FSx for NetApp solutions is provided as follows
 
 xxx
 
-.Cloud Volumes ONTAP for AWS
+.Cloud Volumes ONTAP
 
-xxx
+Support for Cloud Volumes ONTAP is provided and organized in two public cloud environments. The initial solutions include:
 
-.Cloud Volumes ONTAP for Azure
-
-xxx
+* link:../solutions/cvo-aws-burst-to-cloud.html[Cloud Volumes ONTAP for AWS deployment using Terraform]
