@@ -157,8 +157,6 @@ The format *must* be exactly as shown above without any spaces between `key` and
 +
 `AWS_CREDS=path/to/env-file/awsauth.env`
 
-. Navigate to the `aws_fsxn_variables` folder and update the access and secret key in the credentials file.
-
 == Step 5: Create an external volume
 
 You need an external volume to make sure the Terraform state files and other important files are persistent. These files must be available for Terraform to run the workflow and deployments.
