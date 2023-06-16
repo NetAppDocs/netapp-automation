@@ -21,7 +21,7 @@ The NetApp automation site provides a single location for documentation and othe
 
 === BlueXP automation catalog
 
-The NetApp BlueXP automation catalog is available through the BlueXP web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is provided at this site and organized in several different product or functional areas as described below.
+The NetApp https://console.bluexp.netapp.com/automationCatalog[BlueXP automation catalog^] is available through the BlueXP web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is provided here at this site and organized in several different product or functional areas as described below.
 
 .Amazon FSx for NetApp
 
@@ -32,13 +32,13 @@ The documentation for two Amazon FSx for NetApp (FSxN) solutions is provided as 
 
 .Azure NetApp Files
 
-An initial solution is included which helps you deploy Oracle with Azure NetApp Files:
+A solution is included which helps you deploy Oracle with Azure NetApp Files:
 
 * link:../solutions/anf-oracle.html[ANF - Oracle]
 
 .Cloud Volumes ONTAP
 
-Support for Cloud Volumes ONTAP is organized by the public cloud environment. The initial solutions are provided for two cloud environments as follows:
+Support for Cloud Volumes ONTAP is organized by the public cloud environment. Initial solutions are provided for two cloud environments as follows:
 
 * link:../solutions/cvo-aws-burst-to-cloud.html[CVO AWS - Burst to cloud]
 * link:../solutions/cvo-azure-burst-to-cloud.html[CVO Azure - Burst to cloud]
