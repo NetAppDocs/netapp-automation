@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: about/whats-new.html
 keywords: whats new, enhancements, new features
-summary: NetApp regularly updates the Automation Catalog solutions and related software to bring you new features, enhancements, and bug fixes.
+summary: NetApp regularly updates the automation solutions, product REST APIs, and related software to bring you new features, enhancements, and bug fixes.
 ---
 
 = What's new with NetApp Automation
@@ -13,8 +13,32 @@ summary: NetApp regularly updates the Automation Catalog solutions and related s
 :imagesdir: ./media/
 
 [.lead]
-NetApp regularly updates the Automation Catalog solutions and related software to bring you new features, enhancements, and bug fixes.
+NetApp regularly updates the automation solutions, product REST APIs, and related software to bring you new features, enhancements, and bug fixes.
 
 == 04 June 2023
 
-Initial launch of the documentation site.
+The NetApp automation site provides a single location for documentation and other resources supporting the automation of your NetApp products and cloud offerings. The initial launch of this site includes support for the new BlueXP automation catalog as well as various NetApp product REST APIs.
+
+=== BlueXP automation catalog
+
+The NetApp https://console.bluexp.netapp.com/automationCatalog[BlueXP automation catalog^] is available through the BlueXP web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is provided here at this site and organized in several different product or functional areas as described below.
+
+.Amazon FSx for NetApp
+
+The documentation for two Amazon FSx for NetApp (FSxN) solutions is provided as follows:
+
+* link:../solutions/fsxn-burst-to-cloud.html[FSxN - Burst to cloud]
+* link:../solutions/fsxn-disaster-recovery.html[FSxN - Disaster recovery]
+
+.Azure NetApp Files
+
+A solution is included which helps you deploy Oracle with Azure NetApp Files:
+
+* link:../solutions/anf-oracle.html[ANF - Oracle]
+
+.Cloud Volumes ONTAP
+
+Support for Cloud Volumes ONTAP is organized by the public cloud environment. Initial solutions are provided for two cloud environments as follows:
+
+* link:../solutions/cvo-aws-burst-to-cloud.html[CVO AWS - Burst to cloud]
+* link:../solutions/cvo-azure-burst-to-cloud.html[CVO Azure - Burst to cloud]

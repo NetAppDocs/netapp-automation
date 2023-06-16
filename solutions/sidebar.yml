@@ -3,21 +3,21 @@ title: BlueXP automation catalog
 entries:
   - title: Overview
     url: /solutions/bac-overview.html
-  - title: Azure Netapp Files
-    entries:
-      - title: Oracle
-        url: /solutions/anf-oracle.html
   - title: Amazon FSx for NetApp
     entries:
       - title: Burst to cloud
         url: /solutions/fsxn-burst-to-cloud.html
       - title: Disaster recovery backup
         url: /solutions/fsxn-disaster-recovery.html
-  - title: Cloud Volumes ONTAP - Azure
+  - title: Azure Netapp Files
     entries:
-      - title: Burst to cloud
-        url: /solutions/cvo-azure-burst-to-cloud.html
-  - title: Cloud Volumes ONTAP - AWS
+      - title: Oracle
+        url: /solutions/anf-oracle.html
+  - title: Cloud Volumes ONTAP for AWS
     entries:
       - title: Burst to cloud
         url: /solutions/cvo-aws-burst-to-cloud.html
+  - title: Cloud Volumes ONTAP for Azure
+    entries:
+      - title: Burst to cloud
+        url: /solutions/cvo-azure-burst-to-cloud.html
