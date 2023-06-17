@@ -17,11 +17,7 @@ NetApp regularly updates the automation solutions, product REST APIs, and relate
 
 == 04 June 2023
 
-The NetApp automation site provides a single location for documentation and other resources supporting the automation of your NetApp products and cloud offerings. The initial launch of this site includes support for the new BlueXP automation catalog as well as various NetApp product REST APIs.
-
-=== BlueXP automation catalog
-
-The NetApp https://console.bluexp.netapp.com/automationCatalog[BlueXP automation catalog^] is available through the BlueXP web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is provided here at this site and organized in several different product or functional areas as described below.
+The NetApp https://console.bluexp.netapp.com/automationCatalog[BlueXP automation catalog^] is available through the BlueXP web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is organized in several different product or functional areas as described below.
 
 .Amazon FSx for NetApp
 
