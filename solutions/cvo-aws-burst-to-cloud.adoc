@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for AWS Automation Solution automates the containerized 
 
 .Before you begin
 
-* You must have the automation solution file packaged as `CVO_AWS_Deployment.zip`. You can download the solution file at the BlueXP web UI.
+* You must download the link:https://console.bluexp.netapp.com/automationCatalog[CVO AWS- Burst to cloud] automation solution through the BlueXP web UI. The solution is packaged as `CVO_AWS_Deployment.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP. 
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies. 
 
@@ -122,22 +122,23 @@ total 32
     -rw-r--r--   1 user1  staff   996 Mar 24 04:06 docker-compose-deploy.yml
     -rw-r--r--   1 user1  staff  1041 Mar 24 04:06 docker-compose-destroy.yml
 ----
-
-. Build the Docker image for AWS deployment.
+. Locate the `cvo_aws_flexcache_ubuntu_image_latest.tar.gz` file. This contains the Docker image required to deploy Cloud Volumes ONTAP for AWS.
++
+Untar the file:
 +
 [source, cli]
-docker build -t cvo_Aws_flexcache_ubuntu_image
+docker load -i cvo_aws_flexcache_ubuntu_image_latest.tar
 
 . Wait a few minutes for the Docker image to load, and then validate that the Docker image loaded successfully:
 +
 [source,cli]
 docker images
 +
-You should see a Docker image named `cvo_Aws_ubuntu_image` with the `latest` tag, as shown in the following example:
+You should see a Docker image named `cvo_aws_ubuntu_image` with the `latest` tag, as shown in the following example:
 +
 ----
 REPOSITORY                            TAG        IMAGE ID       CREATED      SIZE
-    cvo_Aws_flexcache_ubuntu_image     latest    18db15a4d59c   2 weeks ago   1.14GB
+    cvo_aws_flexcache_ubuntu_image     latest    18db15a4d59c   2 weeks ago   1.14GB
 ----
 +
 NOTE: You can change the Docker image name if required. If you change the Docker image name, make sure to update the Docker image name in the `docker-compose-deploy` and `docker-compose-destroy` files.
