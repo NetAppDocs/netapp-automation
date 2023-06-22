@@ -122,6 +122,7 @@ total 32
     -rw-r--r--   1 user1  staff   996 Mar 24 04:06 docker-compose-deploy.yml
     -rw-r--r--   1 user1  staff  1041 Mar 24 04:06 docker-compose-destroy.yml
 ----
+
 . Build the Docker image for AWS deployment.
 +
 [source, cli]
