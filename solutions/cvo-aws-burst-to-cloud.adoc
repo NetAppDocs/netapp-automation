@@ -122,23 +122,21 @@ total 32
     -rw-r--r--   1 user1  staff   996 Mar 24 04:06 docker-compose-deploy.yml
     -rw-r--r--   1 user1  staff  1041 Mar 24 04:06 docker-compose-destroy.yml
 ----
-. Locate the `cvo_aws_flexcache_ubuntu_image_latest.tar.gz` file. This contains the Docker image required to deploy Cloud Volumes ONTAP for AWS.
-+
-Untar the file:
+. Build the Docker image for AWS deployment.
 +
 [source, cli]
-docker load -i cvo_aws_flexcache_ubuntu_image_latest.tar
+docker build -t cvo_Aws_flexcache_ubuntu_image
 
 . Wait a few minutes for the Docker image to load, and then validate that the Docker image loaded successfully:
 +
 [source,cli]
 docker images
 +
-You should see a Docker image named `cvo_aws_ubuntu_image` with the `latest` tag, as shown in the following example:
+You should see a Docker image named `cvo_Aws_ubuntu_image` with the `latest` tag, as shown in the following example:
 +
 ----
 REPOSITORY                            TAG        IMAGE ID       CREATED      SIZE
-    cvo_aws_flexcache_ubuntu_image     latest    18db15a4d59c   2 weeks ago   1.14GB
+    cvo_Aws_flexcache_ubuntu_image     latest    18db15a4d59c   2 weeks ago   1.14GB
 ----
 +
 NOTE: You can change the Docker image name if required. If you change the Docker image name, make sure to update the Docker image name in the `docker-compose-deploy` and `docker-compose-destroy` files.
