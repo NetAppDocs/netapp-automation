@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for AWS Automation Solution automates the containerized 
 
 .Before you begin
 
-* You must have the automation solution file packaged as `CVO_AWS_Deployment.zip`. You can download the solution file at the BlueXP web UI.
+* You must download the link:https://console.bluexp.netapp.com/automationCatalog[CVO AWS - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as `CVO_AWS_Deployment.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP. 
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies. 
 
