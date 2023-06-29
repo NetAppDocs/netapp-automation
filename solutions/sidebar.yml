@@ -9,7 +9,7 @@ entries:
         url: /solutions/fsxn-burst-to-cloud.html
       - title: Disaster recovery backup
         url: /solutions/fsxn-disaster-recovery.html
-  - title: Azure Netapp Files
+  - title: Azure NetApp Files
     entries:
       - title: Oracle
         url: /solutions/anf-oracle.html
