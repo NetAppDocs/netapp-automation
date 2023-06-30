@@ -143,14 +143,14 @@ The input parameter `private-key.pem` is your private key file used for Azure vi
 [source,cli]
 unzip na_oracle19c_deploy-master.zip
 
-. Navigate to the new folder `na_oracle19c_deploy-master` created with the unzip operation and list the files. You should see file `ora_anf_bck_image.tar.gz`.
+. Navigate to the new folder `na_oracle19c_deploy-master` created with the unzip operation and list the files. You should see file `ora_anf_bck_image.tar`.
 [source,cli]
 ls -lt
 
 . Load the Docker image file. The load operation should normally complete in a few seconds.
 +
 [source,cli]
-docker load -i ora_anf_bck_image.tar.gz
+docker load -i ora_anf_bck_image.tar
 
 . Confirm the Docker image is loaded.
 +
