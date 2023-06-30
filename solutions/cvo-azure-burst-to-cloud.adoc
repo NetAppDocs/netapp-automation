@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for Azure Automation Solution automates the containerize
 
 .Before you begin
 
-* You must download the link:https://console.bluexp.netapp.com/automationCatalog[CVO Azure - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as `CVO_Azure_Deployment.zip`.
+* You must download the link:https://console.bluexp.netapp.com/automationCatalog[CVO Azure - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as `CVO-Azure-Burst-To-Cloud.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP. 
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies. 
 
@@ -81,27 +81,27 @@ docker-compose –version
 == Step 2: Prepare the Docker image
 
 .Steps
-. Copy the `CVO_Azure_Deployment` folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:
+. Copy the `CVO-Azure-Burst-To-Cloud.zip` folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:
 +
 [source,cli]
-scp -i ~/<private-key>.pem -r CVO_Azure_Deployment <azureuser>@<IP_ADDRESS_OF_VM>:<LOCATION_TO_BE_COPIED>
+scp -i ~/<private-key>.pem -r CVO-Azure-Burst-To-Cloud.zip <azureuser>@<IP_ADDRESS_OF_VM>:<LOCATION_TO_BE_COPIED>
 
 * `private-key.pem` is your private key file for login without a password.
 * `azureuser` is the VM username.
 * `IP_ADDRESS_OF_VM` is the VM IP address.
 * `LOCATION_TO_BE_COPIED` is the location where the folder will be copied.
 
-. Extract the `CVO_Azure_Deployment.zip` folder. You can extract the folder in the current directory or in a custom location.
+. Extract the `CVO-Azure-Burst-To-Cloud.zip` folder. You can extract the folder in the current directory or in a custom location.
 +
 To extract the folder in the current directory, run:
 +
 [source,cli]
-unzip CVO_Azure_Deployment.zip
+unzip CVO-Azure-Burst-To-Cloud.zip
 +
 To extract the folder in a custom location, run:
 +
 [source,cli]
-unzip CVO_Azure_Deployment.zip -d ~/<your_folder_name>
+unzip CVO-Azure-Burst-To-Cloud.zip -d ~/<your_folder_name>
 
 . After you extract the folder, run the following command to view the files:
 +

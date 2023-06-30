@@ -34,7 +34,7 @@ At a high level, the automation code provided with this solution performs the fo
 
 You must have the following to complete the installation:
 
-* You need to download the https://console.bluexp.netapp.com/automationCatalog[ANF - Oracle^] automation solution through the BlueXP web user interface. The solution is packaged as file `Ora_ANF_Prov.zip`.
+* You need to download the https://console.bluexp.netapp.com/automationCatalog[ANF - Oracle^] automation solution through the BlueXP web user interface. The solution is packaged as file `na_oracle19c_deploy-master.zip`.
 * A Linux VM with the following characteristics:
 ** RHEL 8 (Standard_D8s_v3-RHEL-8)
 ** Deployed on the same Azure Virtual Network used for the Azure NetApp Files provisioning
@@ -131,37 +131,37 @@ You need to extract and load the Docker image provided with the automation solut
 
 .Steps
 
-. Copy the solution file `Ora_ANF_Prov.zip` to the virtual machine where the automation code will run.
+. Copy the solution file `na_oracle19c_deploy-master.zip` to the virtual machine where the automation code will run.
 +
 [source,cli]
-scp -i ~/<private-key.pem> -r Ora_ANF_Prov.zip user@<IP_ADDRESS_OF_VM>
+scp -i ~/<private-key.pem> -r na_oracle19c_deploy-master.zip user@<IP_ADDRESS_OF_VM>
 +
 The input parameter `private-key.pem` is your private key file used for Azure virtual machine authentication.
 
 . Navigate to the correct folder with the solution file and unzip the file.
 +
 [source,cli]
-unzip Ora_ANF_Prov.zip
+unzip na_oracle19c_deploy-master.zip
 
-. Navigate to the new folder `Ora_ANF_Prov` created with the unzip operation and list the files. You should see file `Ora_ANF_Prov_image_latest.tar.gz`.
+. Navigate to the new folder `na_oracle19c_deploy-master` created with the unzip operation and list the files. You should see file `ora_anf_bck_image.tar.gz`.
 [source,cli]
 ls -lt
 
 . Load the Docker image file. The load operation should normally complete in a few seconds.
 +
 [source,cli]
-docker load -i Ora_ANF_Prov_image_latest.tar.gz
+docker load -i ora_anf_bck_image.tar.gz
 
 . Confirm the Docker image is loaded.
 +
 [source,cli]
 docker images
 +
-You should see the Docker image `ora_anf_prov_image` with the tag `latest`.
+You should see the Docker image `ora_anf_bck_image` with the tag `latest`.
 +
 ----
    REPOSITORY          TAG       IMAGE ID      CREATED      SIZE
-ora_anf_prov_image    latest   ay98y7853769   1 week ago   2.58GB
+ora_anf_bck_image    latest   ay98y7853769   1 week ago   2.58GB
 ----
 
 == Step 5: Create an external volume
