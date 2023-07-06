@@ -751,7 +751,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-06-23 11:18:30 +0000">06/23/2023</time>
+    <time datetime="2023-07-06 16:05:12 +0000">07/06/2023</time>
     
   
 
@@ -789,7 +789,7 @@
 <div class="title">Before you begin</div>
 <ul>
 <li>
-<p>You must download the <a href="https://console.bluexp.netapp.com/automationCatalog" target="_blank" rel="noopener">CVO AWS - Burst to cloud</a> automation solution through the BlueXP web UI. The solution is packaged as <code>CVO_AWS_Deployment.zip</code>.</p>
+<p>You must download the <a href="https://console.bluexp.netapp.com/automationCatalog" target="_blank" rel="noopener">CVO AWS - Burst to cloud</a> automation solution through the BlueXP web UI. The solution is packaged as <code>cvo_aws_flexcache.zip</code>.</p>
 </li>
 <li>
 <p>You must install a Linux VM on the same network as Cloud Volumes ONTAP.</p>
@@ -895,10 +895,10 @@ sudo chmod +x /usr/local/bin/docker-compose</code></pre>
 <div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Copy the <code>CVO_AWS_Deployment.zip</code> folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:</p>
+<p>Copy the <code>cvo_aws_flexcache.zip</code> folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">scp -i ~/&lt;private-key&gt;.pem -r CVO_Aws_Deployment &lt;awsuser&gt;@&lt;IP_ADDRESS_OF_VM&gt;:&lt;LOCATION_TO_BE_COPIED&gt;</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">scp -i ~/&lt;private-key&gt;.pem -r cvo_aws_flexcache.zip &lt;awsuser&gt;@&lt;IP_ADDRESS_OF_VM&gt;:&lt;LOCATION_TO_BE_COPIED&gt;</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -919,13 +919,13 @@ sudo chmod +x /usr/local/bin/docker-compose</code></pre>
 </div>
 </li>
 <li>
-<p>Extract the <code>CVO_AWS_Deployment.zip</code> folder. You can extract the folder in the current directory or in a custom location.</p>
+<p>Extract the <code>cvo_aws_flexcache.zip</code> folder. You can extract the folder in the current directory or in a custom location.</p>
 <div class="paragraph">
 <p>To extract the folder in the current directory, run:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">unzip CVO_AWS_Deployment.zip</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">unzip cvo_aws_flexcache.zip</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -933,12 +933,12 @@ sudo chmod +x /usr/local/bin/docker-compose</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">unzip CVO_AWS_Deployment.zip -d ~/&lt;your_folder_name&gt;</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">unzip cvo_aws_flexcache.zip -d ~/&lt;your_folder_name&gt;</code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>After you extract the folder, run the following command to view the files:</p>
+<p>After you extract the content, navigate to the <code>CVO_Aws_Deployment</code> folder and run the following command to view the files:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli"> ls -la</code></pre>
@@ -962,10 +962,13 @@ sudo chmod +x /usr/local/bin/docker-compose</code></pre>
 </div>
 </li>
 <li>
-<p>Build the Docker image for AWS deployment.</p>
+<p>Locate the <code>cvo_aws_flexcache_ubuntu_image.tar</code> file. This contains the Docker image required to deploy Cloud Volumes ONTAP for AWS.</p>
+</li>
+<li>
+<p>Untar the file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">docker build -t cvo_Aws_flexcache_ubuntu_image</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">docker load -i cvo_aws_flexcache_ubuntu_image.tar</code></pre>
 </div>
 </div>
 </li>
@@ -977,12 +980,12 @@ sudo chmod +x /usr/local/bin/docker-compose</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see a Docker image named <code>cvo_Aws_ubuntu_image</code> with the <code>latest</code> tag, as shown in the following example:</p>
+<p>You should see a Docker image named <code>cvo_aws_flexcache_ubuntu_image</code> with the <code>latest</code> tag, as shown in the following example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>REPOSITORY                            TAG        IMAGE ID       CREATED      SIZE
-    cvo_Aws_flexcache_ubuntu_image     latest    18db15a4d59c   2 weeks ago   1.14GB</pre>
+ cvo_aws_flexcache_ubuntu_image     latest    18db15a4d59c   2 weeks ago   1.14GB</pre>
 </div>
 </div>
 <div class="admonitionblock note">
