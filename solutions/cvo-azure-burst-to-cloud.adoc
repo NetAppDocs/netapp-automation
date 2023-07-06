@@ -103,7 +103,7 @@ To extract the folder in a custom location, run:
 [source,cli]
 unzip CVO-Azure-Burst-To-Cloud.zip -d ~/<your_folder_name>
 
-. After you extract the contents, navigate to the `CVO_Azure_Deployment` folder and  run the following command to view the files:
+. After you extract the content, navigate to the `CVO_Azure_Deployment` folder and  run the following command to view the files:
 +
 [source,cli]
  ls -la
@@ -125,8 +125,8 @@ drwxr-xr-x@ 4 user1 staff 128 May 5 13:18 cvo_azure_variables
 ----
 
 . Locate the `cvo_azure_flexcache_ubuntu_image_latest.tar.gz` file. This contains the Docker image required to deploy Cloud Volumes ONTAP for Azure.
-+
-Untar the file:
+
+. Untar the file:
 +
 [source,cli]
 docker load -i cvo_azure_flexcache_ubuntu_image_latest.tar.gz

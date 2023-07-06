@@ -104,7 +104,7 @@ To extract the folder in a custom location, run:
 [source,cli]
 unzip cvo_aws_flexcache.zip -d ~/<your_folder_name>
 
-. After you extract the contents, navigate to the `CVO_Aws_Deployment` folder and run the following command to view the files:
+. After you extract the content, navigate to the `CVO_Aws_Deployment` folder and run the following command to view the files:
 +
 [source,cli]
  ls -la
@@ -124,8 +124,8 @@ total 32
 ----
 
 . Locate the `cvo_aws_flexcache_ubuntu_image.tar` file. This contains the Docker image required to deploy Cloud Volumes ONTAP for AWS.
-+
-Untar the file:
+
+. Untar the file:
 +
 [source,cli]
 docker load -i cvo_aws_flexcache_ubuntu_image.tar
