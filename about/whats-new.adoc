@@ -30,7 +30,7 @@ The documentation for two Amazon FSx for NetApp (FSxN) solutions is provided as 
 
 A solution is included which helps you deploy Oracle with Azure NetApp Files:
 
-* link:../solutions/anf-oracle.html[ANF - Oracle]
+* link:../solutions/anf-oracle.html[Oracle using Azure NetApp Files]
 
 .Cloud Volumes ONTAP
 
