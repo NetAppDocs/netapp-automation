@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: solutions/fsxn-disaster-recovery.html
-keywords: bluexp automation catalog, netapp automation solutions, fsxn, disaster recovery, backup
-summary: You can use this automation solution to take a backup of a source system for disaster recovery using Amazon FSx for NetApp.
+keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, disaster recovery, backup
+summary: You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp ONTAP.
 ---
 
-= Amazon FSx for NetApp - Backup for disaster recovery
+= Amazon FSx for NetApp ONTAP - Disaster recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,10 +13,10 @@ summary: You can use this automation solution to take a backup of a source syste
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp.
+You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp ONTAP.
 
 [NOTE]
-For convenience and brevity, Amazon File Services for NetApp will be referred to as *FSxN*.
+For convenience and brevity, Amazon FSx for NetApp ONTAP can also be referred to as *FSx for ONTAP*.
 
 .About this solution
 

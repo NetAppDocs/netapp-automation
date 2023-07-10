@@ -19,12 +19,12 @@ NetApp regularly updates the automation solutions, product REST APIs, and relate
 
 The NetApp https://console.bluexp.netapp.com/automationCatalog[BlueXP automation catalog^] is available through the BlueXP web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is organized in several different product or functional areas as described below.
 
-.Amazon FSx for NetApp
+.Amazon FSx for NetApp ONTAP
 
-The documentation for two Amazon FSx for NetApp (FSxN) solutions is provided as follows:
+Two Amazon FSx for NetApp ONTAP solutions are provided as follows:
 
-* link:../solutions/fsxn-burst-to-cloud.html[FSxN - Burst to cloud]
-* link:../solutions/fsxn-disaster-recovery.html[FSxN - Disaster recovery]
+* link:../solutions/fsxn-burst-to-cloud.html[Amazon FSx for NetApp ONTAP - Burst to cloud]
+* link:../solutions/fsxn-disaster-recovery.html[Amazon FSx for NetApp ONTAP - Disaster recovery]
 
 .Azure NetApp Files
 

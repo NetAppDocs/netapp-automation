@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: solutions/fsxn-burst-to-cloud.html
-keywords: bluexp automation catalog, netapp automation solutions, fsxn, burst to cloud
-summary: You can use this automation solution to provision Amazon File Services for NetApp with volumes and an associated FlexCache.
+keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, burst to cloud
+summary: You can use this automation solution to provision Amazon FSx for NetApp ONTAP with volumes and an associated FlexCache.
 ---
 
-= Amazon FSx for NetApp - Burst to cloud
+= Amazon FSx for NetApp ONTAP - Burst to cloud
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,10 +13,10 @@ summary: You can use this automation solution to provision Amazon File Services 
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to provision Amazon File Services for NetApp with volumes and an associated FlexCache.
+You can use this automation solution to provision Amazon FSx for NetApp ONTAP with volumes and an associated FlexCache.
 
 [NOTE]
-For convenience and brevity, Amazon File Services for NetApp will be referred to as *FSxN*.
+For convenience and brevity, Amazon FSx for NetApp ONTAP can also be referred to as *FSx for ONTAP*.
 
 .About this solution
 
