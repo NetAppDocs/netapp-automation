@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, azure, burst t
 summary: "You can use this automation solution to deploy Cloud Volumes ONTAP for Azure using Terraform."
 ---
 
-= Cloud Volumes ONTAP for Azure deployment
+= Cloud Volumes ONTAP for Azure
 :hardbreaks:
 :nofooter:
 :icons: font

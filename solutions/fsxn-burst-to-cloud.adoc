@@ -16,7 +16,7 @@ summary: You can use this automation solution to provision Amazon FSx for NetApp
 You can use this automation solution to provision Amazon FSx for NetApp ONTAP with volumes and an associated FlexCache.
 
 [NOTE]
-For convenience, Amazon FSx for NetApp ONTAP can also be referred to as *FSx for ONTAP*.
+Amazon FSx for NetApp ONTAP is also referred to as *FSx for ONTAP*.
 
 .About this solution
 
@@ -192,7 +192,7 @@ See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/
 
 == Step 6: Provision Amazon FSx for NetApp ONTAP and FlexCache
 
-You can now provision Amazon FSx for NetApp ONTAP and FlexCache.
+You can provision Amazon FSx for NetApp ONTAP and FlexCache.
 
 .Steps
 
@@ -221,7 +221,7 @@ You can optionally delete and remove Amazon FSx for NetApp ONTAP and FlexCache.
 [source,cli]
 docker-compose -f docker-compose-destroy.yml up
 +
-This command creates two containers. The first container delete FlexCache and the second container delete's FSx for ONTAP.
+This command creates two containers. The first container delete FlexCache and the second container deletes FSx for ONTAP.
 
 . Monitor the provisioning process.
 +

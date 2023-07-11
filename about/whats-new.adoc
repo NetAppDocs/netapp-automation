@@ -28,7 +28,7 @@ Two Amazon FSx for NetApp ONTAP solutions are provided as follows:
 
 .Azure NetApp Files
 
-A solution is included which helps you deploy Oracle with Azure NetApp Files:
+A solution is included to help you deploy Oracle with Azure NetApp Files:
 
 * link:../solutions/anf-oracle.html[Oracle using Azure NetApp Files]
 

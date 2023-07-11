@@ -16,7 +16,7 @@ summary: You can use this automation solution to take a disaster recovery backup
 You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp ONTAP.
 
 [NOTE]
-For convenience, Amazon FSx for NetApp ONTAP can also be referred to as *FSx for ONTAP*.
+Amazon FSx for NetApp ONTAP is also referred to as *FSx for ONTAP*.
 
 .About this solution
 
@@ -193,7 +193,7 @@ See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/
 
 == Step 6: Deploy the backup solution
 
-You can now deploy and provision the disaster recovery backup solution.
+You can deploy and provision the disaster recovery backup solution.
 
 .Steps
 

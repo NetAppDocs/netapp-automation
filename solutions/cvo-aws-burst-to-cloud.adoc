@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, azure, burst t
 summary: "This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog."
 ---
 
-= Cloud Volumes ONTAP for AWS deployment
+= Cloud Volumes ONTAP for AWS
 :hardbreaks:
 :nofooter:
 :icons: font
