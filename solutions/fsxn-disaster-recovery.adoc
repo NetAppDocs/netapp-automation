@@ -16,13 +16,13 @@ summary: You can use this automation solution to take a disaster recovery backup
 You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp ONTAP.
 
 [NOTE]
-For convenience and brevity, Amazon FSx for NetApp ONTAP can also be referred to as *FSx for ONTAP*.
+For convenience, Amazon FSx for NetApp ONTAP can also be referred to as *FSx for ONTAP*.
 
 .About this solution
 
 At a high level, the automation code provided with this solution performs the following actions:
 
-* Provision a destination FSxN file system
+* Provision a destination FSx for ONTAP file system
 * Provision Storage Virtual Machines (SVMs) for the file system
 * Create a cluster peering relationship between the source and destination systems
 * Create an SVM peering relationship between the source system and destination system for SnapMirror
@@ -36,11 +36,11 @@ The automation is based on Docker and Docker Compose which must be installed on 
 
 You must have the following to complete the provisioning and configuration:
 
-* You need to download the https://console.bluexp.netapp.com/automationCatalog[FSxN - Disaster recovery^] automation solution through the BlueXP web UI. The solution is packaged as `FSxN_DR.zip`. This zip contains the `AWS_FSxN_Bck_Prov.zip` file that you will use to deploy the solution described in this document.
+* You need to download the https://console.bluexp.netapp.com/automationCatalog[Amazon FSx for NetApp ONTAP - Disaster recovery^] automation solution through the BlueXP web UI. The solution is packaged as `FSxN_DR.zip`. This zip contains the `AWS_FSxN_Bck_Prov.zip` file that you will use to deploy the solution described in this document.
 * Network connectivity between the source and destination systems.
 * A Linux VM with the following characteristics:
 ** Debian-based Linux distribution
-** Deployed on the same VPC subset used for FSxN provisioning
+** Deployed on the same VPC subset used for FSx for ONTAP provisioning
 * An AWS account.
 
 == Step 1: Install and configure Docker
@@ -202,7 +202,7 @@ You can now deploy and provision the disaster recovery backup solution.
 [source,cli]
 docker-compose up -d
 +
-This command creates three containers. The first container deploys FSxN. The second container creates the cluster peering, SVM peering, and destination volume. The third container creates the SnapMirror relationship and initiates the SnapMirror transfer.
+This command creates three containers. The first container deploys FSx for ONTAP. The second container creates the cluster peering, SVM peering, and destination volume. The third container creates the SnapMirror relationship and initiates the SnapMirror transfer.
 
 . Monitor the provisioning process.
 +

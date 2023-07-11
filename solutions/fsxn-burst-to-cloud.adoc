@@ -16,18 +16,18 @@ summary: You can use this automation solution to provision Amazon FSx for NetApp
 You can use this automation solution to provision Amazon FSx for NetApp ONTAP with volumes and an associated FlexCache.
 
 [NOTE]
-For convenience and brevity, Amazon FSx for NetApp ONTAP can also be referred to as *FSx for ONTAP*.
+For convenience, Amazon FSx for NetApp ONTAP can also be referred to as *FSx for ONTAP*.
 
 .About this solution
 
 At a high level, the automation code provided with this solution performs the following actions:
 
-* Provision a destination FSxN file system
+* Provision a destination FSx for ONTAP file system
 * Provision Storage Virtual Machines (SVMs) for the file system
 * Create a cluster peering relationship between the source and destination systems
 * Create an SVM peering relationship between the source system and destination system for FlexCache
-* Optionally create FlexVol volumes in FSxN
-* Create a FlexCache volume in FSxN with the source pointing to on-prem storage
+* Optionally create FlexVol volumes using FSx for ONTAP
+* Create a FlexCache volume in FSx for ONTAP with the source pointing to on-prem storage
 
 The automation is based on Docker and Docker Compose which must be installed on the Linux virtual machine as described below.
 
@@ -35,11 +35,11 @@ The automation is based on Docker and Docker Compose which must be installed on 
 
 You must have the following to complete the provisioning and configuration:
 
-* You need to download the https://console.bluexp.netapp.com/automationCatalog[FSxN - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as file `AWS_FSxN_BTC.zip`.
+* You need to download the https://console.bluexp.netapp.com/automationCatalog[Amazon FSx for NetApp ONTAP - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as file `AWS_FSxN_BTC.zip`.
 * Network connectivity between the source and destination systems.
 * A Linux VM with the following characteristics:
 ** Debian-based Linux distribution
-** Deployed on the same VPC subset used for FSxN provisioning
+** Deployed on the same VPC subset used for FSx for ONTAP provisioning
 * AWS account.
 
 == Step 1: Install and configure Docker
@@ -190,9 +190,9 @@ You can instead add an NFS share as the external volume using a command such as:
 +
 See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system[Terraform resource: aws_fsx_ontap_file_system^] for more information.
 
-== Step 6: Provision Amazon FSx for NetApp and FlexCache
+== Step 6: Provision Amazon FSx for NetApp ONTAP and FlexCache
 
-You can now provision Amazon FSx for NetApp and FlexCache.
+You can now provision Amazon FSx for NetApp ONTAP and FlexCache.
 
 .Steps
 
@@ -201,7 +201,7 @@ You can now provision Amazon FSx for NetApp and FlexCache.
 [source,cli]
 docker-compose -f docker-compose-provision.yml up
 +
-This command creates two containers. The first container deploys FSxN and the second container creates the cluster peering, SVM peering, destination volume, and FlexCache.
+This command creates two containers. The first container deploys FSx for ONTAP and the second container creates the cluster peering, SVM peering, destination volume, and FlexCache.
 
 . Monitor the provisioning process.
 +
@@ -210,9 +210,9 @@ docker-compose -f docker-compose-provision.yml logs -f
 +
 This command gives you the output in real-time, but has been configured to capture the logs through the file `deployment.log`. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
 
-== Step 7: Destroy Amazon FSx for NetApp and FlexCache
+== Step 7: Destroy Amazon FSx for NetApp ONTAP and FlexCache
 
-You can optionally delete and remove Amazon FSx for NetApp and FlexCache.
+You can optionally delete and remove Amazon FSx for NetApp ONTAP and FlexCache.
 
 . Set the variable `flexcache_operation` in the `terraform.tfvars` file to "destroy".
 
@@ -221,7 +221,7 @@ You can optionally delete and remove Amazon FSx for NetApp and FlexCache.
 [source,cli]
 docker-compose -f docker-compose-destroy.yml up
 +
-This command creates two containers. The first container delete FlexCache and the second container delete's Amazon FSx for NetApp.
+This command creates two containers. The first container delete FlexCache and the second container delete's FSx for ONTAP.
 
 . Monitor the provisioning process.
 +
