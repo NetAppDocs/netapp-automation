@@ -36,5 +36,5 @@ A solution is included which helps you deploy Oracle with Azure NetApp Files:
 
 Support for Cloud Volumes ONTAP is organized by the public cloud environment. Initial solutions are provided for two cloud environments as follows:
 
-* link:../solutions/cvo-aws-burst-to-cloud.html[CVO AWS - Burst to cloud]
-* link:../solutions/cvo-azure-burst-to-cloud.html[CVO Azure - Burst to cloud]
+* link:../solutions/cvo-aws-burst-to-cloud.html[Cloud Volumes ONTAP AWS - Burst to cloud]
+* link:../solutions/cvo-azure-burst-to-cloud.html[Cloud Volumes ONTAP Azure - Burst to cloud]
