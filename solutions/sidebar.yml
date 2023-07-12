@@ -3,11 +3,11 @@ title: BlueXP automation catalog
 entries:
   - title: Overview
     url: /solutions/bac-overview.html
-  - title: Amazon FSx for NetApp
+  - title: Amazon FSx for NetApp ONTAP
     entries:
       - title: Burst to cloud
         url: /solutions/fsxn-burst-to-cloud.html
-      - title: Disaster recovery backup
+      - title: Disaster recovery
         url: /solutions/fsxn-disaster-recovery.html
   - title: Azure NetApp Files
     entries:

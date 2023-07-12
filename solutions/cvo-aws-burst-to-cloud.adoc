@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: solutions/cvo-aws-burst-to-cloud.html
-keywords: bluexp automation catalog, netapp automation solutions, azure, burst to cloud
+keywords: bluexp automation catalog, netapp automation solutions, aws, cloud volumes ontap, burst to cloud
 summary: "This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog."
 ---
 
-= Cloud Volumes ONTAP for AWS deployment using Terraform
+= Cloud Volumes ONTAP for AWS - Burst to cloud
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,34 +13,34 @@ summary: "This article supports the NetApp Cloud Volumes ONTAP for AWS Automatio
 :imagesdir: ./media/
 
 [.lead]
-This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog. 
+This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog.
 
 The Cloud Volumes ONTAP for AWS Automation Solution automates the containerized deployment of Cloud Volumes ONTAP for AWS using Terraform, enabling you to deploy Cloud Volumes ONTAP for AWS rapidly, without any manual intervention.
 
 .Before you begin
 
-* You must download the link:https://console.bluexp.netapp.com/automationCatalog[CVO AWS - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as `cvo_aws_flexcache.zip`.
-* You must install a Linux VM on the same network as Cloud Volumes ONTAP. 
-* After you install the Linux VM, you must follow the steps in this solution to install the required dependencies. 
+* You must download the link:https://console.bluexp.netapp.com/automationCatalog[Cloud Volumes ONTAP AWS - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as `cvo_aws_flexcache.zip`.
+* You must install a Linux VM on the same network as Cloud Volumes ONTAP.
+* After you install the Linux VM, you must follow the steps in this solution to install the required dependencies.
 
 == Step 1: Install Docker and Docker Compose
 
 === Install Docker
 
-The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you use depend on the Linux distribution software that you are using. Refer to the specific Linux distribution software documentation for your configuration. 
+The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you use depend on the Linux distribution software that you are using. Refer to the specific Linux distribution software documentation for your configuration.
 
 .Steps
 
-. Install Docker by running the following `sudo` commands: 
+. Install Docker by running the following `sudo` commands:
 +
 [source,cli]
 ----
-sudo apt-get update 
-sudo apt-get install apt-transport-https cacertificates curl gnupg-agent software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | 
+sudo apt-get update
+sudo apt-get install apt-transport-https cacertificates curl gnupg-agent software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg |
 sudo apt-key add -
-sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable” 
-sudo apt-get update 
-sudo apt-get install dockerce docker-ce-cli containerd.io  
+sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
+sudo apt-get update
+sudo apt-get install dockerce docker-ce-cli containerd.io
 ----
 
 . Verify successful installation:
@@ -65,7 +65,7 @@ newgrp docker
 
 === Install Docker Compose
 
-.Steps 
+.Steps
 
 . Install Docker Compose by running the following `sudo` commands:
 +
@@ -73,9 +73,9 @@ newgrp docker
 ----
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-sudo chmod +x /usr/local/bin/docker-compose 
+sudo chmod +x /usr/local/bin/docker-compose
 ----
-. Verify the successful installation: 
+. Verify the successful installation:
 [source,cli]
 docker-compose –version
 
@@ -85,7 +85,7 @@ docker-compose –version
 . Copy the `cvo_aws_flexcache.zip` folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:
 +
 [source,cli]
-scp -i ~/<private-key>.pem -r cvo_aws_flexcache.zip <awsuser>@<IP_ADDRESS_OF_VM>:<LOCATION_TO_BE_COPIED> 
+scp -i ~/<private-key>.pem -r cvo_aws_flexcache.zip <awsuser>@<IP_ADDRESS_OF_VM>:<LOCATION_TO_BE_COPIED>
 
 * `private-key.pem` is your private key file for login without a password.
 * `awsuser` is the VM username.
@@ -148,9 +148,9 @@ NOTE: You can change the Docker image name if required. If you change the Docker
 
 At this stage, you must create two environment variable files. One file is for authentication of AWS Resource Manager APIs using the AWS access and secret keys. The second file is for setting environment variables to enable BlueXP Terraform modules to locate and authenticate AWS APIs.
 
-.Steps 
+.Steps
 
-. Create the `awsauth.env` file in the following location: 
+. Create the `awsauth.env` file in the following location:
 +
 `path/to/env-file/awsauth.env`
 +
@@ -178,11 +178,11 @@ The format *must* be exactly as shown above.
 
 == Step 4: Add Cloud Volumes ONTAP licenses to BlueXP or subscribe to BlueXP
 
-You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP - Cloud Manager in the AWS Marketplace. 
+You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP - Cloud Manager in the AWS Marketplace.
 
 .Steps
 
-. From the AWS portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*. 
+. From the AWS portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*.
 +
 You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.
 . Configure the BlueXP portal to import the SaaS subscription to BlueXP.
@@ -191,7 +191,7 @@ You can configure this directly from the AWS portal.
 +
 You are redirected to the BlueXP portal to confirm the configuration.
 
-. Confirm the configuration in the BlueXP portal by selecting *Save*. 
+. Confirm the configuration in the BlueXP portal by selecting *Save*.
 
 == Step 5: Create an external volume
 
@@ -211,7 +211,7 @@ docker volume create cvo_aws_volume_dst
 . Use one of the following options:
 .. Add an external volume path to the `.env` environment file.
 +
-You must follow the exact format shown below. 
+You must follow the exact format shown below.
 +
 Format:
 +
@@ -220,7 +220,7 @@ Format:
 Example:
 `PERSISTENT_VOL=cvo_aws_volume_dst:/cvo_aws`
 
-.. Add NFS shares as an external volume. 
+.. Add NFS shares as an external volume.
 +
 Make sure that the Docker container can communicate with the NFS shares and that the correct permissions, such as read-write, are configured.
 +
@@ -239,13 +239,13 @@ You should see the following variable file in the folder:
 * `terraform.tfvars`
 * `variables.tf`
 
-. Change the values inside the `terraform.tfvars` file according to your requirements. 
+. Change the values inside the `terraform.tfvars` file according to your requirements.
 +
-You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones, and other factors supported by Cloud Volumes ONTAP for AWS Cloud Provider. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs. 
+You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones, and other factors supported by Cloud Volumes ONTAP for AWS Cloud Provider. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs.
 +
 All supporting variables for the Connector and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding to the `terraform.tfvars` file.
 
-. Depending on your requirements, you can enable or disable FlexCache and FlexClone by setting the following options to `true` or `false`. 
+. Depending on your requirements, you can enable or disable FlexCache and FlexClone by setting the following options to `true` or `false`.
 +
 The following examples enable FlexCache and FlexClone:
 +
@@ -256,22 +256,22 @@ The following examples enable FlexCache and FlexClone:
 
 .Steps
 
-. From the root folder, run the following command to trigger deployment: 
+. From the root folder, run the following command to trigger deployment:
 [source,cli]
 docker-compose -f docker-compose-deploy.yml up -d
 +
-Two containers are triggered, the first container deploys Cloud Volumes ONTAP and the second container sends telemetry data to AutoSupport. 
+Two containers are triggered, the first container deploys Cloud Volumes ONTAP and the second container sends telemetry data to AutoSupport.
 +
 The second container waits until the first container completes all of the steps successfully.
 
 . Monitor progress of the deployment process using the log files:
 +
 [source,cli]
-docker-compose -f docker-compose-deploy.yml logs -f 
+docker-compose -f docker-compose-deploy.yml logs -f
 +
 This command provides output in real-time and captures the data in the following log files:
 `deployment.log`
-+ 
++
 `telemetry_asup.log`
 +
 You can change the name of these log files by editing the `.env` file using the following environment variables:
@@ -288,21 +288,18 @@ The following examples show how to change the log file names:
 
 .After you finish
 
-You can use the following steps to destroy the temporary environment and clean up items that were created during the deployment process. 
+You can use the following steps to destroy the temporary environment and clean up items that were created during the deployment process.
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache volumes and destroys the temporary environment that was created earlier. 
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache volumes and destroys the temporary environment that was created earlier.
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone volumes and destroys the temporary environment that was created earlier. 
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone volumes and destroys the temporary environment that was created earlier.
 +
 `flexclone_operation = "destroy"`
 +
 NOTE: The possible options are `deploy` and `destroy`.
-
-
-
