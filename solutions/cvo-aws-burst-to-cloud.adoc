@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: solutions/cvo-aws-burst-to-cloud.html
-keywords: bluexp automation catalog, netapp automation solutions, azure, burst to cloud
+keywords: bluexp automation catalog, netapp automation solutions, aws, cloud volumes ontap, burst to cloud
 summary: "This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog."
 ---
 
-= Cloud Volumes ONTAP for AWS
+= Cloud Volumes ONTAP for AWS - Burst to cloud
 :hardbreaks:
 :nofooter:
 :icons: font
