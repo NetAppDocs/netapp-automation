@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head class="at-element-marker">
-  <title>Cloud Volumes ONTAP for Azure deployment using Terraform</title>
+  <title>Cloud Volumes ONTAP for Azure - Burst to cloud</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Cloud Volumes ONTAP for Azure deployment using Terraform" />
+  <meta property="og:title" content="Cloud Volumes ONTAP for Azure - Burst to cloud" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/us-en/netapp-automation/solutions/cvo-azure-burst-to-cloud.html" />
 	<meta property="og:description" content="You can use this automation solution to deploy Cloud Volumes ONTAP for Azure using Terraform." />
@@ -17,7 +17,7 @@
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="You can use this automation solution to deploy Cloud Volumes ONTAP for Azure using Terraform.">
-  <meta name="keywords" content=" bluexp automation catalog, netapp automation solutions, azure, burst to cloud"><!-- Icons -->
+  <meta name="keywords" content=" bluexp automation catalog, netapp automation solutions, azure, cloud volumes ontap, burst to cloud"><!-- Icons -->
   <link rel="icon" href="/us-en/netapp-automation/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -177,7 +177,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/us-en/netapp-automation/solutions/cvo-azure-burst-to-cloud.html&page-title=Cloud Volumes ONTAP for Azure deployment using Terraform" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-automation/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/blob/main/solutions/cvo-azure-burst-to-cloud.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-automation/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/netapp-automation/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/us-en/netapp-automation/solutions/cvo-azure-burst-to-cloud.html&page-title=Cloud Volumes ONTAP for Azure - Burst to cloud" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-automation/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/blob/main/solutions/cvo-azure-burst-to-cloud.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-automation/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/netapp-automation/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">ON THIS PAGE</div>
@@ -345,11 +345,11 @@
           
           <a target="_blank" 
             
-              href="/us-en/netapp-automation/pdfs/sidebar/Amazon_FSx_for_NetApp.pdf" 
+              href="/us-en/netapp-automation/pdfs/sidebar/Amazon_FSx_for_NetApp_ONTAP.pdf" 
             
           >
             <img src="/us-en/netapp-automation/images/pdf.png" alt="" width="16" height="16"/>
-            Amazon FSx for NetApp
+            Amazon FSx for NetApp ONTAP
           </a>
           
 
@@ -573,11 +573,11 @@
         Overview
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Amazon FSx for NetApp"
+      data-pdf-filename="Amazon FSx for NetApp ONTAP"
       data-li-level="2" 
       class="subfolders "
     ><a href="#">
-        <div class="na-navbar-padding"> Amazon FSx for NetApp</div>
+        <div class="na-navbar-padding"> Amazon FSx for NetApp ONTAP</div>
       </a>
       <ul style="display: none;">
         <li 
@@ -589,11 +589,11 @@
         Burst to cloud
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Disaster recovery backup"
+      data-pdf-filename="Disaster recovery"
       data-li-level="3#" 
       class=" "
     ><a class="na-navbar-padding" href="/us-en/netapp-automation/solutions/fsxn-disaster-recovery.html">
-        Disaster recovery backup
+        Disaster recovery
       </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Azure NetApp Files"
@@ -744,14 +744,14 @@
 </div>
 
       <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Cloud Volumes ONTAP for Azure deployment using Terraform</h1>
+  <h1 class="n-doc__component-detail-heading">Cloud Volumes ONTAP for Azure - Burst to cloud</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2023-07-06 16:05:12 +0000">07/06/2023</time>
+    <time datetime="2023-07-12 21:56:23 +0000">07/12/2023</time>
     
   
 
@@ -789,7 +789,7 @@
 <div class="title">Before you begin</div>
 <ul>
 <li>
-<p>You must download the <a href="https://console.bluexp.netapp.com/automationCatalog" target="_blank" rel="noopener">CVO Azure - Burst to cloud</a> automation solution through the BlueXP web UI. The solution is packaged as <code>CVO-Azure-Burst-To-Cloud.zip</code>.</p>
+<p>You must download the <a href="https://console.bluexp.netapp.com/automationCatalog" target="_blank" rel="noopener">Cloud Volumes ONTAP Azure - Burst to cloud</a> automation solution through the BlueXP web UI. The solution is packaged as <code>CVO-Azure-Burst-To-Cloud.zip</code>.</p>
 </li>
 <li>
 <p>You must install a Linux VM on the same network as Cloud Volumes ONTAP.</p>
