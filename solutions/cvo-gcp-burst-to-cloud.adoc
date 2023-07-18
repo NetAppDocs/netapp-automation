@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: solutions/cvo-aws-burst-to-cloud.html
+keywords: bluexp automation catalog, netapp automation solutions, gcp, cloud volumes ontap, burst to cloud
+summary:
+---
+
+= Cloud Volumes ONTAP for GCP - Burst to cloud
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This page is being updated. Please check back soon.
