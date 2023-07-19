@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: solutions/ontap-day01-overview.html
+keywords: bluexp automation catalog, netapp automation solutions, ontap, day 0/1
+summary:
+---
+
+= ONTAP day 0/1 overview
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This page is being updated. Please check back soon.
