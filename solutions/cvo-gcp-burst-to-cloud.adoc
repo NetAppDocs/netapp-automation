@@ -148,7 +148,7 @@ NOTE: You can change the Docker image name if required. If you change the Docker
 
 At this stage, you must update the JSON file with a service account key to authenticate the Google Cloud provider. 
 
-. Create a service account with permissions to deploy Cloud Volumes ONTAP and the BluXP Connector in the GCP account.
+. Create a service account with permissions to deploy Cloud Volumes ONTAP and the BluXP Connector in the Google Cloud account.
 . Download the key file for the account and update the `cxo-automation-gcp.json` file with the key file information. The `cxo-automation-gcp.json` file is located in the `cvo_gcp_variables` folder. 
 +
 .Example
