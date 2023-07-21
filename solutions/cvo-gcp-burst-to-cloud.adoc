@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for Google Cloud Automation Solution automates the conta
 
 .Before you begin
 
-* You must download the link:https://console.bluexp.netapp.com/automationCatalog[Cloud Volumes ONTAP for Google Cloud - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as `cvo_gcp_flexcache`.
+* You must download the link:https://console.bluexp.netapp.com/automationCatalog[Cloud Volumes ONTAP for Google Cloud - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as `cvo_gcp_flexcache.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP.
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies.
 
@@ -82,7 +82,7 @@ docker-compose –version
 == Step 2: Prepare the Docker image
 
 .Steps
-. Copy the `cvo_gcp_flexcache` folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:
+. Copy the `cvo_gcp_flexcache.zip` folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:
 +
 [source,cli]
 scp -i ~/private-key.pem -r cvo_gcp_flexcache gcpuser@IP_ADDRESS_OF_VM:LOCATION_TO_BE_COPIED 
@@ -149,7 +149,7 @@ NOTE: You can change the Docker image name if required. If you change the Docker
 At this stage, you must update the JSON file with a service account key to authenticate the Google Cloud provider. 
 
 . Create a service account with permissions to deploy Cloud Volumes ONTAP and the BluXP Connector in the GCP account.
-. Download the key file for the account and update the cxo-automation-gcp.json file  under cvo_gcp_variables. 
+. Download the key file for the account and update the `cxo-automation-gcp.json` file with the key file information. The `cxo-automation-gcp.json` file is located in the `cvo_gcp_variables` folder. 
 +
 .Example
 +
@@ -169,7 +169,7 @@ At this stage, you must update the JSON file with a service account key to authe
 }
 ----
 +
-The format must be exactly as shown above.
+The file format must be exactly as shown above.
 
 == Step 4: Subscribe to BlueXP
 
