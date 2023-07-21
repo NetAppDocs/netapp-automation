@@ -27,7 +27,7 @@ The Cloud Volumes ONTAP for AWS Automation Solution automates the containerized 
 
 === Install Docker
 
-The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you use depend on the Linux distribution software that you are using. Refer to the specific Linux distribution software documentation for your configuration.
+The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you run depend on the Linux distribution software that you are using. Refer to the specific Linux distribution software documentation for your configuration.
 
 .Steps
 
@@ -43,7 +43,7 @@ sudo apt-get update
 sudo apt-get install dockerce docker-ce-cli containerd.io
 ----
 
-. Verify successful installation:
+. Verify that the installation was successful:
 +
 [source,cli]
 docker –version

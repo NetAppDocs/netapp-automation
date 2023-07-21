@@ -21,3 +21,7 @@ entries:
     entries:
       - title: Burst to cloud
         url: /solutions/cvo-azure-burst-to-cloud.html
+  - title: Cloud Volumes ONTAP for Google Cloud
+    entries:
+      - title: Burst to cloud
+        url: /solutions/cvo-gcp-burst-to-cloud.html
