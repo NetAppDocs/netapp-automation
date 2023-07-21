@@ -31,7 +31,7 @@ The following steps use Ubuntu 20.04 Debian Linux distribution software as an ex
 
 .Steps
 
-. Install Docker by running the following `sudo` commands:
+. Install Docker by running the following commands:
 +
 [source,cli]
 ----
@@ -144,12 +144,16 @@ REPOSITORY                            TAG        IMAGE ID       CREATED      SIZ
 +
 NOTE: You can change the Docker image name if required. If you change the Docker image name, make sure to update the Docker image name in the `docker-compose-deploy` and `docker-compose-destroy` files.
 
-== Step 3: Update the JSON file
+== Step 3: Update the JSON file 
 
 At this stage, you must update the JSON file with a service account key to authenticate the Google Cloud provider. 
 
-. Create a service account to deploy Cloud Volumes ONTAP and the BluXP Connector in the with relevant permissions to be able to deploy CVO and cloud manager connector in the GCP account and download key file for the same and update the file as it is in cxo-automation-gcp.json under cvo_gcp_variables
-eg. 
+. Create a service account with permissions to deploy Cloud Volumes ONTAP and the BluXP Connector in the GCP account.
+. Download the key file for the account and update the cxo-automation-gcp.json file  under cvo_gcp_variables. 
++
+.Example
++
+----
 {
   "type": "service_account",
   "project_id": "",
@@ -163,7 +167,9 @@ eg.
   "client_x509_cert_url": "",
   "universe_domain": "googleapis.com"
 }
-Make sure the format is exactly as mentioned above.
+----
++
+The format must be exactly as shown above.
 
 == Step 4: Subscribe to BlueXP
 
