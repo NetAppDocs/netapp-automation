@@ -178,7 +178,7 @@ The format *must* be exactly as shown above.
 
 == Step 4: Add Cloud Volumes ONTAP licenses to BlueXP or subscribe to BlueXP
 
-You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP - Cloud Manager in the AWS Marketplace.
+You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP in the AWS Marketplace.
 
 .Steps
 

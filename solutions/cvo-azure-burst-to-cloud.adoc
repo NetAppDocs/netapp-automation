@@ -204,7 +204,7 @@ Enter the absolute path for the `credentials.env` environment file in the `.env`
 
 == Step 4: Add Cloud Volumes ONTAP licenses to BlueXP or subscribe to BlueXP
 
-You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP - Cloud Manager in the Azure Marketplace.
+You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP in the Azure Marketplace.
 
 .Steps
 
