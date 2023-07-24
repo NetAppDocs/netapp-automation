@@ -148,7 +148,7 @@ NOTE: You can change the Docker image name if required. If you change the Docker
 
 At this stage, you must update the JSON file with a service account key to authenticate the Google Cloud provider. 
 
-. Create a service account with permissions to deploy Cloud Volumes ONTAP and the BlueXP Connector in the Google Cloud account. link:https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-google-cloud.html#create-a-service-account[Learn more about creating a service account.]
+. Create a service account with permissions to deploy Cloud Volumes ONTAP and the BlueXP Connector in the Google Cloud account. link:https://cloud.google.com/iam/docs/service-accounts-create[Learn more about creating service accounts.^]
 . Download the key file for the account and update the `cxo-automation-gcp.json` file with the key file information. The `cxo-automation-gcp.json` file is located in the `cvo_gcp_variables` folder. 
 +
 .Example
@@ -197,6 +197,8 @@ You must enable the following Google Cloud APIs in your project to deploy Cloud 
 * Cloud Resource Manager API
 * Compute Engine API
 * Identity and Access Management (IAM) API
+
+link:https://cloud.google.com/apis/docs/getting-started#enabling_apis[Learn more about enabling APIs^]
 
 == Step 6: Create an external volume
 
