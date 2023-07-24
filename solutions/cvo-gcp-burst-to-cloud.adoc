@@ -190,17 +190,17 @@ For more information, see link:https://docs.netapp.com/us-en/bluexp-setup-admin/
 
 == Step 5: Enable required Google Cloud APIs 
 
-You must enable the following Google Cloud APIsin your project to deploy Cloud Volumes ONTAP and the Connector.
+You must enable the following Google Cloud APIs in your project to deploy Cloud Volumes ONTAP and the Connector.
 
 * Cloud Deployment Manager V2 API
 * Cloud Logging API
 * Cloud Resource Manager API
-*  Compute Engine API
+* Compute Engine API
 * Identity and Access Management (IAM) API
 
 == Step 6: Create an external volume
 
-You should create an external volume to keep the Terraform state files, and other important files persistent. You must make sure that the files are available for Terraform to run the workflow and deployments.
+You should create an external volume to keep the Terraform state files and other important files persistent. You must make sure that the files are available for Terraform to run the workflow and deployments.
 
 .Steps
 
