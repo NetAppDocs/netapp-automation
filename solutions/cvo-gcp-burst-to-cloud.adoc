@@ -85,7 +85,7 @@ docker-compose –version
 . Copy the `cvo_gcp_flexcache.zip` folder to the Linux VM that you want to use to deploy Cloud Volumes ONTAP:
 +
 [source,cli]
-scp -i ~/private-key.pem -r cvo_gcp_flexcache gcpuser@IP_ADDRESS_OF_VM:LOCATION_TO_BE_COPIED 
+scp -i ~/private-key.pem -r cvo_gcp_flexcache.zip gcpuser@IP_ADDRESS_OF_VM:LOCATION_TO_BE_COPIED 
 
 * `private-key.pem` is your private key file for login without a password.
 * `gcpuser` is the VM username.
