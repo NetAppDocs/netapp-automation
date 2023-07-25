@@ -15,6 +15,14 @@ summary: NetApp regularly updates the automation solutions, product REST APIs, a
 [.lead]
 NetApp regularly updates the automation solutions, product REST APIs, and related software to bring you new features, enhancements, and bug fixes.
 
+== 25 June 2023
+
+.Cloud Volumes ONTAP
+
+Support for Cloud Volumes ONTAP is organized by the public cloud environment. A new solution is provided for the following cloud environment:
+
+* link:../solutions/cvo-gcp-burst-to-cloud.html[Cloud Volumes ONTAP for Google Cloud - Burst to cloud]
+
 == 04 June 2023
 
 The NetApp https://console.bluexp.netapp.com/automationCatalog[BlueXP automation catalog^] is available through the BlueXP web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is organized in several different product or functional areas as described below.
