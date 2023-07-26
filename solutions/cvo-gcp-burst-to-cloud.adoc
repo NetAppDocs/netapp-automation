@@ -177,7 +177,7 @@ You can subscribe to NetApp BlueXP in the Google Cloud Marketplace.
 
 .Steps
 
-. Navigate to the link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager[Google Cloud Platform^] and select *Subscribe to NetApp BlueXP*.
+. Navigate to the link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager[Google Cloud console^] and select *Subscribe to NetApp BlueXP*.
 
 . Configure the BlueXP portal to import the SaaS subscription to BlueXP.
 +
