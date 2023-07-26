@@ -43,7 +43,7 @@ sudo apt-get update
 sudo apt-get install dockerce docker-ce-cli containerd.io
 ----
 
-. Verify that the installation was successful:
+. Verify the installation:
 +
 [source,cli]
 docker –version
@@ -74,7 +74,7 @@ newgrp docker
 sudo curl -L “https://github.com/docker/compose/releases/download/1.29.2/dockercompose-(𝑢𝑛𝑎𝑚𝑒 − 𝑠)−(uname -m)” -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ----
-. Verify the successful installation:
+. Verify the installation:
 [source,cli]
 docker-compose –version
 
