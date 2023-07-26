@@ -241,7 +241,7 @@ Example:
 
 . Navigate to the `cvo_gcp_variables` folder.
 +
-You should see the following variable file in the folder:
+You should see the following files in the folder:
 +
 * `terraform.tfvars`
 * `variables.tf`
@@ -299,13 +299,13 @@ You can use the following steps to destroy the temporary environment and clean u
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache volumes and destroys the temporary environment that was created earlier.
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` file, this cleans up FlexCache volumes and destroys the temporary environment that was created earlier.
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone volumes and destroys the temporary environment that was created earlier.
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` file, this cleans up FlexClone volumes and destroys the temporary environment that was created earlier.
 +
 `flexclone_operation = "destroy"`
 +
