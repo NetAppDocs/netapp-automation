@@ -209,4 +209,4 @@ This command creates three containers. The first container deploys FSx for ONTAP
 [source,cli]
 docker-compose logs -f
 +
-This command gives you the output in real-time, but has been configured to capture the logs through the file `deployment.log`. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
+This command gives you the output in real time, but has been configured to capture the logs through the file `deployment.log`. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.

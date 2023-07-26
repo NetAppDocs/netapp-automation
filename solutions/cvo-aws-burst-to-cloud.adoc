@@ -48,7 +48,7 @@ sudo apt-get install dockerce docker-ce-cli containerd.io
 [source,cli]
 docker –version
 
-. Check that a group named "docker" has been created on your Linux system. If necessary, create the group:
+. Verify that a group named "docker" has been created on your Linux system. If necessary, create the group:
 +
 [source,cli]
 sudo groupadd docker
@@ -222,7 +222,7 @@ Example:
 
 .. Add NFS shares as an external volume.
 +
-Make sure that the Docker container can communicate with the NFS shares and that the correct permissions, such as read-write, are configured.
+Make sure that the Docker container can communicate with the NFS shares and that the correct permissions, such as read/write, are configured.
 +
 ... Add the NFS shares path as the path to the external volume in the Docker Compose file, as shown below:
 Format:
@@ -254,6 +254,8 @@ The following examples enable FlexCache and FlexClone:
 
 == Step 6: Deploy Cloud Volumes ONTAP for AWS
 
+Use the following steps to deploy Cloud Volumes ONTAP for AWS.
+
 .Steps
 
 . From the root folder, run the following command to trigger deployment:
@@ -269,7 +271,7 @@ The second container waits until the first container completes all of the steps 
 [source,cli]
 docker-compose -f docker-compose-deploy.yml logs -f
 +
-This command provides output in real-time and captures the data in the following log files:
+This command provides output in real time and captures the data in the following log files:
 `deployment.log`
 +
 `telemetry_asup.log`
@@ -288,17 +290,17 @@ The following examples show how to change the log file names:
 
 .After you finish
 
-You can use the following steps to destroy the temporary environment and clean up items that were created during the deployment process.
+You can use the following steps to remove the temporary environment and clean up items that were created during the deployment process.
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache volumes and destroys the temporary environment that was created earlier.
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache volumes and removes the temporary environment that was created earlier.
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone volumes and destroys the temporary environment that was created earlier.
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone volumes and removes the temporary environment that was created earlier.
 +
 `flexclone_operation = "destroy"`
 +
