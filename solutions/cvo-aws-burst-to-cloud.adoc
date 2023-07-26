@@ -58,7 +58,7 @@ sudo groupadd docker
 [source,cli]
 sudo usermod -aG docker $(whoami)
 
-. Your changes take effect after you log out and log back in to the terminal. Alternatively, you can immediately implement the changes:
+. Your changes are applied after you log out and log back in to the terminal. Alternatively, you can apply the changes immediately:
 +
 [source,cli]
 newgrp docker
@@ -241,7 +241,7 @@ You should see the following variable file in the folder:
 
 . Change the values inside the `terraform.tfvars` file according to your requirements.
 +
-You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones, and other factors supported by Cloud Volumes ONTAP for AWS Cloud Provider. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs.
+You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones, and other factors supported by Cloud Volumes ONTAP for AWS Cloud. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs.
 +
 All supporting variables for the Connector and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding to the `terraform.tfvars` file.
 
