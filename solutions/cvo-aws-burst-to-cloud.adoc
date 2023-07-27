@@ -27,7 +27,7 @@ The Cloud Volumes ONTAP for AWS Automation Solution automates the containerized 
 
 === Install Docker
 
-The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you use depend on the Linux distribution software that you are using. Refer to the specific Linux distribution software documentation for your configuration.
+The following steps use Ubuntu 20.04 Debian Linux distribution software as an example. The commands you run depend on the Linux distribution software that you are using. Refer to the specific Linux distribution software documentation for your configuration.
 
 .Steps
 
@@ -43,12 +43,12 @@ sudo apt-get update
 sudo apt-get install dockerce docker-ce-cli containerd.io
 ----
 
-. Verify successful installation:
+. Verify the installation:
 +
 [source,cli]
 docker –version
 
-. Check that a group named "docker" has been created on your Linux system. If necessary, create the group:
+. Verify that a group named "docker" has been created on your Linux system. If necessary, create the group:
 +
 [source,cli]
 sudo groupadd docker
@@ -58,7 +58,7 @@ sudo groupadd docker
 [source,cli]
 sudo usermod -aG docker $(whoami)
 
-. Your changes take effect after you log out and log back in to the terminal. Alternatively, you can immediately implement the changes:
+. Your changes are applied after you log out and log back in to the terminal. Alternatively, you can apply the changes immediately:
 +
 [source,cli]
 newgrp docker
@@ -75,7 +75,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 
 sudo chmod +x /usr/local/bin/docker-compose
 ----
-. Verify the successful installation:
+. Verify the installation:
 [source,cli]
 docker-compose –version
 
@@ -178,7 +178,7 @@ The format *must* be exactly as shown above.
 
 == Step 4: Add Cloud Volumes ONTAP licenses to BlueXP or subscribe to BlueXP
 
-You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP - Cloud Manager in the AWS Marketplace.
+You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP in the AWS Marketplace.
 
 .Steps
 
@@ -222,7 +222,7 @@ Example:
 
 .. Add NFS shares as an external volume.
 +
-Make sure that the Docker container can communicate with the NFS shares and that the correct permissions, such as read-write, are configured.
+Make sure that the Docker container can communicate with the NFS shares and that the correct permissions, such as read/write, are configured.
 +
 ... Add the NFS shares path as the path to the external volume in the Docker Compose file, as shown below:
 Format:
@@ -241,7 +241,7 @@ You should see the following variable file in the folder:
 
 . Change the values inside the `terraform.tfvars` file according to your requirements.
 +
-You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones, and other factors supported by Cloud Volumes ONTAP for AWS Cloud Provider. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs.
+You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones, and other factors supported by Cloud Volumes ONTAP for AWS. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs.
 +
 All supporting variables for the Connector and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding to the `terraform.tfvars` file.
 
@@ -253,6 +253,8 @@ The following examples enable FlexCache and FlexClone:
 * `is_flexclone_required = true`
 
 == Step 6: Deploy Cloud Volumes ONTAP for AWS
+
+Use the following steps to deploy Cloud Volumes ONTAP for AWS.
 
 .Steps
 
@@ -269,7 +271,7 @@ The second container waits until the first container completes all of the steps 
 [source,cli]
 docker-compose -f docker-compose-deploy.yml logs -f
 +
-This command provides output in real-time and captures the data in the following log files:
+This command provides output in real time and captures the data in the following log files:
 `deployment.log`
 +
 `telemetry_asup.log`
@@ -288,17 +290,17 @@ The following examples show how to change the log file names:
 
 .After you finish
 
-You can use the following steps to destroy the temporary environment and clean up items that were created during the deployment process.
+You can use the following steps to remove the temporary environment and clean up items that were created during the deployment process.
 
 .Steps
 
-. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache volumes and destroys the temporary environment that was created earlier.
+. If you deployed FlexCache, set the following option in the `terraform.tfvars` variable file, this cleans up FlexCache volumes and removes the temporary environment that was created earlier.
 +
 `flexcache_operation = "destroy"`
 +
 NOTE: The possible options are  `deploy` and `destroy`.
 
-. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone volumes and destroys the temporary environment that was created earlier.
+. If you deployed FlexClone, set the following option in the `terraform.tfvars` variable file, this cleans up FlexClone volumes and removes the temporary environment that was created earlier.
 +
 `flexclone_operation = "destroy"`
 +
