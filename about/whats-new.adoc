@@ -15,7 +15,7 @@ summary: NetApp regularly updates the automation solutions, product REST APIs, a
 [.lead]
 NetApp regularly updates the automation solutions, product REST APIs, and related software to bring you new features, enhancements, and bug fixes.
 
-== 26 July 2023
+== 27 July 2023
 
 .Cloud Volumes ONTAP
 
