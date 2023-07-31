@@ -16,8 +16,11 @@ summary:
 xxx
 
 >> See TUTORIAL.pdf document
+
+== Before you begin
+
 >> Summary of what's needed
->> cite previous topics, list as needed
+>> cite previous topics and list as needed
 
 == Step 1: xxx
 
