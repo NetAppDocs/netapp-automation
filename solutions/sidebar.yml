@@ -27,13 +27,13 @@ entries:
         url: /solutions/cvo-gcp-burst-to-cloud.html
   - title: ONTAP
     entries:
-      title: Day 0/1
-      entries:
-        - title: Overview
-          url: /solutions/ontap-day01-overview.html
-        - title: Prepare
-          url: /solutions/ontap-day01-prepare.html
-        - title: Add roles
-          url: /solutions/ontap-day01-add-roles.html
-        - title: Deploy
-          url: /solutions/ontap-day01-deploy.html
+      - title: Day 0/1
+        entries:
+          - title: Overview
+            url: /solutions/ontap-day01-overview.html
+          - title: Prepare
+            url: /solutions/ontap-day01-prepare.html
+          - title: Add roles
+            url: /solutions/ontap-day01-add-roles.html
+          - title: Deploy
+            url: /solutions/ontap-day01-deploy.html
