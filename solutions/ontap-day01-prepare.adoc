@@ -28,6 +28,8 @@ xxx
 >> Download solution (include link)
 >> initial state of ONTAP system ?
 
+https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/[Getting Started with NetApp and Ansible: Install Ansible^]
+
 == Optional ONTAP simulator
 
 xxx

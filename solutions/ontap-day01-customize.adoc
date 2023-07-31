@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: solutions/ontap-day01-customize.html
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, customize, add roles
+summary:
+---
+
+= Customize the ONTAP day 0/1 solution
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+xxx
+>> general topic for ways to customize
+>> Only include adding roles for now
+
+== Add Ansible roles
+
+xxx
+>> See ROLE-REQUIRMENTS.pdf document

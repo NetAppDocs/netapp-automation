@@ -33,7 +33,7 @@ entries:
             url: /solutions/ontap-day01-overview.html
           - title: Prepare
             url: /solutions/ontap-day01-prepare.html
-          - title: Add roles
-            url: /solutions/ontap-day01-add-roles.html
           - title: Deploy
             url: /solutions/ontap-day01-deploy.html
+          - title: Customize
+            url: /solutions/ontap-day01-customize.html
