@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: solutions/ontap-day01-prepare.html
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, prepare
+summary:
+---
+
+= Prepare to use the ONTAP day 0/1 solution
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This page is being updated. Please check back soon.

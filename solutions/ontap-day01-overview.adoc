@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: solutions/ontap-day01-overview.html
-keywords: bluexp automation catalog, netapp automation solutions, ontap, day 0/1
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, overview, introduction
 summary:
 ---
 
-= ONTAP day 0/1 overview
+= Overview of the ONTAP day 0/1 solution
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,4 +13,21 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-This page is being updated. Please check back soon.
+xxx
+
+== Flexible deployment options
+
+xxx
+>> ONTAP simulator
+>> Real ONTAP FAS/AFF
+
+== Layered design
+
+xxx
+>> Logic Layered
+>> Execution layer
+
+== Planning considerations
+
+xxx
+>> List all the choices needed
