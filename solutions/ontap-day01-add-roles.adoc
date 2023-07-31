@@ -13,4 +13,6 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-This page is being updated. Please check back soon.
+xxx
+
+>> See ROLE-REQUIRMENTS.pdf document

@@ -13,21 +13,35 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
+You can use the ONTAP day 0/1 automation solution to deploy and configure an ONTAP cluster.
+
+== Based on Ansible
+
 xxx
+>>
 
 == Flexible deployment options
 
 xxx
->> ONTAP simulator
+
+.Local ONTAP simulator
+
+xxx
+
+.On-premises hardware
+
 >> Real ONTAP FAS/AFF
 
 == Layered design
 
-xxx
->> Logic Layered
->> Execution layer
+>> Layered structure
+>> Benefit of knowing
+>> See README.pdf for content in two sections below
 
-== Planning considerations
+=== Logic layer
 
 xxx
->> List all the choices needed
+
+=== Execution layer
+
+xxx

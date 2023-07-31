@@ -13,4 +13,21 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-This page is being updated. Please check back soon.
+xxx
+
+== Initial planning considerations
+
+xxx
+>> List skills needed
+>> List all the choices needed
+
+== Required software
+
+xxx
+>> Must have Ansible installed on the control node
+>> Download solution (include link)
+>> initial state of ONTAP system ?
+
+== Optional ONTAP simulator
+
+xxx

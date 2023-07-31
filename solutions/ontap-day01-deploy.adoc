@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1,
 summary:
 ---
 
-= Dpeloy the ONTAP day 0/1 solution
+= Deploy the ONTAP day 0/1 solution
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,4 +13,12 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-This page is being updated. Please check back soon.
+xxx
+
+>> See TUTORIAL.pdf document
+>> Summary of what's needed
+>> cite previous topics, list as needed
+
+== Step 1: xxx
+
+xxx
