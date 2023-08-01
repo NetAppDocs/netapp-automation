@@ -18,18 +18,42 @@ xxx
 == Initial planning considerations
 
 xxx
->> List skills needed
->> List all the choices needed
+>> List skills needed (Ansible, ONTAP)
+>> List all the choices needed (where run Ansible control node, ONTAP system, whether will need to customize)
 
-== Required software
+== Prepare the ONTAP system
+
+xxx
+>> The customer can use a real ONTAP system or a simulator
+
+=== Optionally install the ONTAP simulator
+
+xxx
+>> See TUTORIAL-PREREQS.pdf
+>> Describe installation with steps
+
+=== State of the ONTAP system
+
+xxx
+>> Initial state of the ONTAP system
+>> See latest email
+>> applies whether real or simulator
+
+== Install the required automation software
+
+xxx
+
+=== Install Ansible
 
 xxx
 >> Must have Ansible installed on the control node
->> Download solution (include link)
->> initial state of ONTAP system ?
-
+>> See blog article for how to install Ansible
 https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/[Getting Started with NetApp and Ansible: Install Ansible^]
+>> Don't need exact steps
 
-== Optional ONTAP simulator
+=== Download and prepare the automation solution
 
 xxx
+>> Download solution (include link) and unzip
+>> Copy files to right location within your Ansible environment on the control node
+>> Don't need exact steps

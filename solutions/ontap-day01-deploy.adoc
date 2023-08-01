@@ -14,13 +14,14 @@ summary:
 
 [.lead]
 xxx
-
 >> See TUTORIAL.pdf document
 
 == Before you begin
 
->> Summary of what's needed
->> cite previous topics and list as needed
+>> Summary of what's needed with bullet list
+>> In particular, Ansible installed, solution downloaded and unzipped and files in place
+>> Have ONTAP system ready with credentials
+>> link to "prepare" topic for details
 
 == Step 1: xxx
 
