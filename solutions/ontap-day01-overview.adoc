@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-You can use the ONTAP day 0/1 automation solution to deploy and configure an ONTAP cluster using Ansible. The solution is packaged as a ZIP file you can download from the BlueXP automatio catalog.
+You can use the ONTAP day 0/1 automation solution to deploy and configure an ONTAP cluster using Ansible. The solution is available at the BlueXP automation catalog site.
 
 == Flexible ONTAP deployment options
 
@@ -24,19 +24,20 @@ xxx
 
 xxx
 >> ONTAP simulator you can download from NetApp
->> Run on a local VMware hypervisor
+>> Run on a local VMware hypervisor (either VMware Workstation or Fusion)
 
 .On-premises hardware
 
 >> Real ONTAP FAS/AFF
+>> On-premises
 
 == Layered design
 
 >> Layered structure
->> Benefit of knowing
+>> Benefit of knowing, then able to custoize
 >> See README.pdf for content in two sections below
 >> Must rewrite and simplify the top paragraph and remove "ARC"
->> Cut the last section "Configuration" and move to bottom of the the "Deploy" topic
+>> Remove the last section "Configuration" and move to bottom of the the "Deploy" topic
 
 .Logic layer
 
@@ -49,6 +50,8 @@ xxx
 == Support for customization
 
 xxx
->> Can modify the playbooks and other Ansible-related files
+>> Can customize the solution in various ways
+>> Modify the playbooks and other Ansible-related files
 >> Add roles
 >> Link to the customization topic
+>> See latest email with list of files

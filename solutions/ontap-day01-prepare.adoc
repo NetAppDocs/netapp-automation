@@ -36,7 +36,7 @@ xxx
 
 xxx
 >> Initial state of the ONTAP system
->> See latest email
+>> See latest email (network reachable, credentials, etc.)
 >> applies whether real or simulator
 
 == Install the required automation software

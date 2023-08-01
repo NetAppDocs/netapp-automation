@@ -14,7 +14,7 @@ summary:
 
 [.lead]
 xxx
->> general topic for ways to customize
+>> general topic for ways to customize the solution
 >> Only include adding roles for now
 
 == Add Ansible roles
