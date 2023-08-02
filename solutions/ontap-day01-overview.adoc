@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: solutions/ontap-day01-overview.html
 keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, overview, introduction
-summary:
+summary: "You can use the ONTAP day 0/1 automation solution to deploy and configure an ONTAP cluster using Ansible."
 ---
 
 = Overview of the ONTAP day 0/1 solution
@@ -17,41 +17,74 @@ You can use the ONTAP day 0/1 automation solution to deploy and configure an ONT
 
 == Flexible ONTAP deployment options
 
-xxx
->> Two options
+Depending on your requirements, you can use on-premises hardware or use Simulate ONTAP to deploy and configure an ONTAP cluster using Ansible.
 
-.Local ONTAP simulator
+.Simulate ONTAP
 
-xxx
->> ONTAP simulator you can download from NetApp
->> Run on a local VMware hypervisor (either VMware Workstation or Fusion)
+To deploy this solution using an ONTAP simulator, you must download the latest version of Simulate ONTAP from the NetApp support site. Simulate ONTAP is a virtual simulator for ONTAP software. Simulate ONTAP runs in a VMware hypervisor on a Windows, Linux or Mac system. For Windows and Linux hosts, you must use the VMware Workstation hypervisor to run this solution. If you have a Mac OS, use the Fusion hypervisor. 
 
 .On-premises hardware
 
->> Real ONTAP FAS/AFF
->> On-premises
+You can also run this solution on on-premises hardware such as a FAS or an AFF system. You must use a Linux VM to deploy and configure the ONTAP cluster using Ansible.   
 
 == Layered design
 
->> Layered structure
->> Benefit of knowing, then able to custoize
->> See README.pdf for content in two sections below
->> Must rewrite and simplify the top paragraph and remove "ARC"
->> Remove the last section "Configuration" and move to bottom of the the "Deploy" topic
+The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between the decision making tasks(logic layer), and the execution steps (execution layer) in automation. It is not required to utilize the logic layer of the framework. The logic layer provides options to expand the capability of the framework beyond hardcoded values for execution, enabling you to customize the framework capabilities if desired.  
+
+An Ansible "playbook" executes a series of tasks from start to finish. The site.yml playbook contains the logic.yml playbook and the execution.yml playbook. 
 
 .Logic layer
 
-xxx
+The logic layer consists of the following:
+
+ * The logic.yml playbook 
+ * Logic tasks contained files within the `logic-tasks` directory
+
+Important considerations: 
+
+* The logic.yml playbook searches for the `logic_operation` variable. If the variable is defined, it loads a tasks file from the `logic-tasks` directory. The tasks file must be a .yml file. If there is no matching tasks file and the `logic_operation` variable is defined, the logic layer fails.
+
+* The default value of the `logic_operation` variable is `no-op`. Therefore, if it is not explicitly defined it defaults to `no-op`, which does not run any operations. 
+
+* If the `raw_service_request` variable is already defined, then execution proceeds to the execution layer. If the vairable is not defined, the logic layer fails. 
+
+The logic layer provides the capability for complex decision making without the need for significant custom integration (for example, connecting to ServiceNOW). However, the ability to bypass the logic layer is also provided. 
+
+If you want to bypass the logic layer, do not define the `logic_operation` variable. Direct invocation of the `logic.yml` playbook provides the ability to do some level of debugging without execution. Simply use a "debug" statement to print the value of the `raw_service_request` to verify that it is correct
 
 .Execution layer
 
-xxx
+The execution layer consists of the following: 
+
+* The execution.yml playbook
+
+The `execution.yml` playbook expects that the `raw_service_request` variable
+is defined when it is executed.
 
 == Support for customization
 
-xxx
->> Can customize the solution in various ways
->> Modify the playbooks and other Ansible-related files
->> Add roles
->> Link to the customization topic
->> See latest email with list of files
+You can customize this solution in various ways depending on your requirements. 
+
+Customization options include:
+
+* Modifying the Ansible playbooks
+* Adding roles
+
+.Modify Ansible playbooks
+
+You can make changes to the following playbooks, if desired:
+
+* playbooks/invemtory/hosts
+* playbooks/group_vars/all/*
++
+If necessary, you can modify any or all files in this this folder (cfg.yml, clusters.yml, defaults.yml, services.yml, standards.yml, vault.yml)
+* playbooks/logic-tasks 
++
+You can add files to this folder that correspond to the relevant service.
+* playbooks/vars/*
++
+You can modify any or all files in this folder if necessary. 
+
+.Add roles
+
+You can also customize the solution by adding roles. For more details, see link:ontap-day01-customize.html[Customize].
