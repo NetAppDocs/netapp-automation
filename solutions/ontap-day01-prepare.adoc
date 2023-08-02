@@ -13,47 +13,93 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-xxx
+Before you deploy the automation solution you must install Ansible and prepare the ONTAP environment.
 
 == Initial planning considerations
 
-xxx
->> List skills needed (Ansible, ONTAP)
->> List all the choices needed (where run Ansible control node, ONTAP system, whether will need to customize)
+.Requirements and skills
+ 
+* You must understand how to use Ansible and ONTAP software.
+
+.Planning considerations
+
+Before you deploy the solution, you must decide:
+
+* The location where you are going to run the Ansible control node.
+* The ONTAP system, either on-premises hardware or an ONTAP simulator. 
+* Whether or not you will require customization. 
+
 
 == Prepare the ONTAP system
 
-xxx
->> The customer can use a real ONTAP system or a simulator
+Whether you are using an on-premises ONTAP system or Simulate ONTAP, you must prepare the environment before you can deploy the automation solution. 
 
-=== Optionally install the ONTAP simulator
+=== Optionally install and configure Simulate ONTAP
 
-xxx
->> See TUTORIAL-PREREQS.pdf
->> Describe installation with steps
+If you want to deploy this solution through an ONTAP simulator, you must download and run Simulate ONTAP. 
+
+.Before you begin
+
+* You must download and install the VMWare hypervisor that you are going to use to run Simulate ONTAP. 
++
+** If you have a Windows or Linux OS, use VMWare Workstation.
+** If you have a Mac OS, use VMWare Fusion.
++
+NOTE: If you are using a Mac OS, you must have an Intel processor. 
+
+.Steps
+
+Use the following steps to install two ONTAP simulators in your local environment:
+
+. Download Simulate ONTAP from the link:https://mysupport.netapp.com/site/tools/tool-eula/simulate-ontap[NetApp support site^]
++
+NOTE: Although you will install two simulators, you only need to download one copy of the software.
+
+. If it is not already running, start up your VMWare application.
+. Locate the simulator file that was downloaded and right click to open it with
+the VMWare application.
+. Set the name of the first ONTAP instance 
+. Wait for the simulator boot up and follow the directions to create a single
+node cluster.
+. Repeat steps 2 through 6 for the second ONTAP instance.
+
+. Configure each instance for use.
++
+From each cluster, run the following commands: 
+[source,cli]
+<Cluster-01>::> security unlock -username <user_01>
+<Cluster-01>::> security login password -username <user_01>
+<Cluster-01>::> set -priv advanced
+<Cluster-01>::> systemshell local
+<Cluster-01>::> <Cluster-01>::> disk assign -all -node <Cluster-01>-01
 
 === State of the ONTAP system
 
-xxx
->> Initial state of the ONTAP system
->> See latest email (network reachable, credentials, etc.)
->> applies whether real or simulator
+You must verify the initial state of the ONTAP system, whether it is on-premises or running through an ONTAP simulator. 
+
+Verify that the following ONTAP system requirements are met: 
+
+* ONTAP is installed and running but no cluster is defined yet
+* The network reachable
+* You must have admin credentials
+* The MOD banner is displayed with the management address
 
 == Install the required automation software
 
-xxx
+This section provides information on how to install Ansible and prepare the automation solution for deployment. 
 
 === Install Ansible
 
-xxx
->> Must have Ansible installed on the control node
->> See blog article for how to install Ansible
-https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/[Getting Started with NetApp and Ansible: Install Ansible^]
->> Don't need exact steps
+Refer to link:https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/[Getting Started with NetApp and Ansible: Install Ansible^] for the steps to install Ansible.
+
+NOTE: Ansible must be installed on the control node of the system. 
 
 === Download and prepare the automation solution
 
-xxx
->> Download solution (include link) and unzip
->> Copy files to right location within your Ansible environment on the control node
->> Don't need exact steps
+You can use the following steps to download and prepare the automation solution for deployment.
+
+. Download the link:https://console.bluexp.netapp.com/automationCatalog[ONTAP day 0/day1^] automation solution through the BlueXP web UI. The solution is packaged as `ONTAP_DAY0_DAY1.zip`.
++
+. Extract the zip folder and copy the files to the desired location on the control node within your Ansible environment.
+
+
