@@ -69,21 +69,22 @@ Customization options include:
 * Modifying the Ansible playbooks
 * Adding roles
 
-.Modify Ansible playbooks
+.Customize Ansible files
 
-You can make changes to the following playbooks, if desired:
+The following table describe the customizable Ansible files contained in this solution.
 
-* playbooks/invemtory/hosts
-* playbooks/group_vars/all/*
-+
-If necessary, you can modify any or all files in this this folder including; cfg.yml, clusters.yml, defaults.yml, services.yml, standards.yml, and vault.yml.
-* playbooks/logic-tasks 
-+
-You can add files to this folder that correspond to the relevant service.
-* playbooks/vars/*
-+
-You can modify any or all files in this folder if necessary. 
+[cols=2*,options="header",cols="25,75"]
+|===
+| Location
+| Description
+| playbooks/invemtory/hosts | <description_needed>
+| playbooks/group_vars/all/* | If necessary, you can modify any or all files in this this folder including; cfg.yml, clusters.yml, defaults.yml, services.yml, standards.yml, and vault.yml.
+| playbooks/logic-tasks | You can add files to this folder that correspond to the relevant service.
+| playbooks/vars/* | You can modify any or all files in this folder if necessary.
+|===
 
-.Add roles
+ 
 
-You can also customize the solution by adding roles. For more details, see link:ontap-day01-customize.html[Customize].
+.Customize roles
+
+You can also customize the solution by adding ot changing roles. For more details, see link:ontap-day01-customize.html[Customize].
