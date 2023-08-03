@@ -77,7 +77,7 @@ The following table describe the customizable Ansible files contained in this so
 |===
 | Location
 | Description
-| playbooks/invemtory/hosts | Contains the Ansible host files. <description_needed>
+| playbooks/inventory/hosts | Contains the Ansible host files. <description_needed>
 | playbooks/group_vars/all/* | If necessary, you can modify any or all files in this this folder including; cfg.yml, clusters.yml, defaults.yml, services.yml, standards.yml, and vault.yml.
 | playbooks/logic-tasks | Contains the logic tasks .yml files. You can add files to this folder that correspond to the relevant service.
 | playbooks/vars/* | Contains the variable files. You can modify any or all files in this folder if necessary.

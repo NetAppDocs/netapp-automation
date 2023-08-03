@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-Before you deploy the automation solution you must install Ansible and prepare the ONTAP environment.
+Before you deploy the automation solution you must prepare the ONTAP environment and install and configure Ansible.
 
 == Initial planning considerations
 
@@ -102,4 +102,36 @@ You can use the following steps to download and prepare the automation solution 
 +
 . Extract the zip folder and copy the files to the desired location on the control node within your Ansible environment.
 
+== Initial Ansible framework configuration
+
+Perform some initial configuration of the Ansible framework:
+
+. Navigate to `playbooks/inventory/group_vars/all`
+. Modify the following Ansible files: 
+* clusters.yml 
+* vault.yml 
+* cfg.yml - Set the file path for `log2file` and set `show_request`
+under `cfg` to `True` to display the `raw_service_request`.
+. Navigate to `playbooks/inventory/hosts` and set a valid Python interpreter.
++
+NOTE: Each file listed contains comments with instructions on how to modify them according to your requirements. 
+
+. Deploy the `framework_test` service:
++
+The following command runs the `na_ontap_info` module with a gather subset value of
+`cluster_identity_info`. This validates that the basic configuration is correct and verifies that you can communicate with the cluster. 
++
+[source,cli]
+ansible-playbook -i inventory/hosts site.yml -e cluster_name=<CLUSTER_NAME>
+-e logic_operation=framework-test
++
+Run the command for each cluster that you need. 
++
+If successful, you should see output similar to the following example:
++
+----
+PLAY RECAP *********************************************************************************
+localhost : ok=12 changed=1 unreachable=0 failed=0 skipped=6
+The key is ‘rescued=0’ and ‘failed=0’..
+----
 
