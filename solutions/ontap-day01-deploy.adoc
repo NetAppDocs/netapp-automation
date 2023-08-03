@@ -18,6 +18,11 @@ After completing the preparation and planning, you are now ready to deploy the O
 At any time during this procedure, you can choose to test a request instead of executing it. To do this, you must change the site.yml playbook on the command line to use logic.yml. 
 
 The docs/tutorial-requests.txt file contains the final version of all service requests used throughout this procedure. If you have difficulty running a service request, you can copy the relevant request from the tutorial-requests.txt file to the playbooks/inventory/group_vars/all/tutorial-requests.yml location and modify the hard coded values as required (IP address, aggregate names and so on). You should then be able to successfully make the request. 
+After completing the preparation and planning, you are now ready to deploy the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible. 
+
+At any time during this procedure, you can choose to test a request instead of executing it. To do this, you must change the site.yml playbook on the command line to use logic.yml. 
+
+The docs/tutorial-requests.txt file contains the final version of all service requests used throughout this procedure. If you have difficulty running a service request, you can copy the relevant request from the tutorial-requests.txt file to the playbooks/inventory/group_vars/all/tutorial-requests.yml location and modify the hard coded values as required (IP address, aggregate names and so on). You should then be able to successfully make the request. 
 
 == Before you begin
 
