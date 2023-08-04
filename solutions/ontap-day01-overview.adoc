@@ -40,6 +40,10 @@ The logic layer consists of the following:
  * The logic.yml playbook 
  * Logic tasks contained files within the `logic-tasks` directory
 
+The logic layer provides the capability for complex decision making without the need for significant custom integration (for example, connecting to ServiceNOW). However, the ability to bypass the logic layer is also provided. 
+
+If you want to bypass the logic layer, do not define the `logic_operation` variable. Direct invocation of the `logic.yml` playbook provides the ability to do some level of debugging without execution. Simply use a "debug" statement to print the value of the `raw_service_request` to verify that it is correct.
+
 Important considerations: 
 
 * The logic.yml playbook searches for the `logic_operation` variable. If the variable is defined, it loads a tasks file from the `logic-tasks` directory. The tasks file must be a .yml file. If there is no matching tasks file and the `logic_operation` variable is defined, the logic layer fails.
@@ -47,10 +51,6 @@ Important considerations:
 * The default value of the `logic_operation` variable is `no-op`. Therefore, if it is not explicitly defined it defaults to `no-op`, which does not run any operations. 
 
 * If the `raw_service_request` variable is already defined, then execution proceeds to the execution layer. If the vairable is not defined, the logic layer fails. 
-
-The logic layer provides the capability for complex decision making without the need for significant custom integration (for example, connecting to ServiceNOW). However, the ability to bypass the logic layer is also provided. 
-
-If you want to bypass the logic layer, do not define the `logic_operation` variable. Direct invocation of the `logic.yml` playbook provides the ability to do some level of debugging without execution. Simply use a "debug" statement to print the value of the `raw_service_request` to verify that it is correct.
 
 .Execution layer
 
@@ -87,4 +87,4 @@ The following table describe the customizable Ansible files contained in this so
 
 .Customize roles
 
-You can also customize the solution by adding ot changing roles. For more details, see link:ontap-day01-customize.html[Customize].
+You can also customize the solution by adding or changing roles. For more details, see link:ontap-day01-customize.html[Customize].
