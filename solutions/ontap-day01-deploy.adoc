@@ -21,10 +21,10 @@ The docs/tutorial-requests.txt file contains the final version of all service re
 
 == Before you begin
 
->> Summary of what's needed with bullet list
->> In particular, Ansible installed, solution downloaded and unzipped and files in place
->> Have ONTAP system ready with credentials
->> link to "prepare" topic for details
+* You must have Ansible installed. 
+* You must have downloaded the ONTAP day 0/1 solution and extracted the folder to the desired location on the Ansible control node. 
+* The ONTAP system state must meet the requirements and you must have the necessary credentials. 
+* You must have completed all required tasks outlined in the link:ontap-day01-prepare.html[Prepare] section.
 
 == Step 1: Initial cluster configuration
 
@@ -412,7 +412,7 @@ ansible-playbook -i inventory/hosts -e cluster2provision=ONTAP99_02
 -e logic_operation=tutorial site.yml
 ----
 
-== Step 5: Configuration
+== Step 5: Deploy the ONTAP day0/1 solution and health checks
 
 At this stage you should have already completed the following: 
 

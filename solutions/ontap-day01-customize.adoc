@@ -13,15 +13,13 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-xxx
->> general topic for ways to customize the solution
->> Only include adding roles for now
+To customize the ONTAP day 0/1 solution for your requirements, you can add or change Ansible roles. 
+
+Roles represent the microservices within the framework. Each microservice performs one operation. For example, ONTAP day 0 is a service that contains multiple microservices. 
 
 == Add Ansible roles
 
 You add Ansible roles to customize the solution for your environment. Required roles are defined by service definitions within the Ansible framework.
-
-Roles represent the microservices within the framework. Each microservice performs one operation. For example, ONTAP day 0 is a service that contains multiple microservices. 
 
 A role must meet certain requirements to be used as a microservice:
 

@@ -88,6 +88,4 @@ The following table describe the customizable Ansible files contained in this so
 
 .Customize roles
 
-You can also customize the solution by adding or changing Ansible roles, also called microservices. Each role performs one operation. 
-
-. For more details, see link:ontap-day01-customize.html[Customize].
+You can also customize the solution by adding or changing Ansible roles, also called microservices. For more details, see link:ontap-day01-customize.html[Customize].
