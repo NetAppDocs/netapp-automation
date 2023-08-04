@@ -19,7 +19,8 @@ Before you deploy the automation solution you must prepare the ONTAP environment
 
 .Requirements and skills
  
-* You must understand how to use Ansible and ONTAP software.
+* You must be competent in using Ansible automation software.
+* You must have access to ONTAP software either on-premises or through an ONTAP simulator.
 
 .Planning considerations
 
@@ -67,11 +68,11 @@ node cluster.
 +
 From each cluster, run the following commands: 
 [source,cli]
-<Cluster-01>::> security unlock -username <user_01>
-<Cluster-01>::> security login password -username <user_01>
-<Cluster-01>::> set -priv advanced
-<Cluster-01>::> systemshell local
-<Cluster-01>::> <Cluster-01>::> disk assign -all -node <Cluster-01>-01
+::> security unlock -username <user_01>
+::> security login password -username <user_01>
+::> set -priv advanced
+::> systemshell local
+::> <Cluster-01>::> disk assign -all -node <Cluster-01>-01
 
 === State of the ONTAP system
 
