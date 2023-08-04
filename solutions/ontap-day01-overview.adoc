@@ -29,9 +29,11 @@ You can also run this solution on on-premises hardware such as a FAS or an AFF s
 
 == Layered design
 
-The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between the decision making tasks (logic layer), and the execution steps (execution layer) in automation. It is not required to utilize the logic layer of the framework. The logic layer provides options to expand the capability of the framework beyond hardcoded values for execution, enabling you to customize the framework capabilities if desired.  
+The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between the decision making tasks (logic layer), and the execution steps (execution layer) in automation. You should understand how these layers work to be able to customize the configuration. It is not required to utilize the logic layer of the framework. The logic layer provides options to expand the capability of the framework beyond hardcoded values for execution, enabling you to customize the framework capabilities if desired.  
 
 An Ansible "playbook" executes a series of tasks from start to finish. The site.yml playbook contains the logic.yml playbook and the execution.yml playbook. 
+
+The site.yml playbook calls the logic.yml playbook first and then calls the execution.yml playbook to execute the service request. 
 
 .Logic layer
 
@@ -40,9 +42,9 @@ The logic layer consists of the following:
  * The logic.yml playbook 
  * Logic tasks contained files within the `logic-tasks` directory
 
-The logic layer provides the capability for complex decision making without the need for significant custom integration (for example, connecting to ServiceNOW). However, the ability to bypass the logic layer is also provided. 
+The logic layer provides the capability for complex decision making without the need for significant custom integration (for example, connecting to ServiceNOW). The logic layer is configurable and feeds input to microservices. 
 
-If you want to bypass the logic layer, do not define the `logic_operation` variable. Direct invocation of the `logic.yml` playbook provides the ability to do some level of debugging without execution. Simply use a "debug" statement to print the value of the `raw_service_request` to verify that it is correct.
+The ability to bypass the logic layer is also provided. If you want to bypass the logic layer, do not define the `logic_operation` variable. Direct invocation of the `logic.yml` playbook provides the ability to do some level of debugging without execution. Simply use a "debug" statement to print the value of the `raw_service_request` to verify that it is correct.
 
 Important considerations: 
 
@@ -50,7 +52,7 @@ Important considerations:
 
 * The default value of the `logic_operation` variable is `no-op`. Therefore, if it is not explicitly defined it defaults to `no-op`, which does not run any operations. 
 
-* If the `raw_service_request` variable is already defined, then execution proceeds to the execution layer. If the vairable is not defined, the logic layer fails. 
+* If the `raw_service_request` variable is already defined, then execution proceeds to the execution layer. If the variable is not defined, the logic layer fails. 
 
 .Execution layer
 
@@ -58,7 +60,7 @@ The execution layer consists of the following:
 
 * The execution.yml playbook
 
-The `execution.yml` playbook requires that the `raw_service_request` variable is defined when executed.
+The execution layer makes the API calls that configure the ONTAP cluster. The `execution.yml` playbook requires that the `raw_service_request` variable is defined when executed.
 
 == Support for customization
 
@@ -77,14 +79,15 @@ The following table describe the customizable Ansible files contained in this so
 |===
 | Location
 | Description
-| playbooks/inventory/hosts | Contains the Ansible host files. <description_needed>
-| playbooks/group_vars/all/* | If necessary, you can modify any or all files in this this folder including; cfg.yml, clusters.yml, defaults.yml, services.yml, standards.yml, and vault.yml.
-| playbooks/logic-tasks | Contains the logic tasks .yml files. You can add files to this folder that correspond to the relevant service.
-| playbooks/vars/* | Contains the variable files. You can modify any or all files in this folder if necessary.
+| playbooks/inventory/hosts | Contains a single file with a list of hosts and groups.
+| playbooks/group_vars/all/* | Ansible provides a convenient way to apply variables to multiple hosts at once. You can modify any or all files in this this folder including; cfg.yml, clusters.yml, defaults.yml, services.yml, standards.yml, and vault.yml.
+| playbooks/logic-tasks | Supports decision making tasks within Ansible and maintains the separation of logic and execution. You can add files to this folder that correspond to the relevant service.
+| playbooks/vars/* | Dynamic values used within Ansible playbooks and roles to enable customization, flexibility, and reusability of configurations. You can modify any or all files in this folder if necessary.
 |===
 
- 
 
 .Customize roles
 
-You can also customize the solution by adding or changing roles. For more details, see link:ontap-day01-customize.html[Customize].
+You can also customize the solution by adding or changing Ansible roles, also called microservices. Each role performs one operation. 
+
+. For more details, see link:ontap-day01-customize.html[Customize].

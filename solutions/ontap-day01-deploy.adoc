@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-After completing the preparation and planning, you are now ready to deploy the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible. 
+After completing the preparation and planning, you are ready to deploy the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible. 
 
 You can choose to test a request instead of executing it at any time during this procedure. To do this, you must change the site.yml playbook on the command line to use logic.yml. 
 
@@ -32,7 +32,7 @@ At this stage, you must perform some initial cluster configuration steps.
 
 . Navigate to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and review the `cluster_initial` request in the file. Make any necessary changes to suite your environment. 
 +
-At the bottom of the file uncomment the `raw_service_request` definition and confirm that the value is set to `cluster_initial`.
+At the bottom of the file, uncomment the `raw_service_request` definition and confirm that the value is set to `cluster_initial`.
 +
 NOTE: The examples in this procedure use "Cluster_01" and "Cluster_02" as the names for the two clusters. Replace these values with the names of the clusters in your environment. 
 
@@ -40,8 +40,10 @@ NOTE: The examples in this procedure use "Cluster_01" and "Cluster_02" as the na
 +
 [source,cli]
 ansible-playbook -i inventory/hosts site.yml -e cluster_name=<Cluster_01>
++
+Verify that there are no errors before proceeding. 
 
-. Verify that there are no errors and repeat the command for the second cluster:
+. Repeat the command for the second cluster:
 +
 [source,cli]
 ansible-playbook -i inventory/hosts site.yml -e cluster_name=<Cluster_02>
@@ -126,9 +128,11 @@ ok: [localhost] => {
 
 You can now configure the intercluster LIFs by adding the LIF definitions to the `cluster_initial` request and defining the `ontap_interface` microservice. 
 
-The service definition and the request work together to determine the action. If you provide a service request for a microservice that is not in the service definition it is skipped. If you pass a service request with one or more microservices defined in the service definition, but omitted from the request, it is skipped.
+The service definition and the request work together to determine the action. If you provide a service request for a microservice that is not in the service definitions, the request is not executed. 
 
-The execution.yml playbook evaluates the service definition by running through the list of microservices in the order listed. If there is an entry in the request with a dictionary key matching the “args” entry contained in the microservice definition of the service definition, then it is executed. If there is no matching entry in the service request, it is skipped with no error.
+If you provide a service request with one or more microservices defined in the service definitions, but omitted from the request, the request is not executed. 
+
+The `execution.yml` playbook evaluates the service definition by scanning the list of microservices in the order listed. If there is an entry in the request with a dictionary key matching the *“args”* entry contained in the microservice definitions, the request is executed. If there is no matching entry in the service request, it is skipped without error.
 
 .Steps
 
@@ -184,7 +188,7 @@ The execution.yml playbook evaluates the service definition by running through t
 . Run the command:
 +
 [source, cli]
-`ansible-playbook -i inventory/hosts  site.yml -e cluster_name=<Cluster_01> -e peer_cluster_name=<Cluster_02>`
+ansible-playbook -i inventory/hosts  site.yml -e cluster_name=<Cluster_01> -e peer_cluster_name=<Cluster_02>
 
 . Log in to each instance to check if the LIFs have been added: 
 +
@@ -235,9 +239,9 @@ The following example shows that the LIFs have been added to the request:
                 },
                 {
                     "address": "10.0.0.101",
-                    "home_node": "ONTAP99_02-01",
+                    "home_node": "Cluster_02-01",
                     "home_port": "e0c",
-                    "hostname": "ONTAP99_02",
+                    "hostname": "Cluster_02",
                     "interface_name": "ic01",
                     "ipspace": "Default",
                     "netmask": "255.255.255.0",
@@ -247,7 +251,7 @@ The following example shows that the LIFs have been added to the request:
                 },
                 {
                     "address": "10.0.0.126",
-                    "home_node": "ONTAP99_02-01",
+                    "home_node": "Cluster_02-01",
                     "home_port": "e0c",
                     "hostname": "ONTAP99_02",
                     "interface_name": "ic02",
@@ -255,7 +259,7 @@ The following example shows that the LIFs have been added to the request:
                     "netmask": "255.255.255.0",
                     "role": "intercluster",
                     "use_rest": "never",
-                    "vserver": "ONTAP99_02"
+                    "vserver": "Cluster_02"
                 }
             ],
 ----
@@ -375,14 +379,14 @@ The following steps provide an option to dynamically produce the required `raw_s
 
 .Steps 
 
-. Comment out the `raw_service_request` definition at the bottom of the `tutorial-requests.yml file` 
-. Navigate to `playbooks/logic-tasks/tutorial.yml` 
+. Comment out the `raw_service_request` definition at the bottom of the `tutorial-requests.yml` file.
+. Navigate to `playbooks/logic-tasks/tutorial.yml`. 
 
 . Define the `logic_operation` variable in the tutorial.yml file.
 +
 [IMPORTANT]
 ====
-* If the `logic_operation` variable is not defined, the `logic.yml` file does not import any file from logic-tasks. This means the `raw_service_request` must be defined outside of Ansible and passed to the framework upon execution. 
+* If the `logic_operation` variable is not defined, the `logic.yml` file does not import any file from the `logic-tasks` folder. This means the `raw_service_request` must be defined outside of Ansible and passed to the framework upon execution. 
 
 * A tasks file name in the `logic-tasks` folder must match the value of the `logic_operation` variable and the .yml extension.
 
@@ -393,13 +397,13 @@ The following steps provide an option to dynamically produce the required `raw_s
 +
 There are multiple ways to apply the logic task to dynamically define a service request. Some of these options are listed below:
 +
-* Using the Ansible task code within the file itself
-* Invoking a custom role that returns data suitable for converting to a raw_service_request or the request itself
-* Invoking another tool outside Ansible to provide the data require. For example, a  REST call to Active IQ Unified Manager) 
-* Invoking other tasks files from within logic-tasks to organize operations
-+
+* Using the Ansible task code within the file.
+* Invoking a custom role that returns data suitable for converting to a `raw_service_request` or to the request.
+* Invoking another tool outside of the Ansible environment to provide the required data. For example, a REST call to Active IQ Unified Manager.
+* Invoking other task files from within the `logic-tasks` folder to organize operations.
+
 The following example commands dynamically define a service request for both clusters:
-+
+
 ----
 ansible-playbook -i inventory/hosts -e cluster2provCluster
 -e logic_operation=tutorial site.yml
@@ -407,6 +411,7 @@ ansible-playbook -i inventory/hosts -e cluster2provCluster
 ansible-playbook -i inventory/hosts -e cluster2provision=ONTAP99_02
 -e logic_operation=tutorial site.yml
 ----
+
 == Step 5: Configuration
 
 At this stage you should have already completed the following: 
@@ -417,23 +422,25 @@ At this stage you should have already completed the following:
 
 The following are some example commands to perform a quick run of certain operations:
 
-.<Need name of operations>
+.Run the ONTAP day 0 service 
 
 [source, cli]
 ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass
-Temporary Password to decrypt the vault.yml file and it's corresponding vault password- NetApp123!
+Temporary Password to decrypt the vault.yml file and it's corresponding vault password- <temporary_password>
 
+.Run the ONTAP day 1 service 
+[source, cli]
 ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass
-Temporary Password to decrypt the vault.yml file and it's corresponding vault password- NetApp123!
+Temporary Password to decrypt the vault.yml file and it's corresponding vault password- <temporary_password>
 
 .Apply cluster wide settings
 
 [source,cli]
 ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_wide_settings -e service=cluster_wide_settings -vvvv --ask-vault-pass
-Temporary Password to decrypt the vault.yml file and it's corresponding vault password- NetApp123!
+Temporary Password to decrypt the vault.yml file and it's corresponding vault password- <temporary_password>
 
-.Run a health check
+.Run health checks
 
 [source,cli]
 ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=health_checks -e service=health_checks -e enable_health_reports=true -vvvv --ask-vault-pass
-Temporary Password to decrypt the vault.yml file and it's corresponding vault password- NetApp123!
+Temporary Password to decrypt the vault.yml file and it's corresponding vault password- <temporary_password>
