@@ -137,7 +137,7 @@ If you need to use multi-level dictionaries as module parameters, you should spl
 
 The following examples shows functionality for fixed and adaptive QoS policy groups split across two microservices. 
 
-.Microservice one:
+The first microservice contains fixed QoS policy group values:
 ----
 fixed_qos_options:
   capacity_shared:           "{{ loop_arg['fixed_qos_options']['capacity_shared']         | default(omit) }}"
@@ -148,7 +148,7 @@ fixed_qos_options:
 
 ----
 
-.Microservice 2:
+The second microservice contains the adaptive QoS policy group values:
 ----
 adaptive_qos_options:
   absolute_min_iops:         "{{ loop_arg['adaptive_qos_options']['absolute_min_iops'] | default(omit) }}"
