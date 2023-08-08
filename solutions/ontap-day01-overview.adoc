@@ -21,7 +21,7 @@ Depending on your requirements, you can use on-premises hardware or use Simulate
 
 .Simulate ONTAP
 
-To deploy this solution using an ONTAP simulator, you must download the latest version of Simulate ONTAP from the NetApp support site. Simulate ONTAP is a virtual simulator for ONTAP software. Simulate ONTAP runs in a VMware hypervisor on a Windows, Linux or Mac system. For Windows and Linux hosts, you must use the VMware Workstation hypervisor to run this solution. If you have a Mac OS, use the Fusion hypervisor. 
+To deploy this solution using an ONTAP simulator, you must download the latest version of Simulate ONTAP from the NetApp support site. Simulate ONTAP is a virtual simulator for ONTAP software. Simulate ONTAP runs in a VMware hypervisor on a Windows, Linux or Mac system. For Windows and Linux hosts, you must use the VMware Workstation hypervisor to run this solution. If you have a Mac OS, use the VMware Fusion hypervisor. 
 
 .On-premises hardware
 
@@ -29,28 +29,30 @@ You can also run this solution on on-premises hardware such as a FAS or an AFF s
 
 == Layered design
 
-The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between the decision making tasks (logic layer), and the execution steps (execution layer) in automation. You should understand how these layers work to be able to customize the configuration. It is not required to utilize the logic layer of the framework. The logic layer provides options to expand the capability of the framework beyond hardcoded values for execution, enabling you to customize the framework capabilities if desired.  
+The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between decision making tasks (logic layer), and the execution steps (execution layer) in automation. You should understand how these layers work to be able to customize the configuration. 
 
-An Ansible "playbook" executes a series of tasks from start to finish. The site.yml playbook contains the logic.yml playbook and the execution.yml playbook. 
+An Ansible "playbook" executes a series of tasks from start to finish. The `site.yml` playbook contains the `logic.yml` playbook and the `execution.yml` playbook. 
 
-The site.yml playbook calls the logic.yml playbook first and then calls the execution.yml playbook to execute the service request. 
+When a request is run, the `site.yml` playbook makes an API call to the `logic.yml` playbook first, and then calls the `execution.yml` playbook to execute the service request. 
+
+It is not required to utilize the logic layer of the framework. The logic layer provides options to expand the capability of the framework beyond the hard-coded values for execution. This enables you to customize the framework capabilities if required.   
 
 .Logic layer
 
 The logic layer consists of the following:
 
- * The logic.yml playbook 
+ * The `logic.yml` playbook 
  * Logic tasks contained files within the `logic-tasks` directory
 
-The logic layer provides the capability for complex decision making without the need for significant custom integration (for example, connecting to ServiceNOW). The logic layer is configurable and feeds input to microservices. 
+The logic layer provides the capability for complex decision making without the need for significant custom integration (for example, connecting to ServiceNOW). The logic layer is configurable and provides the input to microservices. 
 
 The ability to bypass the logic layer is also provided. If you want to bypass the logic layer, do not define the `logic_operation` variable. Direct invocation of the `logic.yml` playbook provides the ability to do some level of debugging without execution. Simply use a "debug" statement to print the value of the `raw_service_request` to verify that it is correct.
 
 Important considerations: 
 
-* The logic.yml playbook searches for the `logic_operation` variable. If the variable is defined, it loads a tasks file from the `logic-tasks` directory. The tasks file must be a .yml file. If there is no matching tasks file and the `logic_operation` variable is defined, the logic layer fails.
+* The `logic.yml` playbook searches for the `logic_operation` variable. If the variable is defined, it loads a tasks file from the `logic-tasks` directory. The tasks file must be a .yml file. If there is no matching tasks file and the `logic_operation` variable is defined, the logic layer fails.
 
-* The default value of the `logic_operation` variable is `no-op`. Therefore, if it is not explicitly defined it defaults to `no-op`, which does not run any operations. 
+* The default value of the `logic_operation` variable is `no-op`. Therefore, if it is not explicitly defined, it defaults to `no-op`, which does not run any operations. 
 
 * If the `raw_service_request` variable is already defined, then execution proceeds to the execution layer. If the variable is not defined, the logic layer fails. 
 
@@ -58,7 +60,7 @@ Important considerations:
 
 The execution layer consists of the following: 
 
-* The execution.yml playbook
+* The `execution.yml` playbook
 
 The execution layer makes the API calls that configure the ONTAP cluster. The `execution.yml` playbook requires that the `raw_service_request` variable is defined when executed.
 
@@ -68,7 +70,7 @@ You can customize this solution in various ways depending on your requirements.
 
 Customization options include:
 
-* Modifying the Ansible playbooks
+* Modifying Ansible playbooks
 * Adding roles
 
 .Customize Ansible files

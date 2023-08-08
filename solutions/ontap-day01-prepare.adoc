@@ -43,10 +43,10 @@ If you want to deploy this solution through an ONTAP simulator, you must downloa
 
 .Before you begin
 
-* You must download and install the VMWare hypervisor that you are going to use to run Simulate ONTAP. 
+* You must download and install the VMware hypervisor that you are going to use to run Simulate ONTAP. 
 +
-** If you have a Windows or Linux OS, use VMWare Workstation.
-** If you have a Mac OS, use VMWare Fusion.
+** If you have a Windows or Linux OS, use VMware Workstation.
+** If you have a Mac OS, use VMware Fusion.
 +
 NOTE: If you are using a Mac OS, you must have an Intel processor. 
 
@@ -56,25 +56,25 @@ Use the following steps to install two ONTAP simulators in your local environmen
 
 . Download Simulate ONTAP from the link:https://mysupport.netapp.com/site/tools/tool-eula/simulate-ontap[NetApp support site^]
 +
-NOTE: Although you will install two simulators, you only need to download one copy of the software.
+NOTE: Although you install two ONTAP simulators, you only need to download one copy of the software.
 
-. If it is not already running, start up your VMWare application.
+. If it is not already running, start up your VMware application.
 . Locate the simulator file that was downloaded and right click to open it with
-the VMWare application.
+the VMware application.
 . Set the name of the first ONTAP instance 
 . Wait for the simulator boot up and follow the directions to create a single
 node cluster.
-. Repeat steps 2 through 6 for the second ONTAP instance.
+. Repeat Step 2 to Step 6 for the second ONTAP instance.
 
-. Configure each instance for use.
+. Add a full disk complement.
 +
 From each cluster, run the following commands: 
 [source,cli]
-::> security unlock -username <user_01>
-::> security login password -username <user_01>
-::> set -priv advanced
-::> systemshell local
-::> <Cluster-01>::> disk assign -all -node <Cluster-01>-01
+security unlock -username <user_01>
+security login password -username <user_01>
+set -priv advanced
+systemshell local
+disk assign -all -node <Cluster-01>-01
 
 === State of the ONTAP system
 
@@ -82,10 +82,10 @@ You must verify the initial state of the ONTAP system, whether it is on-premises
 
 Verify that the following ONTAP system requirements are met: 
 
-* ONTAP is installed and running but no cluster is defined yet
-* The network reachable
-* You must have admin credentials
-* The MOD banner is displayed with the management address
+* ONTAP is installed and running with no cluster defined yet.
+* The network is reachable.
+* You have admin credentials.
+* The Media on Demand (MOD) banner is displayed with the management address.
 
 == Install the required automation software
 
@@ -115,9 +115,9 @@ Perform some initial configuration of the Ansible framework:
 
 . Navigate to `playbooks/inventory/group_vars/all`
 . Modify the following Ansible files: 
-* clusters.yml 
-* vault.yml 
-* cfg.yml - Set the file path for `log2file` and set `show_request`
+* `clusters.yml` 
+* `vault.yml` 
+* `cfg.yml` - Set the file path for `log2file` and set `show_request`
 under `cfg` to `True` to display the `raw_service_request`.
 . Navigate to `playbooks/inventory/hosts` and set a valid Python interpreter.
 +
@@ -132,7 +132,7 @@ The following command runs the `na_ontap_info` module with a gather subset value
 ansible-playbook -i inventory/hosts site.yml -e cluster_name=<CLUSTER_NAME>
 -e logic_operation=framework-test
 +
-Run the command for each cluster that you need. 
+Run the command for each cluster. 
 +
 If successful, you should see output similar to the following example:
 +
