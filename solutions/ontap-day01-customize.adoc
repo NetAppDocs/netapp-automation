@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: solutions/ontap-day01-customize.html
 keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, customize, add roles
-summary:
+summary: To customize the ONTAP day 0/1 solution for your requirements, you can add or change Ansible roles.
 ---
 
 = Customize the ONTAP day 0/1 solution
@@ -37,11 +37,11 @@ Each role must support the following variables:
 NOTE: It is not always possible to implement this because of interdependencies. 
 
 * `status`: The overall status of playbook execution. If not set to `success` the role is not executed. 
-* `args` :  List of role specific dictionaries with keys that match the role parameter names.
+* `args` :  A list of role specific dictionaries with keys that match the role parameter names.
 * `global_log_messages`: Gathers log messages during playbook execution. There is one entry generated each time the role is executed.
 * `log_name`: The name used to refer to the role within `global_log_messages` entries.
 * `task_descr`: A brief description of what the role does. 
-* `service_start_time`:  The timestamp used to track the time each role is executed.
+* `service_start_time`: The timestamp used to track the time each role is executed.
 * `playbook_status`: 
 * `role_result` - The variable that contains role output and is included in each message within `global_log_messages` entries.
 
@@ -115,17 +115,17 @@ The following example provides the basic structure of a role that implements a m
             global_log_msgs:   "{{ global_log_msgs + [ role_log ] }}" 
 ----
 
-.How to update the variables in the example
+.Variables used in the example role:
 
-*  `<NAME>`: This represents a replaceable value that must be provided for each microservice.
-* `<LOG_NAME>`: This represents the short form name of the role the be used for logging purposes. For example, `ONTAP_VOLUME`.
-* `<TASK_DESCRIPTION>`: Provide a brief description of the what the microservice does
+*  `<NAME>`: A replaceable value that must be provided for each microservice.
+* `<LOG_NAME>`: The short form name of the role used for logging purposes. For example, `ONTAP_VOLUME`.
+* `<TASK_DESCRIPTION>`: A brief description of the what the microservice does.
 * `<MODULE_NAME>`: The Ansible module name for the task.
 +
 NOTE: The top level `execute.yml` playbook specifies the `netapp.ontap` collection. If the module is part of the `netapp.ontap` collection there is no need to fully specify the module name.
 
 * `<MODULE_SPECIFIC_PARAMETERS>`: Ansible module parameters that are specific to the module used to implement the microservice. The following list describes types of parameters and how they should be grouped.
-**  All parameters that are required are specified with no default.
+**  All parameters that are required are specified with no default value.
 ** If the microservice uses a default value for the parameter (not the same as a default value specified by the module documentation) it is included in the next section.
 **  All remaining parameters use `default(omit)` as the default value
 
