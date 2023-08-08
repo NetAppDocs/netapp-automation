@@ -21,18 +21,18 @@ Roles represent the microservices within the framework. Each microservice perfor
 
 You add Ansible roles to customize the solution for your environment. Required roles are defined by service definitions within the Ansible framework.
 
-A role must meet certain requirements to be used as a microservice:
+A role must meet the following requirements to be used as a microservice:
 
-* Accept a list of args in the args variable 
-* Use a block-rescure-always structure with certain requirements for each part 
-* Use a single Ansible module and define a single task within the block 
-* Implement every available module parameter with certain requirements (detailed below)
+* Accept a list of arguments in the `args` variable.
+* Use the Ansible "block, rescue, always" structure with certain requirements for each block.
+* Use a single Ansible module and define a single task within the block. 
+* Implement every available module parameter according to the requirements detailed in this section.
 
 .Required microservice structure
 
 Each role must support the following variables:
 
-* `mode`: If mode is set to 'test' the role attempts to import the `test.yml` which displays what the role does without executing it.
+* `mode`: If mode is set to 'test' the role attempts to import the `test.yml` which shows what the role does without actually executing it.
 +
 NOTE: It is not always possible to implement this because of interdependencies. 
 
@@ -41,9 +41,11 @@ NOTE: It is not always possible to implement this because of interdependencies.
 * `global_log_messages`: Gathers log messages during playbook execution. There is one entry generated each time the role is executed.
 * `log_name`: The name used to refer to the role within `global_log_messages` entries.
 * `task_descr`: A brief description of what the role does. 
-* `service_start_time` - The timestamp used to track  each time the role is executed.
+* `service_start_time`:  The timestamp used to track the time each role is executed.
 * `playbook_status`: 
 * `role_result` - The variable that contains role output and is included in each message within `global_log_messages` entries.
+
+== Example role structure
 
 The following example provides the basic structure of a role that implements a microservice. You must change the variables in this example for your configuration. 
 
@@ -113,7 +115,7 @@ The following example provides the basic structure of a role that implements a m
             global_log_msgs:   "{{ global_log_msgs + [ role_log ] }}" 
 ----
 
-.Notes on how to update the variables in the provided example
+.How to update the variables in the example
 
 *  `<NAME>`: This represents a replaceable value that must be provided for each microservice.
 * `<LOG_NAME>`: This represents the short form name of the role the be used for logging purposes. For example, `ONTAP_VOLUME`.
@@ -135,7 +137,7 @@ Using `default(omit)` alone does not work when there are these dictionaries are 
 
 If you need to use multi-level dictionaries as module parameters, you should split the functionality into multiple microservices (roles) so that each one is guaranteed to supply at least one second level dictionary value for the relevant dictionary.
 
-The following examples shows functionality for fixed and adaptive QoS policy groups split across two microservices. 
+The following examples shows fixed and adaptive QoS policy groups split across two microservices. 
 
 The first microservice contains fixed QoS policy group values:
 ----

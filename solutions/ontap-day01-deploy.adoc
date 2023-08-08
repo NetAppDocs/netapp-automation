@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1,
 summary:
 ---
 
-= Deploy the ONTAP day 0/1 solution
+= Deploy the ONTAP cluster
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,11 +13,11 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-After completing the preparation and planning, you are ready to deploy the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible. 
+After completing the preparation and planning, you are ready to use the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible. 
 
-You can choose to test a request instead of executing it at any time during this procedure. To do this, you must change the site.yml playbook on the command line to use logic.yml. 
+At any time during the steps in this section, you can choose to test a request instead of executing. To do this, you must change the `site.yml` playbook on the command line to use `logic.yml`. 
 
-The docs/tutorial-requests.txt file contains the final version of all service requests used throughout this procedure. If you have difficulty running a service request, you can copy the relevant request from the tutorial-requests.txt file to the playbooks/inventory/group_vars/all/tutorial-requests.yml location and modify the hard coded values as required (IP address, aggregate names and so on). You should then be able to successfully make the request. 
+The `docs/tutorial-requests.txt` location contains the final version of all service requests used throughout this procedure. If you have difficulty running a service request, you can copy the relevant request from the `tutorial-requests.txt` file to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and modify the hard-coded values as required (IP address, aggregate names and so on). You should then be able to successfully run the request. 
 
 == Before you begin
 
@@ -30,11 +30,11 @@ The docs/tutorial-requests.txt file contains the final version of all service re
 
 At this stage, you must perform some initial cluster configuration steps. 
 
-. Navigate to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and review the `cluster_initial` request in the file. Make any necessary changes to suite your environment. 
+. Navigate to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and review the `cluster_initial` request in the file. Make any necessary changes for your environment. 
 +
 At the bottom of the file, uncomment the `raw_service_request` definition and confirm that the value is set to `cluster_initial`.
 +
-NOTE: The examples in this procedure use "Cluster_01" and "Cluster_02" as the names for the two clusters. Replace these values with the names of the clusters in your environment. 
+NOTE: The examples throughout this solution use "Cluster_01" and "Cluster_02" as the names for the two clusters. You must replace these values with the names of the clusters in your environment. 
 
 . Perform the initial cluster configuration for the first cluster:
 +
@@ -48,7 +48,7 @@ Verify that there are no errors before proceeding.
 [source,cli]
 ansible-playbook -i inventory/hosts site.yml -e cluster_name=<Cluster_02>
 +
-Verify there are no errors for the second cluster.
+Verify that there are no errors for the second cluster.
 +
 When you scroll up towards the beginning of the Ansible output you should see the request that was sent to the framework, as shown in the following example:
 +
@@ -128,11 +128,16 @@ ok: [localhost] => {
 
 You can now configure the intercluster LIFs by adding the LIF definitions to the `cluster_initial` request and defining the `ontap_interface` microservice. 
 
-The service definition and the request work together to determine the action. If you provide a service request for a microservice that is not in the service definitions, the request is not executed. 
+The service definition and the request work together to determine the action:
 
-If you provide a service request with one or more microservices defined in the service definitions, but omitted from the request, the request is not executed. 
+* If you provide a service request for a microservice that is not in the service definitions, the request is not executed. 
 
-The `execution.yml` playbook evaluates the service definition by scanning the list of microservices in the order listed. If there is an entry in the request with a dictionary key matching the *“args”* entry contained in the microservice definitions, the request is executed. If there is no matching entry in the service request, it is skipped without error.
+* If you provide a service request with one or more microservices defined in the service definitions, but omitted from the request, the request is not executed. 
+
+The `execution.yml` playbook evaluates the service definition by scanning the list of microservices in the order listed:
+
+* If there is an entry in the request with a dictionary key matching the *“args”* entry contained in the microservice definitions, the request is executed. 
+* If there is no matching entry in the service request, it is skipped without error.
 
 .Steps
 
@@ -205,7 +210,7 @@ Cluster_01
 5 entries were displayed.
 ----
 +
-The output shows that the LIFs were *not* added. This is because the `ontap_interface` microservice still needs to be defined in the services.yml file.
+The output shows that the LIFs were *not* added. This is because the `ontap_interface` microservice still needs to be defined in the `services.yml` file.
 
 . Verify that the LIFs were added to the `raw_service_request`.
 +
@@ -338,7 +343,7 @@ You must configure the following:
 +
 * The SVM
 * The SVM peer relationship
-* The SVM interface for each SVM.
+* The SVM interface for each SVM
 
 
 . Update the variable definitions in the `svm_initial` request definitions. You must modify the following variable definitions: 
@@ -348,7 +353,7 @@ You must configure the following:
 * `peer_cluster_name`
 * `peer_vserver`
 +
-To update the definitions, remove the ‘{}’ after `req_details` for the `svm_initial` definition and add the correct definition.
+To update the definitions, remove the *‘{}’* after `req_details` for the `svm_initial` definition and add the correct definition.
 
 . After you have properly defined the request, update the `raw_service_request` field at the end of the file to use the `svm_initial` request, as shown in the following example:
 +
@@ -373,7 +378,7 @@ ansible-playbook -i inventory/hosts -e cluster_name=<Cluster_01> -e peer_cluster
 
 == Step 5: Provision NAS
 
-In the previous steps, the `raw_service_request` is hard coded. This is useful for learning, development, and testing. You can also dynamically generate a `raw_service_request`. 
+In the previous steps, the `raw_service_request` is hard-coded. This is useful for learning, development, and testing. You can also dynamically generate a `raw_service_request`. 
 
 The following steps provide an option to dynamically produce the required `raw_service_request` if you do not want to integrate it with higher level systems. 
 
@@ -386,7 +391,7 @@ The following steps provide an option to dynamically produce the required `raw_s
 +
 [IMPORTANT]
 ====
-* If the `logic_operation` variable is not defined, the `logic.yml` file does not import any file from the `logic-tasks` folder. This means the `raw_service_request` must be defined outside of Ansible and passed to the framework upon execution. 
+* If the `logic_operation` variable is not defined, the `logic.yml` file does not import any file from the `logic-tasks` folder. This means the `raw_service_request` must be defined outside of Ansible and provided to the framework on execution. 
 
 * A tasks file name in the `logic-tasks` folder must match the value of the `logic_operation` variable and the .yml extension.
 
@@ -410,10 +415,9 @@ ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_01
 
 [source,cli]
 ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_02
--e logic_operation=tutorial site.ym
-----
+-e logic_operation=tutorial site.yml
 
-== Step 5: Deploy the ONTAP day0/1 solution and health checks
+== Step 5: Deploy the ONTAP day 0, day 1, and health check services
 
 At this stage you should have already completed the following: 
 
@@ -423,25 +427,23 @@ At this stage you should have already completed the following:
 
 Use the following commands to deploy the ONTAP day 0, ONTAP day 1, and health check services:
 
+NOTE: The `<temporary_password>` is a temporary password to decrypt the `vault.yml` file and the corresponding vault password.
+
 .Run the ONTAP day 0 service 
 
 [source, cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass
-Temporary Password to decrypt the vault.yml file and it's corresponding vault password- <temporary_password>
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass <temporary_password>
 
 .Run the ONTAP day 1 service 
 [source, cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass
-Temporary Password to decrypt the vault.yml file and it's corresponding vault password- <temporary_password>
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass <temporary_password>
 
 .Apply cluster wide settings
 
 [source,cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_wide_settings -e service=cluster_wide_settings -vvvv --ask-vault-pass
-Temporary Password to decrypt the vault.yml file and it's corresponding vault password- <temporary_password>
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_wide_settings -e service=cluster_wide_settings -vvvv --ask-vault-pass <temporary_password>
 
 .Run health checks
 
 [source,cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=health_checks -e service=health_checks -e enable_health_reports=true -vvvv --ask-vault-pass
-Temporary Password to decrypt the vault.yml file and it's corresponding vault password- <temporary_password>
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=health_checks -e service=health_checks -e enable_health_reports=true -vvvv --ask-vault-pass <temporary_password>
