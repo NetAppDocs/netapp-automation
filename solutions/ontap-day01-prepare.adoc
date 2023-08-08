@@ -62,7 +62,8 @@ NOTE: Although you install two ONTAP simulators, you only need to download one c
 . Locate the simulator file that was downloaded and right click to open it with the VMware application.
 . Set the name of the first ONTAP instance. 
 . Wait for the simulator boot up and follow the directions to create a single node cluster.
-. Repeat Step 2 through Step 6 for the second ONTAP instance.
++
+Repeat the steps for the second ONTAP instance.
 
 . Add a full disk complement.
 +

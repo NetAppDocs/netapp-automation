@@ -15,7 +15,7 @@ summary:
 [.lead]
 After completing the preparation and planning, you are ready to use the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible. 
 
-At any time during the steps in this section, you can choose to test a request instead of executing. To do this, you must change the `site.yml` playbook on the command line to use `logic.yml`. 
+At any time during the steps in this section, you can choose to test a request instead of actually executing it. To test a request, you must change the `site.yml` playbook on the command line to use `logic.yml`. 
 
 The `docs/tutorial-requests.txt` location contains the final version of all service requests used throughout this procedure. If you have difficulty running a service request, you can copy the relevant request from the `tutorial-requests.txt` file to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and modify the hard-coded values as required (IP address, aggregate names and so on). You should then be able to successfully run the request. 
 

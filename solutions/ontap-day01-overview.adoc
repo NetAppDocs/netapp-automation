@@ -81,10 +81,10 @@ The following table describe the customizable Ansible files contained in this so
 |===
 | Location
 | Description
-| playbooks/inventory/hosts | Contains a single file with a list of hosts and groups.
-| playbooks/group_vars/all/* | Ansible provides a convenient way to apply variables to multiple hosts at once. You can modify any or all files in this this folder including; cfg.yml, clusters.yml, defaults.yml, services.yml, standards.yml, and vault.yml.
-| playbooks/logic-tasks | Supports decision making tasks within Ansible and maintains the separation of logic and execution. You can add files to this folder that correspond to the relevant service.
-| playbooks/vars/* | Dynamic values used within Ansible playbooks and roles to enable customization, flexibility, and reusability of configurations. You can modify any or all files in this folder if necessary.
+a| `playbooks/inventory/hosts` | Contains a single file with a list of hosts and groups.
+a| `playbooks/group_vars/all/*` | Ansible provides a convenient way to apply variables to multiple hosts at once. You can modify any or all files in this this folder including; cfg.yml, clusters.yml, defaults.yml, services.yml, standards.yml, and vault.yml.
+a| `playbooks/logic-tasks` | Supports decision making tasks within Ansible and maintains the separation of logic and execution. You can add files to this folder that correspond to the relevant service.
+a| `playbooks/vars/*` | Dynamic values used within Ansible playbooks and roles to enable customization, flexibility, and reusability of configurations. If necessary, you can modify any or all files in this folder.
 |===
 
 
