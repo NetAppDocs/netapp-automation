@@ -258,7 +258,7 @@ The following example shows that the LIFs have been added to the request:
                     "address": "10.0.0.126",
                     "home_node": "Cluster_02-01",
                     "home_port": "e0c",
-                    "hostname": "ONTAP99_02",
+                    "hostname": "Cluster_02",
                     "interface_name": "ic02",
                     "ipspace": "Default",
                     "netmask": "255.255.255.0",
