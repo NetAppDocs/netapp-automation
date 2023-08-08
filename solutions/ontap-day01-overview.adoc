@@ -42,7 +42,7 @@ It is not required to utilize the logic layer of the framework. The logic layer 
 The logic layer consists of the following:
 
  * The `logic.yml` playbook 
- * Logic tasks contained files within the `logic-tasks` directory
+ * Logic task files within the `logic-tasks` directory
 
 The logic layer provides the capability for complex decision making without the need for significant custom integration (for example, connecting to ServiceNOW). The logic layer is configurable and provides the input to microservices. 
 
