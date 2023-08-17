@@ -21,8 +21,9 @@ Before you deploy the automation solution you must prepare the ONTAP environment
 
 You meet the following basic requirements to use this solution: 
 
-* You must know how to use Ansible automation software tools.
 * You must have access to ONTAP software, either on-premises or through an ONTAP simulator.
+* You must know how to use ONTAP software.
+* You must know how to use Ansible automation software tools.
 
 .Planning considerations
 
@@ -65,7 +66,7 @@ NOTE: Although you install two ONTAP simulators, you only need to download one c
 +
 Repeat the steps for the second ONTAP instance.
 
-. Add a full disk complement.
+. Optionally, add a full disk complement.
 +
 From each cluster, run the following commands: 
 [source,cli]
@@ -82,9 +83,10 @@ You must verify the initial state of the ONTAP system, whether it is on-premises
 Verify that the following ONTAP system requirements are met: 
 
 * ONTAP is installed and running with no cluster defined yet.
+* ONTAP is booted and displaying the IP address to access the cluster.
 * The network is reachable.
 * You have admin credentials.
-* The Media on Demand (MOD) banner is displayed with the management address.
+* The Message of the Day (MOTD) banner is displayed with the management address.
 
 == Install the required automation software
 
@@ -118,6 +120,9 @@ Perform some initial configuration of the Ansible framework:
 * `vault.yml` 
 * `cfg.yml` - Set the file path for `log2file` and set `show_request`
 under `cfg` to `True` to display the `raw_service_request`.
++
+The `raw_service_request` is displayed in the log files and during execution. 
+
 . Navigate to `playbooks/inventory/hosts` and set a valid Python interpreter.
 +
 NOTE: Each file listed contains comments with instructions on how to modify them according to your requirements. 
