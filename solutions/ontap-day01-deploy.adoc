@@ -402,7 +402,7 @@ The following steps provide an option to dynamically produce the required `raw_s
 +
 There are multiple ways to apply the logic task to dynamically define a service request. Some of these options are listed below:
 +
-* Using the Ansible task code within the file.
+* Using the Ansible task code within the `tutorial.yml` file.
 * Invoking a custom role that returns data suitable for converting to a `raw_service_request` or to the request.
 * Invoking another tool outside of the Ansible environment to provide the required data. For example, a REST call to Active IQ Unified Manager.
 * Invoking other task files from within the `logic-tasks` folder to organize operations.
@@ -429,17 +429,18 @@ Use the following commands to deploy the ONTAP day 0, ONTAP day 1, and health ch
 
 NOTE: The `<temporary_password>` is a temporary password to decrypt the `vault.yml` file and the corresponding vault password.
 
-.Run the ONTAP day 0 service 
-
+* Run the ONTAP day 0 service 
++
 [source, cli]
 ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass <temporary_password>
 
-.Run the ONTAP day 1 service 
+* Run the ONTAP day 1 service 
++
 [source, cli]
 ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass <temporary_password>
 
-.Apply cluster wide settings
-
+* Apply cluster wide settings
++
 [source,cli]
 ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_wide_settings -e service=cluster_wide_settings -vvvv --ask-vault-pass <temporary_password>
 
