@@ -427,7 +427,7 @@ At this stage you should have already completed the following:
 
 Use the following commands to deploy the ONTAP day 0, ONTAP day 1, and health check services:
 
-NOTE: "NetApp123!" is a temporary password to decrypt the `vault.yml` file and the corresponding vault password. 
+NOTE: "NetApp123!" is a temporary password to decrypt the `vault.yml` file and the corresponding vault password. You will be prompted to change this to your own password for future use.
 
 * Run the ONTAP day 0 service 
 +
