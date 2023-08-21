@@ -133,7 +133,7 @@ NOTE: The top level `execute.yml` playbook specifies the `netapp.ontap` collecti
 
 Some NetApp provided Ansible modules use multi-level dictionaries for module parameters (for example, fixed and adaptive QoS policy groups).  
 
-Using `default(omit)` alone does not work when there are these dictionaries are used, especially when there is more than one and they are mutually exclusive.
+Using `default(omit)` alone does not work when these dictionaries are used, especially when there is more than one and they are mutually exclusive.
 
 If you need to use multi-level dictionaries as module parameters, you should split the functionality into multiple microservices (roles) so that each one is guaranteed to supply at least one second level dictionary value for the relevant dictionary.
 

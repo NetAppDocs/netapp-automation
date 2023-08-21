@@ -17,15 +17,15 @@ You can use the ONTAP day 0/1 automation solution to deploy and configure an ONT
 
 == Flexible ONTAP deployment options
 
-Depending on your requirements, you can use on-premises hardware or use Simulate ONTAP to deploy and configure an ONTAP cluster using Ansible.
-
-.Simulate ONTAP
-
-To deploy this solution using an ONTAP simulator, you must download the latest version of Simulate ONTAP from the NetApp support site. Simulate ONTAP is a virtual simulator for ONTAP software. Simulate ONTAP runs in a VMware hypervisor on a Windows, Linux or Mac system. For Windows and Linux hosts, you must use the VMware Workstation hypervisor to run this solution. If you have a Mac OS, use the VMware Fusion hypervisor. 
+Depending on your requirements, you can use on-premises hardware or Simulate ONTAP to deploy and configure an ONTAP cluster using Ansible. 
 
 .On-premises hardware
 
-You can also run this solution on on-premises hardware such as a FAS or an AFF system. You must use a Linux VM to deploy and configure the ONTAP cluster using Ansible.   
+You can deploy this solution using on-premises hardware running ONTAP, such as a FAS or an AFF system. You must use a Linux VM to deploy and configure the ONTAP cluster using Ansible.   
+
+.Simulate ONTAP
+
+To deploy this solution using an ONTAP simulator, you must download the latest version of Simulate ONTAP from the NetApp support site. Simulate ONTAP is a virtual simulator for ONTAP software. Simulate ONTAP runs in a VMware hypervisor on a Windows, Linux or Mac system. For Windows and Linux hosts, you must use the VMware Workstation hypervisor to run this solution. If you have a Mac OS, use the VMware Fusion hypervisor.
 
 == Layered design
 
