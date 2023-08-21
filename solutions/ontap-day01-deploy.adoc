@@ -427,24 +427,24 @@ At this stage you should have already completed the following:
 
 Use the following commands to deploy the ONTAP day 0, ONTAP day 1, and health check services:
 
-NOTE: The `<temporary_password>` is a temporary password to decrypt the `vault.yml` file and the corresponding vault password.
+NOTE: "NetApp123!" is a temporary password to decrypt the `vault.yml` file and the corresponding vault password. 
 
 * Run the ONTAP day 0 service 
 +
 [source, cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass <temporary_password>
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass NetApp123!
 
 * Run the ONTAP day 1 service 
 +
 [source, cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass <temporary_password>
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass NetApp123!
 
 * Apply cluster wide settings
 +
 [source,cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_wide_settings -e service=cluster_wide_settings -vvvv --ask-vault-pass <temporary_password>
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_wide_settings -e service=cluster_wide_settings -vvvv --ask-vault-pass NetApp123!
 
 * Run health checks
 +
 [source,cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=health_checks -e service=health_checks -e enable_health_reports=true -vvvv --ask-vault-pass <temporary_password>
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=health_checks -e service=health_checks -e enable_health_reports=true -vvvv --ask-vault-pass NetApp123!
