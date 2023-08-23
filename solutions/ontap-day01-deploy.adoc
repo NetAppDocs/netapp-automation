@@ -67,7 +67,7 @@ You can use one of the following options to define the raw_service_request` for 
     raw_service_request:
 ----
 +
-.. Navigate to the tutorial-requests.txt file and copy the contents from lines 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file, as shown in the following example:
+.. Navigate to the `tutorial-requests.txt` file and copy the contents from lines 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file, as shown in the following example:
 +
 .Show example
 [%collapsible]
