@@ -122,10 +122,10 @@ Perform some initial configuration of the Ansible framework:
 under `cfg` to `True` to display the `raw_service_request`.
 +
 The `raw_service_request` is displayed in the log files and during execution. 
-
-. Navigate to `playbooks/inventory/hosts` and set a valid Python interpreter.
 +
 NOTE: Each file listed contains comments with instructions on how to modify them according to your requirements. 
+
+. Navigate to `playbooks/inventory/hosts` and set a valid Python interpreter.
 
 . Deploy the `framework_test` service:
 +
