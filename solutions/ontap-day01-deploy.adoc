@@ -62,8 +62,11 @@ Copy the following lines to the file:
 
 . Navigate to the tutorial-requests.txt file and copy the content from line 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file in the `logic-tasks` folder.
 +
-Example:
-+
+.Show example
+[%collapsible]
+====
+Example `cluster_initial.yml` file:
+
 ----
 - name: Validate required inputs
   ansible.builtin.assert:
@@ -234,6 +237,7 @@ Example:
         hostname:                 "{{ peer_cluster_name }}"
     
 ----    
+====
 +
 You can also use the following jinja template format to get the `raw_service_request` value. 
 +
@@ -255,6 +259,9 @@ Verify that there are no errors for the second cluster.
 +
 When you scroll up towards the beginning of the Ansible output you should see the request that was sent to the framework, as shown in the following example:
 +
+.Show example
+[%collapsible]
+====
 ----
 TASK [Show the raw_service_request] ************************************************************************************************************
 ok: [localhost] => {
@@ -324,6 +331,8 @@ ok: [localhost] => {
     }
 }
 ----
+====
+
 
 . Log in to each ONTAP instance and verify that the request was successful. 
 
