@@ -34,10 +34,17 @@ At this stage, you must perform some initial cluster configuration steps.
 
 . Navigate to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and review the `cluster_initial` request in the file. Make any necessary changes for your environment. 
 
-. Create a file in the `logic-tasks` folder for the service request. For example, create a file called `cluster_initial.yml`
+. Define the `raw_service_request` variable. 
 +
-Copy the following lines to the file:
+You can use one of the following options to define the raw_service_request` for `cluster_initial` in the `logic-tasks` folder:
+
+* Manually define the `raw_service_request` variable.
 +
+.. Create a file in the `logic-tasks` folder for the service request. For example, create a file called `cluster_initial.yml`
++
+.. Copy the following lines to the file:
++
+[source,cli]
 ----
 - name: Validate required inputs
   ansible.builtin.assert:
@@ -59,8 +66,8 @@ Copy the following lines to the file:
   set_fact:
     raw_service_request:
 ----
-
-. Navigate to the tutorial-requests.txt file and copy the content from line 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file in the `logic-tasks` folder.
++
+.. Navigate to the tutorial-requests.txt file and copy the contents from lines 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file, as shown in the following example:
 +
 .Show example
 [%collapsible]
@@ -236,8 +243,10 @@ Example `cluster_initial.yml` file:
       peer_options:
         hostname:                 "{{ peer_cluster_name }}"
     
-----    
+----  
 ====
++
+* Use a Jinja template to define the request:
 +
 You can also use the following jinja template format to get the `raw_service_request` value. 
 +
@@ -355,6 +364,7 @@ The `execution.yml` playbook evaluates the service definition by scanning the li
 
 . Navigate to the `tutorial-requests.yml` file and modify the `cluster_initial` request by adding the following lines to the request definitions:
 +
+[source, cli]
 ----
     ontap_interface:
     - hostname:                   "{{ cluster_name }}"
@@ -426,8 +436,10 @@ The output shows that the LIFs were *not* added. This is because the `ontap_inte
 
 . Verify that the LIFs were added to the `raw_service_request`.
 +
+.Show example
+[%collapsible]
+====
 The following example shows that the LIFs have been added to the request:
-+
 ----
            "ontap_interface": [
                 {
@@ -480,7 +492,7 @@ The following example shows that the LIFs have been added to the request:
                 }
             ],
 ----
-
+====
 . Define the `ontap_interface` microservice under `cluster_initial` in the `services.yml` file.
 +
 Copy the following lines to the file to define the microservice:
@@ -528,6 +540,7 @@ The following example displays the `ontap_aggr` field after the second entry is 
 
 . Add cluster peering to the request by copying the following lines to the file under `cluster_initial`:
 +
+[source,cli]
 ----
     ontap_cluster_peer:
     - hostname:                   "{{ cluster_name }}"
@@ -540,6 +553,7 @@ The following example displays the `ontap_aggr` field after the second entry is 
 ----
 
 . Run the Ansible request:
++
 [source, cli]
 ansible-playbook -i inventory/hosts -e cluster_name=<Cluster_01>
 site.yml -e peer_cluster_name=<Cluster_02> -e cluster_lifs=<cluster_lif_1_IP_address,cluster_lif_2_IP_address>
