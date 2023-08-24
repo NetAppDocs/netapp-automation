@@ -713,46 +713,38 @@ ansible-playbook -i inventory/hosts -e cluster_name=<Cluster_01> -e peer_cluster
 
 . Log in to each ONTAP instance and verify that the SVM interfaces have been configured. 
 
-== Step 5: Provision NAS
+== Step 5: Optionally, define a service request dynamically
 
-In the previous steps, the `raw_service_request` is hard-coded. This is useful for learning, development, and testing. You can also dynamically generate a `raw_service_request`. 
+In the previous steps, the `raw_service_request` is hard-coded. This is useful for learning, development, and testing. You can also dynamically generate a service request. 
 
-The following steps provide an option to dynamically produce the required `raw_service_request` if you do not want to integrate it with higher level systems. 
+The following section provides an option to dynamically produce the required `raw_service_request` if you do not want to integrate it with higher level systems. 
 
-.Steps 
-
-
-. Navigate to `playbooks/logic-tasks/tutorial.yml`. 
-
-. Define the `logic_operation` variable in the `tutorial.yml` file.
-+
 [IMPORTANT]
 ====
-* If the `logic_operation` variable is not defined, the `logic.yml` file does not import any file from the `logic-tasks` folder. This means the `raw_service_request` must be defined outside of Ansible and provided to the framework on execution. 
+* If the `logic_operation` variable is not defined in the command, the `logic.yml` file does not import any file from the `logic-tasks` folder. This means the `raw_service_request` must be defined outside of Ansible and provided to the framework on execution. 
 
-* A tasks file name in the `logic-tasks` folder must match the value of the `logic_operation` variable and the .yml extension.
+* A tasks file name in the `logic-tasks` folder must match the value of the `logic_operation` variable without the .yml extension.
 
-* The tasks file in the `logic-tasks` folder dynamically defines a `raw_service_request`. The only requirement is that a valid `raw_service_request` be defined as the last task in the file.
+* The task files in the `logic-tasks` folder dynamically define a `raw_service_request`. The only requirement is that a valid `raw_service_request` be defined as the last task in the relevant file.
 ====
 
-. Dynamically define the the service request. 
-+
-There are multiple ways to apply the logic task to dynamically define a service request. Some of these options are listed below:
-+
-* Using the Ansible task code within the `tutorial.yml` file.
-* Invoking a custom role that returns data suitable for converting to a `raw_service_request` or to the request.
-* Invoking another tool outside of the Ansible environment to provide the required data. For example, a REST call to Active IQ Unified Manager.
-* Invoking other task files from within the `logic-tasks` folder to organize operations.
+.How to dynamically define a service request. 
 
-The following example commands dynamically define a service request for both clusters:
+There are multiple ways to apply a logic task to dynamically define a service request. Some of these options are listed below:
++
+* Using a Ansible task file from the `logic-tasks` folder
+* Invoking a custom role that returns data suitable for converting to a `raw_service_request`.
+* Invoking another tool outside of the Ansible environment to provide the required data. For example, a REST call to Active IQ Unified Manager.
+
+The following example commands dynamically defines a service request for both clusters using the `tutorial-requests.yml` file as an example:
 
 [source,cli]
 ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_01
--e logic_operation=tutorial site.yml
+-e logic_operation=tutorial-requests site.yml
 
 [source,cli]
 ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_02
--e logic_operation=tutorial site.yml
+-e logic_operation=tutorial-requests site.yml
 
 == Step 5: Deploy the ONTAP day 0, day 1, and health check services
 
@@ -764,17 +756,17 @@ At this stage you should have already completed the following:
 
 Use the following commands to deploy the ONTAP day 0, ONTAP day 1, and health check services:
 
-NOTE: "NetApp123!" is a temporary password to decrypt the `vault.yml` file and the corresponding vault password. After first use, you *must* change this to your own password. 
+NOTE: At this stage, you should have already decrypted and modified the `vault.yml` file and it should be encrypted with your new password. 
 
 * Run the ONTAP day 0 service 
 +
 [source, cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass NetApp123!
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass <your_vault_password>
 
 * Run the ONTAP day 1 service 
 +
 [source, cli]
-ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass NetApp123!
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass <your_vault_password>
 
 * Apply cluster wide settings
 +
