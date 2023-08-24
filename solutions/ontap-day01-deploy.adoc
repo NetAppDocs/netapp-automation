@@ -723,7 +723,7 @@ The following section provides an option to dynamically produce the required `ra
 ====
 * If the `logic_operation` variable is not defined in the command, the `logic.yml` file does not import any file from the `logic-tasks` folder. This means the `raw_service_request` must be defined outside of Ansible and provided to the framework on execution. 
 
-* A tasks file name in the `logic-tasks` folder must match the value of the `logic_operation` variable without the .yml extension.
+* A task file name in the `logic-tasks` folder must match the value of the `logic_operation` variable without the .yml extension.
 
 * The task files in the `logic-tasks` folder dynamically define a `raw_service_request`. The only requirement is that a valid `raw_service_request` be defined as the last task in the relevant file.
 ====
