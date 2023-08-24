@@ -35,7 +35,7 @@ At this stage, you must perform some initial cluster configuration steps.
 . Navigate to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and review the `cluster_initial` request in the file. Make any necessary changes for your environment. 
 . Create a file in the `logic-tasks` folder for the service request. For example, create a file called `cluster_initial.yml`
 +
-Copy the following lines to the file:
+Copy the following lines to the new file:
 +
 [source,cli]
 ----
@@ -65,7 +65,9 @@ You can use one of the following options to define the `raw_service_request` var
 +
 * Manually define the `raw_service_request` variable.
 +
-.. Navigate to the `tutorial-requests.yml` file and copy the contents from lines 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file, as shown in the following example:
+.. Navigate to the `tutorial-requests.yml` file and copy the contents from lines 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file, as shown in the following examples:
++
+image::./media/cluster_initial_line.png[Image of file line to copy from]
 +
 .Show example
 [%collapsible]
