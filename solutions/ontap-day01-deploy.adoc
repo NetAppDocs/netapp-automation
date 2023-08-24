@@ -731,12 +731,12 @@ The following section provides an option to dynamically produce the required `ra
 .How to dynamically define a service request. 
 
 There are multiple ways to apply a logic task to dynamically define a service request. Some of these options are listed below:
-+
+
 * Using a Ansible task file from the `logic-tasks` folder
 * Invoking a custom role that returns data suitable for converting to a `raw_service_request`.
 * Invoking another tool outside of the Ansible environment to provide the required data. For example, a REST call to Active IQ Unified Manager.
 
-The following example commands dynamically defines a service request for both clusters using the `tutorial-requests.yml` file as an example:
+The following example commands dynamically defines a service request for both clusters, using the `tutorial-requests.yml` file as an example:
 
 [source,cli]
 ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_01
