@@ -724,7 +724,7 @@ The following steps provide an option to dynamically produce the required `raw_s
 
 . Navigate to `playbooks/logic-tasks/tutorial.yml`. 
 
-. Define the `logic_operation` variable in the tutorial.yml file.
+. Define the `logic_operation` variable in the `tutorial.yml` file.
 +
 [IMPORTANT]
 ====
