@@ -116,8 +116,20 @@ Perform some initial configuration of the Ansible framework:
 
 . Navigate to `playbooks/inventory/group_vars/all`
 . Modify the following Ansible files: 
-* `clusters.yml` 
-* `vault.yml` 
+* `clusters.yml` - Modify the values in this file to suit your environment. 
+* `vault.yml` - You must decrypt the file using a temporary password in order to modify the file.
++
+IMPORTANT: "NetApp123!" is a temporary password to decrypt the `vault.yml` file and the corresponding vault password. After first use, you *must* change this to your own password. 
++
+.. To decrypt the file, run the following command: 
++
+`ansible-vault decrypt playbooks/inventory/group_vars/all/vault.yml`
++
+.. When prompted for the vault password, enter the temporary password "NetApp123!"
++
+.. Modify the ONTAP cluster, username and password values in the file to suit your environment. 
+ 
+
 * `cfg.yml` - Set the file path for `log2file` and set `show_request`
 under `cfg` to `True` to display the `raw_service_request`.
 +

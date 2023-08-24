@@ -33,16 +33,9 @@ NOTE: The examples throughout this solution use "Cluster_01" and "Cluster_02" as
 At this stage, you must perform some initial cluster configuration steps. 
 
 . Navigate to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and review the `cluster_initial` request in the file. Make any necessary changes for your environment. 
-
-. Define the `raw_service_request` variable. 
+. Create a file in the `logic-tasks` folder for the service request. For example, create a file called `cluster_initial.yml`
 +
-You can use one of the following options to define the raw_service_request` for `cluster_initial` in the `logic-tasks` folder:
-
-* Manually define the `raw_service_request` variable.
-+
-.. Create a file in the `logic-tasks` folder for the service request. For example, create a file called `cluster_initial.yml`
-+
-.. Copy the following lines to the file:
+Copy the following lines to the file:
 +
 [source,cli]
 ----
@@ -66,8 +59,13 @@ You can use one of the following options to define the raw_service_request` for 
   set_fact:
     raw_service_request:
 ----
+. Define the `raw_service_request` variable. 
 +
-.. Navigate to the `tutorial-requests.txt` file and copy the contents from lines 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file, as shown in the following example:
+You can use one of the following options to define the `raw_service_request` variable in the `cluster_initial.yml` file you created in the `logic-tasks` folder:
++
+* Manually define the `raw_service_request` variable.
++
+.. Navigate to the `tutorial-requests.yml` file and copy the contents from lines 11 to line 165. Paste the contents under the `raw service request` variable in the new `cluster_initial.yml` file, as shown in the following example:
 +
 .Show example
 [%collapsible]
@@ -362,7 +360,7 @@ The `execution.yml` playbook evaluates the service definition by scanning the li
 
 .Steps
 
-. Navigate to the `tutorial-requests.yml` file and modify the `cluster_initial` request by adding the following lines to the request definitions:
+. Navigate to the `cluster_initial.yml` file that you created previously and modify the request by adding the following lines to the request definitions:
 +
 [source, cli]
 ----
@@ -517,7 +515,7 @@ If required, you can configure multiple clusters in the same request. You must p
 
 .Steps
 
-. Add an entry for the second cluster under `cluster_initial` in the `tutorial-requests.yml` file to configure both clusters in the same request. 
+. Add an entry for the second cluster in the `cluster_initial.yml` file to configure both clusters in the same request. 
 +
 The following example displays the `ontap_aggr` field after the second entry is added.
 +
@@ -538,7 +536,7 @@ The following example displays the `ontap_aggr` field after the second entry is 
 
 . Apply the changes for all other items under `cluster_initial`. 
 
-. Add cluster peering to the request by copying the following lines to the file under `cluster_initial`:
+. Add cluster peering to the request by copying the following lines to the file:
 +
 [source,cli]
 ----
@@ -581,7 +579,116 @@ You must configure the following:
 +
 To update the definitions, remove the *‘{}’* after `req_details` for the `svm_initial` definition and add the correct definition.
 
-. After you have properly defined the request, update the `raw_service_request` field at the end of the file to use the `svm_initial` request, as shown in the following example:
+. Create a file in the `logic-tasks` folder for the service request. For example, create a file called `svm_initial.yml`
++
+Copy the following lines to the file:
++
+[source,cli]
+----
+- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial SVM configuration
+  set_fact:
+    raw_service_request:
+----
+
+. Define the `raw_service_request` variable. 
++
+You can use one of the following options to define the raw_service_request` for `svm_initial` in the `logic-tasks` folder:
+
+* Manually define the `raw_service_request` variable.
++
+.. Navigate to the `tutorial-requests.yml` file and copy the contents from lines 179 to line 222. Paste the contents under the `raw service request` variable in the new `svm_initial.yml` file, as shown in the following example:
++
+.Show example
+[%collapsible]
+====
+Example `svm_initial.yml` file:
+
+----
+- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial SVM configuration
+  set_fact:
+    raw_service_request:
+     service:          svm_initial
+     operation:        create
+     std_name:         none
+     req_details:
+
+      ontap_vserver:
+      - hostname:                   "{{ cluster_name }}"
+        name:                       "{{ vserver_name }}"
+        root_volume_aggregate:      n01_aggr1
+
+      - hostname:                   "{{ peer_cluster_name }}"
+       name:                       "{{ peer_vserver }}"
+       root_volume_aggregate:      n01_aggr1
+
+      ontap_vserver_peer:
+      - hostname:                   "{{ cluster_name }}"
+        vserver:                    "{{ vserver_name }}"
+        peer_vserver:               "{{ peer_vserver }}"
+        applications:               snapmirror
+        peer_options:
+          hostname:                 "{{ peer_cluster_name }}"
+
+      ontap_interface:
+      - hostname:                   "{{ cluster_name }}"
+        vserver:                    "{{ vserver_name }}"
+        interface_name:             data01
+        role:                       data
+        address:                    10.0.0.200
+        netmask:                    255.255.255.0
+        home_node:                  "{{ cluster_name }}-01"
+        home_port:                  e0c
+        ipspace:                    Default
+        use_rest:                   never
+
+      - hostname:                   "{{ peer_cluster_name }}"
+        vserver:                    "{{ peer_vserver }}"
+        interface_name:             data01
+        role:                       data
+        address:                    10.0.0.201
+        netmask:                    255.255.255.0
+        home_node:                  "{{ peer_cluster_name }}-01"
+        home_port:                  e0c
+        ipspace:                    Default
+        use_rest:                   never
+----
+====
+
+* Use a Jinja template to define the request:
++
+You can also use the following jinja template format to get the `raw_service_request` value.
 +
 ----
 raw_service_request: "{{ svm_initial }}"
@@ -610,7 +717,7 @@ The following steps provide an option to dynamically produce the required `raw_s
 
 .Steps 
 
-. Comment out the `raw_service_request` definition at the bottom of the `tutorial-requests.yml` file.
+
 . Navigate to `playbooks/logic-tasks/tutorial.yml`. 
 
 . Define the `logic_operation` variable in the tutorial.yml file.
@@ -653,7 +760,7 @@ At this stage you should have already completed the following:
 
 Use the following commands to deploy the ONTAP day 0, ONTAP day 1, and health check services:
 
-NOTE: "NetApp123!" is a temporary password to decrypt the `vault.yml` file and the corresponding vault password. After first use, you are required to change this to your own password. 
+NOTE: "NetApp123!" is a temporary password to decrypt the `vault.yml` file and the corresponding vault password. After first use, you *must* change this to your own password. 
 
 * Run the ONTAP day 0 service 
 +
