@@ -728,7 +728,7 @@ The following section provides an option to dynamically produce the required `ra
 * The task files in the `logic-tasks` folder dynamically define a `raw_service_request`. The only requirement is that a valid `raw_service_request` be defined as the last task in the relevant file.
 ====
 
-.How to dynamically define a service request. 
+.How to dynamically define a service request
 
 There are multiple ways to apply a logic task to dynamically define a service request. Some of these options are listed below:
 
