@@ -48,6 +48,10 @@ NOTE: It is not always possible to implement this because of interdependencies.
 == Example role structure
 
 The following example provides the basic structure of a role that implements a microservice. You must change the variables in this example for your configuration. 
+.Show example
+[%collapsible]
+====
+Basic role structure: 
 
 [source,cli]
 ----
@@ -115,7 +119,7 @@ The following example provides the basic structure of a role that implements a m
          set_fact:
             global_log_msgs:   "{{ global_log_msgs + [ role_log ] }}" 
 ----
-
+====
 .Variables used in the example role:
 
 *  `<NAME>`: A replaceable value that must be provided for each microservice.
