@@ -29,7 +29,7 @@ To deploy this solution using an ONTAP simulator, you must download the latest v
 
 == Layered design
 
-The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between decision making tasks (logic layer), and the execution steps (execution layer) in automation. You should understand how these layers work to be able to customize the configuration. 
+The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between decision making tasks (logic layer), and the execution steps (execution layer) in automation. Understanding how these layers work enables you to customize the configuration. 
 
 An Ansible "playbook" executes a series of tasks from start to finish. The `site.yml` playbook contains the `logic.yml` playbook and the `execution.yml` playbook. 
 
