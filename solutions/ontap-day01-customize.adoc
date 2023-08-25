@@ -34,7 +34,7 @@ Each role must support the following variables:
 
 * `mode`: If mode is set to 'test' the role attempts to import the `test.yml` which shows what the role does without actually executing it.
 +
-NOTE: It is not always possible to implement this because of interdependencies. 
+NOTE: It is not always possible to implement this because of certain interdependencies. 
 
 * `status`: The overall status of playbook execution. If not set to `success` the role is not executed. 
 * `args` :  A list of role specific dictionaries with keys that match the role parameter names.
@@ -42,8 +42,8 @@ NOTE: It is not always possible to implement this because of interdependencies.
 * `log_name`: The name used to refer to the role within `global_log_messages` entries.
 * `task_descr`: A brief description of what the role does. 
 * `service_start_time`: The timestamp used to track the time each role is executed.
-* `playbook_status`: 
-* `role_result` - The variable that contains role output and is included in each message within `global_log_messages` entries.
+* `playbook_status`: The statuse of the Ansible playbook.
+* `role_result`: The variable that contains role output and is included in each message within `global_log_messages` entries.
 
 == Example role structure
 
