@@ -42,7 +42,7 @@ NOTE: It is not always possible to implement this because of certain interdepend
 * `log_name`: The name used to refer to the role within `global_log_messages` entries.
 * `task_descr`: A brief description of what the role does. 
 * `service_start_time`: The timestamp used to track the time each role is executed.
-* `playbook_status`: The statuse of the Ansible playbook.
+* `playbook_status`: The status of the Ansible playbook.
 * `role_result`: The variable that contains role output and is included in each message within `global_log_messages` entries.
 
 == Example role structure
