@@ -15,7 +15,7 @@ summary:
 [.lead]
 After completing the preparation and planning, you are ready to use the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible. 
 
-At any time during the steps in this section, you can choose to test a request instead of actually executing it. To test a request, you must change the `site.yml` playbook on the command line to use `logic.yml`. 
+At any time during the steps in this section, you can choose to test a request instead of actually executing it. To test a request, change the `site.yml` playbook on the command line to `logic.yml`. 
 
 NOTE: The `docs/tutorial-requests.txt` location contains the final version of all service requests used throughout this procedure. If you have difficulty running a service request, you can copy the relevant request from the `tutorial-requests.txt` file to the `playbooks/inventory/group_vars/all/tutorial-requests.yml` location and modify the hard-coded values as required (IP address, aggregate names and so on). You should then be able to successfully run the request. 
 
@@ -357,8 +357,8 @@ The service definition and the request work together to determine the action:
 
 The `execution.yml` playbook evaluates the service definition by scanning the list of microservices in the order listed:
 
-* If there is an entry in the request with a dictionary key matching the *“args”* entry contained in the microservice definitions, the request is executed. 
-* If there is no matching entry in the service request, it is skipped without error.
+* If there is an entry in the request with a dictionary key matching the `args` entry contained in the microservice definitions, the request is executed. 
+* If there is no matching entry in the service request, the request is skipped without error.
 
 .Steps
 
@@ -417,8 +417,11 @@ The `execution.yml` playbook evaluates the service definition by scanning the li
 [source, cli]
 ansible-playbook -i inventory/hosts  site.yml -e cluster_name=<Cluster_01> -e peer_cluster_name=<Cluster_02>
 
-. Log in to each instance to check if the LIFs have been added: 
+. Log in to each instance to check if the LIFs have been added to the cluster: 
 +
+.Show example
+[%collapsible]
+====
 ----
 Cluster_01::> net int show
   (network interface show)
@@ -431,6 +434,7 @@ Cluster_01
             cluster_mgmt up/up    10.0.0.110/24      Cluster_01-01 e0c     true
 5 entries were displayed.
 ----
+====
 +
 The output shows that the LIFs were *not* added. This is because the `ontap_interface` microservice still needs to be defined in the `services.yml` file.
 
@@ -736,7 +740,7 @@ There are multiple ways to apply a logic task to dynamically define a service re
 * Invoking a custom role that returns data suitable for converting to a `raw_service_request`.
 * Invoking another tool outside of the Ansible environment to provide the required data. For example, a REST call to Active IQ Unified Manager.
 
-The following example commands dynamically defines a service request for both clusters, using the `tutorial-requests.yml` file as an example:
+The following example commands dynamically defines a service request for both clusters using the `tutorial-requests.yml` file:
 
 [source,cli]
 ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_01
