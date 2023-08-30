@@ -38,7 +38,7 @@ Before deploying this automation solution, you must decide:
 
 Whether you are using an on-premises ONTAP system or Simulate ONTAP, you must prepare the environment before you can deploy the automation solution. 
 
-=== Optionally install and configure Simulate ONTAP
+=== Optionally, install and configure Simulate ONTAP
 
 If you want to deploy this solution through an ONTAP simulator, you must download and run Simulate ONTAP. 
 
