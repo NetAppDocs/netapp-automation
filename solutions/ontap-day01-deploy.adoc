@@ -614,7 +614,7 @@ Copy the following lines to the file:
 
 . Define the `raw_service_request` variable. 
 +
-You can use one of the following options to define the raw_service_request` for `svm_initial` in the `logic-tasks` folder:
+You can use one of the following options to define the `raw_service_request` for `svm_initial` in the `logic-tasks` folder:
 
 .. Manually define the `raw_service_request` variable.
 +
@@ -740,7 +740,7 @@ There are multiple ways to apply a logic task to dynamically define a service re
 * Invoking a custom role that returns data suitable for converting to a `raw_service_request`.
 * Invoking another tool outside of the Ansible environment to provide the required data. For example, a REST call to Active IQ Unified Manager.
 
-The following example commands dynamically defines a service request for both clusters using the `tutorial-requests.yml` file:
+The following example commands dynamically defines a service request for each cluster using the `tutorial-requests.yml` file:
 
 [source,cli]
 ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_01

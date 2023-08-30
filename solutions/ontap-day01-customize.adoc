@@ -131,9 +131,9 @@ Basic role structure:
 NOTE: The top level `execute.yml` playbook specifies the `netapp.ontap` collection. If the module is part of the `netapp.ontap` collection there is no need to fully specify the module name.
 
 * `<MODULE_SPECIFIC_PARAMETERS>`: Ansible module parameters that are specific to the module used to implement the microservice. The following list describes types of parameters and how they should be grouped.
-**  All parameters that are required are specified with no default value.
-** If the microservice uses a default value for the parameter (not the same as a default value specified by the module documentation) it is included in the next section.
-**  All remaining parameters use `default(omit)` as the default value
+**  Required parameters: All required parameters are specified with no default value.
+** Parameters that have a default value specific to the microservice (not the same as a default value specified by the module documentation).
+**  All remaining parameters use `default(omit)` as the default value.
 
 == Using multi-level dictionaries as module parameters
 
