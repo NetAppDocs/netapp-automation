@@ -19,7 +19,7 @@ Before you deploy the automation solution you must prepare the ONTAP environment
 
 .Basic requirements
 
-You meet the following basic requirements to use this solution: 
+You must meet the following basic requirements to use this solution: 
 
 * You must have access to ONTAP software, either on-premises or through an ONTAP simulator.
 * You must know how to use ONTAP software.
