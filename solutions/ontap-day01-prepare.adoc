@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: solutions/ontap-day01-prepare.html
 keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, prepare
-summary:
+summary: Before you deploy the automation solution you must prepare the ONTAP environment and install and configure Ansible.
 ---
 
 = Prepare to use the ONTAP day 0/1 solution
@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-Before you deploy the automation solution you must prepare the ONTAP environment and install and configure Ansible.
+Before you deploy the automation solution, you must prepare the ONTAP environment and install and configure Ansible.
 
 == Initial planning considerations
 
@@ -53,9 +53,9 @@ NOTE: If you are using a Mac OS, you must have an Intel processor.
 
 .Steps
 
-Use the following steps to install two ONTAP simulators in your local environment:
+Use the following procedure to install two ONTAP simulators in your local environment:
 
-. Download Simulate ONTAP from the link:https://mysupport.netapp.com/site/tools/tool-eula/simulate-ontap[NetApp support site^]
+. Download Simulate ONTAP from the link:https://mysupport.netapp.com/site/tools/tool-eula/simulate-ontap[NetApp support site^].
 +
 NOTE: Although you install two ONTAP simulators, you only need to download one copy of the software.
 
@@ -96,9 +96,9 @@ This section provides information on how to install Ansible and prepare the auto
 
 Ansible can be installed on Linux or Windows systems. 
 
-The default communication method that Ansible uses to communicate with the cluster is SSH. 
+The default communication method that Ansible uses to communicate with an ONTAP cluster is SSH. 
 
-Refer to link:https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/[Getting Started with NetApp and Ansible: Install Ansible^] for the steps to install Ansible.
+Refer to link:https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/[Getting Started with NetApp and Ansible: Install Ansible^] to install Ansible.
 
 NOTE: Ansible must be installed on the control node of the system. 
 
@@ -106,15 +106,15 @@ NOTE: Ansible must be installed on the control node of the system.
 
 You can use the following steps to download and prepare the automation solution for deployment.
 
-. Download the link:https://console.bluexp.netapp.com/automationCatalog[ONTAP day 0/day1^] automation solution through the BlueXP web UI. The solution is packaged as `ONTAP_DAY0_DAY1.zip`.
+. Download the link:https://console.bluexp.netapp.com/automationCatalog[ONTAP - Day 0/1 & Health Checks^] automation solution through the BlueXP web UI. The solution is packaged as `ONTAP_DAY0_DAY1.zip`.
 +
 . Extract the zip folder and copy the files to the desired location on the control node within your Ansible environment.
 
 == Initial Ansible framework configuration
 
-Perform some initial configuration of the Ansible framework:
+Perform the initial configuration of the Ansible framework:
 
-. Navigate to `playbooks/inventory/group_vars/all`
+. Navigate to `playbooks/inventory/group_vars/all`.
 
 . Decrypt the `vault.yml` file:
 +
@@ -129,10 +129,9 @@ IMPORTANT: "NetApp123!" is a temporary password to decrypt the `vault.yml` file 
 . Modify the following Ansible files: 
 * `clusters.yml` - Modify the values in this file to suit your environment. 
 * `vault.yml` - After decrypting the file, modify the ONTAP cluster, username and password values to suit your environment.
-* `cfg.yml` - Set the file path for `log2file` and set `show_request`
-under `cfg` to `True` to display the `raw_service_request`.
+* `cfg.yml` - Set the file path for `log2file` and set `show_request` under `cfg` to `True` to display the `raw_service_request`.
 +
-The `raw_service_request` is displayed in the log files and during execution. 
+The `raw_service_request` variable is displayed in the log files and during execution. 
 +
 NOTE: Each file listed contains comments with instructions on how to modify them according to your requirements. 
 
@@ -146,8 +145,7 @@ NOTE: You are prompted to choose a new password for the vault upon encryption.
 
 . Deploy the `framework_test` service:
 +
-The following command runs the `na_ontap_info` module with a gather subset value of
-`cluster_identity_info`. This validates that the basic configuration is correct and verifies that you can communicate with the cluster. 
+The following command runs the `na_ontap_info` module with a `gather_subset` value of `cluster_identity_info`. This validates that the basic configuration is correct and verifies that you can communicate with the cluster. 
 +
 [source,cli]
 ansible-playbook -i inventory/hosts site.yml -e cluster_name=<CLUSTER_NAME>

@@ -13,7 +13,7 @@ summary: "You can use the ONTAP day 0/1 automation solution to deploy and config
 :imagesdir: ./media/
 
 [.lead]
-You can use the ONTAP day 0/1 automation solution to deploy and configure an ONTAP cluster using Ansible. The solution is available at the BlueXP automation catalog site.
+You can use the ONTAP day 0/1 automation solution to deploy and configure an ONTAP cluster using Ansible. The solution is available in the link:https://console.bluexp.netapp.com/automationCatalog[BlueXP automation catalog^].
 
 == Flexible ONTAP deployment options
 
@@ -25,7 +25,7 @@ You can deploy this solution using on-premises hardware running ONTAP, such as a
 
 .Simulate ONTAP
 
-To deploy this solution using an ONTAP simulator, you must download the latest version of Simulate ONTAP from the NetApp support site. Simulate ONTAP is a virtual simulator for ONTAP software. Simulate ONTAP runs in a VMware hypervisor on a Windows, Linux or Mac system. For Windows and Linux hosts, you must use the VMware Workstation hypervisor to run this solution. If you have a Mac OS, use the VMware Fusion hypervisor.
+To deploy this solution using an ONTAP simulator, you must download the latest version of Simulate ONTAP from the NetApp support site. Simulate ONTAP is a virtual simulator for ONTAP software. Simulate ONTAP runs in a VMware hypervisor on a Windows, Linux, or Mac system. For Windows and Linux hosts, you must use the VMware Workstation hypervisor to run this solution. If you have a Mac OS, use the VMware Fusion hypervisor.
 
 == Layered design
 
@@ -50,9 +50,9 @@ The ability to bypass the logic layer is also provided. If you want to bypass th
 
 Important considerations:
 
-* The `logic.yml` playbook searches for the `logic_operation` variable. If the variable is defined in the request, it loads a tasks file from the `logic-tasks` directory. The tasks file must be a .yml file. If there is no matching tasks file and the `logic_operation` variable is defined, the logic layer fails.
+* The `logic.yml` playbook searches for the `logic_operation` variable. If the variable is defined in the request, it loads a task file from the `logic-tasks` directory. The task file must be a .yml file. If there is no matching task file and the `logic_operation` variable is defined, the logic layer fails.
 
-* The default value of the `logic_operation` variable is `no-op`. Therefore, if it is not explicitly defined, it defaults to `no-op`, which does not run any operations. 
+* The default value of the `logic_operation` variable is `no-op`. If the variable is not explicitly defined, it defaults to `no-op`, which does not run any operations. 
 
 * If the `raw_service_request` variable is already defined, then execution proceeds to the execution layer. If the variable is not defined, the logic layer fails. 
 
@@ -62,7 +62,7 @@ The execution layer consists of the following:
 
 * The `execution.yml` playbook
 
-The execution layer makes the API calls that configure the ONTAP cluster. The `execution.yml` playbook requires that the `raw_service_request` variable is defined when executed.
+The execution layer makes the API calls to configure an ONTAP cluster. The `execution.yml` playbook requires that the `raw_service_request` variable is defined when executed.
 
 == Support for customization
 
@@ -75,14 +75,14 @@ Customization options include:
 
 .Customize Ansible files
 
-The following table describe the customizable Ansible files contained in this solution.
+The following table describes the customizable Ansible files contained in this solution.
 
 [cols=2*,options="header",cols="25,75"]
 |===
 | Location
 | Description
 a| `playbooks/inventory/hosts` | Contains a single file with a list of hosts and groups.
-a| `playbooks/group_vars/all/*` | Ansible provides a convenient way to apply variables to multiple hosts at once. You can modify any or all files in this this folder including; `cfg.yml`, `clusters.yml`, `defaults.yml`, `services.yml`, `standards.yml`, and `vault.yml`.
+a| `playbooks/group_vars/all/*` | Ansible provides a convenient way to apply variables to multiple hosts at once. You can modify any or all files in this this folder including `cfg.yml`, `clusters.yml`, `defaults.yml`, `services.yml`, `standards.yml`, and `vault.yml`.
 a| `playbooks/logic-tasks` | Supports decision-making tasks within Ansible and maintains the separation of logic and execution. You can add files to this folder that correspond to the relevant service.
 a| `playbooks/vars/*` | Dynamic values used within Ansible playbooks and roles to enable customization, flexibility, and reusability of configurations. If necessary, you can modify any or all files in this folder.
 |===
