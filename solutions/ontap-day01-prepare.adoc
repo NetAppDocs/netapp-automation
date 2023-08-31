@@ -17,7 +17,7 @@ Before you deploy the automation solution, you must prepare the ONTAP environmen
 
 == Initial planning considerations
 
-You should review the following requirements and considerations before you use this solution to deploy an ONTAP cluster. 
+You should review the following requirements and considerations before using this solution to deploy an ONTAP cluster. 
 
 .Basic requirements
 
