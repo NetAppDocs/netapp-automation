@@ -750,7 +750,7 @@ ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_01
 ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_02
 -e logic_operation=tutorial-requests site.yml
 
-== Step 5: Deploy the ONTAP day 0, day 1, and health check services
+== Step 6: Deploy the ONTAP day 0, day 1, and health check services
 
 At this stage you should have already completed the following: 
 
@@ -758,7 +758,7 @@ At this stage you should have already completed the following:
 * Added any required task files to the the `logic-tasks` directory.
 * Added any required data files to the `playbook/vars` directory.
 
-Use the following commands to deploy the ONTAP day 0, ONTAP day 1, and health check services:
+Use the following commands to deploy the ONTAP day 0, ONTAP day 1 solution and verify the health of your deployment:
 
 NOTE: At this stage, you should have already decrypted and modified the `vault.yml` file and it must be encrypted with your new password. 
 

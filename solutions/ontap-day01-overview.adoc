@@ -29,7 +29,7 @@ To deploy this solution using an ONTAP simulator, you must download the latest v
 
 == Layered design
 
-The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between decision making tasks (logic layer), and the execution steps (execution layer) in automation. Understanding how these layers work enables you to customize the configuration. 
+The Ansible framework simplifies the development and reuse of automation execution and logic tasks. The framework makes a distinction between decision-making tasks (logic layer), and the execution steps (execution layer) in automation. Understanding how these layers work enables you to customize the configuration. 
 
 An Ansible "playbook" executes a series of tasks from start to finish. The `site.yml` playbook contains the `logic.yml` playbook and the `execution.yml` playbook. 
 
@@ -83,7 +83,7 @@ The following table describe the customizable Ansible files contained in this so
 | Description
 a| `playbooks/inventory/hosts` | Contains a single file with a list of hosts and groups.
 a| `playbooks/group_vars/all/*` | Ansible provides a convenient way to apply variables to multiple hosts at once. You can modify any or all files in this this folder including; `cfg.yml`, `clusters.yml`, `defaults.yml`, `services.yml`, `standards.yml`, and `vault.yml`.
-a| `playbooks/logic-tasks` | Supports decision making tasks within Ansible and maintains the separation of logic and execution. You can add files to this folder that correspond to the relevant service.
+a| `playbooks/logic-tasks` | Supports decision-making tasks within Ansible and maintains the separation of logic and execution. You can add files to this folder that correspond to the relevant service.
 a| `playbooks/vars/*` | Dynamic values used within Ansible playbooks and roles to enable customization, flexibility, and reusability of configurations. If necessary, you can modify any or all files in this folder.
 |===
 
