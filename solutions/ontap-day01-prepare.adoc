@@ -17,6 +17,8 @@ Before you deploy the automation solution, you must prepare the ONTAP environmen
 
 == Initial planning considerations
 
+You should review the following requirements and considerations before you use this solution to deploy an ONTAP cluster. 
+
 .Basic requirements
 
 You must meet the following basic requirements to use this solution: 
@@ -133,7 +135,7 @@ IMPORTANT: "NetApp123!" is a temporary password to decrypt the `vault.yml` file 
 +
 The `raw_service_request` variable is displayed in the log files and during execution. 
 +
-NOTE: Each file listed contains comments with instructions on how to modify them according to your requirements. 
+NOTE: Each file listed contains comments with instructions on how to modify it according to your requirements. 
 
 . Re-encrypt the `vault.yml` file: 
 +
