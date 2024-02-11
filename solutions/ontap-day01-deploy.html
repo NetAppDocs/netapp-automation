@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head class="at-element-marker">
+  <title>Deploy the ONTAP cluster using the solution</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Deploy the ONTAP cluster using the solution" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/us-en/netapp-automation/solutions/ontap-day01-deploy.html" />
+	<meta property="og:description" content="After completing the preparation and planning, you are ready to use the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible." />
+  <meta property="og:image" content="https://docs.netapp.com/us-en/netapp-automation/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="After completing the preparation and planning, you are ready to use the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible.">
+  <meta name="keywords" content=" bluexp automation catalog, netapp automation solutions, ontap day 0/1, deploy"><!-- Icons -->
+  <link rel="icon" href="/us-en/netapp-automation/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/us-en/netapp-automation/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/us-en/netapp-automation/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/us-en/netapp-automation/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/us-en/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/netapp-automation/solutions/ontap-day01-deploy.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/us-en/netapp-automation/js/na-search.js'></script><script src='/us-en/netapp-automation/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/us-en/netapp-automation/js/custom-dropdown.js'></script>
+  <script src='/us-en/netapp-automation/js/FileSaver.min.js'></script>
+  <script src='/us-en/netapp-automation/js/jszip-utils.min.js'></script>
+  <script src='/us-en/netapp-automation/js/jszip.min.js'></script><script src='/us-en/netapp-automation/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/us-en/netapp-automation/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/">
+                <image id="ie-header-logo" src="/us-en/netapp-automation/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/support-and-training/documentation/">Docs</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --></li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/us-en/netapp-automation/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">All NetApp</span>
+                    <img src="/us-en/netapp-automation/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/us-en/netapp-automation/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">Support</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">Knowledge Base</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">Training</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/us-en/netapp-automation/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/us-en/netapp-automation/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">All docs</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/us-en/netapp-automation/">-->
+      NetApp Automation
+    <!--</a>-->
+  </div>
+</div>
+
+            
+
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/us-en/netapp-automation/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/us-en/netapp-automation/search.html" 
+        data-type="widget"
+        data-placeholder="Search documentation"
+        data-no-results-found="No results were found for {query}"
+        data-did-you-mean="Search for {suggestion}."
+        data-no-results-found-did-you-mean="No results found for {query}. Did you mean {suggestion}?"
+        data-results-found="{hitCount} results found"
+        data-error-message="An error occurred. Please try again."
+        data-error-reset="Reset search"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp Automation docs"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/us-en/netapp-automation/index.html">
+        NetApp Automation docs
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="What's new"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/about/whats-new.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/us-en/netapp-automation/about/whats-new.html">
+        What's new
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="BlueXP automation catalog"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> BlueXP automation catalog</div>-->
+         BlueXP automation catalog
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Overview"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/bac-overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/us-en/netapp-automation/solutions/bac-overview.html">
+        Overview
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Amazon FSx for NetApp ONTAP"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Amazon FSx for NetApp ONTAP</div>-->
+         Amazon FSx for NetApp ONTAP
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Burst to cloud"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/fsxn-burst-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/us-en/netapp-automation/solutions/fsxn-burst-to-cloud.html">
+        Burst to cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Disaster recovery"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/fsxn-disaster-recovery.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/us-en/netapp-automation/solutions/fsxn-disaster-recovery.html">
+        Disaster recovery
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure NetApp Files"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Azure NetApp Files</div>-->
+         Azure NetApp Files
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Oracle"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/anf-oracle.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/us-en/netapp-automation/solutions/anf-oracle.html">
+        Oracle
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP for AWS"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Cloud Volumes ONTAP for AWS</div>-->
+         Cloud Volumes ONTAP for AWS
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Burst to cloud"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/cvo-aws-burst-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/us-en/netapp-automation/solutions/cvo-aws-burst-to-cloud.html">
+        Burst to cloud
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP for Azure"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Cloud Volumes ONTAP for Azure</div>-->
+         Cloud Volumes ONTAP for Azure
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Burst to cloud"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/cvo-azure-burst-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/us-en/netapp-automation/solutions/cvo-azure-burst-to-cloud.html">
+        Burst to cloud
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP for Google Cloud"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Cloud Volumes ONTAP for Google Cloud</div>-->
+         Cloud Volumes ONTAP for Google Cloud
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Burst to cloud"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/cvo-gcp-burst-to-cloud.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/us-en/netapp-automation/solutions/cvo-gcp-burst-to-cloud.html">
+        Burst to cloud
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ONTAP"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ONTAP</div>-->
+         ONTAP
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Day 0/1"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-3  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Day 0/1</div>-->
+         Day 0/1
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Overview"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/ontap-day01-overview.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/us-en/netapp-automation/solutions/ontap-day01-overview.html">
+        Overview
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepare"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/ontap-day01-prepare.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/us-en/netapp-automation/solutions/ontap-day01-prepare.html">
+        Prepare
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Deploy"
+      data-li-level="4#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/ontap-day01-deploy.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/us-en/netapp-automation/solutions/ontap-day01-deploy.html">
+        Deploy
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Customize"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/solutions/ontap-day01-customize.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/us-en/netapp-automation/solutions/ontap-day01-customize.html">
+        Customize
+      </a></li></ul></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp product APIs"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> NetApp product APIs</div>-->
+         NetApp product APIs
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ONTAP"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/api/ontap.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/us-en/netapp-automation/api/ontap.html">
+        ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="BlueXP"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/api/bluexp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/us-en/netapp-automation/api/bluexp.html">
+        BlueXP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/api/astra.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/us-en/netapp-automation/api/astra.html">
+        Astra Control
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Knowledge and support"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/us-en/netapp-automation/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/us-en/netapp-automation/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Knowledge and support</div>-->
+         Knowledge and support
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Additional resources"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/support/additional-resources.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/us-en/netapp-automation/support/additional-resources.html">
+        Additional resources
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Get help"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/support/get-help.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/us-en/netapp-automation/support/get-help.html">
+        Get help
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Legal notices"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/solutions/ontap-day01-deploy.html" 
+      dale-entry-url="/legal-notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/us-en/netapp-automation/legal-notices.html">
+        Legal notices
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/us-en/netapp-automation"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/us-en/netapp-automation"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">Deploy the ONTAP cluster using the solution</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2023-08-31 11:42:59 +0000">08/31/2023</time>
+        
+    
+    
+        <span>Contributors
+            <a target="_blank" class="ext-link-indicator" href="https://github.com/netapp-aoife"><img  class="avatar avatar-small" alt="netapp-aoife" width="20" height="20" src="https://avatars.githubusercontent.com/u/92876203?v=4" style="border-radius: 50%;"/></a>
+        
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/us-en/netapp-automation/images/discuss-sm.svg" alt="" class="github-icon" />Suggest changes</span>
+        <img src="/us-en/netapp-automation/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/us-en/netapp-automation/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/us-en/netapp-automation/solutions/ontap-day01-deploy.html&page-title=Deploy the ONTAP cluster using the solution" class="page-nav-contribute-link" role="button">Request doc changes</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/netapp-automation/blob/main/solutions/ontap-day01-deploy.adoc" class="page-nav-contribute-link" role="button">Edit this page</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >Learn how to contribute</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>PDFs<img src="/us-en/netapp-automation/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/us-en/netapp-automation/pdfs/fullsite-sidebar/NetApp_Automation.pdf" >
+                    <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>PDF of this doc site</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/BlueXP_automation_catalog.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            BlueXP automation catalog
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/Amazon_FSx_for_NetApp_ONTAP.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Amazon FSx for NetApp ONTAP
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/Azure_NetApp_Files.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Azure NetApp Files
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/Cloud_Volumes_ONTAP_for_AWS.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Cloud Volumes ONTAP for AWS
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/Cloud_Volumes_ONTAP_for_Azure.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Cloud Volumes ONTAP for Azure
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/Cloud_Volumes_ONTAP_for_Google_Cloud.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Cloud Volumes ONTAP for Google Cloud
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/ONTAP.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ONTAP
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/Day_0_1.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Day 0/1
+          </a>
+          
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/NetApp_product_APIs.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            NetApp product APIs
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/us-en/netapp-automation/pdfs/sidebar/Knowledge_and_support.pdf" 
+            
+          >
+            <img src="/us-en/netapp-automation/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Knowledge and support
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/us-en/netapp-automation/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>Collection of separate PDF docs<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>After completing the preparation and planning, you are ready to use the ONTAP day 0/1 solution to quickly configure an ONTAP cluster using Ansible.</p>
+</div>
+<div class="paragraph">
+<p>At any time during the steps in this section, you can choose to test a request instead of actually executing it. To test a request, change the <code>site.yml</code> playbook on the command line to <code>logic.yml</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-automation/images/note.svg" alt="Note">
+</td>
+<td class="content">
+The <code>docs/tutorial-requests.txt</code> location contains the final version of all service requests used throughout this procedure. If you have difficulty running a service request, you can copy the relevant request from the <code>tutorial-requests.txt</code> file to the <code>playbooks/inventory/group_vars/all/tutorial-requests.yml</code> location and modify the hard-coded values as required (IP address, aggregate names and so on). You should then be able to successfully run the request.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="before-you-begin">Before you begin</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>You must have Ansible installed.</p>
+</li>
+<li>
+<p>You must have downloaded the ONTAP day 0/1 solution and extracted the folder to the desired location on the Ansible control node.</p>
+</li>
+<li>
+<p>The ONTAP system state must meet the requirements and you must have the necessary credentials.</p>
+</li>
+<li>
+<p>You must have completed all required tasks outlined in the <a href="ontap-day01-prepare.html">Prepare</a> section.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-automation/images/note.svg" alt="Note">
+</td>
+<td class="content">
+The examples throughout this solution use "Cluster_01" and "Cluster_02" as the names for the two clusters. You must replace these values with the names of the clusters in your environment.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-1-initial-cluster-configuration">Step 1: Initial cluster configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At this stage, you must perform some initial cluster configuration steps.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Navigate to the <code>playbooks/inventory/group_vars/all/tutorial-requests.yml</code> location and review the <code>cluster_initial</code> request in the file. Make any necessary changes for your environment.</p>
+</li>
+<li>
+<p>Create a file in the <code>logic-tasks</code> folder for the service request. For example, create a file called <code>cluster_initial.yml</code>.</p>
+<div class="paragraph">
+<p>Copy the following lines to the new file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial cluster configuration
+  set_fact:
+    raw_service_request:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Define the <code>raw_service_request</code> variable.</p>
+<div class="paragraph">
+<p>You can use one of the following options to define the <code>raw_service_request</code> variable in the <code>cluster_initial.yml</code> file you created in the <code>logic-tasks</code> folder:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Option 1</strong>: Manually define the <code>raw_service_request</code> variable.</p>
+<div class="paragraph">
+<p>Open the <code>tutorial-requests.yml</code> file using an editor and copy the content from line 11 to line 165. Paste the content under the <code>raw service request</code> variable in the new <code>cluster_initial.yml</code> file, as shown in the following examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/cluster_initial_line.png" alt="Image of file line to copy from">
+</div>
+</div>
+<details>
+<summary class="title">Show example</summary>
+<div class="content">
+<div class="paragraph">
+<p>Example <code>cluster_initial.yml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial cluster configuration
+  set_fact:
+    raw_service_request:
+     service:          cluster_initial
+     operation:         create
+     std_name:           none
+     req_details:
+
+      ontap_aggr:
+      - hostname:                   "{{ cluster_name }}"
+        disk_count:                 24
+        name:                       n01_aggr1
+        nodes:                      "{{ cluster_name }}-01"
+        raid_type:                  raid4
+
+      - hostname:                   "{{ peer_cluster_name }}"
+        disk_count:                 24
+        name:                       n01_aggr1
+        nodes:                      "{{ peer_cluster_name }}-01"
+        raid_type:                  raid4
+
+      ontap_license:
+      - hostname:                   "{{ cluster_name }}"
+        license_codes:
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      license_codes:
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+
+    ontap_motd:
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      message:                    "New MOTD"
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      message:                    "New MOTD"
+
+    ontap_interface:
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      interface_name:             ic01
+      role:                       intercluster
+      address:                    10.0.0.101
+      netmask:                    255.255.255.0
+      home_node:                  "{{ cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      interface_name:             ic02
+      role:                       intercluster
+      address:                    10.0.0.101
+      netmask:                    255.255.255.0
+      home_node:                  "{{ cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      interface_name:             ic01
+      role:                       intercluster
+      address:                    10.0.0.101
+      netmask:                    255.255.255.0
+      home_node:                  "{{ peer_cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      interface_name:             ic02
+      role:                       intercluster
+      address:                    10.0.0.101
+      netmask:                    255.255.255.0
+      home_node:                  "{{ peer_cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    ontap_cluster_peer:
+    - hostname:                   "{{ cluster_name }}"
+      dest_cluster_name:          "{{ peer_cluster_name }}"
+      dest_intercluster_lifs:     "{{ peer_lifs }}"
+      source_cluster_name:        "{{ cluster_name }}"
+      source_intercluster_lifs:   "{{ cluster_lifs }}"
+      peer_options:
+        hostname:                 "{{ peer_cluster_name }}"</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p><strong>Option 2</strong>: Use a Jinja template to define the request:</p>
+<div class="paragraph">
+<p>You can also use the following Jinja template format to get the <code>raw_service_request</code> value.</p>
+</div>
+<div class="paragraph">
+<p><code>raw_service_request:      "{{ cluster_initial }}"</code></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Perform the initial cluster configuration for the first cluster:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts site.yml -e cluster_name=&lt;Cluster_01&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify that there are no errors before proceeding.</p>
+</div>
+</li>
+<li>
+<p>Repeat the command for the second cluster:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts site.yml -e cluster_name=&lt;Cluster_02&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify that there are no errors for the second cluster.</p>
+</div>
+<div class="paragraph">
+<p>When you scroll up towards the beginning of the Ansible output you should see the request that was sent to the framework, as shown in the following example:</p>
+</div>
+<details>
+<summary class="title">Show example</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>TASK [Show the raw_service_request] ************************************************************************************************************
+ok: [localhost] =&gt; {
+    "raw_service_request": {
+        "operation": "create",
+        "req_details": {
+            "ontap_aggr": [
+                {
+                    "disk_count": 24,
+                    "hostname": "Cluster_01",
+                    "name": "n01_aggr1",
+                    "nodes": "Cluster_01-01",
+                    "raid_type": "raid4"
+                }
+            ],
+            "ontap_license": [
+                {
+                    "hostname": "Cluster_01",
+                    "license_codes": [
+                        "XXXXXXXXXXXXXXXAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA"
+                    ]
+                }
+            ],
+            "ontap_motd": [
+                {
+                    "hostname": "Cluster_01",
+                    "message": "New MOTD",
+                    "vserver": "Cluster_01"
+                }
+            ]
+        },
+        "service": "cluster_initial",
+        "std_name": "none"
+    }
+}</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Log in to each ONTAP instance and verify that the request was successful.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-2-configure-the-intercluster-lifs">Step 2: Configure the intercluster LIFs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can now configure the intercluster LIFs by adding the LIF definitions to the <code>cluster_initial</code> request and defining the <code>ontap_interface</code> microservice.</p>
+</div>
+<div class="paragraph">
+<p>The service definition and the request work together to determine the action:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you provide a service request for a microservice that is not in the service definitions, the request is not executed.</p>
+</li>
+<li>
+<p>If you provide a service request with one or more microservices defined in the service definitions, but omitted from the request, the request is not executed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>execution.yml</code> playbook evaluates the service definition by scanning the list of microservices in the order listed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If there is an entry in the request with a dictionary key matching the <code>args</code> entry contained in the microservice definitions, the request is executed.</p>
+</li>
+<li>
+<p>If there is no matching entry in the service request, the request is skipped without error.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Navigate to the <code>cluster_initial.yml</code> file that you created previously and modify the request by adding the following lines to the request definitions:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">    ontap_interface:
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      interface_name:             ic01
+      role:                       intercluster
+      address:                    &lt;ip_address&gt;
+      netmask:                    &lt;netmask_address&gt;
+      home_node:                  "{{ cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      interface_name:             ic02
+      role:                       intercluster
+      address:                    &lt;ip_address&gt;
+      netmask:                    &lt;netmask_address&gt;
+      home_node:                  "{{ cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      interface_name:             ic01
+      role:                       intercluster
+      address:                    &lt;ip_address&gt;
+      netmask:                    &lt;netmask_address&gt;
+      home_node:                  "{{ peer_cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      interface_name:             ic02
+      role:                       intercluster
+      address:                    &lt;ip_address&gt;
+      netmask:                    &lt;netmask_address&gt;
+      home_node:                  "{{ peer_cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts  site.yml -e cluster_name=&lt;Cluster_01&gt; -e peer_cluster_name=&lt;Cluster_02&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in to each instance to check if the LIFs have been added to the cluster:</p>
+<details>
+<summary class="title">Show example</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>Cluster_01::&gt; net int show
+  (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster_01
+            Cluster_01-01_mgmt up/up 10.0.0.101/24   Cluster_01-01 e0c     true
+            Cluster_01-01_mgmt_auto up/up 10.101.101.101/24 Cluster_01-01 e0c true
+            cluster_mgmt up/up    10.0.0.110/24      Cluster_01-01 e0c     true
+5 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>The output shows that the LIFs were <strong>not</strong> added. This is because the <code>ontap_interface</code> microservice still needs to be defined in the <code>services.yml</code> file.</p>
+</div>
+</li>
+<li>
+<p>Verify that the LIFs were added to the <code>raw_service_request</code> variable.</p>
+<details>
+<summary class="title">Show example</summary>
+<div class="content">
+<div class="paragraph">
+<p>The following example shows that the LIFs have been added to the request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>           "ontap_interface": [
+                {
+                    "address": "10.0.0.101",
+                    "home_node": "Cluster_01-01",
+                    "home_port": "e0c",
+                    "hostname": "Cluster_01",
+                    "interface_name": "ic01",
+                    "ipspace": "Default",
+                    "netmask": "255.255.255.0",
+                    "role": "intercluster",
+                    "use_rest": "never",
+                    "vserver": "Cluster_01"
+                },
+                {
+                    "address": "10.0.0.101",
+                    "home_node": "Cluster_01-01",
+                    "home_port": "e0c",
+                    "hostname": "Cluster_01",
+                    "interface_name": "ic02",
+                    "ipspace": "Default",
+                    "netmask": "255.255.255.0",
+                    "role": "intercluster",
+                    "use_rest": "never",
+                    "vserver": "Cluster_01"
+                },
+                {
+                    "address": "10.0.0.101",
+                    "home_node": "Cluster_02-01",
+                    "home_port": "e0c",
+                    "hostname": "Cluster_02",
+                    "interface_name": "ic01",
+                    "ipspace": "Default",
+                    "netmask": "255.255.255.0",
+                    "role": "intercluster",
+                    "use_rest": "never",
+                    "vserver": "Cluster_02"
+                },
+                {
+                    "address": "10.0.0.126",
+                    "home_node": "Cluster_02-01",
+                    "home_port": "e0c",
+                    "hostname": "Cluster_02",
+                    "interface_name": "ic02",
+                    "ipspace": "Default",
+                    "netmask": "255.255.255.0",
+                    "role": "intercluster",
+                    "use_rest": "never",
+                    "vserver": "Cluster_02"
+                }
+            ],</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Define the <code>ontap_interface</code> microservice under <code>cluster_initial</code> in the <code>services.yml</code> file.</p>
+<div class="paragraph">
+<p>Copy the following lines to the file to define the microservice:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">        - name: ontap_interface
+          args: ontap_interface
+          role: na/ontap_interface</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Now that the <code>ontap_interface</code> microservice has been defined in the request and the <code>services.yml</code> file, run the request again:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts  site.yml -e cluster_name=&lt;Cluster_01&gt; -e peer_cluster_name=&lt;Cluster_02&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in to each ONTAP instance and verify that the LIFs have been added.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-3-optionally-configure-multiple-clusters">Step 3: Optionally, configure multiple clusters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If required, you can configure multiple clusters in the same request. You must provide variable names for each cluster when you define the request.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Add an entry for the second cluster in the <code>cluster_initial.yml</code> file to configure both clusters in the same request.</p>
+<div class="paragraph">
+<p>The following example displays the <code>ontap_aggr</code> field after the second entry is added.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>   ontap_aggr:
+    - hostname:                   "{{ cluster_name }}"
+      disk_count:                 24
+      name:                       n01_aggr1
+      nodes:                      "{{ cluster_name }}-01"
+      raid_type:                  raid4
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      disk_count:                 24
+      name:                       n01_aggr1
+      nodes:                      "{{ peer_cluster_name }}-01"
+      raid_type:                  raid4</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Apply the changes for all other items under <code>cluster_initial</code>.</p>
+</li>
+<li>
+<p>Add cluster peering to the request by copying the following lines to the file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">    ontap_cluster_peer:
+    - hostname:                   "{{ cluster_name }}"
+      dest_cluster_name:          "{{ cluster_peer }}"
+      dest_intercluster_lifs:     "{{ peer_lifs }}"
+      source_cluster_name:        "{{ cluster_name }}"
+      source_intercluster_lifs:   "{{ cluster_lifs }}"
+      peer_options:
+        hostname:                 "{{ cluster_peer }}"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the Ansible request:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts -e cluster_name=&lt;Cluster_01&gt;
+site.yml -e peer_cluster_name=&lt;Cluster_02&gt; -e cluster_lifs=&lt;cluster_lif_1_IP_address,cluster_lif_2_IP_address&gt;
+-e peer_lifs=&lt;peer_lif_1_IP_address,peer_lif_2_IP_address&gt;</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-4-initial-svm-configuration">Step 4: Initial SVM configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At this stage in the procedure, you configure the SVMs in the cluster.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Update the <code>svm_initial</code> request in the <code>tutorial-requests.yml</code> file to configure an SVM and SVM peer relationship.</p>
+<div class="paragraph">
+<p>You must configure the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The SVM</p>
+</li>
+<li>
+<p>The SVM peer relationship</p>
+</li>
+<li>
+<p>The SVM interface for each SVM</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Update the variable definitions in the <code>svm_initial</code> request definitions. You must modify the following variable definitions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cluster_name</code></p>
+</li>
+<li>
+<p><code>vserver_name</code></p>
+</li>
+<li>
+<p><code>peer_cluster_name</code></p>
+</li>
+<li>
+<p><code>peer_vserver</code></p>
+<div class="paragraph">
+<p>To update the definitions, remove the <strong>‘{}’</strong> after <code>req_details</code> for the <code>svm_initial</code> definition and add the correct definition.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create a file in the <code>logic-tasks</code> folder for the service request. For example, create a file called <code>svm_initial.yml</code>.</p>
+<div class="paragraph">
+<p>Copy the following lines to the file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial SVM configuration
+  set_fact:
+    raw_service_request:</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Define the <code>raw_service_request</code> variable.</p>
+<div class="paragraph">
+<p>You can use one of the following options to define the <code>raw_service_request</code> variable for <code>svm_initial</code> in the <code>logic-tasks</code> folder:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Option 1</strong>: Manually define the <code>raw_service_request</code> variable.</p>
+<div class="paragraph">
+<p>Open the <code>tutorial-requests.yml</code> file using an editor and copy the content from line 179 to line 222. Paste the content under the <code>raw service request</code> variable in the new <code>svm_initial.yml</code> file, as shown in the following examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/svm_inital_line.png" alt="Image of file line to copy from">
+</div>
+</div>
+<details>
+<summary class="title">Show example</summary>
+<div class="content">
+<div class="paragraph">
+<p>Example <code>svm_initial.yml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial SVM configuration
+  set_fact:
+    raw_service_request:
+     service:          svm_initial
+     operation:        create
+     std_name:         none
+     req_details:
+
+      ontap_vserver:
+      - hostname:                   "{{ cluster_name }}"
+        name:                       "{{ vserver_name }}"
+        root_volume_aggregate:      n01_aggr1
+
+      - hostname:                   "{{ peer_cluster_name }}"
+       name:                       "{{ peer_vserver }}"
+       root_volume_aggregate:      n01_aggr1
+
+      ontap_vserver_peer:
+      - hostname:                   "{{ cluster_name }}"
+        vserver:                    "{{ vserver_name }}"
+        peer_vserver:               "{{ peer_vserver }}"
+        applications:               snapmirror
+        peer_options:
+          hostname:                 "{{ peer_cluster_name }}"
+
+      ontap_interface:
+      - hostname:                   "{{ cluster_name }}"
+        vserver:                    "{{ vserver_name }}"
+        interface_name:             data01
+        role:                       data
+        address:                    10.0.0.200
+        netmask:                    255.255.255.0
+        home_node:                  "{{ cluster_name }}-01"
+        home_port:                  e0c
+        ipspace:                    Default
+        use_rest:                   never
+
+      - hostname:                   "{{ peer_cluster_name }}"
+        vserver:                    "{{ peer_vserver }}"
+        interface_name:             data01
+        role:                       data
+        address:                    10.0.0.201
+        netmask:                    255.255.255.0
+        home_node:                  "{{ peer_cluster_name }}-01"
+        home_port:                  e0c
+        ipspace:                    Default
+        use_rest:                   never</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p><strong>Option 2</strong>: Use a Jinja template to define the request:</p>
+<div class="paragraph">
+<p>You can also use the following Jinja template format to get the <code>raw_service_request</code> value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>raw_service_request: "{{ svm_initial }}"</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Run the request:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts -e cluster_name=&lt;Cluster_01&gt; -e peer_cluster_name=&lt;Cluster_02&gt; -e peer_vserver=&lt;SVM_02&gt;  -e vserver_name=&lt;SVM_01&gt; site.yml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in to each ONTAP instance and validate the configuration.</p>
+</li>
+<li>
+<p>Add the SVM interfaces.</p>
+<div class="paragraph">
+<p>Define the <code>ontap_interface</code> service under <code>svm_initial</code> in the <code>services.yml</code> file and run the request again:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts -e cluster_name=&lt;Cluster_01&gt; -e peer_cluster_name=&lt;Cluster_02&gt; -e peer_vserver=&lt;SVM_02&gt;  -e vserver_name=&lt;SVM_01&gt; site.yml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in to each ONTAP instance and verify that the SVM interfaces have been configured.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-5-optionally-define-a-service-request-dynamically">Step 5: Optionally, define a service request dynamically</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the previous steps, the <code>raw_service_request</code> variable is hard-coded. This is useful for learning, development, and testing. You can also dynamically generate a service request.</p>
+</div>
+<div class="paragraph">
+<p>The following section provides an option to dynamically produce the required <code>raw_service_request</code> if you do not want to integrate it with higher level systems.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-automation/images/important.svg" alt="Important">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>logic_operation</code> variable is not defined in the command, the <code>logic.yml</code> file does not import any file from the <code>logic-tasks</code> folder. This means the <code>raw_service_request</code> must be defined outside of Ansible and provided to the framework on execution.</p>
+</li>
+<li>
+<p>A task file name in the <code>logic-tasks</code> folder must match the value of the <code>logic_operation</code> variable without the .yml extension.</p>
+</li>
+<li>
+<p>The task files in the <code>logic-tasks</code> folder dynamically define a <code>raw_service_request</code>. The only requirement is that a valid <code>raw_service_request</code> be defined as the last task in the relevant file.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">How to dynamically define a service request</div>
+<p>There are multiple ways to apply a logic task to dynamically define a service request. Some of these options are listed below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using a Ansible task file from the <code>logic-tasks</code> folder</p>
+</li>
+<li>
+<p>Invoking a custom role that returns data suitable for converting to a <code>raw_service_request</code> varaible.</p>
+</li>
+<li>
+<p>Invoking another tool outside of the Ansible environment to provide the required data. For example, a REST API call to Active IQ Unified Manager.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example commands dynamically define a service request for each cluster using the <code>tutorial-requests.yml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_01
+-e logic_operation=tutorial-requests site.yml</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_02
+-e logic_operation=tutorial-requests site.yml</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step-6-deploy-the-ontap-day-01-solution">Step 6: Deploy the ONTAP day 0/1 solution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At this stage you should have already completed the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed and modified all files in <code>playbooks/inventory/group_vars/all</code> according to your requirements. There are detailed comments in each file to help you make the changes.</p>
+</li>
+<li>
+<p>Added any required task files to the the <code>logic-tasks</code> directory.</p>
+</li>
+<li>
+<p>Added any required data files to the <code>playbook/vars</code> directory.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use the following commands to deploy the ONTAP day 0/1 solution and verify the health of your deployment:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-automation/images/note.svg" alt="Note">
+</td>
+<td class="content">
+At this stage, you should have already decrypted and modified the <code>vault.yml</code> file and it must be encrypted with your new password.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Run the ONTAP day 0 service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass &lt;your_vault_password&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the ONTAP day 1 service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass &lt;your_vault_password&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Apply cluster wide settings:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_wide_settings -e service=cluster_wide_settings -vvvv --ask-vault-pass &lt;your_vault_password&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run health checks:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=health_checks -e service=health_checks -e enable_health_reports=true -vvvv --ask-vault-pass &lt;your_vault_password&gt;</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/us-en/netapp-automation/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/us-en/netapp-automation/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">On this page</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Terms of use</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Privacy policy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie policy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie settings</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">Send feedback about this page</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/us-en/netapp-automation/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/us-en/netapp-automation/js/prism.js'></script>
+      <script type="text/javascript" src='/us-en/netapp-automation/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/us-en/netapp-automation/js/ie-tabbed-blocks.js'></script>
+    <script src='/us-en/netapp-automation/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
