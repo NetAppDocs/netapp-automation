@@ -7,3 +7,5 @@ entries:
     url: /api/bluexp.html
   - title: Astra Control
     url: /api/astra.html
+  - title: Active IQ Unified Manager
+    url: /api/aiqum-rest-api.html
