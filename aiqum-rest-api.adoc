@@ -27,8 +27,8 @@ By using the REST API, you can access the Active IQ Unified Manager capabilities
 .Automation consolidation
 There is a single REST endpoint available to provision and manage your workloads. This provides a simple consolidated approach to implement service level objective policies, redirect events to third-party tools, and act as an API gateway to access the ONTAP REST API at an individual cluster level.
 
-.Automate datacenter level ONTAP management
-You can automate the ONTAP provisioning and management workflows at a datacenter. Monitoring and reporting can also be automated. This provides a foundation for datacenter level aggregation.
+.Datacenter level automation of ONTAP management
+You can automate the ONTAP provisioning and management workflows at a datacenter level. Monitoring and reporting can also be automated. This improves efficiency and provides a foundation for datacenter level aggregation.
 
 == Get more information
 
