@@ -11,6 +11,10 @@ indexpage:
     links:
       - title: Oracle with Azure NetApp Files
         url: /solutions/anf-oracle.html
+      - title: Amazon FSx for ONTAP - Disaster recovery
+        url: /solutions/fsxn-disaster-recovery.html
+      - title: ONTAP day 0/1 deployment
+        url: /solutions/ontap-day01-overview.html
   - title: NetApp product APIs
     links:
       - title: ONTAP
