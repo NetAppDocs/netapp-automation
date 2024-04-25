@@ -13,6 +13,8 @@ sidebar:
   - title: What's new
     url: /about/whats-new.html
   - section: solutions
+  - title: Active IQ Unified Manager
+    url: /aiqum-rest-api.html
   - section: api
   - section: support
   - title: Legal notices
