@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: api/aiqum-rest-api.html
+permalink: api/aiqum.html
 keywords: active iq, unified manager, active iq unified manager
 summary: Active IQ Unified Manager (formerly OnCommand Unified Manager) provides comprehensive management and monitoring for your ONTAP systems. It also includes a REST API to automate these tasks and enable third-party integration on supported systems.
 ---
 
-= NetApp Active IQ Unified Manager REST API
+= Active IQ Unified Manager
 :hardbreaks:
 :nofooter:
 :icons: font
