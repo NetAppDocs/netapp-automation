@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: aiqum-rest-api.html
-keywords: 
-summary:
+keywords: active iq, unified manager, active iq unified manager
+summary: Active IQ Unified Manager (formerly OnCommand Unified Manager) provides comprehensive management and monitoring for your ONTAP systems. It also includes a REST API to automate these tasks and enable third-party integration on supported systems.
 ---
 
 = NetApp Active IQ Unified Manager REST API
@@ -13,22 +13,22 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-Active IQ Unified Manager (formerly OnCommand Unified Manager) provides comprehensive monitoring for your ONTAP systems. It can help to manage the storage availability, capacity, security, protection, and performance risks from a single interface. Active IQ Unified Manager includes a REST API to automate the management tasks and enable third-party integration on supported systems.
+Active IQ Unified Manager (formerly OnCommand Unified Manager) provides comprehensive management and monitoring for your ONTAP systems. It also includes a REST API to automate these tasks and enable third-party integration on supported systems.
 
 // ONTAP®
 
 == Benefits of the REST API
 
-There are several benefits to using the REST API provided with Active IQ Unified Manager.
+There are several benefits when using the REST API provided with Active IQ Unified Manager.
+
+.Robust capabilities
+By using the REST API, you can access the Active IQ Unified Manager capabilities to manage storage availability, capacity, security, protection, and performance risks.
 
 .Automation consolidation
 There is a single REST endpoint available to provision and manage your workloads. This provides a simple consolidated approach to implement service level objective policies, redirect events to third-party tools, and act as an API gateway to access the ONTAP REST API at an individual cluster level.
 
-.Datacenter level automation
-You can automate the ONTAP provisioning and management datacenter level workflows using AIQUM REST API. This also provides a foundation for datacenter level aggregation.
-
-.Datacenter level monitoring and reporting
-Automate ONTAP monitoring and reporting for your datacenter using AIQUM REST API.
+.Automate datacenter level ONTAP management
+You can automate the ONTAP provisioning and management workflows at a datacenter. Monitoring and reporting can also be automated. This provides a foundation for datacenter level aggregation.
 
 == Get more information
 
