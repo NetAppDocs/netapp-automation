@@ -3,6 +3,7 @@ layout: landing-page
 sidebar: sidebar
 permalink: index.html
 # lead: Use only if indexpage.lead is not present in _index.yml
+keywords: automation, netapp automation
 summary: NetApp provides access to programmatic APIs for many of our products, as well as scripted automation solutions that can help you automate workloads for the NetApp portfolio of products and services.
 ---
 = NetApp Automation
