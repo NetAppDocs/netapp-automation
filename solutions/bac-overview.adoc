@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: solutions/bac-overview.html
 keywords: bluexp automation catalog, automation catalog, overview, introduction
-summary:
+summary: The BlueXP automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. The catalog has several features and benefits.
 ---
 
 = Overview of the BlueXP automation catalog
@@ -13,7 +13,7 @@ summary:
 :imagesdir: ./media/
 
 [.lead]
-The BlueXP automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. Some of the features and benefits of the catalog are described below.
+The BlueXP automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. The catalog has several features and benefits.
 
 Single location for your automation needs::
 

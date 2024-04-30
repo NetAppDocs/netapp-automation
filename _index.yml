@@ -1,5 +1,8 @@
 indexpage:
-  lead: NetApp provides access to programmatic APIs for many of our products, as well as scripted automation solutions that can help you automate workloads for the NetApp portfolio of products and services.
+  title: NetApp Automation
+  lead: "NetApp provides access to programmatic APIs for many of our products, as well as scripted automation solutions that can help you automate workloads for the NetApp portfolio of products and services."
+  summary: "NetApp provides access to programmatic APIs for many of our products, as well as scripted automation solutions that can help you automate workloads for the NetApp portfolio of products and services."
+  keywords: automation, netapp automation
   tiles:
   - title: Get started
     links:
@@ -7,10 +10,16 @@ indexpage:
         url: /about/whats-new.html
       - title: BlueXP automation catalog
         url: /solutions/bac-overview.html
+      - title: Additional resources
+        url: /support/additional-resources.html
   - title: Highlighted solutions
     links:
       - title: Oracle with Azure NetApp Files
         url: /solutions/anf-oracle.html
+      - title: Amazon FSx for ONTAP - Disaster recovery
+        url: /solutions/fsxn-disaster-recovery.html
+      - title: ONTAP day 0/1 deployment
+        url: /solutions/ontap-day01-overview.html
   - title: NetApp product APIs
     links:
       - title: ONTAP
@@ -19,3 +28,5 @@ indexpage:
         url: /api/bluexp.html
       - title: Astra Control
         url: /api/astra.html
+      - title: Active IQ Unified Manager
+        url: /api/aiqum.html
