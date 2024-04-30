@@ -1,5 +1,8 @@
 indexpage:
-  lead: NetApp provides access to programmatic APIs for many of our products, as well as scripted automation solutions that can help you automate workloads for the NetApp portfolio of products and services.
+  title: NetApp Automation
+  lead: "NetApp provides access to programmatic APIs for many of our products, as well as scripted automation solutions that can help you automate workloads for the NetApp portfolio of products and services."
+  summary: "NetApp provides access to programmatic APIs for many of our products, as well as scripted automation solutions that can help you automate workloads for the NetApp portfolio of products and services."
+  keywords: automation, netapp automation
   tiles:
   - title: Get started
     links:
