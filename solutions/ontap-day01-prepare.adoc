@@ -57,7 +57,7 @@ NOTE: If you are using a Mac OS, you must have an Intel processor.
 
 Use the following procedure to install two ONTAP simulators in your local environment:
 
-. Download Simulate ONTAP from the link:https://mysupport.netapp.com/site/tools/tool-eula/simulate-ontap[NetApp support site^].
+. Download Simulate ONTAP from the link:https://mysupport.netapp.com/site/tools/tool-eula/ontap-simulate[NetApp support site^].
 +
 NOTE: Although you install two ONTAP simulators, you only need to download one copy of the software.
 
@@ -163,3 +163,4 @@ localhost : ok=12 changed=1 unreachable=0 failed=0 skipped=6
 The key is ‘rescued=0’ and ‘failed=0’..
 ----
 
+// 2025 Jul 02, GH 28
