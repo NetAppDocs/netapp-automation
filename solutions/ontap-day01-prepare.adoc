@@ -163,3 +163,4 @@ localhost : ok=12 changed=1 unreachable=0 failed=0 skipped=6
 The key is ‘rescued=0’ and ‘failed=0’..
 ----
 
+// 2025 July 03, GH issue 28
