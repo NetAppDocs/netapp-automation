@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: solutions/cvo-aws-burst-to-cloud.html
 keywords: bluexp automation catalog, netapp automation solutions, aws, cloud volumes ontap, burst to cloud
-summary: "This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog."
+summary: "This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the NetApp Console Automation Catalog."
 ---
 
 = Cloud Volumes ONTAP for AWS - Burst to cloud
@@ -13,13 +13,13 @@ summary: "This article supports the NetApp Cloud Volumes ONTAP for AWS Automatio
 :imagesdir: ./media/
 
 [.lead]
-This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the BlueXP Automation Catalog.
+This article supports the NetApp Cloud Volumes ONTAP for AWS Automation Solution, which is available to NetApp customers from the NetApp Console Automation Catalog.
 
 The Cloud Volumes ONTAP for AWS Automation Solution automates the containerized deployment of Cloud Volumes ONTAP for AWS using Terraform, enabling you to deploy Cloud Volumes ONTAP for AWS rapidly, without any manual intervention.
 
 .Before you begin
 
-* You must download the link:https://console.bluexp.netapp.com/automationCatalog[Cloud Volumes ONTAP AWS - Burst to cloud^] automation solution through the BlueXP web UI. The solution is packaged as `cvo_aws_flexcache.zip`.
+* You must download the link:https://console.bluexp.netapp.com/automationCatalog[Cloud Volumes ONTAP AWS - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `cvo_aws_flexcache.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP.
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies.
 
@@ -146,7 +146,7 @@ NOTE: You can change the Docker image name if required. If you change the Docker
 
 == Step 3: Create environment variable files
 
-At this stage, you must create two environment variable files. One file is for authentication of AWS Resource Manager APIs using the AWS access and secret keys. The second file is for setting environment variables to enable BlueXP Terraform modules to locate and authenticate AWS APIs.
+At this stage, you must create two environment variable files. One file is for authentication of AWS Resource Manager APIs using the AWS access and secret keys. The second file is for setting environment variables to enable the Console Terraform modules to locate and authenticate AWS APIs.
 
 .Steps
 
@@ -176,22 +176,22 @@ aws_secret_access_key=<>
 +
 The format *must* be exactly as shown above.
 
-== Step 4: Add Cloud Volumes ONTAP licenses to BlueXP or subscribe to BlueXP
+== Step 4: Add Cloud Volumes ONTAP licenses to the NetApp Console or subscribe to NetApp Console
 
-You can add Cloud Volumes ONTAP licenses to BlueXP or subscribe to NetApp BlueXP in the AWS Marketplace.
+You can add Cloud Volumes ONTAP licenses to the Console or subscribe to the Console in the AWS Marketplace.
 
 .Steps
 
-. From the AWS portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*.
+. From the AWS portal, navigate to *SaaS* and select *Subscribe to NetApp Console*.
 +
 You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.
-. Configure the BlueXP portal to import the SaaS subscription to BlueXP.
+. Configure the Console portal to import the SaaS subscription to the Console.
 +
 You can configure this directly from the AWS portal.
 +
-You are redirected to the BlueXP portal to confirm the configuration.
+You are redirected to the Console portal to confirm the configuration.
 
-. Confirm the configuration in the BlueXP portal by selecting *Save*.
+. Confirm the configuration in the Console portal by selecting *Save*.
 
 == Step 5: Create an external volume
 

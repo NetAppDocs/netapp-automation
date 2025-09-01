@@ -36,7 +36,7 @@ The automation is based on Docker and Docker Compose which must be installed on 
 
 You must have the following to complete the provisioning and configuration:
 
-* You need to download the https://console.bluexp.netapp.com/automationCatalog[Amazon FSx for NetApp ONTAP - Disaster recovery^] automation solution through the BlueXP web UI. The solution is packaged as `FSxN_DR.zip`. This zip contains the `AWS_FSxN_Bck_Prov.zip` file that you will use to deploy the solution described in this document.
+* You need to download the https://console.bluexp.netapp.com/automationCatalog[Amazon FSx for NetApp ONTAP - Disaster recovery^] automation solution through the NetApp Console web UI. The solution is packaged as `FSxN_DR.zip`. This zip contains the `AWS_FSxN_Bck_Prov.zip` file that you will use to deploy the solution described in this document.
 * Network connectivity between the source and destination systems.
 * A Linux VM with the following characteristics:
 ** Debian-based Linux distribution
