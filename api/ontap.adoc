@@ -17,7 +17,7 @@ NetApp ONTAP is the industry's leading data management software for both cloud a
 
 .ONTAP REST API
 
-You can use the REST API to automation the administration of your ONTAP deployments.
+You can use the REST API to automate the administration of your ONTAP deployments.
 
 * https://docs.netapp.com/us-en/ontap-automation/[ONTAP Automation documentation^]
 
