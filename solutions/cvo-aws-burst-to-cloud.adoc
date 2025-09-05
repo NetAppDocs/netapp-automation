@@ -182,7 +182,7 @@ You can add Cloud Volumes ONTAP licenses to the Console or subscribe to the Cons
 
 .Steps
 
-. From the AWS portal, navigate to *SaaS* and select *Subscribe to NetApp Console*.
+. Navigate to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4[AWS Marketplace], select to *View product options* and then select *Subscribe*.
 +
 You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.
 . Configure the Console portal to import the SaaS subscription to the Console.
@@ -243,7 +243,7 @@ You should see the following variable file in the folder:
 +
 You must read the specific supporting documentation when modifying any of the variable values in the `terraform.tfvars` file. The values can vary depending on region, availability zones, and other factors supported by Cloud Volumes ONTAP for AWS. This includes licenses, disk size, and VM size for single nodes and high availability (HA) pairs.
 +
-All supporting variables for the Connector and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding to the `terraform.tfvars` file.
+All supporting variables for the Console agent and Cloud Volumes ONTAP Terraform modules are already defined in the `variables.tf` file. You must refer to the variable names in the `variables.tf` file before adding to the `terraform.tfvars` file.
 
 . Depending on your requirements, you can enable or disable FlexCache and FlexClone by setting the following options to `true` or `false`.
 +
