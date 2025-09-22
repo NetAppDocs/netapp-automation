@@ -182,7 +182,7 @@ You can add Cloud Volumes ONTAP licenses to the Console or subscribe to the Cons
 
 .Steps
 
-. Navigate to the https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4[AWS Marketplace], select to *View product options* and then select *Subscribe*.
+. From the AWS portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*.
 +
 You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.
 . Configure the Console portal to import the SaaS subscription to the Console.

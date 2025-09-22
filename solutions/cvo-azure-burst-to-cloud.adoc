@@ -208,7 +208,7 @@ You can add Cloud Volumes ONTAP licenses to the Console or subscribe to the Cons
 
 .Steps
 
-. Navigate to the link:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview[Azure Marketplace] and select *Get it now*.
+. From the Azure portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*.
 . Select the *Cloud Manager (by Cap PYGO by Hour, WORM and data services)* plan.
 +
 You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.

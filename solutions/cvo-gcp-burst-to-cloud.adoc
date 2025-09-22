@@ -177,7 +177,7 @@ You can subscribe to the Console in the Google Cloud Marketplace.
 
 .Steps
 
-. Navigate to the link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager[Google Cloud console^] and select *Subscribe*.
+. Navigate to the link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager[Google Cloud console^] and select *Subscribe to NetApp BlueXP*.
 
 . Configure the Console portal to import the SaaS subscription to the Console.
 +
