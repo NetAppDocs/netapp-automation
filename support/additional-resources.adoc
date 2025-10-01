@@ -25,7 +25,7 @@ A central location for developer resources supporting NetApp partners and custom
 +
 Blog articles and other resources to support developers and administrators.
 
-== NetApp cloud resources
+== NetApp Console resources
 
 * https://console.netapp.com/[NetApp Console^]
 +
