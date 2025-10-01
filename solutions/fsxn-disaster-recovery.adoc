@@ -4,8 +4,7 @@ permalink: solutions/fsxn-disaster-recovery.html
 keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, disaster recovery, backup
 summary: You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp ONTAP.
 ---
-
-= Amazon FSx for NetApp ONTAP - Disaster recovery
+= Amazon FSx for NetApp ONTAP management - Disaster recovery
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,10 +12,10 @@ summary: You can use this automation solution to take a disaster recovery backup
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp ONTAP.
+You can use this automation solution to take a disaster recovery backup of a source system using Amazon FSx for NetApp ONTAP management.
 
 [NOTE]
-Amazon FSx for NetApp ONTAP is also referred to as *FSx for ONTAP*.
+Amazon FSx for NetApp ONTAP management is also referred to as *FSx for ONTAP*.
 
 .About this solution
 
@@ -36,7 +35,7 @@ The automation is based on Docker and Docker Compose which must be installed on 
 
 You must have the following to complete the provisioning and configuration:
 
-* You need to download the https://console.netapp.com/automationCatalog[Amazon FSx for NetApp ONTAP - Disaster recovery^] automation solution through the NetApp Console web UI. The solution is packaged as `FSxN_DR.zip`. This zip contains the `AWS_FSxN_Bck_Prov.zip` file that you will use to deploy the solution described in this document.
+* You need to download the https://console.netapp.com/automationCatalog[Amazon FSx for NetApp ONTAP management - Disaster recovery^] automation solution through the NetApp Console web UI. The solution is packaged as `FSxN_DR.zip`. This zip contains the `AWS_FSxN_Bck_Prov.zip` file that you will use to deploy the solution described in this document.
 * Network connectivity between the source and destination systems.
 * A Linux VM with the following characteristics:
 ** Debian-based Linux distribution

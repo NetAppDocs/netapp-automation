@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: solutions/fsxn-burst-to-cloud.html
 keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, burst to cloud
-summary: You can use this automation solution to provision Amazon FSx for NetApp ONTAP with volumes and an associated FlexCache.
+summary: You can use this automation solution to provision Amazon FSx for NetApp ONTAP management with volumes and an associated FlexCache.
 ---
 
-= Amazon FSx for NetApp ONTAP - Burst to cloud
+= Amazon FSx for NetApp ONTAP management - Burst to cloud
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,10 +13,10 @@ summary: You can use this automation solution to provision Amazon FSx for NetApp
 :imagesdir: ./media/
 
 [.lead]
-You can use this automation solution to provision Amazon FSx for NetApp ONTAP with volumes and an associated FlexCache.
+You can use this automation solution to provision Amazon FSx for NetApp ONTAP management with volumes and an associated FlexCache.
 
 [NOTE]
-Amazon FSx for NetApp ONTAP is also referred to as *FSx for ONTAP*.
+Amazon FSx for NetApp ONTAP management is also referred to as *FSx for ONTAP*.
 
 .About this solution
 
@@ -35,7 +35,7 @@ The automation is based on Docker and Docker Compose which must be installed on 
 
 You must have the following to complete the provisioning and configuration:
 
-* You need to download the https://console.netapp.com/automationCatalog[Amazon FSx for NetApp ONTAP - Burst to cloud^] automation solution through the NetApp Console web UI. The solution is packaged as file `AWS_FSxN_BTC.zip`.
+* You need to download the https://console.netapp.com/automationCatalog[Amazon FSx for NetApp ONTAP management - Burst to cloud^] automation solution through the NetApp Console web UI. The solution is packaged as file `AWS_FSxN_BTC.zip`.
 * Network connectivity between the source and destination systems.
 * A Linux VM with the following characteristics:
 ** Debian-based Linux distribution
@@ -190,9 +190,9 @@ You can instead add an NFS share as the external volume using a command such as:
 +
 See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system[Terraform resource: aws_fsx_ontap_file_system^] for more information.
 
-== Step 6: Provision Amazon FSx for NetApp ONTAP and FlexCache
+== Step 6: Provision Amazon FSx for NetApp ONTAP management and FlexCache
 
-You can provision Amazon FSx for NetApp ONTAP and FlexCache.
+You can provision Amazon FSx for NetApp ONTAP management and FlexCache.
 
 .Steps
 
@@ -210,9 +210,9 @@ docker-compose -f docker-compose-provision.yml logs -f
 +
 This command gives you the output in real time, but has been configured to capture the logs through the file `deployment.log`. You can change the name of these log files by editing the `.env` file and updating the variables `DEPLOYMENT_LOGS`.
 
-== Step 7: Destroy Amazon FSx for NetApp ONTAP and FlexCache
+== Step 7: Destroy Amazon FSx for NetApp ONTAP management and FlexCache
 
-You can optionally delete and remove Amazon FSx for NetApp ONTAP and FlexCache.
+You can optionally delete and remove Amazon FSx for NetApp ONTAP management and FlexCache.
 
 . Set the variable `flexcache_operation` in the `terraform.tfvars` file to "destroy".
 
