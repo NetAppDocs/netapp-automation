@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: solutions/bac-overview.html
 keywords: bluexp automation catalog, automation catalog, overview, introduction
-summary: The BlueXP automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. The catalog has several features and benefits.
+summary: The NetApp Console automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. The catalog has several features and benefits.
 ---
 
 = Overview of the NetApp Console automation catalog
@@ -17,7 +17,7 @@ The NetApp Console automation catalog is a collection of automation solutions av
 
 Single location for your automation needs::
 
-You can access the https://console.bluexp.netapp.com/automationCatalog[NetApp Console automation catalog^] through the Console web user interface. This provides a single location for the scripts, playbooks, and modules needed to enhance the automation and operation of your NetApp products and services.
+You can access the https://console.netapp.com/automationCatalog[NetApp Console automation catalog^] through the Console web user interface. This provides a single location for the scripts, playbooks, and modules needed to enhance the automation and operation of your NetApp products and services.
 
 Solutions are created and tested by NetApp::
 

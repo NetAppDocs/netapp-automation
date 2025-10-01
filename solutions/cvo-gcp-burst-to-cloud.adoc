@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for Google Cloud Automation Solution automates the conta
 
 .Before you begin
 
-* You must download the link:https://console.bluexp.netapp.com/automationCatalog[Cloud Volumes ONTAP for Google Cloud - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `cvo_gcp_flexcache.zip`.
+* You must download the link:https://console.netapp.com/automationCatalog[Cloud Volumes ONTAP for Google Cloud - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `cvo_gcp_flexcache.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP.
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies.
 
@@ -171,15 +171,15 @@ At this stage, you must update the `cxo-automation-gcp.json` file with a service
 +
 The file format must be exactly as shown above.
 
-== Step 4: Subscribe to the Console
+== Step 4: Sign up for NetApp Intelligent Services
 
-You can subscribe to the Console in the Google Cloud Marketplace.
+Sign up for NetApp Intelligent Services through your cloud provider to pay hourly (PAYGO) or through an annual contract. NetApp Intelligent Services include NetApp Backup and Recovery, Cloud Volumes ONTAP, NetApp Cloud Tiering, NetApp Ransomware Resilience and NetApp Disaster Recovery. NetApp Data Classification is included with your subscription at no additional cost.
 
 .Steps
 
-. Navigate to the link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager[Google Cloud console^] and select *Subscribe to NetApp BlueXP*.
+. Navigate to the link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager[Google Cloud console^] and select *Subscribe to NetApp Intelligent Services*.
 
-. Configure the Console portal to import the SaaS subscription to the Console.
+. Configure the NetApp Console portal to import the SaaS subscription to the Console.
 +
 You can configure this directly from the Google Cloud Platform. You will be redirected to the Console portal to confirm the configuration.
 

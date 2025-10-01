@@ -25,7 +25,7 @@ Support for Cloud Volumes ONTAP is organized by the public cloud environment. A 
 
 == 04 June 2023
 
-The https://console.bluexp.netapp.com/automationCatalog[NetApp Console automation catalog^] is available through the Console web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is organized in several different product or functional areas as described below.
+The https://console.netapp.com/automationCatalog[NetApp Console automation catalog^] is available through the Console web user interface. The automation catalog provides access to solutions that can help you with the automated deployment and integration of NetApp products. The documentation for these solutions is organized in several different product or functional areas as described below.
 
 .Amazon FSx for NetApp ONTAP
 

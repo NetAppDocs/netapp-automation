@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for AWS Automation Solution automates the containerized 
 
 .Before you begin
 
-* You must download the link:https://console.bluexp.netapp.com/automationCatalog[Cloud Volumes ONTAP AWS - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `cvo_aws_flexcache.zip`.
+* You must download the link:https://console.netapp.com/automationCatalog[Cloud Volumes ONTAP AWS - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `cvo_aws_flexcache.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP.
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies.
 
@@ -176,16 +176,16 @@ aws_secret_access_key=<>
 +
 The format *must* be exactly as shown above.
 
-== Step 4: Add Cloud Volumes ONTAP licenses to the NetApp Console or subscribe to NetApp Console
+== Step 4: Sign up for NetApp Intelligent Services
 
-You can add Cloud Volumes ONTAP licenses to the Console or subscribe to the Console in the AWS Marketplace.
+Sign up for NetApp Intelligent Services through your cloud provider to pay hourly (PAYGO) or through an annual contract. NetApp Intelligent Services include NetApp Backup and Recovery, Cloud Volumes ONTAP, NetApp Cloud Tiering, NetApp Ransomware Resilience and NetApp Disaster Recovery. NetApp Data Classification is included with your subscription at no additional cost.
 
 .Steps
 
-. From the AWS portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*.
+. From the Amazon Web Services (AWS) portal, navigate to *SaaS* and select *Subscribe to NetApp Intelligent Services*.
 +
 You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.
-. Configure the Console portal to import the SaaS subscription to the Console.
+. Configure the NetApp Console portal to import the SaaS subscription to the Console.
 +
 You can configure this directly from the AWS portal.
 +

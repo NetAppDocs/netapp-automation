@@ -19,7 +19,7 @@ The Cloud Volumes ONTAP for Azure Automation Solution automates the containerize
 
 .Before you begin
 
-* You must download the link:https://console.bluexp.netapp.com/automationCatalog[Cloud Volumes ONTAP Azure - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `CVO-Azure-Burst-To-Cloud.zip`.
+* You must download the link:https://console.netapp.com/automationCatalog[Cloud Volumes ONTAP Azure - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `CVO-Azure-Burst-To-Cloud.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP.
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies.
 
@@ -202,13 +202,13 @@ Enter the absolute path for the `credentials.env` environment file in the `.env`
 `BLUEXP_TF_AZURE_CREDS=path/to/env-file/credentials.env`
 
 
-== Step 4: Add Cloud Volumes ONTAP licenses to NetApp Console or subscribe to NetApp Console
+== Step 4: Sign up for NetApp Intelligent Services
 
-You can add Cloud Volumes ONTAP licenses to the Console or subscribe to the Console in the Azure Marketplace.
+Sign up for NetApp Intelligent Services through your cloud provider to pay hourly (PAYGO) or through an annual contract. NetApp Intelligent Services include NetApp Backup and Recovery, Cloud Volumes ONTAP, NetApp Cloud Tiering, NetApp Ransomware Resilience and NetApp Disaster Recovery. NetApp Data Classification is included with your subscription at no additional cost
 
 .Steps
 
-. From the Azure portal, navigate to *SaaS* and select *Subscribe to NetApp BlueXP*.
+. From the Azure portal, navigate to *SaaS* and select *Subscribe to NetApp Intelligent Services*.
 . Select the *Cloud Manager (by Cap PYGO by Hour, WORM and data services)* plan.
 +
 You can either use the same resource group as Cloud Volumes ONTAP or a different resource group.

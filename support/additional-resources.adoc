@@ -27,7 +27,7 @@ Blog articles and other resources to support developers and administrators.
 
 == NetApp cloud resources
 
-* https://bluexp.netapp.com/[NetApp Console^]
+* https://console.netapp.com/[NetApp Console^]
 +
 Central site for the NetApp cloud solutions.
 
