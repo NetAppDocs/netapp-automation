@@ -17,7 +17,7 @@ Astra Control is a NetApp software product that provides application-aware data 
 
 .Astra Control REST API
 
-You can use the REST API to automation the administration of your Astra Control Service and Astra Control Center deployments.
+You can use the REST API to automate the administration of your Astra Control Service and Astra Control Center deployments.
 
 * https://docs.netapp.com/us-en/astra-automation/[Astra Control Automation documentation^]
 
