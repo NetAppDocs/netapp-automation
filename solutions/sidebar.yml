@@ -1,9 +1,9 @@
 section: solutions
-title: BlueXP automation catalog
+title: NetApp Console automation catalog
 entries:
   - title: Overview
     url: /solutions/bac-overview.html
-  - title: Amazon FSx for NetApp ONTAP
+  - title: Amazon FSx for NetApp ONTAP management
     entries:
       - title: Burst to cloud
         url: /solutions/fsxn-burst-to-cloud.html
