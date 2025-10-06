@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: solutions/ontap-day01-prepare.html
-keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, prepare
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, prepare, netapp console
 summary: Before you deploy the automation solution you must prepare the ONTAP environment and install and configure Ansible.
 ---
 

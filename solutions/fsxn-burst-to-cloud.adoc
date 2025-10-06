@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: solutions/fsxn-burst-to-cloud.html
-keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, burst to cloud
+keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, burst to cloud, netapp console
 summary: You can use this automation solution to provision Amazon FSx for NetApp ONTAP management with volumes and an associated FlexCache.
 ---
 
