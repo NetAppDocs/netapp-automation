@@ -25,9 +25,9 @@ A central location for developer resources supporting NetApp partners and custom
 +
 Blog articles and other resources to support developers and administrators.
 
-== NetApp cloud resources
+== NetApp Console resources
 
-* https://bluexp.netapp.com/[NetApp BlueXP^]
+* https://console.netapp.com/[NetApp Console^]
 +
 Central site for the NetApp cloud solutions.
 

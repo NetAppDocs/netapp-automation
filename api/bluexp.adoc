@@ -1,28 +1,5 @@
 ---
 sidebar: sidebar
 permalink: api/bluexp.html
-keywords: netapp products, product api, rest, rest api, bluexp, bluexp control plane
-summary: NetApp BlueXP is a unified control plane that provides a hybrid multi-cloud platform for administering storage and data services across both on-premises and public cloud environments. It is composed of several distinct services or components, each of which exposes an associated REST API. See the documentation and related resources provided below to get started with the automation of your BlueXP environment.
+redirect: netapp-automation/api/netapp-console.html
 ---
-
-= BlueXP control plane
-:hardbreaks:
-:nofooter:
-:icons: font
-:linkattrs:
-:imagesdir: ./media/
-
-[.lead]
-NetApp BlueXP is a unified control plane that provides a hybrid multi-cloud platform for administering storage and data services across both on-premises and public cloud environments. It is composed of several distinct services or components, each of which exposes an associated REST API. See the documentation and related resources provided below to get started with the automation of your BlueXP environment using the BlueXP REST APIs.
-
-.BlueXP REST APIs
-
-You can use the various REST APIs to automate the administration of your storage and data services managed by BlueXP.
-
-* https://docs.netapp.com/us-en/bluexp-automation/[BlueXP API documentation^]
-
-.BlueXP family
-
-The BlueXP family documentation includes everything you need to get started using the BlueXP control plane.
-
-* https://docs.netapp.com/us-en/bluexp-family/[BlueXP documentation^]
