@@ -185,7 +185,7 @@ You can configure this directly from the Google Cloud Platform. You will be redi
 
 . Confirm the configuration in the Console portal by selecting *Save*.
 
-For more information, see link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html#associate-a-marketplace-subscription-with-google-cloud-credentials[Manage Google Cloud credentials and subscriptions for NetApp Console^].
+For more information, see link:https://docs.netapp.com/us-en/console-setup-admin/task-adding-gcp-accounts.html#associate-a-marketplace-subscription-with-google-cloud-credentials[Manage Google Cloud credentials and subscriptions for NetApp Console^].
 
 
 == Step 5: Enable required Google Cloud APIs 
