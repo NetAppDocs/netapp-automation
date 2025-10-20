@@ -5,7 +5,7 @@ keywords: bluexp automation catalog, automation catalog, overview, introduction
 summary: The NetApp Console automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. The catalog has several features and benefits.
 ---
 
-= Overview of the NetApp Console automation catalog
+= Overview of the NetApp Console automation hub
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,11 +13,11 @@ summary: The NetApp Console automation catalog is a collection of automation sol
 :imagesdir: ./media/
 
 [.lead]
-The NetApp Console automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. The catalog has several features and benefits.
+The NetApp Console automation hub is a collection of automation solutions available to NetApp customers, partners, and employees. The automation hub has several features and benefits.
 
 Single location for your automation needs::
 
-You can access the https://console.netapp.com/automationCatalog[NetApp Console automation catalog^] through the Console web user interface. This provides a single location for the scripts, playbooks, and modules needed to enhance the automation and operation of your NetApp products and services.
+You can access the https://console.netapp.com/automationHub[NetApp Console automation hub^] through the Console web user interface. This provides a single location for the scripts, playbooks, and modules needed to enhance the automation and operation of your NetApp products and services.
 
 Solutions are created and tested by NetApp::
 
@@ -29,7 +29,7 @@ Each of the automation solutions includes associated documentation to help you g
 
 Solid foundation for the future::
 
-NetApp is committed to helping our customers improve and streamline the automation of their data centers and cloud environments. We expect to continue enhancing the Console automation catalog to address customer requirements, technology changes, and continued product integration.
+NetApp is committed to helping our customers improve and streamline the automation of their data centers and cloud environments. We expect to continue enhancing the Console automation hub to address customer requirements, technology changes, and continued product integration.
 
 We want to hear from you::
 

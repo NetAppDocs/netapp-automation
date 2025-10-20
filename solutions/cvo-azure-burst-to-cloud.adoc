@@ -13,13 +13,13 @@ summary: "You can use this automation solution to deploy Cloud Volumes ONTAP for
 :imagesdir: ./media/
 
 [.lead]
-This article supports the NetApp Cloud Volumes ONTAP for Azure Automation Solution, which is available to NetApp customers from the NetApp Console Automation Catalog.
+This article supports the NetApp Cloud Volumes ONTAP for Azure Automation Solution, which is available to NetApp customers from the NetApp Console automation hub.
 
 The Cloud Volumes ONTAP for Azure Automation Solution automates the containerized deployment of Cloud Volumes ONTAP for Azure using Terraform, enabling you to deploy Cloud Volumes ONTAP for Azure rapidly, without any manual intervention.
 
 .Before you begin
 
-* You must download the link:https://console.netapp.com/automationCatalog[Cloud Volumes ONTAP Azure - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `CVO-Azure-Burst-To-Cloud.zip`.
+* You must download the link:https://console.netapp.com/automationHub[Cloud Volumes ONTAP Azure - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `CVO-Azure-Burst-To-Cloud.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP.
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies.
 

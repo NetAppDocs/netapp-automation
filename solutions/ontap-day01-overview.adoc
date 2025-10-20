@@ -13,7 +13,7 @@ summary: "You can use the ONTAP day 0/1 automation solution to deploy and config
 :imagesdir: ./media/
 
 [.lead]
-You can use the ONTAP day 0/1 automation solution to deploy and configure an ONTAP cluster using Ansible. The solution is available from the link:https://console.netapp.com/automationCatalog[NetApp Console automation catalog^].
+You can use the ONTAP day 0/1 automation solution to deploy and configure an ONTAP cluster using Ansible. The solution is available from the link:https://console.netapp.com/automationHub[NetApp Console automation catalog^].
 
 == Flexible ONTAP deployment options
 
