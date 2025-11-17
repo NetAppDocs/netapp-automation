@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: solutions/cvo-gcp-burst-to-cloud.html
-keywords: bluexp automation catalog, netapp automation solutions, gcp, cloud volumes ontap, burst to cloud, netapp, console
-summary: "This article supports the NetApp Cloud Volumes ONTAP for Google Cloud Automation Solution, which is available to NetApp customers from the NetApp Console Automation Catalog."
+keywords: bluexp automation hub, netapp automation solutions, gcp, cloud volumes ontap, burst to cloud, netapp, console
+summary: "This article supports the NetApp Cloud Volumes ONTAP for Google Cloud Automation Solution, which is available to NetApp customers from the NetApp Console Automation hub."
 ---
 
 = Cloud Volumes ONTAP for Google Cloud - Burst to cloud

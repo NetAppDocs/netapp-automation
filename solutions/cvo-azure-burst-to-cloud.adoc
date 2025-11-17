@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: solutions/cvo-azure-burst-to-cloud.html
-keywords: bluexp automation catalog, netapp automation solutions, azure, cloud volumes ontap, burst to cloud. netapp, console
+keywords: bluexp automation hub, netapp automation solutions, azure, cloud volumes ontap, burst to cloud. netapp, console
 summary: "You can use this automation solution to deploy Cloud Volumes ONTAP for Azure using Terraform."
 ---
 

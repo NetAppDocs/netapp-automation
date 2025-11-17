@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: solutions/bac-overview.html
-keywords: bluexp automation catalog, automation catalog, overview, introduction
-summary: The NetApp Console automation catalog is a collection of automation solutions available to NetApp customers, partners, and employees. The catalog has several features and benefits.
+keywords: bluexp automation hub, automation hub, overview, introduction
+summary: The NetApp Console automation hub is a collection of automation solutions available to NetApp customers, partners, and employees. The hub has several features and benefits.
 ---
 
 = Overview of the NetApp Console automation hub

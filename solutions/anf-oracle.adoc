@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: solutions/anf-oracle.html
-keywords: bluexp automation catalog, netapp automation solutions, azure, azure netapp files, oracle, console
+keywords: bluexp automation hub, netapp automation solutions, azure, azure netapp files, oracle, console
 summary: You can use this automation solution to provision Azure NetApp Files volumes and install Oracle on an available virtual machine. Oracle then uses the volumes for data storage.
 ---
 
