@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: solutions/ontap-day01-prepare.html
-keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, prepare, netapp console
+keywords: bluexp automation hub, netapp automation solutions, ontap day 0/1, prepare, netapp console
 summary: Before you deploy the automation solution you must prepare the ONTAP environment and install and configure Ansible.
 ---
 
@@ -108,7 +108,7 @@ NOTE: Ansible must be installed on the control node of the system.
 
 You can use the following steps to download and prepare the automation solution for deployment.
 
-. Download the link:https://console.netapp.com/automationCatalog[ONTAP - Day 0/1 & Health Checks^] automation solution through the Console web UI. The solution is packaged as `ONTAP_DAY0_DAY1.zip`.
+. Download the link:https://console.netapp.com/automationHub[ONTAP - Day 0/1 & Health Checks^] automation solution through the Console web UI. The solution is packaged as `ONTAP_DAY0_DAY1.zip`.
 +
 . Extract the zip folder and copy the files to the desired location on the control node within your Ansible environment.
 

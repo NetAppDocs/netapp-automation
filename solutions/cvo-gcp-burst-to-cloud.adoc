@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: solutions/cvo-gcp-burst-to-cloud.html
-keywords: bluexp automation catalog, netapp automation solutions, gcp, cloud volumes ontap, burst to cloud, netapp, console
-summary: "This article supports the NetApp Cloud Volumes ONTAP for Google Cloud Automation Solution, which is available to NetApp customers from the NetApp Console Automation Catalog."
+keywords: bluexp automation hub, netapp automation solutions, gcp, cloud volumes ontap, burst to cloud, netapp, console
+summary: "This article supports the NetApp Cloud Volumes ONTAP for Google Cloud Automation Solution, which is available to NetApp customers from the NetApp Console Automation hub."
 ---
 
 = Cloud Volumes ONTAP for Google Cloud - Burst to cloud
@@ -13,13 +13,13 @@ summary: "This article supports the NetApp Cloud Volumes ONTAP for Google Cloud 
 :imagesdir: ./media/
 
 [.lead]
-This article supports the NetApp Cloud Volumes ONTAP for Google Cloud Automation Solution, which is available to NetApp customers from the NetApp Console Automation Catalog.
+This article supports the NetApp Cloud Volumes ONTAP for Google Cloud Automation Solution, which is available to NetApp customers from the NetApp Console automation hub.
 
 The Cloud Volumes ONTAP for Google Cloud Automation Solution automates the containerized deployment of Cloud Volumes ONTAP for Google Cloud, enabling you to deploy Cloud Volumes ONTAP for Google Cloud rapidly, without any manual intervention.
 
 .Before you begin
 
-* You must download the link:https://console.netapp.com/automationCatalog[Cloud Volumes ONTAP for Google Cloud - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `cvo_gcp_flexcache.zip`.
+* You must download the link:https://console.netapp.com/automationHub[Cloud Volumes ONTAP for Google Cloud - Burst to cloud^] automation solution through the Console web UI. The solution is packaged as `cvo_gcp_flexcache.zip`.
 * You must install a Linux VM on the same network as Cloud Volumes ONTAP.
 * After you install the Linux VM, you must follow the steps in this solution to install the required dependencies.
 
